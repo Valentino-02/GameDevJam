@@ -1,0 +1,7 @@
+class_name Settings
+
+const DEFAULT_MUSIC_VOLUME = 0.5
+const DEFAULT_SFX_VOLUME = 0.6
+const LOW_PASS_HZ_VALUE = 1000
+const NORMAL_HZ_VALUE = 10000
+const MIN_VOLUME = -80

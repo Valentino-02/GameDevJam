@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6qmg3bs0faof"]
+
+[ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/Game/Components/FogEffect.tscn" id="1_57sbl"]
+
+[node name="Game" type="Node2D"]
+
+[node name="FogEffect" parent="." instance=ExtResource("1_57sbl")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0753173, 5.46434e-06, 0.0753164, 1)

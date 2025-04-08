@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvuxqvy3ctanw"]
+
+[ext_resource type="Script" uid="uid://u4v581k8s5oh" path="res://src/autoload/TransitionManager/TransitionManager.gd" id="1_druks"]
+[ext_resource type="Script" uid="uid://dy33j80mrqpiq" path="res://src/autoload/TransitionManager/Scene.gd" id="2_rumwn"]
+[ext_resource type="PackedScene" uid="uid://c5h473qkqkmcg" path="res://src/scenes/UI/MainMenu/MainMenu.tscn" id="3_qxlt1"]
+[ext_resource type="PackedScene" uid="uid://b6qmg3bs0faof" path="res://src/scenes/Game/Game.tscn" id="4_v8k3q"]
+
+[sub_resource type="Resource" id="Resource_qxlt1"]
+script = ExtResource("2_rumwn")
+id = 0
+packedScene = ExtResource("3_qxlt1")
+metadata/_custom_type_script = "uid://dy33j80mrqpiq"
+
+[sub_resource type="Resource" id="Resource_oenk3"]
+script = ExtResource("2_rumwn")
+id = 1
+packedScene = ExtResource("4_v8k3q")
+metadata/_custom_type_script = "uid://dy33j80mrqpiq"
+
+[node name="TransitionManager" type="CanvasLayer"]
+layer = 99
+script = ExtResource("1_druks")
+sceneList = Array[ExtResource("2_rumwn")]([SubResource("Resource_qxlt1"), SubResource("Resource_oenk3")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)

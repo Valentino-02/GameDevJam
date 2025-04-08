@@ -11,8 +11,28 @@ config_version=5
 [application]
 
 config/name="GameDevJam"
+run/main_scene="uid://b2q741qrt7ra8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.178107, 0.00486649, 0.177159, 1)
+config/icon="uid://o6dhk2eaqgpn"
+
+[audio]
+
+buses/default_bus_layout="uid://jylubkxfmgja"
+
+[autoload]
+
+RngManager="*res://src/autoload/RngManager/RngManager.gd"
+AudioManager="*res://src/autoload/AudioManager/AudioManager.tscn"
+SignalBus="*res://src/autoload/SignalBus/SignalBus.gd"
+TransitionManager="*res://src/autoload/TransitionManager/TransitionManager.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

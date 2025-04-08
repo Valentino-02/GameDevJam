@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://wmffm1lec8xx"]
+
+[ext_resource type="Script" uid="uid://d0lgg6qpfmvuv" path="res://src/scenes/UI/MainMenu/VolumeSlider.gd" id="1_ri7m1"]
+
+[node name="VolumeSlider" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+script = ExtResource("1_ri7m1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Volume Slider"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
