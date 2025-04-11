@@ -18,15 +18,15 @@ func changeToScene(id: ResourceIds.SceneId) -> void:
 	var scene = _sceneById.get(id) as Scene
 	if scene == null:
 		push_error("Transition Manager failed to find scene with id ", id)
-	await _transition_in()
+	await _transitionIn()
 	get_tree().change_scene_to_packed(scene.packedScene)
-	_transition_out()
+	_transitionOut()
 
-func _transition_in() -> void:
+func _transitionIn() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(_colorRect, "modulate:a", 1.0, _transitionTime / 2.0)
 	await tween.finished
 
-func _transition_out() -> void:
+func _transitionOut() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(_colorRect, "modulate:a", 0.0, _transitionTime / 2.0)
