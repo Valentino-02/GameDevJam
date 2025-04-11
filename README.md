@@ -9,5 +9,5 @@ This open source project was created for the [GameDev.js](https://itch.io/jam/ga
 ## License
 
 This project is licensed under the MIT License.  
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE.txt) file for details.
 
