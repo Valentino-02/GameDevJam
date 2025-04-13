@@ -1,0 +1,1 @@
+class_name Platform extends RigidBody2D
