@@ -1,7 +1,14 @@
 extends StaticBody2D
 
-@export_range(0,5) var spawn_speed : float
+##delay between box drops
+@export_range(0,5,0.1,"suffix:s") var spawn_speed : float
+
+##cargo scene
 @export var package: PackedScene
+
+##Maximum scale of the x or y when randomly generating cargo
+@export var max_cargo_scale: int
+var min_cargo_scale: int = 1
 
 var platform_in_position:= false
 var ready_to_drop = true
@@ -32,6 +39,12 @@ func _process(_delta: float) -> void:
 func _drop_package() -> void:
 	ready_to_drop = false
 	timer.start(spawn_speed)
-	var cargo : Node2D = package.instantiate()
+	var cargo : Cargo = package.instantiate()
 	get_parent().add_child(cargo)
+	cargo.set_cargo_scale(_random_scale())
 	cargo.global_position = marker.global_position
+	
+func _random_scale() -> Vector2:
+	var x := (randi() % max_cargo_scale)+min_cargo_scale
+	var y := (randi() % max_cargo_scale) +min_cargo_scale
+	return Vector2(x, y)
