@@ -57,7 +57,7 @@ func _physics_process(delta):
 
 	
 	character.apply_force(player_force)
-	platform.apply_force(platform_force, platform_attachement.position)
+	platform.apply_force(platform_force, platform_attachement.global_position - platform.global_position)
 
 @export var max_stretch_percent : float = 0.1
 
