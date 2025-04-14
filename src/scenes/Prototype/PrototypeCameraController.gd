@@ -32,7 +32,11 @@ func drop_cargo_if_input() -> bool:
 
 
 func _physics_process(delta: float) -> void:
+	handle_character_movement()
+		
+func handle_character_movement():
 	for suffix in ["L", "R"]:
+		##Select the right character and their rope
 		var character : Character = right_character
 		var rope : Rope = right_rope
 		var force : Vector2 = get_input_vector(suffix) * strength
@@ -40,17 +44,18 @@ func _physics_process(delta: float) -> void:
 			character = left_character
 			rope = left_rope
 
+		##Dampen the input and the velocity if the rope is too stretched
 		var difference : Vector2 = character.global_position - rope.platform_attachement.global_position
-		
 		if difference.length() > rope.spring_length * player_leash_multiplier:
-			#subtract the force component that is in the away direction
 			var direction : Vector2 = difference.normalized()
-			force = force - (max(force.dot(direction),0) * direction)
-			#adds an additional dampening force scaled linearly with the velocity the character moves away at
-			force -= max(character.linear_velocity.dot(direction), 0) * direction * player_dampening
+			force -= get_component_along_direction(force, direction)
+			force -= get_component_along_direction(character.linear_velocity, direction) * player_dampening
 			
 		character.apply_force(force)
-		
+
+func get_component_along_direction(force: Vector2, direction : Vector2) -> Vector2:
+	if direction.length_squared() != 1.0 : direction = direction.normalized()
+	return (max(force.dot(direction), 0) * direction)
 
 func get_input_vector(suffix : String) -> Vector2:
 	var input_vector : Vector2 = Vector2.ZERO
