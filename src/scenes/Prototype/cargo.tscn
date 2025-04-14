@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
 
-[node name="Cargo" type="RigidBody2D"]
+[node name="Cargo" type="RigidBody2D" groups=["Cargo"]]
 input_pickable = true
 script = ExtResource("1_rmwal")
 
