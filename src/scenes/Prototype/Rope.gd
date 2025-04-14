@@ -51,12 +51,15 @@ func _physics_process(delta):
 	mv  = calculate_critical_dampening(character.mass, player_spring_strength) * player_vel
 	var player_force : Vector2 = direction * (kx)# - mv)
 	player_force = player_force.limit_length(max_force * character.mass)
-	#Reduce gravity
-	player_force += (-1 + player_gravity_coefficient) * CameraController.get_component_along_direction(player_force, direction)
+	#Reduce gravity only if we are close
+	if displacement < spring_length * max_stretch_percent:
+		player_force += (-1 + player_gravity_coefficient) * CameraController.get_component_along_direction(player_force, direction)
 
 	
 	character.apply_force(player_force)
 	platform.apply_force(platform_force, platform_attachement.position)
+
+@export var max_stretch_percent : float = 0.1
 
 func calculate_critical_dampening(mass : float, spring_strength : float) -> float:
 	return 2 * sqrt(spring_strength * mass)
