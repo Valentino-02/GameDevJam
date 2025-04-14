@@ -1,14 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://w05qe1tj0owm"]
 
-[ext_resource type="Script" uid="uid://beivl560mxn7" path="res://src/scenes/Prototype/obstacle.gd" id="1_g8ah6"]
+[ext_resource type="Script" uid="uid://beivl560mxn7" path="res://src/scenes/Prototype/Obstacle.gd" id="1_g8ah6"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_ne0x5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km4uk"]
 size = Vector2(33, 33)
 
-[node name="Obstacle" type="Path2D"]
+[node name="Obstacle" type="Path2D" node_paths=PackedStringArray("sprite", "path_follow")]
 script = ExtResource("1_g8ah6")
 speed = 1.0
+sprite = NodePath("PathFollow2D/AnimatableBody2D/Sprite2D")
+path_follow = NodePath("PathFollow2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(-50, 0)
@@ -16,6 +18,8 @@ rotates = false
 loop = false
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
 scale = Vector2(2, 2)

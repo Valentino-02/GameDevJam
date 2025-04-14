@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpfp7hmpjc14n"]
+[gd_scene load_steps=17 format=3 uid="uid://bpfp7hmpjc14n"]
 
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_hfapn"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Prototype/Character.gd" id="2_3k34p"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" uid="uid://t61maouj2jye" path="res://src/scenes/Prototype/PrototypeCameraController.gd" id="3_at886"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Prototype/cargo.tscn" id="4_2xicn"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Prototype/Rope.gd" id="4_3k34p"]
-[ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/dropper.tscn" id="7_mk526"]
+[ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/CargoDropper.tscn" id="7_mk526"]
 [ext_resource type="Script" uid="uid://d2nadunfihy8m" path="res://src/scenes/Prototype/Cloud.gd" id="8_dnm36"]
+[ext_resource type="PackedScene" uid="uid://w05qe1tj0owm" path="res://src/scenes/Prototype/Obstacle.tscn" id="9_bj1bw"]
+[ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Prototype/CollectionZone.tscn" id="10_05qjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
@@ -25,6 +27,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -282, -181, 0, 0, 0, 0, -20, -153, 0, 0, 0, 0, 244, -205, 0, 0, 0, 0, 538, -206, 0, 0, 0, 0, 720, -305, 0, 0, 0, 0, 380, -377, 0, 0, 0, 0, 16, -343, 0, 0, 0, 0, -389, -262, 0, 0, 0, 0, -569, -307, 0, 0, 0, 0, -252, -331, 0, 0, 0, 0, 167, -170, 0, 0, 0, 0, 469, -243, 0, 0, 0, 0, 602, -387, 0, 0, 0, 0, 704, -209, 0, 0, 0, 0, 225, -86, 0, 0, 0, 0, -286, -177)
 }
 point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_05qjq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 117, -164, 0, 0, 0, 0, 21, -40, 0, 0, 0, 0, 120, 73, 0, 0, 0, 0, 30, 172, 0, 0, 0, 0, 114, 295)
+}
+point_count = 5
 
 [node name="Node2D" type="Node2D"]
 
@@ -74,6 +82,7 @@ angular_damp_mode = 1
 angular_damp = 15.0
 script = ExtResource("3_2xicn")
 orientation_strength = 100.0
+cargo_drop_time = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(0.5, 1.5)
@@ -126,7 +135,16 @@ platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
 
 [node name="Dropper" parent="." instance=ExtResource("7_mk526")]
-position = Vector2(-241, 0)
+position = Vector2(-373, -3)
+collision_layer = 3
+collision_mask = 0
+max_cargo_scale = 3
+
+[node name="Dropper2" parent="." instance=ExtResource("7_mk526")]
+position = Vector2(428, -3)
+collision_layer = 3
+collision_mask = 0
+max_cargo_scale = 3
 
 [node name="Cloud" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("path")]
 position = Vector2(853, -238)
@@ -175,3 +193,11 @@ position = Vector2(603.006, -329.775)
 rotation = 0.106466
 progress = 1153.34
 rotates = false
+
+[node name="Obstacle" parent="." instance=ExtResource("9_bj1bw")]
+position = Vector2(222, 33)
+curve = SubResource("Curve2D_05qjq")
+speed = 100.0
+
+[node name="CollectionZone" parent="." instance=ExtResource("10_05qjq")]
+position = Vector2(-188, 447)
