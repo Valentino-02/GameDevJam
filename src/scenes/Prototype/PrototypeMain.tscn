@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpfp7hmpjc14n"]
+[gd_scene load_steps=13 format=3 uid="uid://bpfp7hmpjc14n"]
 
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_hfapn"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Prototype/Character.gd" id="2_3k34p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Prototype/cargo.tscn" id="4_2xicn"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Prototype/Rope.gd" id="4_3k34p"]
 [ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/dropper.tscn" id="7_mk526"]
+[ext_resource type="PackedScene" uid="uid://w05qe1tj0owm" path="res://src/scenes/Prototype/obstacle.tscn" id="8_dnm36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
@@ -15,6 +16,12 @@ radius = 6.0
 size = Vector2(189, 7)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfapn"]
+
+[sub_resource type="Curve2D" id="Curve2D_dnm36"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -75, -54, 0, 0, 0, 0, 70, 104, 0, 0, 0, 0, -104, 237, 0, 0, 0, 0, 41, 366)
+}
+point_count = 4
 
 [node name="Node2D" type="Node2D"]
 
@@ -115,4 +122,16 @@ platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
 
 [node name="Dropper" parent="." instance=ExtResource("7_mk526")]
-position = Vector2(-241, 0)
+position = Vector2(-306, 0)
+min_cargo_scale = 1
+max_cargo_scale = 4
+
+[node name="Dropper2" parent="." instance=ExtResource("7_mk526")]
+position = Vector2(381, 0)
+min_cargo_scale = 1
+max_cargo_scale = 4
+
+[node name="Obstacle" parent="." instance=ExtResource("8_dnm36")]
+position = Vector2(2, -93)
+curve = SubResource("Curve2D_dnm36")
+speed = 0.7
