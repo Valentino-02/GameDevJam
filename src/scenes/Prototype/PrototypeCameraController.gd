@@ -13,7 +13,7 @@ extends Camera2D
 @export var player_dampening : float = 2
 
 func _process(delta):
-	if Input.is_action_just_pressed("Click"):
+	if Input.is_action_just_pressed("RightClick"):
 		var cargo : Node2D = cargo_scene.instantiate()
 		get_parent().add_child(cargo)
 		cargo.global_position = get_global_mouse_position()

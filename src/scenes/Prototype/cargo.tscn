@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnmw00r2td2ol"]
+[gd_scene load_steps=4 format=3 uid="uid://dnmw00r2td2ol"]
 
+[ext_resource type="Script" uid="uid://c6oo4wiagy1lh" path="res://src/scenes/Prototype/cargo.gd" id="1_rmwal"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_w4aq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
 
 [node name="Cargo" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_rmwal")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cv6rf")
@@ -13,3 +16,6 @@ shape = SubResource("RectangleShape2D_cv6rf")
 position = Vector2(4.76837e-07, 2.38419e-07)
 scale = Vector2(0.171875, 0.171875)
 texture = ExtResource("1_w4aq8")
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exit"]
