@@ -13,10 +13,22 @@ extends Camera2D
 @export var player_dampening : float = 2
 
 func _process(delta):
-	if Input.is_action_just_pressed("Click"):
+	drop_cargo_if_input()
+	center_camera(delta)
+
+@export var camera_smoothing_speed : float = 3
+
+func center_camera(delta : float):
+	var midpoint : Vector2 = (left_character.global_position + right_character.global_position + right_rope.platform.global_position) / 3.0
+	self.global_position = self.global_position.lerp(midpoint, camera_smoothing_speed * delta )
+
+func drop_cargo_if_input() -> bool:
+	if Input.is_action_just_pressed("RightClick"):
 		var cargo : Node2D = cargo_scene.instantiate()
 		get_parent().add_child(cargo)
 		cargo.global_position = get_global_mouse_position()
+		return true
+	return false
 
 
 func _physics_process(delta: float) -> void:
