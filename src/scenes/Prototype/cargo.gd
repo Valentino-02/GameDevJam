@@ -1,8 +1,6 @@
-extends RigidBody2D
+class_name Cargo extends RigidBody2D
 
-@export var base_sprite_scale:float = 0.172
-
-
+var base_sprite_scale:float = 0.172
 var pick_up := false
 var mouse_over := false
 

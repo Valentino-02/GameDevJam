@@ -1,7 +1,11 @@
 extends Path2D
 
+##sprite for the obstacle to display
 @export var obstacle_sprite_res: Texture2D
+
+##obstacle movement speed
 @export var speed: float
+
 @onready var path_follow: PathFollow2D = get_node("PathFollow2D")
 @onready var sprite: Sprite2D = get_node("Sprite2D")
 
