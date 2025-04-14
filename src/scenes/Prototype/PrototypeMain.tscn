@@ -26,7 +26,7 @@ _data = {
 }
 point_count = 16
 
-[node name="Node2D" type="Node2D"]
+[node name="Root" type="Node2D"]
 
 [node name="LeftCharacter" type="RigidBody2D" parent="."]
 modulate = Color(0, 0, 1, 1)
@@ -67,13 +67,13 @@ scale = Vector2(0.09375, 0.171875)
 texture = ExtResource("1_hfapn")
 
 [node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
+physics_interpolation_mode = 1
 position = Vector2(0, 25)
 mass = 10.0
-gravity_scale = 0.5
-angular_damp_mode = 1
-angular_damp = 15.0
+angular_damp = 24.182
 script = ExtResource("3_2xicn")
-orientation_strength = 100.0
+orientation_strength = 0.0
+angular_dampen_strength = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(0.5, 1.5)
@@ -85,10 +85,10 @@ scale = Vector2(1.48437, 0.0390625)
 texture = ExtResource("1_hfapn")
 
 [node name="Left Attachment" type="Node2D" parent="Platform"]
-position = Vector2(-91, -6)
+position = Vector2(-91, -5)
 
 [node name="Right Attachment" type="Node2D" parent="Platform"]
-position = Vector2(89, -6)
+position = Vector2(89, -5)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-2, 506)
@@ -102,7 +102,7 @@ position = Vector2(-3.49992, 136.75)
 scale = Vector2(18.2734, 2.17578)
 texture = ExtResource("1_hfapn")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "left_rope", "right_rope")]
+[node name="PlayerController" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "left_rope", "right_rope")]
 position = Vector2(-211, -195)
 script = ExtResource("3_at886")
 cargo_scene = ExtResource("4_2xicn")
@@ -112,6 +112,7 @@ left_rope = NodePath("../Rope L")
 right_rope = NodePath("../Rope R")
 
 [node name="Rope L" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+width = 3.0
 default_color = Color(0, 0, 1, 1)
 script = ExtResource("4_3k34p")
 character = NodePath("../LeftCharacter")
@@ -119,6 +120,7 @@ platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
 
 [node name="Rope R" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+width = 3.0
 default_color = Color(1, 0, 0, 1)
 script = ExtResource("4_3k34p")
 character = NodePath("../RightCharacter")
@@ -163,6 +165,8 @@ scale = Vector2(1.46875, 0.601562)
 texture = ExtResource("1_hfapn")
 
 [node name="CloudPath" type="Path2D" parent="."]
+position = Vector2(191, -165)
+rotation = 1.56188
 curve = SubResource("Curve2D_dnm36")
 
 [node name="CloudPathFollow" type="PathFollow2D" parent="CloudPath"]

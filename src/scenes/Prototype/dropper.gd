@@ -7,8 +7,10 @@ extends StaticBody2D
 @export var package: PackedScene
 
 ##Maximum scale of the x or y when randomly generating cargo
-@export var max_cargo_scale: int
-var min_cargo_scale: int = 1
+@export var max_cargo_scale: int = 3
+@export var min_cargo_scale: int = 1
+@export var min_cargo_mass: float = 1
+@export var max_cargo_mass: float = 10
 
 var platform_in_position:= false
 var ready_to_drop = true
@@ -42,6 +44,7 @@ func _drop_package() -> void:
 	var cargo : Cargo = package.instantiate()
 	get_parent().add_child(cargo)
 	cargo.set_cargo_scale(_random_scale())
+	cargo.mass = randf_range(min_cargo_mass, max_cargo_mass)
 	cargo.global_position = marker.global_position
 	
 func _random_scale() -> Vector2:

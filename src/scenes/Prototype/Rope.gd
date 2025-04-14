@@ -1,23 +1,22 @@
 class_name Rope extends Line2D
 
 ##The length that the string attempts to maintain (pixels)
-@export var spring_length: float = 100.0
+@export var spring_length: float = 150.0
 ##How hard the string pulls the platform towards the player
-@export var spring_strength: float = 10000
-##If set to -1 then it will pick the optimal damping value (look up critical dampening if interested)
-@export var damping : float = -1.0
+@export var platform_spring_strength: float = 5000
+##Player Spring Strength
+@export var player_spring_strength : float = 600
+##How much of the platform's gravity is transfered to the player
+@export var player_gravity_coefficient : float = 0.1
+##This is to prevent the platform overshooting due to the iterative nature of game physics. An unintended (beneficial?) consequence is that it acts as a weight limit
+@export var max_force : float = 10000
 
 @export var character: Character
 @export var platform: RigidBody2D
 @export var platform_attachement : Node2D
 
-##This is to prevent the platform overshooting due to the iterative nature of game physics. An unintended (beneficial?) consequence is that it acts as a weight limit
-@export var max_force : float = 50000
-##How much the rope pulls the player towards the platform, set to 0 to disable, 1 is equal force on player as platform
-@export var player_force_coefficient : float = 0.01
 
-func _ready() -> void:
-	if damping == -1.0: damping = calculate_critical_dampening()
+
 
 func _physics_process(delta):
 	var a_pos = character.global_position
@@ -31,19 +30,33 @@ func _physics_process(delta):
 	var current_length = diff.length()
 	var direction = diff.normalized()
 
+	#String only pulls not pushes
 	var displacement : float = current_length - spring_length
 	if displacement < 0:
 		return
+
 	# Relative velocity
-	var rel_velocity = character.linear_velocity - platform.linear_velocity
-	var vel_along_spring = rel_velocity.dot(direction)
+	var player_vel = character.linear_velocity.dot(direction)
+	var platform_vel = platform.linear_velocity.dot(-direction)
 
-	# Hooke's law with damping
-	var force : Vector2 = direction * ((spring_strength * displacement)  - (damping * vel_along_spring))
-	force = force.limit_length(max_force)
-	# Apply forces in opposite directions
-	character.apply_force(force * player_force_coefficient)
-	platform.apply_force(-force, platform_attachement.position)
+	#Spring force = kx (spring constant * displacement) - mv (mass * velocity)
+	
+	# Calculate for platform
+	var kx : float = platform_spring_strength * displacement
+	var mv : float = calculate_critical_dampening(platform.mass, platform_spring_strength) * platform_vel
+	var platform_force : Vector2 = -direction * (kx - mv)
+	platform_force = platform_force.limit_length(max_force * platform.mass)
+	
+	kx = player_spring_strength * displacement
+	mv  = calculate_critical_dampening(character.mass, player_spring_strength) * player_vel
+	var player_force : Vector2 = direction * (kx)# - mv)
+	player_force = player_force.limit_length(max_force * character.mass)
+	#Reduce gravity
+	player_force += (-1 + player_gravity_coefficient) * CameraController.get_component_along_direction(player_force, direction)
 
-func calculate_critical_dampening() -> float:
-	return 2 * sqrt(spring_strength * platform.mass)
+	
+	character.apply_force(player_force)
+	platform.apply_force(platform_force, platform_attachement.position)
+
+func calculate_critical_dampening(mass : float, spring_strength : float) -> float:
+	return 2 * sqrt(spring_strength * mass)
