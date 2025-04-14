@@ -6,10 +6,11 @@ extends Camera2D
 @export var left_rope : Rope
 @export var right_rope : Rope
 
+##Player's move force
 @export var strength: float = 400.0
-
+##How much the player can stretch the rope before getting pulled back towards the platform.
 @export var player_leash_multiplier : float = 1.1
-
+##When exceeding the leash distance, player_dampening * relative velocity acts as a restorative force.
 @export var player_dampening : float = 2
 
 func _process(delta):
