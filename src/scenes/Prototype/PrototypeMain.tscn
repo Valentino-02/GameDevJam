@@ -91,12 +91,13 @@ position = Vector2(-3.49992, 136.75)
 scale = Vector2(18.2734, 2.17578)
 texture = ExtResource("1_hfapn")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "ropes")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "left_rope", "right_rope")]
 script = ExtResource("3_at886")
 cargo_scene = ExtResource("4_2xicn")
 left_character = NodePath("../LeftCharacter")
 right_character = NodePath("../RightCharacter")
-ropes = [NodePath("../Rope L"), NodePath("../Rope R")]
+left_rope = NodePath("../Rope L")
+right_rope = NodePath("../Rope R")
 
 [node name="Rope L" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 default_color = Color(0, 0, 1, 1)
