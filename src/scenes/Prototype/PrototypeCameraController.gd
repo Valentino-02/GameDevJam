@@ -4,8 +4,10 @@ extends Camera2D
 @export var left_character : Character
 @export var right_character : Character
 @export var ropes : Array[Rope] = []
-@export var strength: float = 300.0
-@export var max_distance = 0
+@export var strength: float = 400.0
+@export var max_distance : float = 0
+
+@export var player_dampening : float = 2
 
 func _process(delta):
 	if Input.is_action_just_pressed("Click"):
@@ -29,22 +31,21 @@ func get_max_distance() -> float:
 
 func _physics_process(delta: float) -> void:
 	for suffix in ["L", "R"]:
+		var character : Character = right_character
 		var force : Vector2 = get_input_vector(suffix) * strength
 		var difference : Vector2 = right_character.global_position - left_character.global_position
-		if suffix == "L": difference *= -1
+		if suffix == "L": 
+			difference *= -1
+			character = left_character
 		if difference.length() > max_distance:
 			#subtract the force component that is in the away direction
 			var direction : Vector2 = difference.normalized()
 			force = force - (max(force.dot(direction),0) * direction)
+			#adds an additional dampening force scaled linearly with the velocity the character moves away at
+			force -= max(character.linear_velocity.dot(direction), 0) * direction * player_dampening
 			
-		if suffix == "L": left_character.apply_force(force)
-		else: right_character.apply_force(force)
+		character.apply_force(force)
 		
-
-
-
-
-##TODO if the distance between the two characters is greater than the rope length + platform length then dampen the acceleration?
 
 func get_input_vector(suffix : String) -> Vector2:
 	var input_vector : Vector2 = Vector2.ZERO

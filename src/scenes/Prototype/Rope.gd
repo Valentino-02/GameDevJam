@@ -8,7 +8,7 @@ class_name Rope extends Line2D
 @export var platform: RigidBody2D
 @export var platform_attachement : Node2D
 
-@export var max_force : float = 10000
+@export var max_force : float = 50000
 
 func _ready() -> void:
 	damping = calculate_critical_dampening()
