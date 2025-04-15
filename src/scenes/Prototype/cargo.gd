@@ -7,8 +7,6 @@ var mouse_over := false
 @onready var collision: CollisionShape2D = get_node("CollisionShape2D")
 @onready var sprite: Sprite2D = get_node("Sprite2D")
 
-#func _on_area_2d_input_event(_viewport, _event, _shape_idx):
-#	#implement pickup behaviour
 func _mouse_enter() -> void:
 	mouse_over = true
 	
@@ -30,3 +28,8 @@ func _physics_process(delta: float) -> void:
 func set_cargo_scale(target: Vector2) -> void:
 	collision.scale = target
 	sprite.scale = target * base_sprite_scale
+	
+func destroy() -> void:
+	##TODO: logic for any animations upon death
+	await get_tree().create_timer(2).timeout
+	queue_free()
