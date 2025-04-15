@@ -13,6 +13,7 @@ var running: bool = true
 
 # --- replace with start mechanic ---
 func _ready() -> void:
+	SignalBus.restart.connect(new_game)
 	new_game()
 # -----------------------------------
 

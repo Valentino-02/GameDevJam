@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpfp7hmpjc14n"]
+[gd_scene load_steps=17 format=3 uid="uid://bpfp7hmpjc14n"]
 
-[ext_resource type="Script" uid="uid://3fenqpxd7qni" path="res://src/scenes/Prototype/respawn_manager.gd" id="1_05qjq"]
+[ext_resource type="Script" uid="uid://3fenqpxd7qni" path="res://src/scenes/Prototype/RespawnManager.gd" id="1_05qjq"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Prototype/player.tscn" id="1_bj1bw"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_hfapn"]
 [ext_resource type="Script" uid="uid://t61maouj2jye" path="res://src/scenes/Prototype/PrototypeCameraController.gd" id="3_at886"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://d2nadunfihy8m" path="res://src/scenes/Prototype/Cloud.gd" id="8_dnm36"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Prototype/CollectionZone.tscn" id="9_bj1bw"]
 [ext_resource type="Script" uid="uid://ii3h7popgcng" path="res://src/scenes/Prototype/time_controller.gd" id="11_6812g"]
-[ext_resource type="Script" uid="uid://yk2a8wlshjsn" path="res://src/scenes/Prototype/game_over.gd" id="11_fwooh"]
+[ext_resource type="Script" uid="uid://yk2a8wlshjsn" path="res://src/scenes/Prototype/GameOverScreen.gd" id="11_fwooh"]
+[ext_resource type="Script" uid="uid://b0ktvpiiftjsm" path="res://src/scenes/Prototype/RestartButton.gd" id="12_fwooh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk526"]
 size = Vector2(183, 76)
@@ -125,7 +126,6 @@ texture = ExtResource("1_hfapn")
 
 [node name="TimeController" type="Node" parent="." node_paths=PackedStringArray("game_over_title", "time_label")]
 script = ExtResource("11_6812g")
-starting_time = 5.0
 time_per_cargo = 5.0
 game_over_title = NodePath("../CanvasLayer/Control/GameOver")
 time_label = NodePath("../CanvasLayer/Control/Timer")
@@ -187,6 +187,4 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Reset"
-
-[connection signal="pressed" from="CanvasLayer/Control/GameOver/Button" to="RespawnManager" method="restart"]
-[connection signal="pressed" from="CanvasLayer/Control/GameOver/Button" to="TimeController" method="new_game"]
+script = ExtResource("12_fwooh")

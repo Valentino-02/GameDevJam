@@ -7,10 +7,8 @@ func _ready() -> void:
 	SignalBus.restart.connect(restart)
 
 func restart() -> void:
-	var inst = player_scene.instantiate()
+	var inst: Node = player_scene.instantiate()
 	get_parent().add_child(inst)
 	inst.global_position = global_position
-	
-	##TODO: Fix camera position on respawn
-	cam_controller.player = inst.get_script()
+	cam_controller.player = inst
 	
