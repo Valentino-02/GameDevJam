@@ -1,0 +1,173 @@
+[gd_scene load_steps=19 format=3 uid="uid://1p2m5d3jdn6i"]
+
+[ext_resource type="Script" uid="uid://bjk7a81qq8hfu" path="res://src/scenes/Game/PlayerCharacter/Player.gd" id="1_47p5e"]
+[ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
+[ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
+[ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_emnkp"]
+[ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
+[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="5_ct1ul"]
+[ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="6_et0dv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geu4h"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3jou"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td68q"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm7lo"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj53y"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xjt6"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y2s3"]
+atlas = ExtResource("3_emnkp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q075j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi8o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geu4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3jou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td68q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm7lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj53y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xjt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y2s3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
+size = Vector2(189, 7)
+
+[node name="PlayerCharacter" type="Node2D"]
+script = ExtResource("1_47p5e")
+
+[node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+unique_name_in_owner = true
+width = 3.0
+texture = ExtResource("6_et0dv")
+texture_mode = 1
+script = ExtResource("4_emnkp")
+playerCharacter = NodePath("..")
+character = NodePath("../LeftCharacter")
+platform = NodePath("../Platform")
+platform_attachement = NodePath("../Platform/Left Attachment")
+
+[node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+unique_name_in_owner = true
+width = 3.0
+texture = ExtResource("6_et0dv")
+texture_mode = 1
+script = ExtResource("4_emnkp")
+playerCharacter = NodePath("..")
+character = NodePath("../RightCharacter")
+platform = NodePath("../Platform")
+platform_attachement = NodePath("../Platform/Right Attachment")
+
+[node name="LeftCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+unique_name_in_owner = true
+position = Vector2(-86, -30)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp_mode = 1
+angular_damp = 50.0
+script = ExtResource("1_h7irl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftCharacter"]
+sprite_frames = SubResource("SpriteFrames_q075j")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.751805
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCharacter"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_pv250")
+
+[node name="RightCharacter" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(84, -30)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp_mode = 1
+angular_damp = 50.0
+script = ExtResource("1_h7irl")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="RightCharacter"]
+self_modulate = Color(0.995932, 0.064121, 0.099692, 1)
+sprite_frames = SubResource("SpriteFrames_q075j")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.637282
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCharacter"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_pv250")
+
+[node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
+physics_interpolation_mode = 1
+position = Vector2(0, 25)
+mass = 10.0
+angular_damp = 24.182
+script = ExtResource("3_ct1ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pv250")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(0.500003, 1.5)
+scale = Vector2(3.43636, 0.388889)
+texture = ExtResource("5_ct1ul")
+region_enabled = true
+region_rect = Rect2(144, 36, 55, 18)
+
+[node name="Left Attachment" type="Node2D" parent="Platform"]
+position = Vector2(-91, -5)
+
+[node name="Right Attachment" type="Node2D" parent="Platform"]
+position = Vector2(89, -5)

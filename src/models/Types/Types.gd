@@ -1,3 +1,3 @@
 class_name Types
 
-enum SomeType {}
+enum Zone {Left, Right}

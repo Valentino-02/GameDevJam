@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnmw00r2td2ol"]
+
+[ext_resource type="Script" uid="uid://c6oo4wiagy1lh" path="res://src/scenes/Game/Components/Cargo/Cargo.gd" id="1_rmwal"]
+[ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_w4aq8"]
+[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_0duwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmwal"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 172.41
+initial_velocity_max = 172.41
+gravity = Vector3(0, 98, 0)
+scale_min = 0.08
+scale_max = 0.15
+
+[node name="Cargo" type="RigidBody2D" groups=["Cargo"]]
+input_pickable = true
+script = ExtResource("1_rmwal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cv6rf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("2_0duwv")
+region_enabled = true
+region_rect = Rect2(180, 18, 18, 18)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0.623529, 0.207843, 1)
+show_behind_parent = true
+emitting = false
+amount = 10
+texture = ExtResource("1_w4aq8")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rmwal")
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exit"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=12 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
 [ext_resource type="Script" uid="uid://dhwrmwr6mxae8" path="res://src/autoload/AudioManager/MusicManager.gd" id="2_ge8yv"]
 [ext_resource type="Script" uid="uid://b67exh4v0a6ij" path="res://src/autoload/AudioManager/Music.gd" id="3_p58k6"]
 [ext_resource type="AudioStream" uid="uid://cjbueonwdtdtu" path="res://assets/music/main_theme.ogg" id="4_u4rwl"]
+[ext_resource type="AudioStream" uid="uid://c6hgtbgc84erm" path="res://assets/music/Balance.mp3" id="5_8ooo6"]
 [ext_resource type="Script" uid="uid://cm215ucy36ahr" path="res://src/autoload/AudioManager/Sfx.gd" id="6_4cy6h"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
 
@@ -13,7 +14,15 @@ script = ExtResource("3_p58k6")
 id = 0
 stream = ExtResource("4_u4rwl")
 volume = 0.0
-pitch_scale = 1.0
+pitchScale = 1.0
+metadata/_custom_type_script = "uid://b67exh4v0a6ij"
+
+[sub_resource type="Resource" id="Resource_qrd4w"]
+script = ExtResource("3_p58k6")
+id = 1
+stream = ExtResource("5_8ooo6")
+volume = 0.0
+pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
 
 [sub_resource type="Resource" id="Resource_dsnk3"]
@@ -21,7 +30,7 @@ script = ExtResource("6_4cy6h")
 id = 0
 stream = ExtResource("7_8ooo6")
 volume = 0.0
-pitch_scale = 1.0
+pitchScale = 1.0
 limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
@@ -31,7 +40,7 @@ script = ExtResource("1_7j23j")
 [node name="MusicManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_ge8yv")
-musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl")])
+musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 
