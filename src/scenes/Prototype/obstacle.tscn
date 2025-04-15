@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://w05qe1tj0owm"]
 
-[ext_resource type="Script" uid="uid://beivl560mxn7" path="res://src/scenes/Prototype/Obstacle.gd" id="1_g8ah6"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_ne0x5"]
+[ext_resource type="Script" uid="uid://beivl560mxn7" path="res://src/scenes/Prototype/Obstacle.gd" id="1_r0v03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km4uk"]
 size = Vector2(33, 33)
 
 [node name="Obstacle" type="Path2D" node_paths=PackedStringArray("sprite", "path_follow")]
-script = ExtResource("1_g8ah6")
+script = ExtResource("1_r0v03")
 speed = 1.0
 sprite = NodePath("PathFollow2D/AnimatableBody2D/Sprite2D")
 path_follow = NodePath("PathFollow2D")

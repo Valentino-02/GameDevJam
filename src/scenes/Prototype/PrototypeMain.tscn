@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpfp7hmpjc14n"]
+[gd_scene load_steps=15 format=3 uid="uid://bpfp7hmpjc14n"]
 
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_hfapn"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Prototype/Character.gd" id="2_3k34p"]
@@ -6,16 +6,15 @@
 [ext_resource type="Script" uid="uid://t61maouj2jye" path="res://src/scenes/Prototype/PrototypeCameraController.gd" id="3_at886"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Prototype/cargo.tscn" id="4_2xicn"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Prototype/Rope.gd" id="4_3k34p"]
-[ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/dropper.tscn" id="7_mk526"]
+[ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/CargoDropper.tscn" id="7_mk526"]
 [ext_resource type="Script" uid="uid://d2nadunfihy8m" path="res://src/scenes/Prototype/Cloud.gd" id="8_dnm36"]
+[ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Prototype/CollectionZone.tscn" id="9_bj1bw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(189, 7)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfapn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk526"]
 size = Vector2(183, 76)
@@ -26,9 +25,13 @@ _data = {
 }
 point_count = 16
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfapn"]
+
 [node name="Root" type="Node2D"]
 
-[node name="LeftCharacter" type="RigidBody2D" parent="."]
+[node name="Player" type="Node2D" parent="."]
+
+[node name="LeftCharacter" type="RigidBody2D" parent="Player"]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(-55, -31)
 collision_layer = 2
@@ -39,15 +42,15 @@ angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("2_3k34p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCharacter"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/LeftCharacter"]
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftCharacter"]
+[node name="Sprite2D" type="Sprite2D" parent="Player/LeftCharacter"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(0.09375, 0.171875)
 texture = ExtResource("1_hfapn")
 
-[node name="RightCharacter" type="RigidBody2D" parent="."]
+[node name="RightCharacter" type="RigidBody2D" parent="Player"]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(31, -31)
 collision_layer = 2
@@ -58,15 +61,15 @@ angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("2_3k34p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCharacter"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RightCharacter"]
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
+[node name="Sprite2D" type="Sprite2D" parent="Player/RightCharacter"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(0.09375, 0.171875)
 texture = ExtResource("1_hfapn")
 
-[node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
+[node name="Platform" type="RigidBody2D" parent="Player" groups=["PlayerPlatform"]]
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
 mass = 10.0
@@ -75,43 +78,22 @@ script = ExtResource("3_2xicn")
 orientation_strength = 0.0
 angular_dampen_strength = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Platform"]
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_pv250")
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+[node name="Sprite2D" type="Sprite2D" parent="Player/Platform"]
 position = Vector2(-7.62939e-06, 1)
 scale = Vector2(1.48437, 0.0390625)
 texture = ExtResource("1_hfapn")
 
-[node name="Left Attachment" type="Node2D" parent="Platform"]
+[node name="Left Attachment" type="Node2D" parent="Player/Platform"]
 position = Vector2(-91, -5)
 
-[node name="Right Attachment" type="Node2D" parent="Platform"]
+[node name="Right Attachment" type="Node2D" parent="Player/Platform"]
 position = Vector2(89, -5)
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-2, 506)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(0.5, 0.5)
-shape = SubResource("WorldBoundaryShape2D_hfapn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(-3.49992, 136.75)
-scale = Vector2(18.2734, 2.17578)
-texture = ExtResource("1_hfapn")
-
-[node name="PlayerController" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "left_rope", "right_rope")]
-position = Vector2(-211, -195)
-script = ExtResource("3_at886")
-cargo_scene = ExtResource("4_2xicn")
-left_character = NodePath("../LeftCharacter")
-right_character = NodePath("../RightCharacter")
-left_rope = NodePath("../Rope L")
-right_rope = NodePath("../Rope R")
-
-[node name="Rope L" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+[node name="Rope L" type="Line2D" parent="Player" node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 width = 3.0
 default_color = Color(0, 0, 1, 1)
 script = ExtResource("4_3k34p")
@@ -119,7 +101,7 @@ character = NodePath("../LeftCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
 
-[node name="Rope R" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+[node name="Rope R" type="Line2D" parent="Player" node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 width = 3.0
 default_color = Color(1, 0, 0, 1)
 script = ExtResource("4_3k34p")
@@ -127,55 +109,85 @@ character = NodePath("../RightCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
 
-[node name="Dropper" parent="." instance=ExtResource("7_mk526")]
-position = Vector2(-241, 0)
+[node name="PlayerController" type="Camera2D" parent="." node_paths=PackedStringArray("left_character", "right_character", "left_rope", "right_rope")]
+position = Vector2(-211, -195)
+script = ExtResource("3_at886")
+cargo_scene = ExtResource("4_2xicn")
+left_character = NodePath("../Player/LeftCharacter")
+right_character = NodePath("../Player/RightCharacter")
+left_rope = NodePath("../Player/Rope L")
+right_rope = NodePath("../Player/Rope R")
 
-[node name="Cloud" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("path")]
+[node name="DynamicObstacles" type="Node2D" parent="."]
+
+[node name="Cloud" type="AnimatableBody2D" parent="DynamicObstacles" node_paths=PackedStringArray("path")]
 position = Vector2(853, -238)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("8_dnm36")
 path = NodePath("../CloudPath/CloudPathFollow")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DynamicObstacles/Cloud"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_mk526")
 
-[node name="Sprite2D" type="Sprite2D" parent="Cloud"]
+[node name="Sprite2D" type="Sprite2D" parent="DynamicObstacles/Cloud"]
 modulate = Color(0.721569, 0.815686, 0.933333, 0.309804)
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(1.46875, 0.601562)
 texture = ExtResource("1_hfapn")
 
-[node name="Cloud2" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("path")]
+[node name="Cloud2" type="AnimatableBody2D" parent="DynamicObstacles" node_paths=PackedStringArray("path")]
 position = Vector2(853, -238)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("8_dnm36")
 path = NodePath("../CloudPath/CloudPathFollow2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cloud2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DynamicObstacles/Cloud2"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_mk526")
 
-[node name="Sprite2D" type="Sprite2D" parent="Cloud2"]
+[node name="Sprite2D" type="Sprite2D" parent="DynamicObstacles/Cloud2"]
 modulate = Color(0.721569, 0.815686, 0.933333, 0.309804)
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(1.46875, 0.601562)
 texture = ExtResource("1_hfapn")
 
-[node name="CloudPath" type="Path2D" parent="."]
+[node name="CloudPath" type="Path2D" parent="DynamicObstacles"]
 position = Vector2(191, -165)
 rotation = 1.56188
 curve = SubResource("Curve2D_dnm36")
 
-[node name="CloudPathFollow" type="PathFollow2D" parent="CloudPath"]
+[node name="CloudPathFollow" type="PathFollow2D" parent="DynamicObstacles/CloudPath"]
 position = Vector2(-282, -181)
 rotation = 0.106466
 rotates = false
 
-[node name="CloudPathFollow2" type="PathFollow2D" parent="CloudPath"]
+[node name="CloudPathFollow2" type="PathFollow2D" parent="DynamicObstacles/CloudPath"]
 position = Vector2(603.006, -329.775)
 rotation = 0.106466
 progress = 1153.34
 rotates = false
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Dropper" parent="Interactables" instance=ExtResource("7_mk526")]
+position = Vector2(-241, 0)
+
+[node name="CollectionZone" parent="Interactables" instance=ExtResource("9_bj1bw")]
+position = Vector2(0, 452)
+
+[node name="StaticObstacles" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="StaticObstacles"]
+position = Vector2(-2, 506)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticObstacles/Ground"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("WorldBoundaryShape2D_hfapn")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticObstacles/Ground"]
+position = Vector2(-3.49992, 136.75)
+scale = Vector2(18.2734, 2.17578)
+texture = ExtResource("1_hfapn")

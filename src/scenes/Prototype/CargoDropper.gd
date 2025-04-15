@@ -7,6 +7,7 @@ extends StaticBody2D
 @export var package: PackedScene
 
 ##Maximum scale of the x or y when randomly generating cargo
+@export_group("Generation Variables")
 @export var max_cargo_scale: int = 3
 @export var min_cargo_scale: int = 1
 @export var min_cargo_mass: float = 1

@@ -8,7 +8,7 @@
 size = Vector2(64, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ey8s"]
-size = Vector2(98, 38)
+size = Vector2(112, 146)
 
 [node name="Dropper" type="StaticBody2D"]
 script = ExtResource("1_vh82k")
@@ -29,7 +29,7 @@ position = Vector2(0, 44)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 74)
+position = Vector2(0, 121)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1ey8s")
