@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpfp7hmpjc14n"]
+[gd_scene load_steps=18 format=3 uid="uid://bpfp7hmpjc14n"]
 
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_hfapn"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Prototype/Character.gd" id="2_3k34p"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Prototype/cargo.tscn" id="4_2xicn"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Prototype/Rope.gd" id="4_3k34p"]
 [ext_resource type="PackedScene" uid="uid://c2tyo3vjuh7ev" path="res://src/scenes/Prototype/CargoDropper.tscn" id="7_mk526"]
+[ext_resource type="PackedScene" uid="uid://w05qe1tj0owm" path="res://src/scenes/Prototype/obstacle.tscn" id="8_05qjq"]
 [ext_resource type="Script" uid="uid://d2nadunfihy8m" path="res://src/scenes/Prototype/Cloud.gd" id="8_dnm36"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Prototype/CollectionZone.tscn" id="9_bj1bw"]
+[ext_resource type="Script" uid="uid://ii3h7popgcng" path="res://src/scenes/Prototype/time_controller.gd" id="11_6812g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
@@ -24,6 +26,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -282, -181, 0, 0, 0, 0, -20, -153, 0, 0, 0, 0, 244, -205, 0, 0, 0, 0, 538, -206, 0, 0, 0, 0, 720, -305, 0, 0, 0, 0, 380, -377, 0, 0, 0, 0, 16, -343, 0, 0, 0, 0, -389, -262, 0, 0, 0, 0, -569, -307, 0, 0, 0, 0, -252, -331, 0, 0, 0, 0, 167, -170, 0, 0, 0, 0, 469, -243, 0, 0, 0, 0, 602, -387, 0, 0, 0, 0, 704, -209, 0, 0, 0, 0, 225, -86, 0, 0, 0, 0, -286, -177)
 }
 point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_6812g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 214, -336, 0, 0, 0, 0, 694, -102, 0, 0, 0, 0, 239, 159, 0, 0, 0, 0, 675, 372, 0, 0, 0, 0, 207, 608, 0, 0, 0, 0, 714, 797)
+}
+point_count = 6
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfapn"]
 
@@ -170,6 +178,11 @@ rotation = 0.106466
 progress = 1153.34
 rotates = false
 
+[node name="Obstacle" parent="DynamicObstacles" instance=ExtResource("8_05qjq")]
+position = Vector2(2, -304)
+curve = SubResource("Curve2D_6812g")
+speed = 50.0
+
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="Dropper" parent="Interactables" instance=ExtResource("7_mk526")]
@@ -191,3 +204,70 @@ shape = SubResource("WorldBoundaryShape2D_hfapn")
 position = Vector2(-3.49992, 136.75)
 scale = Vector2(18.2734, 2.17578)
 texture = ExtResource("1_hfapn")
+
+[node name="TimeController" type="Node" parent="." node_paths=PackedStringArray("game_over_title", "time_label")]
+script = ExtResource("11_6812g")
+starting_time = 30.0
+time_per_cargo = 5.0
+game_over_title = NodePath("../CanvasLayer/Control/GameOver")
+time_label = NodePath("../CanvasLayer/Control/Timer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Timer" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "180s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -11.5
+offset_right = 34.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Timeout!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/GameOver"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = 27.5
+offset_right = 71.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Reset"
+
+[connection signal="timeout" from="TimeController" to="CanvasLayer/Control/GameOver" method="show"]
+[connection signal="pressed" from="CanvasLayer/Control/GameOver/Button" to="TimeController" method="new_game"]

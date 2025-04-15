@@ -3,6 +3,7 @@ extends StaticBody2D
 @export_group("References")
 @export var label: Label
 @export var collection_zone: Area2D
+@onready var time_controller: TimeController = get_node("/root/Root/TimeController")
 
 var current_total:int = 0
 
@@ -20,3 +21,4 @@ func _object_entered(object: Node2D) -> void:
 func _score() -> void:
 	current_total +=1
 	label.text = str(current_total)
+	time_controller.collect_cargo()
