@@ -16,14 +16,14 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_lplfj")
 shader_parameter/density = 0.4
 shader_parameter/speed = Vector2(0.02, 0.01)
 
-[node name="FogEffect" type="ParallaxBackground"]
+[node name="FogEffect" type="CanvasLayer"]
 layer = 2
-scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_cjuhr")
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2

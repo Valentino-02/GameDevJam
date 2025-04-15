@@ -11,4 +11,5 @@ enum SfxId {
 
 enum MusicId {
 	MainTheme,
+	GameTheme
 }

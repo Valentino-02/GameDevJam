@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce7fih3ihtd3w"]
+
+[ext_resource type="Script" uid="uid://cramf5py76bex" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.gd" id="1_5cbe3"]
+
+[node name="CollectionZone" type="Area2D"]
+script = ExtResource("1_5cbe3")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(120, -64, -120, -64, -60, 60, 60, 60)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
