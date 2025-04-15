@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://1p2m5d3jdn6i"]
+
+[ext_resource type="Script" uid="uid://bjk7a81qq8hfu" path="res://src/scenes/Prototype/Player.gd" id="1_47p5e"]
+[ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Prototype/Character.gd" id="1_h7irl"]
+[ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="2_47p5e"]
+[ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Prototype/platform.gd" id="3_ct1ul"]
+[ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Prototype/Rope.gd" id="4_emnkp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
+size = Vector2(189, 7)
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("left_rope", "right_rope", "left_character", "right_character")]
+script = ExtResource("1_47p5e")
+left_rope = NodePath("Rope L")
+right_rope = NodePath("Rope R")
+left_character = NodePath("LeftCharacter")
+right_character = NodePath("RightCharacter")
+
+[node name="LeftCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(-86, -31)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp_mode = 1
+angular_damp = 50.0
+script = ExtResource("1_h7irl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCharacter"]
+shape = SubResource("CircleShape2D_pv250")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftCharacter"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.09375, 0.171875)
+texture = ExtResource("2_47p5e")
+
+[node name="RightCharacter" type="RigidBody2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(84, -31)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp_mode = 1
+angular_damp = 50.0
+script = ExtResource("1_h7irl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCharacter"]
+shape = SubResource("CircleShape2D_pv250")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.09375, 0.171875)
+texture = ExtResource("2_47p5e")
+
+[node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
+physics_interpolation_mode = 1
+position = Vector2(0, 25)
+mass = 10.0
+angular_damp = 24.182
+script = ExtResource("3_ct1ul")
+orientation_strength = 10.0
+angular_dampen_strength = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pv250")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-7.62939e-06, 1)
+scale = Vector2(1.48437, 0.0390625)
+texture = ExtResource("2_47p5e")
+
+[node name="Left Attachment" type="Node2D" parent="Platform"]
+position = Vector2(-91, -5)
+
+[node name="Right Attachment" type="Node2D" parent="Platform"]
+position = Vector2(89, -5)
+
+[node name="Rope L" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+width = 3.0
+default_color = Color(0, 0, 1, 1)
+script = ExtResource("4_emnkp")
+character = NodePath("../LeftCharacter")
+platform = NodePath("../Platform")
+platform_attachement = NodePath("../Platform/Left Attachment")
+
+[node name="Rope R" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+script = ExtResource("4_emnkp")
+character = NodePath("../RightCharacter")
+platform = NodePath("../Platform")
+platform_attachement = NodePath("../Platform/Right Attachment")

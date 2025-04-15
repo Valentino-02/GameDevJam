@@ -11,8 +11,6 @@ class_name TimeController extends Node
 var timer: float
 var running: bool = true
 
-signal timeout
-
 # --- replace with start mechanic ---
 func _ready() -> void:
 	new_game()
@@ -31,6 +29,7 @@ func pause_timer(pause:bool) -> void:
 	
 #Private Functions
 func _start_timer(time: float) -> void:
+	running = true
 	timer = time
 
 func _add_time(time: float) -> void:
@@ -42,7 +41,7 @@ func _process(delta: float) -> void:
 		_update_timer_display()
 		if timer <= 0:
 			running = false
-			timeout.emit()
+			SignalBus.game_over.emit()
 		
 func _update_timer_display() -> void:
 	time_label.text = str(roundi(timer))+"s"

@@ -42,6 +42,7 @@ project/assembly_name="GameDevJam"
 
 PlayerPlatform=""
 Cargo=""
+Player=""
 
 [input]
 

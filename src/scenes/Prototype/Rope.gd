@@ -53,7 +53,7 @@ func _physics_process(delta):
 	player_force = player_force.limit_length(max_force * character.mass)
 	#Reduce gravity only if we are close
 	if displacement < spring_length * max_stretch_percent:
-		player_force += (-1 + player_gravity_coefficient) * CameraController.get_component_along_direction(player_force, direction)
+		player_force += (-1 + player_gravity_coefficient) * Player.get_component_along_direction(player_force, direction)
 
 	
 	character.apply_force(player_force)
