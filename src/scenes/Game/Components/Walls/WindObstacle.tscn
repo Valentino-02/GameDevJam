@@ -1,39 +1,81 @@
-[gd_scene load_steps=6 format=3 uid="uid://b47dr2vts133"]
+[gd_scene load_steps=11 format=3 uid="uid://b47dr2vts133"]
 
 [ext_resource type="Script" uid="uid://c76jcqku8dkkf" path="res://src/scenes/Game/Components/Walls/WindObstacle.gd" id="1_xs381"]
+[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/test-background.png" id="2_24163"]
 [ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_etb6u"]
-[ext_resource type="Texture2D" uid="uid://o6dhk2eaqgpn" path="res://assets/images/TeamIcon.png" id="3_q6qf7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1t4yv"]
-radius = 81.78
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etb6u"]
+size = Vector2(50, 500)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0opmp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_24163"]
+atlas = ExtResource("2_24163")
+region = Rect2(0, 0, 50, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6qf7"]
 atlas = ExtResource("2_etb6u")
-region = Rect2(201, 129, 12, 12)
+region = Rect2(293, 148, 1, 1)
+
+[sub_resource type="Curve" id="Curve_0opmp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.211679, 0.995935), 0.0261052, 0.0261052, 0, 0, Vector2(0.784672, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4wyjw"]
+curve = SubResource("Curve_0opmp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uyhky"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_4wyjw")
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_etb6u"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_4wyjw")
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
 
 [node name="WindObstacle" type="Node2D"]
 script = ExtResource("1_xs381")
-force = 300.0
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(60, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_1t4yv")
+shape = SubResource("RectangleShape2D_etb6u")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SpriteMask" type="Sprite2D" parent="."]
 clip_children = 1
-scale = Vector2(11.66, 11.66)
-texture = SubResource("AtlasTexture_0opmp")
+texture = SubResource("AtlasTexture_24163")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(1, 1, 1, 0.380392)
-position = Vector2(3.3, 7.2)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("3_q6qf7")
+[node name="BottomParticles" type="GPUParticles2D" parent="SpriteMask"]
+visible = false
+position = Vector2(0, 250)
+texture = SubResource("AtlasTexture_q6qf7")
+visibility_rect = Rect2(-25, -250, 50, 500)
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_uyhky")
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 222.08, 0)
+[node name="TopParticles" type="GPUParticles2D" parent="SpriteMask"]
+visible = false
+position = Vector2(0, -250)
+texture = SubResource("AtlasTexture_q6qf7")
+visibility_rect = Rect2(-25, -250, 50, 500)
+process_material = SubResource("ParticleProcessMaterial_etb6u")

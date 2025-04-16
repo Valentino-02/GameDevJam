@@ -112,8 +112,8 @@ phantom_camera = NodePath("../PhantomCamera2D")
 platform = NodePath("../PlayerCharacter/Platform")
 
 [node name="WindObstacle" parent="." instance=ExtResource("14_rr83a")]
-position = Vector2(-322, -163)
-rotation = 0.558505
+position = Vector2(-241, -218)
+blastDuration = 3.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
