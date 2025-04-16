@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://rvm2k5e6fiu5"]
 
-[ext_resource type="Script" uid="uid://b4jftxhwgjgal" path="res://src/scenes/Game/Level/ZoneCounterUI.gd" id="1_o24to"]
+[ext_resource type="Script" uid="uid://b4jftxhwgjgal" path="res://src/scenes/UI/Components/ZoneCounterUI.gd" id="1_o24to"]
 
 [node name="ZoneCounter" type="Control"]
 layout_mode = 3

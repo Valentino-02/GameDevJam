@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://crqrv5lsmuftg"]
+
+[ext_resource type="Script" uid="uid://ctnjtvl46kqr6" path="res://src/scenes/Game/Components/Cargo/CargoDropper.gd" id="1_ky43u"]
+[ext_resource type="Texture2D" uid="uid://btopx252yfu5j" path="res://assets/images/VendingMachines.png" id="1_qrmgv"]
+[ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="2_gihkj"]
+[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="3_jmmfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrmgv"]
+size = Vector2(172, 28)
+
+[node name="CargoDropper" type="Node2D"]
+script = ExtResource("1_ky43u")
+cargoScene = ExtResource("2_gihkj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-100, 0)
+texture = ExtResource("1_qrmgv")
+region_enabled = true
+region_rect = Rect2(98, 11, 28, 41)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(100, 0)
+texture = ExtResource("1_qrmgv")
+region_enabled = true
+region_rect = Rect2(98, 11, 28, 41)
+
+[node name="DetectionArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_qrmgv")
+
+[node name="SpawnMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -134)
+
+[node name="DistributionMarker" type="Marker2D" parent="SpawnMarker"]
+unique_name_in_owner = true
+position = Vector2(57, 0)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="UI_Helpers" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="UI_Helpers"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 62.0
+offset_top = -55.0
+offset_right = 138.0
+offset_bottom = -32.0
+theme = ExtResource("3_jmmfj")
+
+[node name="Panel" type="Panel" parent="UI_Helpers/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI_Helpers/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "Press [E]"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI_Helpers"]
+unique_name_in_owner = true
+offset_left = -102.0
+offset_top = -57.0
+offset_right = -98.0
+offset_bottom = -30.0
+max_value = 3.0
+step = 1.0
+
+[connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_exited"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
