@@ -39,3 +39,5 @@ func _onFloorBodyEntered(cargo : Node2D):
 		#var pos : Vector2 = Vector2(body.global_position.x, _ceiling.global_position.y)
 		var pos : Vector2 = Vector2(platform.global_position.x, _ceiling.global_position.y)
 		cargo.queueTeleport(pos, Vector2.ZERO, 0, 0, true)
+	elif cargo is Cargo and not cargo.respawn:
+		cargo.destroy()

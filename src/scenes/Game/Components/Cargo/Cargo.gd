@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void:
 	sprite.visible = false
 	particles.restart()
+	setParachute(false)
 	await particles.finished
 	queue_free()
 
