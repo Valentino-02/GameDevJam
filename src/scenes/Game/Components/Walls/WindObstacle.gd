@@ -2,6 +2,11 @@ extends Node2D
 
 ##Apply this force along the line
 @export var force: float = 100
+@export var platformForceModifier: float = 3
+
+var _platformForce: float: 
+	get: 
+		return force*platformForceModifier
 
 var _bodies: Array[RigidBody2D] = []
 var _direction: Vector2:
@@ -37,4 +42,6 @@ func _removeBody(body:Node2D) -> void:
 		
 func _applyForce() -> void:
 	if _bodies.size() <= 0: return
-	for body in _bodies: body.apply_force(_direction*force)
+	for body in _bodies: 
+		var selectedForce = force if body.get_groups().has("Player") else _platformForce
+		body.apply_force(_direction*selectedForce)
