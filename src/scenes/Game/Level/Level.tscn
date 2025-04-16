@@ -71,6 +71,7 @@ position = Vector2(-2294, -245)
 [node name="CollectionZoneRight" parent="." instance=ExtResource("2_ookwl")]
 position = Vector2(2026, 21)
 zone = 1
+element = 1
 
 [node name="CargoDropper" parent="." instance=ExtResource("3_7fp2p")]
 position = Vector2(0, -226)

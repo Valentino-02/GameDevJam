@@ -2,7 +2,7 @@ class_name MainMenu
 extends CanvasLayer
 
 func _ready() -> void:
-	AudioManager.music.play(ResourceIds.MusicId.MainTheme)
+	AudioManager.music.play(ResourceIds.MusicId.MainMenuTheme)
 
 func _on_start_game_button_pressed() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)

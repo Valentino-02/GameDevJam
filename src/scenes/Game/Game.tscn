@@ -91,10 +91,8 @@ position = Vector2(6, -101)
 position = Vector2(-22, -135)
 
 [node name="Cargo2" parent="." instance=ExtResource("9_h22ok")]
-position = Vector2(3, -134)
-
-[node name="Cargo3" parent="." instance=ExtResource("9_h22ok")]
-position = Vector2(28, -129)
+position = Vector2(29, -135)
+element = 0
 
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 
