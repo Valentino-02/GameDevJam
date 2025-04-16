@@ -23,6 +23,7 @@ position = Vector2(0, 1057)
 shape = SubResource("WorldBoundaryShape2D_rr83a")
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
 autostart = true
 
 [connection signal="body_entered" from="Floor" to="." method="_onFloorBodyEntered"]

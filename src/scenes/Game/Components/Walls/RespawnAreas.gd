@@ -23,7 +23,10 @@ func SpawnParachuteCrates():
 		+ randf_range(-random_cargo_spawn_range, random_cargo_spawn_range),
 		_ceiling.global_position.y)
 	get_parent().add_child(cargo)
+	await get_tree().physics_frame
+	#need to wait for it to update properly before making the parachute visible?... idk why this fixes it but it does
 	cargo.setParachute(true)
+	
 
 func _onTimerTimeout():
 	_timer.start(randf_range(min_spawn_frequency, max_spawn_frequency))

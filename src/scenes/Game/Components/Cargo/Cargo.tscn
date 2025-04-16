@@ -24,11 +24,13 @@ max_contacts_reported = 1
 script = ExtResource("1_rmwal")
 
 [node name="Parachute String L" type="Line2D" parent="."]
+visible = false
 width = 3.0
 texture = ExtResource("6_qv2vj")
 texture_mode = 1
 
 [node name="Parachute String R" type="Line2D" parent="."]
+visible = false
 width = 3.0
 texture = ExtResource("6_qv2vj")
 texture_mode = 1

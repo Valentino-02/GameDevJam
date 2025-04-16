@@ -22,7 +22,6 @@ var _queued_angular_vel : float
 var _parachute : bool = false
 var _at_rest_counter : float = 0
 
-
 func _physics_process(delta: float) -> void:
 	if _parachute:
 		_checkAtRest(delta)
@@ -49,6 +48,7 @@ func queueTeleport(pos : Vector2 = global_position, vel : Vector2 = linear_veloc
 ##Makes the parachute visible and slows the cargo's speed
 func setParachute(enabled : bool = true):
 	_setParachuteVisibility(enabled)
+	_updateParachuteAnimation()#update the parachute in the same tick so there is no flickering
 	_parachute = enabled
 	self.gravity_scale = 0.5 if enabled else 1.0
 
@@ -97,8 +97,9 @@ func _setParachuteVisibility(visibility : bool):
 	r_string.visible = visibility
 
 func _onBodyEntered(body : Node2D):
-	##exclude hitting other cargo
-	if _parachute and ((body is RigidBody2D and not body is Cargo) or body is TileMap) :
+	if _parachute and (body is RigidBody2D  or body is TileMap):
+		if body is Cargo and body._parachute:##exclude hitting other cargo when falling
+			return
 		self.gravity_scale = 1.0
 		_setParachuteVisibility(false)
 		_parachute = false
