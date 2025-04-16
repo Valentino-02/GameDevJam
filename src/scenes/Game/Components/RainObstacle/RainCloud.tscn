@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcp1acwb278w1"]
+
+[ext_resource type="Script" uid="uid://bwtb1jvuuy63" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.gd" id="1_12i4d"]
+[ext_resource type="Texture2D" uid="uid://d4j4hrb7yusyq" path="res://addons/phantom_camera/icons/phantom_camera_updater_panel_icon.svg" id="2_4hjjb"]
+[ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="3_kaqv7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kaqv7"]
+friction = 0.0
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqv7"]
+size = Vector2(120, 344)
+
+[node name="RainCloud" type="Node2D"]
+script = ExtResource("1_12i4d")
+slippery_material = SubResource("PhysicsMaterial_kaqv7")
+
+[node name="CloudSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(10.875, 2.8125)
+texture = ExtResource("2_4hjjb")
+
+[node name="RainHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RainHitBox"]
+position = Vector2(2, 163)
+shape = SubResource("RectangleShape2D_kaqv7")
+
+[node name="RainEmitter" type="CPUParticles2D" parent="."]
+position = Vector2(1, -2)
+amount = 30
+texture = ExtResource("3_kaqv7")
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(60, 4)
+spread = 93.18
+gravity = Vector2(0, 300)
+
+[connection signal="body_entered" from="RainHitBox" to="." method="_onRainEntered"]
+[connection signal="body_exited" from="RainHitBox" to="." method="_onRainLeft"]
