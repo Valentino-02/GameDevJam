@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b47dr2vts133"]
+
+[ext_resource type="Script" uid="uid://c76jcqku8dkkf" path="res://src/scenes/Game/Components/Walls/WindObstacle.gd" id="1_xs381"]
+[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_etb6u"]
+[ext_resource type="Texture2D" uid="uid://o6dhk2eaqgpn" path="res://assets/images/TeamIcon.png" id="3_q6qf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t4yv"]
+radius = 81.78
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0opmp"]
+atlas = ExtResource("2_etb6u")
+region = Rect2(201, 129, 12, 12)
+
+[node name="WindObstacle" type="Node2D"]
+script = ExtResource("1_xs381")
+force = 300.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(60, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1t4yv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 1
+scale = Vector2(11.66, 11.66)
+texture = SubResource("AtlasTexture_0opmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(3.3, 7.2)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_q6qf7")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 222.08, 0)

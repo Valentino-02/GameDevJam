@@ -125,7 +125,7 @@ speed_scale = 1.5
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="RightCharacter" type="RigidBody2D" parent="."]
+[node name="RightCharacter" type="RigidBody2D" parent="." groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -30)
 collision_layer = 2
