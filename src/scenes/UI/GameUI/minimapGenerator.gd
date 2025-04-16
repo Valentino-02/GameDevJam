@@ -1,7 +1,7 @@
 extends Control
 
 @export var terrainColor: Color
-@export var zoom = 1.0
+@export var zoom: float = 1.0
 
 @onready var level: Node2D = get_node("/root/Game/Level")
 @onready var camera  = get_node("/root/Game/Camera2D")
@@ -12,8 +12,7 @@ var _cellColors: Dictionary[int, Color]
 var _refreshRate:float = 0.05
 var _timer: float      = 0
 
-
-func _ready():
+func _ready() -> void:
 	for child in level.get_children():
 		if child is TileMapLayer:
 			_tilemaps.append(child)
@@ -21,17 +20,17 @@ func _ready():
 		for n in map.tile_set.get_source_count():
 			_cellColors[map.tile_set.get_source_id(n)] = terrainColor
 			
-func _get_cells(tilemap : TileMapLayer, id):
+func _get_cells(tilemap : TileMapLayer, id) -> Array[Vector2i]:
 	return tilemap.get_used_cells_by_id(id)
 
 func _draw() -> void:
 	draw_set_transform(size / 2, 0, Vector2.ONE)
 
 	for tilemap in _tilemaps:
-		var cameraPosition = camera.get_screen_center_position()
-		var cameraCell = tilemap.local_to_map(cameraPosition)
-		var tilemapOffset = cameraCell + (Vector2i(cameraPosition) - tilemap.local_to_map(cameraCell)) / tilemap.tile_set.tile_size
-
+		var cameraPosition          = camera.get_screen_center_position()
+		var cameraCell: Vector2i    = tilemap.local_to_map(tilemap.to_local(cameraPosition))
+		var tilemapOffset: Vector2i = (Vector2i(cameraPosition) - tilemap.local_to_map(cameraCell)) / tilemap.tile_set.tile_size
+		
 		for id in _cellColors.keys():
 			var color = _cellColors[id]
 			var cells = _get_cells(tilemap, id)

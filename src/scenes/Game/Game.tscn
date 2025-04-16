@@ -84,29 +84,25 @@ position = Vector2(1, -117)
 
 [node name="CollectionZoneLeft" parent="." instance=ExtResource("8_njjgc")]
 position = Vector2(-2294, -245)
-script = null
 
 [node name="CollisionShape2D" parent="CollectionZoneLeft" index="0"]
 polygon = PackedVector2Array(36, -40, -72, -40, -59, 72, 37, 68)
 
 [node name="CollectionZoneRight" parent="." instance=ExtResource("8_njjgc")]
 position = Vector2(2026, 21)
-script = null
+zone = 1
 
 [node name="CollisionShape2D" parent="CollectionZoneRight" index="0"]
 polygon = PackedVector2Array(36, -40, -75, -37, -73, 51, 37, 68)
 
 [node name="Cargo" parent="." instance=ExtResource("9_h22ok")]
 position = Vector2(-22, -135)
-script = null
 
 [node name="Cargo2" parent="." instance=ExtResource("9_h22ok")]
 position = Vector2(3, -134)
-script = null
 
 [node name="Cargo3" parent="." instance=ExtResource("9_h22ok")]
 position = Vector2(28, -129)
-script = null
 
 [node name="BoundaryWalls" parent="." node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_bqyfw")]
 phantom_camera = NodePath("../PhantomCamera2D")
