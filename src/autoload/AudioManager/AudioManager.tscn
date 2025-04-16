@@ -4,15 +4,15 @@
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
 [ext_resource type="Script" uid="uid://dhwrmwr6mxae8" path="res://src/autoload/AudioManager/MusicManager.gd" id="2_ge8yv"]
 [ext_resource type="Script" uid="uid://b67exh4v0a6ij" path="res://src/autoload/AudioManager/Music.gd" id="3_p58k6"]
-[ext_resource type="AudioStream" uid="uid://cjbueonwdtdtu" path="res://assets/music/main_theme.ogg" id="4_u4rwl"]
-[ext_resource type="AudioStream" uid="uid://c6hgtbgc84erm" path="res://assets/music/Balance.mp3" id="5_8ooo6"]
+[ext_resource type="AudioStream" uid="uid://deodbtw1erppf" path="res://assets/music/Rise of the Elements.mp3" id="4_8ooo6"]
+[ext_resource type="AudioStream" uid="uid://dxi0i4j2s1561" path="res://assets/music/Cloud Level.mp3" id="4_dsnk3"]
 [ext_resource type="Script" uid="uid://cm215ucy36ahr" path="res://src/autoload/AudioManager/Sfx.gd" id="6_4cy6h"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
 
 [sub_resource type="Resource" id="Resource_u4rwl"]
 script = ExtResource("3_p58k6")
 id = 0
-stream = ExtResource("4_u4rwl")
+stream = ExtResource("4_dsnk3")
 volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://b67exh4v0a6ij"
 [sub_resource type="Resource" id="Resource_qrd4w"]
 script = ExtResource("3_p58k6")
 id = 1
-stream = ExtResource("5_8ooo6")
+stream = ExtResource("4_8ooo6")
 volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"

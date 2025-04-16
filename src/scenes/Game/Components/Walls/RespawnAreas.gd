@@ -13,11 +13,11 @@ class_name RespawnAreas extends Node2D
 @onready var _ceiling : Area2D = get_node("Ceiling")
 @onready var _timer : Timer = get_node("Timer")
 
-var cargo_scene : PackedScene = preload("res://src/scenes/Game/Components/Cargo/Cargo.tscn")
+var cargo_scene : PackedScene = preload("res://src/scenes/Game/Components/Cargo/ParachutedCargo.tscn")
 
 
 func SpawnParachuteCrates():
-	var cargo : Cargo = cargo_scene.instantiate()
+	var cargo : ParachutedCargo = cargo_scene.instantiate()
 	cargo.respawn = false
 	cargo.global_position = Vector2(platform.global_position.x 
 		+ randf_range(-random_cargo_spawn_range, random_cargo_spawn_range),
@@ -31,8 +31,10 @@ func _onTimerTimeout():
 
 ##Connected in editor to the body_entered signal of the floor
 func _onFloorBodyEntered(cargo : Node2D):
-	if cargo is Cargo and cargo.respawn:
+	if cargo is ParachutedCargo and cargo.respawn:
 		##Centered on the platform is likely more ideal
 		#var pos : Vector2 = Vector2(body.global_position.x, _ceiling.global_position.y)
 		var pos : Vector2 = Vector2(platform.global_position.x, _ceiling.global_position.y)
 		cargo.queueTeleport(pos, Vector2.ZERO, 0, 0, true)
+	elif cargo is ParachutedCargo and not cargo.respawn:
+		cargo.destroy()

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnmw00r2td2ol"]
+[gd_scene load_steps=6 format=3 uid="uid://dnmw00r2td2ol"]
 
 [ext_resource type="Script" uid="uid://c6oo4wiagy1lh" path="res://src/scenes/Game/Components/Cargo/Cargo.gd" id="1_rmwal"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_w4aq8"]
-[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_0duwv"]
-[ext_resource type="Texture2D" uid="uid://rghrkoqrm2ig" path="res://addons/phantom_camera/icons/viewfinder/Select.svg" id="4_73uch"]
-[ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="6_qv2vj"]
+[ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_c1vuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
+size = Vector2(34, 34)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmwal"]
 particle_flag_disable_z = true
@@ -23,27 +22,17 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_rmwal")
 
-[node name="Parachute String L" type="Line2D" parent="."]
-width = 3.0
-texture = ExtResource("6_qv2vj")
-texture_mode = 1
-
-[node name="Parachute String R" type="Line2D" parent="."]
-width = 3.0
-texture = ExtResource("6_qv2vj")
-texture_mode = 1
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cv6rf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-4.76837e-07, 0)
-scale = Vector2(1.11111, 1.11111)
-texture = ExtResource("2_0duwv")
-region_enabled = true
+texture = ExtResource("2_c1vuo")
 region_rect = Rect2(180, 18, 18, 18)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
 modulate = Color(0, 0.623529, 0.207843, 1)
 show_behind_parent = true
 emitting = false
@@ -53,11 +42,6 @@ one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_rmwal")
-
-[node name="ParachuteSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -98)
-texture = ExtResource("4_73uch")
 
 [connection signal="body_entered" from="." to="." method="_onBodyEntered"]
 [connection signal="mouse_entered" from="." to="." method="_mouse_enter"]

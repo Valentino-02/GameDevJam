@@ -16,7 +16,6 @@ var _currentTick : int = 0 :
 	set(newValue):
 		_currentTick = clamp(newValue, 0, cooldownTicks)
 		_progressBar.value = float(_currentTick)
-		print(_progressBar.value) 
 
 
 func _ready() -> void:
@@ -40,6 +39,7 @@ func _triggerDrop() -> void:
 
 func _spawnCargo() -> void:
 	var cargo : Cargo = cargoScene.instantiate()
+	cargo.setElement(Types.Element.Fire if randi_range(0,1) else Types.Element.Water) ## Momentary line meant to be deleted later
 	cargo.position.y = _spawnMarker.position.y
 	var distribution = abs(_distributionMarker.position.x)
 	cargo.position.x = _spawnMarker.position.x + randf_range(-distribution, distribution)
