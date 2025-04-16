@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b6o24n8fr7hfj"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b6o24n8fr7hfj"]
 
 [ext_resource type="FontFile" uid="uid://c8nmfbb2vh004" path="res://assets/fonts/Elemental-lg5B0.ttf" id="1_8q3kj"]
 
@@ -104,6 +104,23 @@ expand_margin_top = 6.0
 expand_margin_right = 6.0
 expand_margin_bottom = 6.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrtn0"]
+bg_color = Color(0.0203929, 0.00356392, 0.0662155, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.462316, 0.0807109, 0.286933, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acoub"]
 bg_color = Color(0.0203929, 0.00356392, 0.0662155, 1)
 border_width_left = 6
@@ -130,4 +147,5 @@ Button/styles/hover = SubResource("StyleBoxFlat_bdkqt")
 Button/styles/normal = SubResource("StyleBoxFlat_4hmaq")
 Button/styles/pressed = SubResource("StyleBoxFlat_yy6fb")
 Panel/styles/panel = SubResource("StyleBoxFlat_3nea1")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_hrtn0")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_acoub")
