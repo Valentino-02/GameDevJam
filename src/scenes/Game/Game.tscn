@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=15 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="8_njjgc"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="9_h22ok"]
+[ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/boundary_walls.tscn" id="12_bqyfw"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/respawn_areas.tscn" id="13_rr83a"]
 
 [sub_resource type="Resource" id="Resource_hkmll"]
 script = ExtResource("2_njjgc")
@@ -101,6 +103,12 @@ position = Vector2(3, -134)
 
 [node name="Cargo3" parent="." instance=ExtResource("9_h22ok")]
 position = Vector2(28, -129)
+
+[node name="BoundaryWalls" parent="." node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_bqyfw")]
+phantom_camera = NodePath("../PhantomCamera2D")
+
+[node name="RespawnAreas" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("13_rr83a")]
+platform = NodePath("../PlayerCharacter/Platform")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
