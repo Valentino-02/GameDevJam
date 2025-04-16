@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=16 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
@@ -11,12 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="8_njjgc"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="9_h22ok"]
+[ext_resource type="Script" uid="uid://bxm0f47ki2g3p" path="res://src/scenes/Game/Components/Parachute/Ceiling.gd" id="12_q4hgp"]
 
 [sub_resource type="Resource" id="Resource_hkmll"]
 script = ExtResource("2_njjgc")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bqyfw"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rr83a"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g75gr")
@@ -37,9 +43,7 @@ draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
 position = Vector2(0, -147)
-process_callback = 0
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -102,7 +106,21 @@ position = Vector2(3, -134)
 [node name="Cargo3" parent="." instance=ExtResource("9_h22ok")]
 position = Vector2(28, -129)
 
+[node name="Ceiling" type="Area2D" parent="."]
+position = Vector2(0, -462)
+script = ExtResource("12_q4hgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+shape = SubResource("WorldBoundaryShape2D_bqyfw")
+
+[node name="Floor" type="Area2D" parent="."]
+position = Vector2(0, 546)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_rr83a")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Floor" to="Ceiling" method="_onFloorBodyEntered"]
 
 [editable path="PlayerCharacter"]
 [editable path="CollectionZoneLeft"]
