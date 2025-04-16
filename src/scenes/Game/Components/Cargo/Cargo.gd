@@ -1,11 +1,11 @@
 class_name Cargo extends RigidBody2D
 
-@export var element : Types.Element = Types.Element.Fire
+@export var element: Types.Element = Types.Element.Fire
 
 @onready var _sprite: Sprite2D = %Sprite2D
 @onready var _particles: GPUParticles2D = %GPUParticles2D
 
-var _element : Types.Element = Types.Element.Null
+var _element: Types.Element = Types.Element.Null
 
 
 func _ready() -> void:
