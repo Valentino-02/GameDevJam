@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_dcqij"]
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
-[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/Game/Level/ZoneCounterUI.tscn" id="2_fwjtt"]
+[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/Components/ZoneCounterUI.tscn" id="2_fwjtt"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
