@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cb2kqqa72jcj8"]
 
-[ext_resource type="Script" uid="uid://cnyol6uo820iy" path="res://src/scenes/Game/Components/Cargo/ParachutedCargo.gd" id="1_jsbk7"]
+[ext_resource type="Script" path="res://src/scenes/Game/Components/Cargo/ParachutedCargo.gd" id="1_jsbk7"]
 [ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="2_qfwei"]
 [ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="3_kb5a4"]
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="4_606mg"]

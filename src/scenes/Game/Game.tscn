@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=16 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_bqyfw"]
 [ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnAreas.tscn" id="13_rr83a"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="14_rr83a"]
+[ext_resource type="PackedScene" uid="uid://wjr4oltanu5r" path="res://src/scenes/Game/Components/Fireball/Launcher.tscn" id="14_x2im0"]
 
 [sub_resource type="Resource" id="Resource_hkmll"]
 script = ExtResource("2_njjgc")
@@ -95,9 +96,15 @@ position = Vector2(-22, -135)
 position = Vector2(29, -135)
 element = 0
 
-[connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 [node name="WindObstacle" parent="." instance=ExtResource("14_rr83a")]
 position = Vector2(-241, -218)
 blastDuration = 3.0
+
+[node name="Launcher" parent="." instance=ExtResource("14_x2im0")]
+position = Vector2(521, -135)
+rotation = -1.5708
+force_pattern = Array[float]([1.0, 0.5, 1.5])
+
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 
 [editable path="PlayerCharacter"]
