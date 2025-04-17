@@ -15,10 +15,10 @@ const STRENGTH_MULTIPLIER : float = 200
 func _onCollision(_collided : Node) -> void:
 	_explosion_emitter.emitting = true
 	_fireball_sprite.visible = false
-	var bodies : Array = getBodiesInRadius()
+	var bodies : Array = _getBodiesInRadius()
 	for body in bodies:
 		if not body is RigidBody2D or body == self: continue
-		if getRayCast(body) == body:
+		if _getRayCast(body) == body:
 			var diff : Vector2 = _ray_cast.get_collision_point() - self.global_position
 			var explosion_radius : float = _shape_cast.shape.radius
 			var force : float = pow(clampf((explosion_radius - diff.length()), 0, explosion_radius)/explosion_radius, strength_fall_off_power) * STRENGTH_MULTIPLIER * explosion_strength
@@ -29,13 +29,13 @@ func _onCollision(_collided : Node) -> void:
 	self.queue_free()
 
 ##Finds the first body on the path there
-func getRayCast(body : RigidBody2D):
+func _getRayCast(body : RigidBody2D):
 	_ray_cast.target_position = _ray_cast.to_local(body.global_position)
 	_ray_cast.force_raycast_update()
 	return _ray_cast.get_collider()
 
 ##Detects anybody within the collision radius
-func getBodiesInRadius() -> Array:
+func _getBodiesInRadius() -> Array:
 	_shape_cast.force_shapecast_update()
 	var collision = []
 	collision.resize(_shape_cast.get_collision_count())

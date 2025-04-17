@@ -6,12 +6,12 @@ class_name Launcher extends Node2D
 ##How long between each projectile before the next is sent, loops
 @export var spawn_pattern : Array[float] = [0.5, 0.5, 1, 1, 3]
 ##A coefficient for the force of each projectile, loops
-@export var force_pattern : Array[float] = [1]
+@export var force_pattern : Array[float] = [0.5, 0.5, 1, 1, 1.2]
 
 
 @onready var _timer : Timer = get_node("Timer")
-var _spawnIdx : int = 0 #don't worry if this spawns every second the first overflow is in 3*10^11 years
-var _forceIdx : int = 0 #also, if it overflows, i think modulos still works, it will only mess up most patterns
+var _spawnIdx : int = 0 
+var _forceIdx : int = 0 
 const FORCE_MULTIPLIER : float = 700
 
 
@@ -22,10 +22,10 @@ func _get_next(index : int, pattern : Array[float] ) -> float:
 func _onTimerTimeout():
 	var force : float = _get_next(_forceIdx, force_pattern) * FORCE_MULTIPLIER
 	_launchBody(force)
-	_forceIdx += 1
+	_forceIdx += 1 #overflow isn't an issue
 	
 	_timer.start(_get_next(_spawnIdx, spawn_pattern))
-	_spawnIdx += 1
+	_spawnIdx += 1 #overflow isn't an issue
 	
 	
 ##Spawns the object and sets it in motion
@@ -42,7 +42,7 @@ func _launchBody(force : float):
 	await get_tree().create_timer(0.3).timeout
 	if body: body.constant_force = Vector2.ZERO
 
-##To help us orienate it
+##To help us oreintate it in editor only
 func _draw() -> void:
 	if Engine.is_editor_hint():
 		draw_line(Vector2.ZERO, Vector2.UP * 15, Color.RED, 4)
