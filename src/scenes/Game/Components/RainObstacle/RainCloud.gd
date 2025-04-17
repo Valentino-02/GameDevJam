@@ -9,15 +9,19 @@ class_name RainCloud extends Node2D
 
 
 @onready var _hitbox : Area2D = get_node("RainHitBox")
-@onready var _particle : CPUParticles2D = get_node("RainEmitter")
+@onready var _particlePlayer : GPUParticles2D = get_node("RainEmitterPlayer")
+@onready var _particleBack : GPUParticles2D = get_node("RainEmitterBehind")
 
 
 func _setRaining(is_raining : bool):
 	if is_raining:
-		_particle.emitting = true
+		_particlePlayer.emitting = true
+		_particleBack.emitting = true
 		_hitbox.get_overlapping_bodies().all(_assignMaterial.bind(slippery_material))
+		
 	else:
-		_particle.emitting = false
+		_particlePlayer.emitting = false
+		_particleBack.emitting = false
 		_hitbox.get_overlapping_bodies().all(_assignMaterial.bind(null))
 	raining = is_raining
 
@@ -33,4 +37,4 @@ func _onRainLeft(body:Node2D) -> void:
 func _onRainEntered(body:Node2D) -> void:
 	if body is RigidBody2D and raining:
 		body.physics_material_override = slippery_material
-
+		
