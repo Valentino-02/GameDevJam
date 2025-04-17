@@ -55,7 +55,6 @@ func Activate(_node: Node2D = null) -> void:
 	_changeParticleQuantity(8)
 	
 func _addBody(body: Node2D) -> void:
-	print(body.name)
 	var groups: Array[StringName] = body.get_groups()
 	if groups.has("Player") || groups.has("PlayerPlatform"):
 		_bodies.append(body)
