@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvq5wp4h7knq6"]
+[gd_scene load_steps=11 format=4 uid="uid://cvq5wp4h7knq6"]
 
 [ext_resource type="Texture2D" uid="uid://dn7dx5rh2rve3" path="res://assets/images/TILESET_SUMMER_DAY.png" id="1_i6fm4"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="2_ookwl"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="3_7fp2p"]
+[ext_resource type="Script" uid="uid://j7ef15vy888b" path="res://src/scenes/Game/Level/hazardous_land.gd" id="4_leu6e"]
+[ext_resource type="Material" uid="uid://doihbhsgjc3gj" path="res://resources/particles/fireParticle.tres" id="5_k6gwd"]
+[ext_resource type="Material" uid="uid://cf6knxqj82pju" path="res://resources/particles/icyParticle.tres" id="6_ymua0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2odft"]
 texture = ExtResource("1_i6fm4")
@@ -59,6 +62,12 @@ texture = ExtResource("1_i6fm4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2odft")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leu6e"]
+size = Vector2(98, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6gwd"]
+size = Vector2(66, 25)
+
 [node name="Level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -75,3 +84,55 @@ element = 1
 
 [node name="CargoDropper" parent="." instance=ExtResource("3_7fp2p")]
 position = Vector2(0, -226)
+
+[node name="HazardousLand" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(224, 21)
+monitorable = false
+script = ExtResource("4_leu6e")
+dangerType = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardousLand"]
+shape = SubResource("RectangleShape2D_leu6e")
+
+[node name="FireParticle" type="GPUParticles2D" parent="HazardousLand"]
+visible = false
+position = Vector2(0, 13)
+emitting = false
+amount = 80
+lifetime = 2.0
+process_material = ExtResource("5_k6gwd")
+
+[node name="WaterParticle" type="GPUParticles2D" parent="HazardousLand"]
+visible = false
+position = Vector2(0, 13)
+emitting = false
+amount = 80
+lifetime = 3.0
+process_material = ExtResource("6_ymua0")
+
+[node name="HazardousLand2" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(-753, 20)
+monitorable = false
+script = ExtResource("4_leu6e")
+dangerType = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardousLand2"]
+shape = SubResource("RectangleShape2D_k6gwd")
+
+[node name="FireParticle" type="GPUParticles2D" parent="HazardousLand2"]
+visible = false
+position = Vector2(0, 13)
+emitting = false
+amount = 80
+lifetime = 2.0
+process_material = ExtResource("5_k6gwd")
+
+[node name="WaterParticle" type="GPUParticles2D" parent="HazardousLand2"]
+visible = false
+position = Vector2(0, 13)
+emitting = false
+amount = 80
+lifetime = 3.0
+process_material = ExtResource("6_ymua0")
