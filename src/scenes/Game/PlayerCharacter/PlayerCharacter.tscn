@@ -137,8 +137,8 @@ shape = SubResource("CircleShape2D_pv250")
 [node name="RightCharacter" type="RigidBody2D" parent="." groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -30)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp_mode = 1
@@ -164,6 +164,8 @@ shape = SubResource("CircleShape2D_pv250")
 [node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
+collision_layer = 9
+collision_mask = 257
 mass = 10.0
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
