@@ -1,5 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://1p2m5d3jdn6i"]
-
+[gd_scene load_steps=42 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -14,17 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="7_j2hj5"]
 [ext_resource type="Texture2D" uid="uid://djhriutvg3jms" path="res://assets/images/playerCharacters/Platform1.png" id="9_j2hj5"]
+[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 [ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
 [ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
-[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hu46i"]
 size = Vector2(100, 20)
 
 [sub_resource type="Curve" id="Curve_j0y4q"]
 _limits = [0.0, 1.0, 0.0, 4.0]
-_data = [Vector2(0, 0.142276), 0.0, 0.0, 0, 0, Vector2(1.05109, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
 curve = SubResource("Curve_j0y4q")
@@ -42,12 +41,8 @@ scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_qgvce")
 
-[sub_resource type="Curve" id="Curve_j0y4q"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
-curve = SubResource("Curve_j0y4q")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
+size = Vector2(100, 20)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vt20b"]
 particle_flag_disable_z = true
@@ -163,7 +158,6 @@ turbulence_noise_scale = 2.08
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
 
-
 [sub_resource type="Animation" id="Animation_vt20b"]
 length = 0.001
 tracks/0/type = "value"
@@ -255,7 +249,6 @@ _data = {
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uxgq5"]
 polygon = PackedVector2Array(-97, 10, -98, -6, 97, -7, 98, 10)
 
-
 [node name="PlayerCharacter" type="Node2D"]
 
 [node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
@@ -272,7 +265,7 @@ platform_attachement = NodePath("../Platform/Left Attachment")
 
 [node name="ParticleMask" type="Sprite2D" parent="LeftRope"]
 clip_children = 1
-texture = SubResource("PlaceholderTexture2D_j0y4q")
+texture = SubResource("PlaceholderTexture2D_hu46i")
 centered = false
 offset = Vector2(0, -10)
 
@@ -421,11 +414,11 @@ position = Vector2(-91, -5)
 [node name="Right Attachment" type="Node2D" parent="Platform"]
 position = Vector2(89, -5)
 
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
 libraries = {
 &"": SubResource("AnimationLibrary_aou6w")
 }
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
 position = Vector2(0, -2)
 occluder = SubResource("OccluderPolygon2D_uxgq5")
