@@ -13,3 +13,9 @@ enum MusicId {
 	MainTheme,
 	MainMenuTheme
 }
+
+enum LevelId {
+	Tutorial,
+	Test,
+	Level1
+}

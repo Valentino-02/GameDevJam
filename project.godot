@@ -28,6 +28,7 @@ SignalBus="*res://src/autoload/SignalBus/SignalBus.gd"
 TransitionManager="*res://src/autoload/TransitionManager/TransitionManager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 PreloadedResources="*res://src/autoload/PreloadedResources/PreloadedResources.tscn"
+LevelManager="*res://src/autoload/LevelManager/LevelManager.tscn"
 
 [display]
 

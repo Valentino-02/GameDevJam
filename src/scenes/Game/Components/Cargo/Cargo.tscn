@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ddb3fcpfanl3o" path="res://icon.svg" id="1_w4aq8"]
 [ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_c1vuo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
-size = Vector2(34, 34)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmwal"]
 particle_flag_disable_z = true
 spread = 180.0
@@ -16,14 +13,14 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.08
 scale_max = 0.15
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6rf"]
+size = Vector2(34, 34)
+
 [node name="Cargo" type="RigidBody2D" groups=["Cargo"]]
 input_pickable = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_rmwal")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cv6rf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -43,6 +40,8 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_rmwal")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cv6rf")
+
 [connection signal="body_entered" from="." to="." method="_onBodyEntered"]
-[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
-[connection signal="mouse_exited" from="." to="." method="_mouse_exit"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

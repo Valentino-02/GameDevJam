@@ -6,20 +6,20 @@
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="3_jmmfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrmgv"]
-size = Vector2(172, 28)
+size = Vector2(166, 28)
 
 [node name="CargoDropper" type="Node2D"]
 script = ExtResource("1_ky43u")
 cargoScene = ExtResource("2_gihkj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-100, 0)
+position = Vector2(-70, 0)
 texture = ExtResource("1_qrmgv")
 region_enabled = true
 region_rect = Rect2(98, 11, 28, 41)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(100, 0)
+position = Vector2(70, 0)
 texture = ExtResource("1_qrmgv")
 region_enabled = true
 region_rect = Rect2(98, 11, 28, 41)
@@ -50,15 +50,16 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("3_jmmfj")
 
 [node name="Control" type="Control" parent="UI_Helpers"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 62.0
-offset_top = -55.0
-offset_right = 138.0
-offset_bottom = -32.0
-theme = ExtResource("3_jmmfj")
+offset_left = -12.0
+offset_top = -69.0
+offset_right = 41.0
+offset_bottom = -53.0
 
 [node name="Panel" type="Panel" parent="UI_Helpers/Control"]
 layout_mode = 1
@@ -75,16 +76,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 15
 text = "Press [E]"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="UI_Helpers"]
 unique_name_in_owner = true
-offset_left = -102.0
-offset_top = -57.0
-offset_right = -98.0
-offset_bottom = -30.0
+layout_mode = 0
+offset_left = -37.0
+offset_top = -76.0
+offset_right = -33.0
+offset_bottom = -49.0
 max_value = 3.0
 step = 1.0
 

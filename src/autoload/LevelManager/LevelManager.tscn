@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://pplsmk3w7xbg"]
+
+[ext_resource type="Script" uid="uid://6tngpyc08ql6" path="res://src/autoload/LevelManager/LevelManager.gd" id="1_efybg"]
+[ext_resource type="Script" uid="uid://b5ba2yrcw6xeg" path="res://src/autoload/LevelManager/PackedLevel.gd" id="2_c5d04"]
+[ext_resource type="PackedScene" uid="uid://d2kynfde44quw" path="res://src/scenes/Game/Levels/TutorialLevel.tscn" id="3_dmswm"]
+[ext_resource type="PackedScene" uid="uid://cvq5wp4h7knq6" path="res://src/scenes/Game/Levels/TestLevel.tscn" id="4_ei8jq"]
+
+[sub_resource type="Resource" id="Resource_dmswm"]
+script = ExtResource("2_c5d04")
+id = 0
+levelScene = ExtResource("3_dmswm")
+metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
+
+[sub_resource type="Resource" id="Resource_ewb0q"]
+script = ExtResource("2_c5d04")
+id = 1
+levelScene = ExtResource("4_ei8jq")
+metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_efybg")
+levelList = Array[ExtResource("2_c5d04")]([SubResource("Resource_dmswm"), SubResource("Resource_ewb0q")])
