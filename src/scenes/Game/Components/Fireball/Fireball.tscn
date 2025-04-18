@@ -40,7 +40,7 @@ radius = 75.0
 
 [node name="Fireball" type="RigidBody2D"]
 collision_layer = 0
-collision_mask = 27
+collision_mask = 64
 mass = 25.0
 gravity_scale = 0.05
 center_of_mass_mode = 1
@@ -74,9 +74,11 @@ enabled = false
 shape = SubResource("CircleShape2D_icb7b")
 target_position = Vector2(0, 0)
 max_results = 100
+collision_mask = 64
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false
 enabled = false
+collision_mask = 64
 
 [connection signal="body_entered" from="." to="." method="_onCollision"]

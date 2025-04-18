@@ -25,6 +25,8 @@ region_enabled = true
 region_rect = Rect2(98, 11, 28, 41)
 
 [node name="DetectionArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
 position = Vector2(0, 4)
@@ -81,6 +83,7 @@ horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="UI_Helpers"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -102.0
 offset_top = -57.0
 offset_right = -98.0

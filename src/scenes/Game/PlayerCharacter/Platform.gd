@@ -2,7 +2,6 @@ extends RigidBody2D
 
 @export_custom(PROPERTY_HINT_NONE,"suffix:s") var cargo_drop_time: float = 1.5
 
-@onready var _collider: CollisionShape2D = $CollisionShape2D
 @onready var _animator: AnimationPlayer = $AnimationPlayer
 @onready var _staticPlatform: Node2D = $Sprite2D
 @onready var _animatedPlatform: Node2D = $AnimatedPlatform
@@ -27,7 +26,7 @@ func _cargoDoors(open:bool) -> void:
 	_animator.play(animationName)
 	
 func _open() -> void:
-	_collider.disabled = true
+	set_collision_layer_value(4, false)
 	_animatedPlatform.show()
 	_staticPlatform.hide()
 	_cargoDoors(true)
@@ -37,4 +36,4 @@ func _close() -> void:
 	await _animator.animation_finished
 	_staticPlatform.show()
 	_animatedPlatform.hide()
-	_collider.disabled = false
+	set_collision_layer_value(4, true)

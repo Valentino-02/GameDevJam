@@ -170,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.309]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -182,7 +182,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.309]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_aou6w"]
@@ -274,6 +274,7 @@ emitting = false
 amount = 10
 texture = ExtResource("2_uxgq5")
 lifetime = 5.0
+preprocess = 5.0
 visibility_rect = Rect2(0, -10, 200, 20)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_08p4k")
@@ -301,6 +302,7 @@ emitting = false
 amount = 10
 texture = ExtResource("4_uxgq5")
 lifetime = 5.0
+preprocess = 5.0
 visibility_rect = Rect2(0, -10, 200, 20)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_08p4k")
@@ -309,8 +311,8 @@ script = ExtResource("4_08p4k")
 [node name="LeftCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(-86, -30)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 194
+collision_mask = 16
 gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp_mode = 1
@@ -342,8 +344,8 @@ shape = SubResource("CircleShape2D_pv250")
 [node name="RightCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -30)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 164
+collision_mask = 16
 gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp_mode = 1
@@ -378,8 +380,7 @@ shape = SubResource("CircleShape2D_pv250")
 [node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
-collision_layer = 9
-collision_mask = 257
+collision_layer = 232
 mass = 10.0
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
@@ -389,11 +390,9 @@ texture = ExtResource("9_j2hj5")
 region_rect = Rect2(144, 36, 55, 18)
 
 [node name="AnimatedPlatform" type="Node2D" parent="Platform"]
-visible = false
 
 [node name="RightPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
 position = Vector2(98, 0)
-rotation = -1.309
 texture = ExtResource("14_aou6w")
 centered = false
 offset = Vector2(-101, -8.5)
@@ -401,7 +400,6 @@ region_rect = Rect2(98, 0, 98, 17)
 
 [node name="LeftPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
 position = Vector2(-97, 0)
-rotation = 1.309
 texture = ExtResource("15_hu46i")
 centered = false
 offset = Vector2(0, -8.5)
