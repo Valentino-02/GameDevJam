@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="5_s41jm"]
+[ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
 [ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="7_j2hj5"]
 [ext_resource type="Texture2D" uid="uid://djhriutvg3jms" path="res://assets/images/playerCharacters/Platform1.png" id="9_j2hj5"]
@@ -41,6 +42,30 @@ linear_accel_max = 20.0
 scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_qgvce")
+
+[sub_resource type="Curve" id="Curve_j0y4q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
+curve = SubResource("Curve_j0y4q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vt20b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 15, 1)
+angle_min = 45.0
+angle_max = 45.0
+direction = Vector3(0, 1, 0)
+spread = 120.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 120, 0)
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_qgvce")
+color = Color(0.262745, 0.87451, 0.996078, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.03
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
 atlas = ExtResource("3_emnkp")
@@ -108,6 +133,33 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
+
+[sub_resource type="Curve" id="Curve_08p4k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.525547, 0.727642), -1.11382, -1.11382, 0, 0, Vector2(1, 0.223577), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j0y4q"]
+curve = SubResource("Curve_08p4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aou6w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 18, 1)
+angle_min = 45.0
+angle_max = 45.0
+direction = Vector3(0, -1, 0)
+spread = 56.386
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+gravity = Vector3(0, -50, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_qgvce")
+color = Color(1, 0.168627, 0.396078, 1)
+alpha_curve = SubResource("CurveTexture_j0y4q")
+hue_variation_min = -0.08
+hue_variation_max = 0.2
+turbulence_enabled = true
+turbulence_noise_scale = 2.08
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
@@ -276,6 +328,12 @@ angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
+emitting = false
+amount = 20
+texture = ExtResource("6_08p4k")
+process_material = SubResource("ParticleProcessMaterial_vt20b")
+
 [node name="Sprite2D" type="Sprite2D" parent="LeftCharacter"]
 texture = ExtResource("5_s41jm")
 
@@ -301,6 +359,13 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
+emitting = false
+amount = 25
+texture = ExtResource("6_08p4k")
+lifetime = 1.2
+process_material = SubResource("ParticleProcessMaterial_aou6w")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
 texture = ExtResource("7_j2hj5")
