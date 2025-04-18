@@ -28,9 +28,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	#calculate the velocity
 	var velocity : Vector2 
 	#if we are going down enable gravity
-	if input_dir.dot(Vector2.DOWN) >= 0.8:
+	var grav_mag : = input_dir.dot(Vector2.DOWN)
+	if grav_mag >= 0.8:
 		velocity = input_dir * speed
-		velocity += Vector2.DOWN * (get_physics_process_delta_time() * ProjectSettings.get_setting("physics/2d/default_gravity"))
+		velocity += Vector2.DOWN * (get_physics_process_delta_time() * ProjectSettings.get_setting("physics/2d/default_gravity") * grav_mag)
 	else:#clamps the resulting speed
 		speed = clampf(speed ,minFlySpeed, maxFlySpeed )
 		velocity = input_dir * speed
