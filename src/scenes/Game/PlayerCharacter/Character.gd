@@ -21,23 +21,29 @@ func _getOrientationTorque() -> float:
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var difference : Vector2 = global_position - _rope.platform_attachement.global_position
 	var direction : Vector2 = difference.normalized()
-
-	#accelerate in the input direction
-	var input_dir : Vector2 = _getInputVector()
-	var speed : float = linear_velocity.dot(input_dir) + (get_physics_process_delta_time() * flyingAcceleration)
-	#calculate the velocity
 	var velocity : Vector2 
+	var input_dir : Vector2 = _getInputVector()
+
+	#accelerate the current speed
+	var speed : float = linear_velocity.dot(input_dir) 
+	var accel : float = get_physics_process_delta_time() * flyingAcceleration
 	#if we are going down enable gravity
 	var grav_mag : = input_dir.dot(Vector2.DOWN)
-	if grav_mag >= 0.8:
-		velocity = input_dir * speed
+	if grav_mag >= 0.8: #if trying to fall
+		#normal acceleration
+		velocity = input_dir * (speed + accel)
+		#gravity acceleration
 		velocity += Vector2.DOWN * (get_physics_process_delta_time() * ProjectSettings.get_setting("physics/2d/default_gravity") * grav_mag)
-	else:#clamps the resulting speed
+	else: #any other powered movement that isn't down
+		#accelerates within the bounds, or lets it go wild
+		speed = max(speed, clampf(speed + accel, minFlySpeed, maxFlySpeed))
 		speed = clampf(speed ,minFlySpeed, maxFlySpeed )
 		velocity = input_dir * speed
 	#check if we are leaving the rope's range, if so remove the component that is doing so
-	if difference.length() > _rope.springLength * _leashLength:
-		velocity -= getComponentAlongDirection(velocity, direction)
+	var extra : float = (difference.length() - _rope.springLength)/_rope.springLength
+	if extra > 0.0:
+		var factor : float = clampf((1 - ((_leashLength - extra)/_leashLength)), 0, 1)
+		velocity -= factor * getComponentAlongDirection(velocity, direction)
 	#Check if we are under user input, if so, overwrite the velocity to the input velocity
 	if velocity.length_squared() > 1.0:
 		state.linear_velocity = velocity
