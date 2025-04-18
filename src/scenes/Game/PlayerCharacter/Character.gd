@@ -10,8 +10,13 @@ class_name Character extends RigidBody2D
 @export var _suffix : String = "L"
 @export var _rope: Rope 
 
-
 var linearVelocity : Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	var _particles: GPUParticles2D = $GPUParticles2D
+	_particles.emitting = true
+	
+
 
 func _getOrientationTorque() -> float:
 	return (0 - rotation) * orientationStrength 
