@@ -1,7 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://1p2m5d3jdn6i"]
 
 
-[ext_resource type="Script" uid="uid://bjk7a81qq8hfu" path="res://src/scenes/Game/PlayerCharacter/Player.gd" id="1_47p5e"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
@@ -258,9 +257,8 @@ polygon = PackedVector2Array(-97, 10, -98, -6, 97, -7, 98, 10)
 
 
 [node name="PlayerCharacter" type="Node2D"]
-script = ExtResource("1_47p5e")
 
-[node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+[node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
 z_index = -2
 texture_repeat = 2
@@ -268,7 +266,6 @@ width = 3.0
 texture = ExtResource("2_j0y4q")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-playerCharacter = NodePath("..")
 character = NodePath("../LeftCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
@@ -289,14 +286,13 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_08p4k")
 script = ExtResource("4_08p4k")
 
-[node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+[node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
 texture_repeat = 2
 width = 3.0
 texture = ExtResource("6_qgvce")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-playerCharacter = NodePath("..")
 character = NodePath("../RightCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
@@ -317,7 +313,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_08p4k")
 script = ExtResource("4_08p4k")
 
-[node name="LeftCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+[node name="LeftCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(-86, -30)
 collision_layer = 2
@@ -327,6 +323,7 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+_rope = NodePath("../LeftRope")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
 emitting = false
@@ -349,7 +346,7 @@ speed_scale = 1.5
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="RightCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+[node name="RightCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -30)
 collision_layer = 2
@@ -359,6 +356,8 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+_suffix = "R"
+_rope = NodePath("../RightRope")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
 emitting = false
