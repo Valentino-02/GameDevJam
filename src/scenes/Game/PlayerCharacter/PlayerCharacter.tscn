@@ -1,15 +1,65 @@
-[gd_scene load_steps=22 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=42 format=3 uid="uid://1p2m5d3jdn6i"]
 
-[ext_resource type="Script" uid="uid://bjk7a81qq8hfu" path="res://src/scenes/Game/PlayerCharacter/Player.gd" id="1_47p5e"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
+[ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
 [ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_emnkp"]
+[ext_resource type="Script" uid="uid://l7s071hn7h47" path="res://src/scenes/Game/PlayerCharacter/RopeParticles.gd" id="4_08p4k"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="5_s41jm"]
+[ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
+[ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="7_j2hj5"]
 [ext_resource type="Texture2D" uid="uid://djhriutvg3jms" path="res://assets/images/playerCharacters/Platform1.png" id="9_j2hj5"]
+[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
+[ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
+[ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hu46i"]
+size = Vector2(100, 20)
+
+[sub_resource type="Curve" id="Curve_j0y4q"]
+_limits = [0.0, 1.0, 0.0, 4.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
+curve = SubResource("Curve_j0y4q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08p4k"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 20.0
+linear_accel_max = 20.0
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_qgvce")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
+size = Vector2(100, 20)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vt20b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 15, 1)
+angle_min = 45.0
+angle_max = 45.0
+direction = Vector3(0, 1, 0)
+spread = 120.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 120, 0)
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_qgvce")
+color = Color(0.262745, 0.87451, 0.996078, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.03
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
 atlas = ExtResource("3_emnkp")
@@ -78,37 +128,185 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 6.0
 
+[sub_resource type="Curve" id="Curve_08p4k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.525547, 0.727642), -1.11382, -1.11382, 0, 0, Vector2(1, 0.223577), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j0y4q"]
+curve = SubResource("Curve_08p4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aou6w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 18, 1)
+angle_min = 45.0
+angle_max = 45.0
+direction = Vector3(0, -1, 0)
+spread = 56.386
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+gravity = Vector3(0, -50, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_qgvce")
+color = Color(1, 0.168627, 0.396078, 1)
+alpha_curve = SubResource("CurveTexture_j0y4q")
+hue_variation_min = -0.08
+hue_variation_max = 0.2
+turbulence_enabled = true
+turbulence_noise_scale = 2.08
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
 
-[node name="PlayerCharacter" type="Node2D"]
-script = ExtResource("1_47p5e")
+[sub_resource type="Animation" id="Animation_vt20b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.309]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.309]
+}
 
-[node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+[sub_resource type="Animation" id="Animation_aou6w"]
+resource_name = "closeDoors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.309, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.309, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qgvce"]
+resource_name = "openDoors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.309]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.309]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aou6w"]
+_data = {
+&"RESET": SubResource("Animation_vt20b"),
+&"closeDoors": SubResource("Animation_aou6w"),
+&"openDoors": SubResource("Animation_qgvce")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uxgq5"]
+polygon = PackedVector2Array(-97, 10, -98, -6, 97, -7, 98, 10)
+
+[node name="PlayerCharacter" type="Node2D"]
+
+[node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
+z_index = -2
 texture_repeat = 2
-width = 20.0
-texture = ExtResource("2_uxgq5")
+width = 3.0
+texture = ExtResource("2_j0y4q")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-playerCharacter = NodePath("..")
 character = NodePath("../LeftCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
 
-[node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("playerCharacter", "character", "platform", "platform_attachement")]
+[node name="ParticleMask" type="Sprite2D" parent="LeftRope"]
+clip_children = 1
+texture = SubResource("PlaceholderTexture2D_hu46i")
+centered = false
+offset = Vector2(0, -10)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LeftRope/ParticleMask"]
+emitting = false
+amount = 10
+texture = ExtResource("2_uxgq5")
+lifetime = 5.0
+visibility_rect = Rect2(0, -10, 200, 20)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_08p4k")
+script = ExtResource("4_08p4k")
+
+[node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
 texture_repeat = 2
-width = 20.0
-texture = ExtResource("4_uxgq5")
+width = 3.0
+texture = ExtResource("6_qgvce")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-playerCharacter = NodePath("..")
 character = NodePath("../RightCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
 
-[node name="LeftCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+[node name="ParticleMask" type="Sprite2D" parent="RightRope"]
+clip_children = 1
+texture = SubResource("PlaceholderTexture2D_j0y4q")
+centered = false
+offset = Vector2(0, -10)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="RightRope/ParticleMask"]
+emitting = false
+amount = 10
+texture = ExtResource("4_uxgq5")
+lifetime = 5.0
+visibility_rect = Rect2(0, -10, 200, 20)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_08p4k")
+script = ExtResource("4_08p4k")
+
+[node name="LeftCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(-86, -30)
 collision_layer = 2
@@ -118,6 +316,13 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+_rope = NodePath("../LeftRope")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
+emitting = false
+amount = 20
+texture = ExtResource("6_08p4k")
+process_material = SubResource("ParticleProcessMaterial_vt20b")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftCharacter"]
 texture = ExtResource("5_s41jm")
@@ -134,7 +339,7 @@ speed_scale = 1.5
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="RightCharacter" type="RigidBody2D" parent="." groups=["Player"]]
+[node name="RightCharacter" type="RigidBody2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -30)
 collision_layer = 4
@@ -144,6 +349,15 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+_suffix = "R"
+_rope = NodePath("../RightRope")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
+emitting = false
+amount = 25
+texture = ExtResource("6_08p4k")
+lifetime = 1.2
+process_material = SubResource("ParticleProcessMaterial_aou6w")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
 texture = ExtResource("7_j2hj5")
@@ -174,6 +388,25 @@ script = ExtResource("3_ct1ul")
 texture = ExtResource("9_j2hj5")
 region_rect = Rect2(144, 36, 55, 18)
 
+[node name="AnimatedPlatform" type="Node2D" parent="Platform"]
+visible = false
+
+[node name="RightPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
+position = Vector2(98, 0)
+rotation = -1.309
+texture = ExtResource("14_aou6w")
+centered = false
+offset = Vector2(-101, -8.5)
+region_rect = Rect2(98, 0, 98, 17)
+
+[node name="LeftPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
+position = Vector2(-97, 0)
+rotation = 1.309
+texture = ExtResource("15_hu46i")
+centered = false
+offset = Vector2(0, -8.5)
+region_rect = Rect2(0, 0, 98, 17)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource("RectangleShape2D_pv250")
 
@@ -182,3 +415,28 @@ position = Vector2(-91, -5)
 
 [node name="Right Attachment" type="Node2D" parent="Platform"]
 position = Vector2(89, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_aou6w")
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_uxgq5")
+occluder_light_mask = 0
+
+[node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(-85, -13)
+
+[node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(-39, -9)
+
+[node name="SplashParticles3" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(0, -11)
+
+[node name="SplashParticles4" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(45, -10)
+
+[node name="SplashParticles5" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(92, -9)
