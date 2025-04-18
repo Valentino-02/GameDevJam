@@ -318,6 +318,7 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+minFlySpeed = 200.0
 _rope = NodePath("../LeftRope")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
@@ -351,6 +352,7 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+minFlySpeed = 200.0
 _suffix = "R"
 _rope = NodePath("../RightRope")
 

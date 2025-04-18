@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0gml0mqtgy43"]
+
+[ext_resource type="Script" uid="uid://c14tkt1rkupp0" path="res://src/scenes/Game/Components/PatienceHazards/PatienceHazards.gd" id="1_h3ukm"]
+
+[node name="PatienceHazards" type="Node2D"]
+script = ExtResource("1_h3ukm")

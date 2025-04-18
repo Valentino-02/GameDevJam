@@ -20,7 +20,7 @@ scale_max = 0.7
 
 [node name="SplashParticles" type="Area2D"]
 collision_layer = 32
-collision_mask = 0
+collision_mask = 32
 script = ExtResource("1_1yfuu")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
