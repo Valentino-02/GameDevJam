@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcp1acwb278w1"]
+
+[ext_resource type="Script" uid="uid://bwtb1jvuuy63" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.gd" id="1_12i4d"]
+[ext_resource type="Texture2D" uid="uid://d4j4hrb7yusyq" path="res://addons/phantom_camera/icons/phantom_camera_updater_panel_icon.svg" id="2_4hjjb"]
+[ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="3_kaqv7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kaqv7"]
+friction = 0.0
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqv7"]
+size = Vector2(120, 344)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kaqv7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 4, 0)
+angle_min = -15.0
+angle_max = 15.0
+spread = 94.88
+gravity = Vector3(0, 300, 0)
+collision_mode = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nbk4r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 6, 1)
+angle_min = -15.0
+angle_max = 15.0
+spread = 90.542
+gravity = Vector3(0, 300, 0)
+scale_min = 0.4
+scale_max = 0.9
+
+[node name="RainCloud" type="Node2D"]
+script = ExtResource("1_12i4d")
+slippery_material = SubResource("PhysicsMaterial_kaqv7")
+
+[node name="RainHitBox" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RainHitBox"]
+position = Vector2(2, 163)
+shape = SubResource("RectangleShape2D_kaqv7")
+
+[node name="RainEmitterPlayer" type="GPUParticles2D" parent="."]
+position = Vector2(1, -2)
+amount = 30
+texture = ExtResource("3_kaqv7")
+lifetime = 1.5
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_kaqv7")
+
+[node name="RainEmitterBehind" type="GPUParticles2D" parent="."]
+position = Vector2(1, 6)
+amount = 30
+texture = ExtResource("3_kaqv7")
+lifetime = 1.5
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_nbk4r")
+
+[node name="CloudSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(10.875, 2.8125)
+texture = ExtResource("2_4hjjb")
+
+[node name="RainSFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 4
+visible = false
+
+[connection signal="body_entered" from="RainHitBox" to="." method="_onRainEntered"]
+[connection signal="body_exited" from="RainHitBox" to="." method="_onRainLeft"]
