@@ -123,6 +123,9 @@ Interact={
 2d_physics/layer_3="RedPlayer"
 2d_physics/layer_4="Platform"
 2d_physics/layer_5="Cargo"
+2d_physics/layer_6="RainVulnerable"
+2d_physics/layer_7="FireballVulnerable"
+2d_physics/layer_8="WindVulnerable"
 
 [physics]
 
