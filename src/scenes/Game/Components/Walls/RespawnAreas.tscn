@@ -11,7 +11,7 @@ normal = Vector2(0, 1)
 script = ExtResource("1_qwace")
 
 [node name="Ceiling" type="Area2D" parent="."]
-position = Vector2(0, -892)
+position = Vector2(0, -750)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
 shape = SubResource("WorldBoundaryShape2D_bqyfw")

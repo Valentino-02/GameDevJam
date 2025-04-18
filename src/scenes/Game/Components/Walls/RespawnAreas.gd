@@ -8,7 +8,9 @@ class_name RespawnAreas extends Node2D
 ##Minimum time for a box to spawn
 @export var min_spawn_frequency: float = 3
 ##How far away from the platform can these boxes spawn
-@export var random_cargo_spawn_range: float = 200
+@export var random_cargo_spawn_range: float = 100
+##How much sway the velocity has for spawning cargo
+@export var platform_velocity_influence_multiplier: float = 2.5
 
 @onready var _ceiling: Area2D = get_node("Ceiling")
 @onready var _timer: Timer = get_node("Timer")
@@ -19,9 +21,7 @@ var cargo_scene: PackedScene = preload("res://src/scenes/Game/Components/Cargo/P
 func SpawnParachuteCrates():
 	var cargo: ParachutedCargo = cargo_scene.instantiate()
 	cargo.respawn = false
-	cargo.global_position = Vector2(platform.global_position.x
-		+ randf_range(-random_cargo_spawn_range, random_cargo_spawn_range),
-		_ceiling.global_position.y)
+	cargo.global_position = await _getSpawnPosition()
 	get_parent().add_child(cargo)
 	await get_tree().physics_frame
 	#need to wait for it to update properly before making the parachute visible?... idk why this fixes it but it does
@@ -37,7 +37,18 @@ func _onFloorBodyEntered(cargo: Node2D):
 	if cargo is ParachutedCargo and cargo.respawn:
 		##Centered on the platform is likely more ideal
 		#var pos : Vector2 = Vector2(body.global_position.x, _ceiling.global_position.y)
-		var pos: Vector2 = Vector2(platform.global_position.x, _ceiling.global_position.y)
+		var pos: Vector2 = await _getSpawnPosition()
 		cargo.queueTeleport(pos, Vector2.ZERO, 0, 0, true)
 	elif cargo is ParachutedCargo and not cargo.respawn:
 		cargo.destroy()
+		
+func _getSpawnPosition() -> Vector2:
+	var loops:int = 0
+	var totalVelocity: Vector2
+	var platformRGBD: RigidBody2D = platform as RigidBody2D
+	while loops < 5:
+		totalVelocity += platformRGBD.linear_velocity
+		await get_tree().create_timer(0.1).timeout
+		loops += 1
+	var averageVelocity: Vector2 = totalVelocity / loops
+	return Vector2(platform.global_position.x + (averageVelocity.x * platform_velocity_influence_multiplier) + randf_range(0,random_cargo_spawn_range), _ceiling.global_position.y)
