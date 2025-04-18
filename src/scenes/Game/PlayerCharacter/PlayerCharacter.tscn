@@ -1,4 +1,5 @@
-[gd_scene load_steps=35 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=36 format=3 uid="uid://1p2m5d3jdn6i"]
+
 
 [ext_resource type="Script" uid="uid://bjk7a81qq8hfu" path="res://src/scenes/Game/PlayerCharacter/Player.gd" id="1_47p5e"]
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
@@ -39,6 +40,9 @@ linear_accel_max = 20.0
 scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_qgvce")
+
+[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
 atlas = ExtResource("3_emnkp")
@@ -109,6 +113,7 @@ radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
+
 
 [sub_resource type="Animation" id="Animation_vt20b"]
 length = 0.001
@@ -197,6 +202,10 @@ _data = {
 &"closeDoors": SubResource("Animation_aou6w"),
 &"openDoors": SubResource("Animation_qgvce")
 }
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uxgq5"]
+polygon = PackedVector2Array(-97, 10, -98, -6, 97, -7, 98, 10)
+
 
 [node name="PlayerCharacter" type="Node2D"]
 script = ExtResource("1_47p5e")
@@ -350,7 +359,27 @@ position = Vector2(-91, -5)
 [node name="Right Attachment" type="Node2D" parent="Platform"]
 position = Vector2(89, -5)
 
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
 libraries = {
 &"": SubResource("AnimationLibrary_aou6w")
 }
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform"]
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_uxgq5")
+occluder_light_mask = 0
+
+[node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(-85, -13)
+
+[node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(-39, -9)
+
+[node name="SplashParticles3" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(0, -11)
+
+[node name="SplashParticles4" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(45, -10)
+
+[node name="SplashParticles5" parent="Platform" instance=ExtResource("11_08p4k")]
+position = Vector2(92, -9)
