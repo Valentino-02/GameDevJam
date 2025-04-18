@@ -113,6 +113,12 @@ Interact={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="cargo"
+2d_physics/layer_2="player"
+2d_physics/layer_3="rain"
+
 [physics]
 
 common/physics_interpolation=true
