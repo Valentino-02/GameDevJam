@@ -49,6 +49,9 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 PlayerPlatform=""
 Cargo=""
 Player=""
+IncludeOnMinimap=""
+CollectionZoneWater=""
+CollectionZoneFire=""
 
 [input]
 
@@ -115,9 +118,11 @@ Interact={
 
 [layer_names]
 
-2d_physics/layer_1="cargo"
-2d_physics/layer_2="player"
-2d_physics/layer_3="rain"
+2d_physics/layer_1="Terrain"
+2d_physics/layer_2="BluePlayer"
+2d_physics/layer_3="RedPlayer"
+2d_physics/layer_4="Platform"
+2d_physics/layer_5="Cargo"
 
 [physics]
 

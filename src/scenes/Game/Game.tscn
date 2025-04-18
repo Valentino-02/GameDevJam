@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=17 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
@@ -97,11 +97,8 @@ position = Vector2(-22, -135)
 position = Vector2(29, -135)
 element = 0
 
-
 [node name="RainCloud" parent="." instance=ExtResource("13_bqyfw")]
 position = Vector2(-286, -337)
-
-[connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 
 [node name="WindObstacle" parent="." instance=ExtResource("14_rr83a")]
 position = Vector2(-241, -218)
