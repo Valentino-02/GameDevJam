@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=16 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvq5wp4h7knq6" path="res://src/scenes/Game/Level/Level.tscn" id="3_2odft"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_h22ok"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="4_m5ppy"]
+[ext_resource type="PackedScene" uid="uid://qhls7itmme5b" path="res://src/scenes/UI/DialogueUI/dialogueUI.tscn" id="5_rr83a"]
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="9_h22ok"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_bqyfw"]
@@ -22,6 +23,7 @@ ease = 2
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g75gr")
+metadata/_edit_vertical_guides_ = [-426.0]
 
 [node name="FogEffect" parent="." instance=ExtResource("1_57sbl")]
 
@@ -50,10 +52,16 @@ color = Color(0.0753173, 5.46434e-06, 0.0753164, 1)
 
 [node name="GameUI" parent="UI" instance=ExtResource("6_hkmll")]
 
+[node name="CutsceneUI" parent="UI" node_paths=PackedStringArray("hideWhileTalking") instance=ExtResource("5_rr83a")]
+process_mode = 3
+visible = false
+hideWhileTalking = [NodePath("../GameUI")]
+
 [node name="PatienceTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+[node name="MainCamera" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+process_mode = 3
 top_level = true
 position = Vector2(5, -131)
 script = ExtResource("1_v38yi")
@@ -66,6 +74,7 @@ draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 physics_interpolation_mode = 1
 position = Vector2(5, -131)
 process_callback = 0
@@ -78,7 +87,7 @@ script = ExtResource("3_h22ok")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="BoundaryWalls" parent="." node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_bqyfw")]
-phantom_camera = NodePath("../PhantomCamera2D")
+phantom_camera = NodePath("../MainCamera")
 
 [node name="RespawnAreas" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("13_rr83a")]
 platform = NodePath("../PlayerCharacter/Platform")
@@ -95,9 +104,10 @@ position = Vector2(-22, -135)
 position = Vector2(29, -135)
 element = 0
 
-[connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 [node name="WindObstacle" parent="." instance=ExtResource("14_rr83a")]
 position = Vector2(-241, -218)
 blastDuration = 3.0
+
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 
 [editable path="PlayerCharacter"]

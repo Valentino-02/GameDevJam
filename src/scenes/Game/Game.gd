@@ -6,6 +6,7 @@ var _patienceManager := PatienceManager.new()
 func _ready() -> void:
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)
 	AudioManager.music.play(ResourceIds.MusicId.MainTheme)
+	CutsceneManager.sceneLoaded.emit()	
 
 
 func _onZoneGotCargo(zone: Types.Zone) -> void:
