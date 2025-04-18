@@ -118,13 +118,11 @@ Interact={
 
 [layer_names]
 
-
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="BluePlayer"
 2d_physics/layer_3="RedPlayer"
 2d_physics/layer_4="Platform"
 2d_physics/layer_5="Cargo"
-
 
 [physics]
 
