@@ -16,7 +16,6 @@ class_name Rope extends Line2D
 @export var platform: RigidBody2D
 @export var platform_attachement : Node2D
 
-
 func _physics_process(_delta):
 	var a_pos = character.global_position
 	var b_pos = platform_attachement.global_position
