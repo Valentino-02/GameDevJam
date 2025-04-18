@@ -95,12 +95,14 @@ position = Vector2(-22, -135)
 position = Vector2(29, -135)
 element = 0
 
+
 [node name="RainCloud" parent="." instance=ExtResource("13_bqyfw")]
 position = Vector2(-286, -337)
 
 [node name="WindObstacle" parent="." instance=ExtResource("14_rr83a")]
 position = Vector2(-241, -218)
 blastDuration = 3.0
+
 
 [node name="Launcher" parent="." instance=ExtResource("14_x2im0")]
 position = Vector2(521, -135)
