@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://djhriutvg3jms" path="res://assets/images/playerCharacters/Platform1.png" id="9_j2hj5"]
 [ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
 [ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
+[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
 size = Vector2(100, 20)
@@ -40,9 +41,6 @@ linear_accel_max = 20.0
 scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_qgvce")
-
-[ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
-
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
 atlas = ExtResource("3_emnkp")
