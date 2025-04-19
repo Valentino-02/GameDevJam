@@ -1,7 +1,7 @@
 extends Node
 
-@onready var dialogueDisplay: DialogueDisplay = get_node("/root/Game/UI/CutsceneUI")
-@onready var playerCamera: PhantomCamera2D = get_node("/root/Game/MainCamera")
+var dialogueDisplay: DialogueDisplay
+var playerCamera: PhantomCamera2D
 
 var currentCutscene: Cutscene
 var currentCamera: PhantomCamera2D
@@ -11,6 +11,8 @@ var cutsceneCameras: Dictionary[StringName, PhantomCamera2D]
 signal sceneLoaded
 	
 func PlayCutscene(cutscene: Cutscene) -> void:
+	playerCamera = get_node_or_null("/root/Game/MainCamera")
+	dialogueDisplay  = get_node_or_null("/root/Game/UI/CutsceneUI")
 	get_tree().paused = true
 	dialogueDisplay.Declutter(true)
 	currentCutscene = cutscene

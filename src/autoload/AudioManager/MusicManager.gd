@@ -36,10 +36,12 @@ func fadeIn(duration := 1.5) -> void:
 	var targetVolume = _player.volume_db
 	_player.volume_db = Settings.MIN_VOLUME
 	var tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(_player, "volume_db", targetVolume, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func fadeOut(duration := 1.5) -> Tween:
 	var tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(_player, "volume_db", Settings.MIN_VOLUME, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	return tween
 
