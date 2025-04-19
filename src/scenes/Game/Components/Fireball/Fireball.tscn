@@ -44,11 +44,11 @@ collision_mask = 64
 mass = 25.0
 gravity_scale = 0.05
 center_of_mass_mode = 1
-center_of_mass = Vector2(0, -4)
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_y0wbd")
+strength_fall_off_power = 3
 
 [node name="FireballSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 7)
@@ -77,7 +77,6 @@ max_results = 100
 collision_mask = 64
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 enabled = false
 collision_mask = 64
 

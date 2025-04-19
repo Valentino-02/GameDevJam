@@ -110,9 +110,9 @@ position = Vector2(521, -135)
 rotation = -1.5708
 force_pattern = Array[float]([1.0, 0.5, 1.5])
 
-[node name="PatienceHazards" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("8_sq8rx")]
+[node name="PatienceHazards" parent="." node_paths=PackedStringArray("_camera") instance=ExtResource("8_sq8rx")]
 position = Vector2(5, -131)
-camera = NodePath("../Camera2D")
+_camera = NodePath("../Camera2D")
 
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
 

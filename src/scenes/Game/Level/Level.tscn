@@ -59,7 +59,7 @@ texture = ExtResource("1_i6fm4")
 7:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_m5ppy"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 65
 sources/0 = SubResource("TileSetAtlasSource_2odft")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leu6e"]
