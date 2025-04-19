@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://betdxih33prob"
+path="res://.godot/imported/Menu 3.mp3-5071261073c470915d941d7d683fb0c1.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Menu 3.mp3"
+dest_files=["res://.godot/imported/Menu 3.mp3-5071261073c470915d941d7d683fb0c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

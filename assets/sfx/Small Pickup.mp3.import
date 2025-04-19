@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b34lqnjds3g7l"
+path="res://.godot/imported/Small Pickup.mp3-e850043c02a34e9e9cf072175e8e4e65.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Small Pickup.mp3"
+dest_files=["res://.godot/imported/Small Pickup.mp3-e850043c02a34e9e9cf072175e8e4e65.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
