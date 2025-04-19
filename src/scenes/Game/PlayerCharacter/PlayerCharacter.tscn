@@ -353,6 +353,7 @@ angular_damp = 50.0
 script = ExtResource("1_h7irl")
 _suffix = "R"
 _rope = NodePath("../RightRope")
+element = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
 emitting = false
@@ -360,8 +361,6 @@ amount = 25
 texture = ExtResource("6_08p4k")
 lifetime = 1.2
 process_material = SubResource("ParticleProcessMaterial_aou6w")
-element = 1
-
 
 [node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
 texture = ExtResource("7_j2hj5")

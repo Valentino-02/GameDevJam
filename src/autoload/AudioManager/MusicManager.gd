@@ -33,7 +33,6 @@ func play(id: ResourceIds.MusicId, fadeInDuration := 1.5, fromTime := 0.0, activ
 	fadeIn(fadeInDuration, activePlayer, music.volume)
 
 func stop(fadeOutDuration := 1.5, activePlayer := true) -> void:
-	var targetPlayer = _activePlayer if activePlayer else _inactivePlayer
 	var tween = fadeOut(fadeOutDuration, activePlayer)
 	await tween.finished
 
@@ -63,11 +62,8 @@ func disableLowPass(duration := 0.5) -> void:
 
 func crossFadeTo(id: ResourceIds.MusicId, duration := 1.5) -> void:
 	var currentTime := _activePlayer.get_playback_position()
-	var now = Time.get_datetime_dict_from_system()
 	play(id, duration, currentTime, false)
-	now = Time.get_datetime_dict_from_system()
 	await stop(duration)
-	now = Time.get_datetime_dict_from_system()
 	var temp = _activePlayer
 	_activePlayer = _inactivePlayer
 	_inactivePlayer = temp

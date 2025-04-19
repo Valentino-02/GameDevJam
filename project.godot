@@ -26,9 +26,10 @@ RngManager="*res://src/autoload/RngManager/RngManager.gd"
 AudioManager="*res://src/autoload/AudioManager/AudioManager.tscn"
 SignalBus="*res://src/autoload/SignalBus/SignalBus.gd"
 TransitionManager="*res://src/autoload/TransitionManager/TransitionManager.tscn"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 PreloadedResources="*res://src/autoload/PreloadedResources/PreloadedResources.tscn"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://src/autoload/LevelManager/LevelManager.tscn"
+CutsceneManager="*res://src/autoload/CutsceneManager/CutsceneManager.gd"
 
 [display]
 

@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_dcqij"]
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
-[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/Components/ZoneCounterUI.tscn" id="2_fwjtt"]
-[ext_resource type="PackedScene" uid="uid://6dt2pr7ig14l" path="res://src/scenes/UI/Components/GlobalScoreUI.tscn" id="4_b00as"]
-[ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/MinimapUI.tscn" id="5_b00as"]
+[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.tscn" id="2_fwjtt"]
+[ext_resource type="PackedScene" uid="uid://6dt2pr7ig14l" path="res://src/scenes/UI/GameUI/Score/GlobalScoreUI.tscn" id="4_b00as"]
+[ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.tscn" id="5_b00as"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3

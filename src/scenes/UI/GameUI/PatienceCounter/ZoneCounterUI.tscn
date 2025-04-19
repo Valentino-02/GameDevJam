@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://6dt2pr7ig14l"]
+[gd_scene load_steps=2 format=3 uid="uid://rvm2k5e6fiu5"]
 
-[ext_resource type="PackedScene" uid="uid://blkdg22qctjsl" path="res://src/scenes/UI/Components/ScoreUI.tscn" id="1_hvn3x"]
+[ext_resource type="Script" uid="uid://b4jftxhwgjgal" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.gd" id="1_o24to"]
 
-[node name="GlobalScoreUI" type="Control"]
+[node name="ZoneCounter" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+script = ExtResource("1_o24to")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -31,14 +32,19 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="LeftScore" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_hvn3x")]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-title = "Left Score"
+size_flags_vertical = 6
+text = "Left Side Patience"
+horizontal_alignment = 1
 
-[node name="RightScore" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_hvn3x")]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-title = "Right Score"
-zone = 1
+size_flags_vertical = 2
+step = 1.0
+value = 100.0

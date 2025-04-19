@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://browjfmejnq75"]
 
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_dm4fv"]
-[ext_resource type="Script" uid="uid://d1ldso3t8gb4u" path="res://src/scenes/UI/GameUI/MinimapUI.gd" id="2_4bf7a"]
-[ext_resource type="Script" uid="uid://cp6qvjbusct5f" path="res://src/scenes/UI/GameUI/Minimap.gd" id="2_dm4fv"]
+[ext_resource type="Script" uid="uid://d1ldso3t8gb4u" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.gd" id="2_4bf7a"]
+[ext_resource type="Script" uid="uid://cp6qvjbusct5f" path="res://src/scenes/UI/GameUI/Minimap/Minimap.gd" id="2_dm4fv"]
 [ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_2pmc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh0cp"]

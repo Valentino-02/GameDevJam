@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		return
 
 	# Relative velocity
-	var player_vel = character.linear_velocity.dot(direction)
+	var _player_vel = character.linear_velocity.dot(direction)
 	var platform_vel = platform.linear_velocity.dot(-direction)
 
 	#Spring force = kx (spring constant * displacement) - mv (mass * velocity)

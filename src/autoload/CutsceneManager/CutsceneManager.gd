@@ -8,8 +8,9 @@ var currentCamera: PhantomCamera2D
 var currentStoryPoint: StoryPoint
 var cutsceneCameras: Dictionary[StringName, PhantomCamera2D]
 
+@warning_ignore_start("unused_signal")
 signal sceneLoaded
-	
+
 func PlayCutscene(cutscene: Cutscene) -> void:
 	playerCamera = get_node_or_null("/root/Game/MainCamera")
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/CutsceneUI")

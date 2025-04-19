@@ -27,14 +27,12 @@ func _physics_process(_delta: float) -> void:
 
 func setTilemaps(tileMaps: Array[TileMapLayer]) -> void:
 	_tilemaps = tileMaps
-	print (_tilemaps)
 	for map in _tilemaps:
 		for n in map.tile_set.get_source_count():
 			_cellColors[map.tile_set.get_source_id(n)] = terrainColor
 
 func setCamera(camera: Camera2D) -> void:
 	_camera = camera
-	print(_camera)
 
 func _getCells(tilemap: TileMapLayer, id) -> Array[Vector2i]:
 	return tilemap.get_used_cells_by_id(id)
