@@ -1,5 +1,5 @@
 extends Node2D
-enum windDirection{
+enum windDirection {
 	UP,
 	DOWN
 }
@@ -11,9 +11,9 @@ enum windDirection{
 @export var blastDuration: float = 2
 
 ##Multiplier for the heavier platform
-var _platformForce: float: 
-	get: 
-		return force*platformForceModifier
+var _platformForce: float:
+	get:
+		return force * platformForceModifier
 ##Current bodies within collider
 var _bodies: Array[RigidBody2D] = []
 var _direction: Vector2:
@@ -59,7 +59,7 @@ func _addBody(body: Node2D) -> void:
 	if groups.has("Player") || groups.has("PlayerPlatform"):
 		_bodies.append(body)
 
-func _removeBody(body:Node2D) -> void:
+func _removeBody(body: Node2D) -> void:
 	var groups: Array[StringName] = body.get_groups()
 	if (groups.has("Player") || groups.has("PlayerPlatform")) && _bodies.has(body):
 		_bodies.erase(body)
@@ -68,7 +68,7 @@ func _physics_process(_delta: float) -> void:
 	if !_active: return
 	for body in _bodies:
 		var selectedForce = force if body.get_groups().has("Player") else _platformForce
-		body.apply_force(_direction*selectedForce, activeParticles.position)
+		body.apply_force(_direction * selectedForce, activeParticles.position)
 
 func _changeParticleSpeed(speed: float) -> void:
 	var targetVelocity = activeParticles.process_material.get("initial_velocity")

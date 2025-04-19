@@ -13,7 +13,7 @@ func _ready() -> void:
 	activeParticle = _waterParticle if dangerType == Types.Element.Water else _fireParticle
 	activeParticle.show()
 	print(_rect.size.x)
-	activeParticle.process_material.set("emission_box_extents", Vector2(_rect.size.x/2,1))
+	activeParticle.process_material.set("emission_box_extents", Vector2(_rect.size.x / 2, 1))
 	activeParticle.emitting = true
 	
 func _checkDiffuseHazard(collisionPoint: Vector2, cargo: Cargo) -> void:
@@ -28,7 +28,7 @@ func _checkDiffuseHazard(collisionPoint: Vector2, cargo: Cargo) -> void:
 			_:
 				return
 				
-func _diffuse(cargo:Cargo) -> void:
+func _diffuse(cargo: Cargo) -> void:
 	cargo.destroy()
 	SignalBus.hazardFixed.emit(cargo.element)
 	queue_free()

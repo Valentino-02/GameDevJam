@@ -1,20 +1,16 @@
-extends Control
+class_name Minimap extends Control
 
 @export var terrainColor: Color
 @export var zoom: float = 1.0
-
-##Using the in-built groups as keys, and the color for icon on the minimap
 @export var poiGroups: Dictionary[StringName, Color]
 
-@onready var level: Node2D = get_node("/root/Game/Level")
-@onready var camera  = get_node("/root/Game/Camera2D")
-
 var _tilemaps: Array[TileMapLayer] = []
-var _pointsOfInterest: Dictionary[Node, Color] = {}
 var _cellColors: Dictionary[int, Color]
+var _refreshRate: float = 0.05
+var _timer: float = 0
+var _camera: Camera2D
+var _pointsOfInterest: Dictionary[Node, Color] = {}
 
-var _refreshRate:float = 0.05
-var _timer: float      = 0
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("IncludeOnMinimap"):
@@ -22,22 +18,33 @@ func _ready() -> void:
 			if poiGroups.keys().has(group):
 				_pointsOfInterest[node] = poiGroups[group]
 				break
-	for child in level.get_children():
-		if child is TileMapLayer:
-			_tilemaps.append(child)
+			
+func _physics_process(_delta: float) -> void:
+	if _timer < _refreshRate:
+		_timer += _delta
+		if _timer >= _refreshRate:
+			_timer = 0
+			queue_redraw()
+
+
+func setTilemaps(tileMaps: Array[TileMapLayer]) -> void:
+	_tilemaps = tileMaps
 	for map in _tilemaps:
 		for n in map.tile_set.get_source_count():
 			_cellColors[map.tile_set.get_source_id(n)] = terrainColor
-			
-func _get_cells(tilemap : TileMapLayer, id) -> Array[Vector2i]:
+
+func setCamera(camera: Camera2D) -> void:
+	_camera = camera
+
+func _getCells(tilemap: TileMapLayer, id) -> Array[Vector2i]:
 	return tilemap.get_used_cells_by_id(id)
 
 func _draw() -> void:
 	draw_set_transform(size / 2, 0, Vector2.ONE)
 	var first_draw = true
-	var cameraPosition = camera.get_screen_center_position()
+	var cameraPosition = _camera.get_screen_center_position()
 	for tilemap in _tilemaps:
-		var cameraCell: Vector2i    = tilemap.local_to_map(tilemap.to_local(cameraPosition))
+		var cameraCell: Vector2i = tilemap.local_to_map(tilemap.to_local(cameraPosition))
 		var tilemapOffset: Vector2i = (Vector2i(cameraPosition) - tilemap.local_to_map(cameraCell)) / tilemap.tile_set.tile_size
 		
 		for id in _cellColors.keys():
@@ -51,14 +58,4 @@ func _draw() -> void:
 			for poi in _pointsOfInterest.keys():
 				var color = _pointsOfInterest[poi]
 				var _pos = poi.position
-				draw_circle((tilemap.local_to_map(Vector2i(_pos))- tilemapOffset)*zoom, zoom*12, color)
-			
-			
-	
-
-func _physics_process(_delta: float) -> void:
-	if _timer < _refreshRate:
-		_timer += _delta
-		if _timer >= _refreshRate:
-			_timer = 0
-			queue_redraw()
+				draw_circle((tilemap.local_to_map(Vector2i(_pos)) - tilemapOffset) * zoom, zoom * 12, color)

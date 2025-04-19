@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sk5h1fd5rhu0"
+path="res://.godot/imported/Cloud Level MP3.mp3-45b6aabde1fee53d5ea8d665799b8c28.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Cloud Level MP3.mp3"
+dest_files=["res://.godot/imported/Cloud Level MP3.mp3-45b6aabde1fee53d5ea8d665799b8c28.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
