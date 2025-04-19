@@ -18,11 +18,13 @@ packedScene = ExtResource("4_v8k3q")
 metadata/_custom_type_script = "uid://dy33j80mrqpiq"
 
 [node name="TransitionManager" type="CanvasLayer"]
+process_mode = 3
 layer = 99
 script = ExtResource("1_druks")
 sceneList = Array[ExtResource("2_rumwn")]([SubResource("Resource_qxlt1"), SubResource("Resource_oenk3")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0

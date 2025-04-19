@@ -24,9 +24,11 @@ func changeToScene(id: ResourceIds.SceneId) -> void:
 
 func _transitionIn() -> void:
 	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(_colorRect, "modulate:a", 1.0, _transitionTime / 2.0)
 	await tween.finished
 
 func _transitionOut() -> void:
 	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(_colorRect, "modulate:a", 0.0, _transitionTime / 2.0)

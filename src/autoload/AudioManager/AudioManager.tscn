@@ -35,14 +35,17 @@ limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_7j23j")
 
 [node name="MusicManager" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 script = ExtResource("2_ge8yv")
 musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+process_mode = 3
 
 [node name="SfxManager" type="Node2D" parent="."]
 unique_name_in_owner = true
