@@ -34,6 +34,7 @@ CutsceneManager="*res://src/scenes/Game/Level/CutScenes/CutsceneManager.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -49,6 +50,9 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 PlayerPlatform=""
 Cargo=""
 Player=""
+IncludeOnMinimap=""
+CollectionZoneWater=""
+CollectionZoneFire=""
 
 [input]
 
@@ -120,6 +124,9 @@ Interact={
 2d_physics/layer_3="RedPlayer"
 2d_physics/layer_4="Platform"
 2d_physics/layer_5="Cargo"
+2d_physics/layer_6="RainVulnerable"
+2d_physics/layer_7="FireballVulnerable"
+2d_physics/layer_8="WindVulnerable"
 
 [physics]
 

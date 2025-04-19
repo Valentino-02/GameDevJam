@@ -9,6 +9,7 @@ var _element: Types.Element = Types.Element.Null
 
 
 func _ready() -> void:
+	body_entered.connect(_bodyEntered)
 	if _element == Types.Element.Null:
 		_element = element
 	if _element == Types.Element.Fire:
@@ -28,3 +29,7 @@ func destroy() -> void:
 	_particles.restart()
 	await _particles.finished
 	queue_free()
+	
+func _bodyEntered(node2d: Node2D) -> void:
+	if node2d is TileMapLayer:
+		SignalBus.cargoDroppedOnSurface.emit(global_position,self)
