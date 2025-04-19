@@ -1,6 +1,6 @@
-# My Game Title
+# Elemental Delivery
 
-*Brief description of the game.*
+*In Elemental Delivery you play the role of 2 ancients spirits in their quest to restore balance!.*
 
 This open source project was created for the [GameDev.js](https://itch.io/jam/gamedevjs-2025) game jam using **Godot 4.4**.
 
