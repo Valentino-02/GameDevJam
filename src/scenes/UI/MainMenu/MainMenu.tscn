@@ -46,6 +46,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Test Level"
 
+[node name="Level1GameButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level 1 ???"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
@@ -62,3 +67,4 @@ type = 1
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/TutorialGameButton" to="." method="_on_tutorial_game_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/TestGameButton" to="." method="_on_test_game_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Level1GameButton" to="." method="_on_level_1_game_button_pressed"]

@@ -116,10 +116,10 @@ zone = 1
 [node name="CargoDropper" parent="Layout" instance=ExtResource("3_7fp2p")]
 position = Vector2(0, -226)
 
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_xb0jl")]
+phantom_camera = NodePath("../../PhantomCamera2D")
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("7_y71yj")]
 position = Vector2(0, -66)
-
-[node name="BoundaryWalls" parent="." node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_xb0jl")]
-phantom_camera = NodePath("../PhantomCamera2D")
 
 [editable path="PlayerCharacter"]

@@ -144,6 +144,7 @@ linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 50.0
 script = ExtResource("1_h7irl")
+element = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
 texture = ExtResource("7_j2hj5")
