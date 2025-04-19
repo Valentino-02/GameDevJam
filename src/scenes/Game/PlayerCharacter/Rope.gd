@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		return
 
 	# Relative velocity
-	var _player_vel = character.linear_velocity.dot(direction)
+	#var _player_vel = character.linear_velocity.dot(direction)
 	var platform_vel = platform.linear_velocity.dot(-direction)
 
 	#Spring force = kx (spring constant * displacement) - mv (mass * velocity)
@@ -44,15 +44,15 @@ func _physics_process(_delta):
 	var platform_force : Vector2 = -direction * (kx - mv)
 	platform_force = platform_force.limit_length(maxForce * platform.mass)
 	# calculate for player
-	kx = playerSpringStrength * displacement
+	#kx = playerSpringStrength * displacement
 	#mv  = _calculateCriticalDampening(character.mass, playerSpringStrength) * player_vel
-	var player_force : Vector2 = direction * kx #- mv)
-	player_force = player_force.limit_length(maxForce * character.mass)
+	#var player_force : Vector2 = direction * kx #- mv)
+	#player_force = player_force.limit_length(maxForce * character.mass)
 	#Reduce gravity only if we are close
-	if displacement < springLength * maxStretchPercent:
-		player_force += (-1 + playerGravityCoefficient) * Character.getComponentAlongDirection(player_force, direction)
+	#if displacement < springLength * maxStretchPercent:
+	#	player_force += (-1 + playerGravityCoefficient) * Character.getComponentAlongDirection(player_force, direction)
 	
-	character.apply_force(player_force)
+	#character.apply_force(player_force)
 	platform.apply_force(platform_force, platform_attachement.global_position - platform.global_position)
 
 
