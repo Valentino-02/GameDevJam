@@ -14,6 +14,7 @@ enum triggerType {
 
 ##Dialogue points to use
 @export var storyPoints: Array[StoryPoint] = []
+
 ##Cameras to use for each story point
 @export var useableCameras: Dictionary[StringName, PhantomCamera2D] = {}
 var triggerZone: Area2D
@@ -22,7 +23,7 @@ var triggerZone: Area2D
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	triggerZone = get_node_or_null("Area2D")
-	await CutsceneManager.sceneLoaded
+	await SignalBus.levelLoaded
 	if type == triggerType.TRIGGER_ON_READY:
 		_triggerCutscene()
 	elif type == triggerType.TRIGGER_ON_ZONE:
