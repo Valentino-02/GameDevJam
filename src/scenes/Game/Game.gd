@@ -19,6 +19,8 @@ func _ready() -> void:
 func _loadLevel() -> void:
 	var level: Level = LevelManager.getTargetLevel().instantiate()
 	_scoreManager.setMaxScore(level.maxScore)
+	_patienceManager.setPatienceLoss(level.patienceLossPerSecond)
+	_patienceManager.setCargoPatienceGain(level.cargoPatienceGain)
 	add_child(level)
 	await get_tree().process_frame
 	_gameUI.setMinimapCamera(level.camera)
