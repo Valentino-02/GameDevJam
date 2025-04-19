@@ -32,4 +32,8 @@ func destroy() -> void:
 	
 func _bodyEntered(node2d: Node2D) -> void:
 	if node2d is TileMapLayer:
-		SignalBus.cargoDroppedOnSurface.emit(global_position,self)
+		SignalBus.cargoDroppedOnSurface.emit(global_position, self)
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		destroy()

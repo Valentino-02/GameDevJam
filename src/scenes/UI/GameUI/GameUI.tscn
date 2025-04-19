@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blqjsj4wbhr8u"]
+[gd_scene load_steps=6 format=3 uid="uid://blqjsj4wbhr8u"]
 
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_dcqij"]
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
-[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/Components/ZoneCounterUI.tscn" id="2_fwjtt"]
-[ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/MinimapPanel.tscn" id="4_fn6i8"]
+[ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.tscn" id="2_fwjtt"]
+[ext_resource type="PackedScene" uid="uid://6dt2pr7ig14l" path="res://src/scenes/UI/GameUI/Score/GlobalScoreUI.tscn" id="4_b00as"]
+[ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.tscn" id="5_b00as"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_dcqij")
 script = ExtResource("2_elwfl")
 
@@ -29,6 +31,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
 
 [node name="TopUI" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -47,24 +51,8 @@ alignment = 1
 [node name="LeftZoneCounter" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("2_fwjtt")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer"]
+[node name="GlobalScore" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("4_b00as")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -18.5
-offset_right = 35.0
-offset_bottom = 18.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Reset!"
 
 [node name="RightZoneCounter" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("2_fwjtt")]
 layout_mode = 2
@@ -82,19 +70,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
+size_flags_horizontal = 3
 
-[node name="MinimapPanel" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/MarginContainer" instance=ExtResource("4_fn6i8")]
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control"]
+layout_mode = 1
+offset_right = 70.0
+offset_bottom = 37.0
+text = "Reset!"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MinimapUI" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control3" instance=ExtResource("5_b00as")]
+unique_name_in_owner = true
+layout_mode = 0
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 5.14
+size_flags_stretch_ratio = 8.0
+mouse_filter = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TopUI/HBoxContainer/Control/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control/ResetButton" to="." method="_on_reset_button_pressed"]

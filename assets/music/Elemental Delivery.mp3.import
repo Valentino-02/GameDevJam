@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2eycwb263uwo"
+path="res://.godot/imported/Elemental Delivery.mp3-f0fb83f54c0f32545cc035dd600af15c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Elemental Delivery.mp3"
+dest_files=["res://.godot/imported/Elemental Delivery.mp3-f0fb83f54c0f32545cc035dd600af15c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

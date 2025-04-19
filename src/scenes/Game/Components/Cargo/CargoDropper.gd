@@ -3,6 +3,7 @@ class_name CargoDropper extends Node2D
 @export var cooldownTicks : int = 8
 @export var tickDuration : float = 0.1
 @export var cargoScene : PackedScene
+@export var element : Types.Element 
 
 @onready var _cooldownTimer : Timer = %CooldownTimer
 @onready var _progressBar : ProgressBar = %ProgressBar
@@ -39,7 +40,7 @@ func _triggerDrop() -> void:
 
 func _spawnCargo() -> void:
 	var cargo : Cargo = cargoScene.instantiate()
-	cargo.setElement(Types.Element.Fire if randi_range(0,1) else Types.Element.Water) ## Momentary line meant to be deleted later
+	cargo.setElement(Types.Element.Fire if element == Types.Element.Fire else Types.Element.Water) 
 	cargo.position.y = _spawnMarker.position.y
 	var distribution = abs(_distributionMarker.position.x)
 	cargo.position.x = _spawnMarker.position.x + randf_range(-distribution, distribution)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbkst5uw7dljy"]
+
+[ext_resource type="Script" uid="uid://dxt8ai008qttx" path="res://src/scenes/Game/Components/Zones/ZoneArea.gd" id="1_ql8oo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnptk"]
+resource_local_to_scene = true
+size = Vector2(400, 800)
+
+[node name="ZoneAerea" type="Area2D"]
+collision_mask = 7
+script = ExtResource("1_ql8oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xnptk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

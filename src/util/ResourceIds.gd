@@ -10,6 +10,14 @@ enum SfxId {
 }
 
 enum MusicId {
-	MainTheme,
+	FireTheme,
+	WindTheme,
+	WaterTheme,
 	MainMenuTheme
+}
+
+enum LevelId {
+	Tutorial,
+	Test,
+	Level1
 }

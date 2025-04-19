@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u1siydat4u3p"
+path="res://.godot/imported/Water Level MP3.mp3-749818e4435f9518dfe826b70e30eaf6.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Water Level MP3.mp3"
+dest_files=["res://.godot/imported/Water Level MP3.mp3-749818e4435f9518dfe826b70e30eaf6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

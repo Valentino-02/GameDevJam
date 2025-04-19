@@ -39,7 +39,7 @@ func _closeDialogue() -> void:
 	dialogueComplete.emit()
 	interrupted = false
 	
-func Declutter(hide: bool) -> void:
+func Declutter(shouldHide: bool) -> void:
 	for node: Node in hideWhileTalking:
-		node.visible = !hide
+		node.visible = !shouldHide
 			
