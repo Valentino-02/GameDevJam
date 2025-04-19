@@ -3,7 +3,6 @@ class_name Game extends Node2D
 @onready var _gameUI: GameUI = %GameUI
 @onready var _backgroundTextureRect = %BackgroundTextureRect
 
-
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
 
@@ -13,8 +12,7 @@ func _ready() -> void:
 	_loadLevel()
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)
 	SignalBus.hazardFixed.connect(_onHazardFix)
-	AudioManager.music.play(ResourceIds.MusicId.MainTheme)
-	CutsceneManager.sceneLoaded.emit()
+	#CutsceneManager.sceneLoaded.emit()
 	SignalBus.playerEnteredZone.connect(_onPlayerEnteredZone)
 
 
@@ -24,10 +22,7 @@ func _loadLevel() -> void:
 	add_child(level)
 	await get_tree().process_frame
 	_gameUI.setMinimapCamera(level.camera)
-	var tilemaps: Array[TileMapLayer] = []
-	tilemaps.append(level.tileMapLayer)
-	_gameUI.setMinimapTilemaps(tilemaps)
-	
+	_gameUI.setMinimapTilemaps([level.tileMapLayer])
 
 func _onZoneGotCargo(zone: Types.Zone) -> void:
 	_patienceManager.gainPatience(zone)
@@ -36,11 +31,9 @@ func _onZoneGotCargo(zone: Types.Zone) -> void:
 func _on_timer_timeout() -> void:
 	_patienceManager.triggerPatienceLoss()
 
-	
 func _onHazardFix(hazard: Types.Element) -> void:
 	var zone = Types.Zone.Left if hazard == Types.Element.Water else Types.Zone.Right
 	_patienceManager.gainPatience(zone)
-
 
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 	var target_color: Color

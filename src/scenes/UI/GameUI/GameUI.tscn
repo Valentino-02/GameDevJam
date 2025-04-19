@@ -103,5 +103,3 @@ size_flags_stretch_ratio = 8.0
 mouse_filter = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control/ResetButton" to="." method="_on_reset_button_pressed"]
-
-[editable path="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control3/MinimapUI"]

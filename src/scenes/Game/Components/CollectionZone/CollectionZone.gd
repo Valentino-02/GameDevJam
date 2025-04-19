@@ -10,7 +10,6 @@ func _ready() -> void:
 	if neededElement == Types.Element.Fire:
 		modulate = Color("3c3bdc")
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_groups().has("Cargo"):
 		var cargo: Cargo = body as Cargo

@@ -19,14 +19,8 @@ script = ExtResource("2_4bf7a")
 [node name="Minimap" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-
-script = ExtResource("2_neko6")
-terrainColor = Color(0.812174, 0.657591, 1.54018e-06, 1)
-zoom = 0.6
-poiGroups = Dictionary[StringName, Color]({
-&"CollectionZoneFire": Color(0.863141, 0.348385, 0.207967, 1),
-&"CollectionZoneWater": Color(0.0529953, 0.598241, 0.682585, 1)
-})
+script = ExtResource("2_dm4fv")
+terrainColor = Color(0.819608, 0.819608, 0.0941176, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
