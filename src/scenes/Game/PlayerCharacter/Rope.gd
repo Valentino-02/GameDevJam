@@ -4,11 +4,6 @@ class_name Rope extends Line2D
 @export var springLength: float = 150.0
 ##How hard the string pulls the platform towards the player
 @export var platformSpringStrength: float = 5000
-##Player Spring Strength
-@export var playerSpringStrength : float = 600
-##How much of the platform's gravity is transfered to the player
-@export var playerGravityCoefficient : float = 0.1
-##This is to prevent the platform overshooting due to the iterative nature of game physics. An unintended (beneficial?) consequence is that it acts as a weight limit
 @export var maxForce : float = 10000
 @export var maxStretchPercent : float = 0.1
 @export var character: Character

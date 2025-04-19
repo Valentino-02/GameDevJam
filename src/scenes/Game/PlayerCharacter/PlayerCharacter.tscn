@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=43 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -155,6 +155,11 @@ hue_variation_max = 0.2
 turbulence_enabled = true
 turbulence_noise_scale = 2.08
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hu46i"]
+rough = true
+bounce = 1.0
+absorbent = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
 
@@ -266,6 +271,9 @@ texture = ExtResource("2_j0y4q")
 texture_mode = 1
 script = ExtResource("4_emnkp")
 springLength = 175.0
+platformSpringStrength = 500.0
+playerSpringStrength = 598.99
+maxStretchPercent = 0.3
 character = NodePath("../LeftCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
@@ -295,6 +303,9 @@ texture = ExtResource("6_qgvce")
 texture_mode = 1
 script = ExtResource("4_emnkp")
 springLength = 175.0
+platformSpringStrength = 500.0
+playerSpringStrength = 598.99
+maxStretchPercent = 0.3
 character = NodePath("../RightCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
@@ -379,6 +390,7 @@ physics_interpolation_mode = 1
 position = Vector2(0, 25)
 collision_layer = 232
 mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_hu46i")
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
 
