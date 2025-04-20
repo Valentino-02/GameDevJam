@@ -5,7 +5,6 @@ class_name Rope extends Line2D
 ##How hard the string pulls the platform towards the player
 @export var platformSpringStrength: float = 5000
 @export var maxForce : float = 10000
-@export var maxStretchPercent : float = 0.1
 @export var character: Character
 @export var platform: RigidBody2D
 @export var platform_attachement : Node2D

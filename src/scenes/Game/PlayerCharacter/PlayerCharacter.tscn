@@ -270,10 +270,9 @@ width = 3.0
 texture = ExtResource("2_j0y4q")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-springLength = 175.0
-platformSpringStrength = 500.0
-maxForce = 1000.0
-maxStretchPercent = 0.3
+springLength = 125.0
+platformSpringStrength = 200.0
+maxForce = 1500.0
 character = NodePath("../LeftCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Left Attachment")
@@ -302,10 +301,9 @@ width = 3.0
 texture = ExtResource("6_qgvce")
 texture_mode = 1
 script = ExtResource("4_emnkp")
-springLength = 175.0
-platformSpringStrength = 500.0
-maxForce = 1000.0
-maxStretchPercent = 0.3
+springLength = 125.0
+platformSpringStrength = 200.0
+maxForce = 1500.0
 character = NodePath("../RightCharacter")
 platform = NodePath("../Platform")
 platform_attachement = NodePath("../Platform/Right Attachment")
@@ -332,6 +330,8 @@ unique_name_in_owner = true
 position = Vector2(-86, -109)
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
+_radius = 100.0
+returnSpeed = 500.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
 emitting = false
@@ -361,6 +361,8 @@ script = ExtResource("1_h7irl")
 _suffix = "R"
 _rope = NodePath("../RightRope")
 element = 1
+_radius = 100.0
+returnSpeed = 500.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
 emitting = false
@@ -391,6 +393,7 @@ position = Vector2(0, 25)
 collision_layer = 232
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_hu46i")
+gravity_scale = 0.3
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
 
