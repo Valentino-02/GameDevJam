@@ -15,9 +15,13 @@ enum triggerType {
 ##Dialogue points to use
 @export var storyPoints: Array[StoryPoint] = []
 
+##collisions to detect for zone type triggers
+@export_flags_2d_physics var collisionLayers
+
 ##Cameras to use for each story point
 @export var useableCameras: Dictionary[StringName, PhantomCamera2D] = {}
 var triggerZone: Area2D
+var _cutscenePlayed := false
 
 
 func _ready() -> void:
@@ -30,10 +34,13 @@ func _ready() -> void:
 		if triggerZone == null:
 			push_warning("Trigger area not created for cutscene on %s."%[name])
 			return
+		triggerZone.collision_mask = collisionLayers
 		triggerZone.body_entered.connect(_areaTrigger)
 		
 		
 func _triggerCutscene() -> void:
+	if _cutscenePlayed: return
+	_cutscenePlayed = true
 	CutsceneManager.PlayCutscene(self)
 	
 func ManualTrigger() -> void:
@@ -45,5 +52,7 @@ func _areaTrigger(node2d: Node2D) -> void:
 		
 func _get_configuration_warnings():
 	if type == triggerType.TRIGGER_ON_ZONE:
-		return ["No area has been set for triggering!"]
+		triggerZone = get_node_or_null("Area2D")
+		if triggerZone == null:
+			return ["No area has been set for triggering!"]
 	return []

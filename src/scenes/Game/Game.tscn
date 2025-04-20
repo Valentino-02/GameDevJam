@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=6 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
 [ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/test-background.png" id="2_klkct"]
+[ext_resource type="PackedScene" uid="uid://qhls7itmme5b" path="res://src/scenes/UI/DialogueUI/dialogueUI.tscn" id="5_hga1y"]
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
 
 [node name="Game" type="Node2D"]
@@ -28,6 +29,10 @@ expand_mode = 1
 
 [node name="GameUI" parent="UI" instance=ExtResource("6_hkmll")]
 unique_name_in_owner = true
+
+[node name="DialogueUI" parent="UI" node_paths=PackedStringArray("hideWhileTalking") instance=ExtResource("5_hga1y")]
+visible = false
+hideWhileTalking = [NodePath("../GameUI")]
 
 [node name="PatienceTimer" type="Timer" parent="."]
 autostart = true

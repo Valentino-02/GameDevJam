@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://browjfmejnq75"]
+[gd_scene load_steps=7 format=3 uid="uid://browjfmejnq75"]
 
-[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_dm4fv"]
 [ext_resource type="Script" uid="uid://d1ldso3t8gb4u" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.gd" id="2_4bf7a"]
 [ext_resource type="Script" uid="uid://cp6qvjbusct5f" path="res://src/scenes/UI/GameUI/Minimap/Minimap.gd" id="2_dm4fv"]
 [ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_2pmc5"]
@@ -15,7 +14,6 @@ region = Rect2(0, 0, 32, 32)
 clip_children = 2
 custom_minimum_size = Vector2(150, 70)
 size_flags_vertical = 4
-theme = ExtResource("1_dm4fv")
 script = ExtResource("2_4bf7a")
 
 [node name="Minimap" type="Control" parent="."]
