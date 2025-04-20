@@ -60,7 +60,7 @@ func disableLowPass(duration := 0.5) -> void:
 	var effect = AudioServer.get_bus_effect(AudioManager.getSfxBusIndex(), 0)
 	tween.tween_property(effect, "cutoff_hz", Settings.NORMAL_HZ_VALUE, duration).set_trans(Tween.TRANS_LINEAR)
 
-func crossFadeTo(id: ResourceIds.MusicId, duration := 1.5) -> void:
+func crossFadeTo(id: ResourceIds.MusicId, duration := 0.3) -> void:
 	var currentTime := _activePlayer.get_playback_position()
 	play(id, duration, currentTime, false)
 	await stop(duration)
