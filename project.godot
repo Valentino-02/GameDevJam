@@ -54,6 +54,7 @@ Player=""
 IncludeOnMinimap=""
 CollectionZoneWater=""
 CollectionZoneFire=""
+MainCamera=""
 
 [gui]
 

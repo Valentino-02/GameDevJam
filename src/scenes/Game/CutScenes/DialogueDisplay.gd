@@ -11,6 +11,7 @@ var speedPerLetter: float = 0.02
 var holdPanel: bool = false
 
 func PlayDialogue(dialogue: Dialogue, keepPanelUp = false) -> void:
+	interrupted = false
 	holdPanel = keepPanelUp
 	textDisplay.text = ""
 	if dialogue.speaker != null:
@@ -37,7 +38,6 @@ func _closeDialogue() -> void:
 	if !holdPanel:
 		hide()
 	dialogueComplete.emit()
-	interrupted = false
 	
 func Declutter(shouldHide: bool) -> void:
 	for node: Node in hideWhileTalking:

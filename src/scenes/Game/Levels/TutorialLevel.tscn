@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=53 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -10,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="10_ux4hj"]
+[ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneManager.gd" id="11_bete1"]
+[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
+[ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
+[ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="14_3hvhq"]
+[ext_resource type="Texture2D" uid="uid://dj5535ppxnbtn" path="res://assets/images/playerCharacters/Water Elemental.png" id="15_61xil"]
+[ext_resource type="Texture2D" uid="uid://d1vt5xnchlnkk" path="res://assets/images/playerCharacters/Fire Elemental.png" id="16_y6tqc"]
+[ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
+[ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/TutorialScripts/CutsceneComplete.gd" id="17_6ifj0"]
+[ext_resource type="Script" uid="uid://cpenlt242k7hn" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneRequireCargo.gd" id="18_gfe1e"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_octr6")
@@ -88,15 +97,146 @@ sources/0 = SubResource("TileSetAtlasSource_2odft")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl2ud"]
 
+[sub_resource type="Resource" id="Resource_g87ld"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "A new guide? How exciting!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_785nr"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Let's teach them fast so we can get moving, I can't sit still this long..."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_elyr4"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "Yes of course! Use the W-A-S-D runes on your runeboard to give me directions."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_6bl1h"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "It's the arrow runes for me. Give it go, take us on an adventure."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_e3ggw"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"Player"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_g87ld"), SubResource("Resource_785nr"), SubResource("Resource_elyr4"), SubResource("Resource_6bl1h")])
+childToTrigger = "PlayerControlsDisplay"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_8cynx"]
+script = ExtResource("4_octr6")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_jdpu4"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "This is where fire cargo gets generated. You'll need this to slow the freeze over in the water lands. You can summon some using the E rune. Try it now!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_8kfja"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"FireDrop"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_jdpu4")])
+childToTrigger = "CutsceneComplete"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3clbk"]
+size = Vector2(164, 174)
+
+[sub_resource type="Resource" id="Resource_edi57"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "This is my world's cargo dropper. Use your E rune to collect some cargo. You'll need it to cool down the fire realm's core!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_km0gl"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"WaterDrop"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
+childToTrigger = "CutsceneComplete"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_q5b8i"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Aha! You've found one of the cores to my homeland. It needs water to stop overheating!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_mpwdg"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Once you've got some water on-board, try dropping it here using the Space runekey."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_s2r5k"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"FireZone"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_q5b8i"), SubResource("Resource_mpwdg")])
+childToTrigger = "AwaitCollection"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrv3"]
+size = Vector2(100, 100)
+
+[sub_resource type="Resource" id="Resource_bete1"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "This is my home core. If we get too cold, we'll freeze!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_3hvhq"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "If you can drop off fire cargo here by dropping it with the Space Runekey, you'll help us keep warm and survive!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_61xil"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"WaterZone"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_bete1"), SubResource("Resource_3hvhq")])
+childToTrigger = "AwaitCollection"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_y6tqc"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "Seems like you're getting into the flow of this!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_6ifj0"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Yeah, you're real hot at it! I think you're ready for the real thing now."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_gfe1e"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "Same! Good luck to you, see you soon!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_3clbk"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"SceneView"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_y6tqc"), SubResource("Resource_6ifj0"), SubResource("Resource_gfe1e")])
+childToTrigger = "CutsceneComplete"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
 [node name="TutorialLevel" type="Node2D"]
 script = ExtResource("1_jkrqs")
 maxScore = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
-position = Vector2(-1, -30)
-process_callback = 0
+process_mode = 3
+position = Vector2(-1, -109)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -105,7 +245,7 @@ process_physics_priority = 300
 script = ExtResource("2_ux4hj")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets") groups=["MainCamera"]]
 top_level = true
 position = Vector2(-1, -109)
 script = ExtResource("3_no6oc")
@@ -363,6 +503,171 @@ text = "Arrows To Move"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes", "finalCutscene")]
+script = ExtResource("11_bete1")
+cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), NodePath("FireZone"), NodePath("WaterZone"), NodePath("FinalCutscene")]
+finalCutscene = NodePath("FinalCutscene")
+
+[node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+type = 1
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_e3ggw")])
+useableCameras = {
+&"Player": NodePath("Player")
+}
+
+[node name="Player" type="Node2D" parent="Cutscenes/Intro"]
+position = Vector2(0, -68)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="PlayerControlsDisplay" type="Node2D" parent="Cutscenes/Intro" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("17_3hvhq")
+tutorialCutsceneManager = NodePath("../..")
+
+[node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+type = 0
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja")])
+collisionLayers = 8
+useableCameras = {
+&"FireDrop": NodePath("FireDrop")
+}
+
+[node name="FireDrop" type="Node2D" parent="Cutscenes/FireDropper"]
+position = Vector2(-214, -141)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/FireDropper"]
+position = Vector2(-217, -146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireDropper/Area2D"]
+shape = SubResource("RectangleShape2D_3clbk")
+debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
+
+[node name="CutsceneComplete" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("17_6ifj0")
+tutorialCutsceneManager = NodePath("../..")
+
+[node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+type = 0
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl")])
+collisionLayers = 8
+useableCameras = {
+&"WaterDrop": NodePath("WaterDrop")
+}
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/WaterDropper"]
+position = Vector2(219, -146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterDropper/Area2D"]
+shape = SubResource("RectangleShape2D_3clbk")
+debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
+
+[node name="WaterDrop" type="Node2D" parent="Cutscenes/WaterDropper"]
+position = Vector2(223, -141)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CutsceneComplete" type="Node2D" parent="Cutscenes/WaterDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("17_6ifj0")
+tutorialCutsceneManager = NodePath("../..")
+
+[node name="FireZone" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+type = 0
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_s2r5k")])
+collisionLayers = 8
+useableCameras = {
+&"FireZone": NodePath("FireZone")
+}
+
+[node name="FireZone" type="Node2D" parent="Cutscenes/FireZone"]
+position = Vector2(-405, -36)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/FireZone"]
+position = Vector2(-407, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireZone/Area2D"]
+shape = SubResource("RectangleShape2D_3clbk")
+debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
+
+[node name="AwaitCollection" type="Node2D" parent="Cutscenes/FireZone" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("18_gfe1e")
+cargoLayer = 16
+tutorialCutsceneManager = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/FireZone/AwaitCollection"]
+position = Vector2(-425, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireZone/AwaitCollection/Area2D"]
+shape = SubResource("RectangleShape2D_5xrv3")
+
+[node name="WaterZone" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+type = 0
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_61xil")])
+collisionLayers = 8
+useableCameras = {
+&"WaterZone": NodePath("WaterZone")
+}
+
+[node name="WaterZone" type="Node2D" parent="Cutscenes/WaterZone"]
+position = Vector2(422, -32)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="AwaitCollection" type="Node2D" parent="Cutscenes/WaterZone" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("18_gfe1e")
+cargoLayer = 16
+tutorialCutsceneManager = NodePath("../..")
+requiredElement = 1
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/WaterZone/AwaitCollection"]
+position = Vector2(424, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterZone/AwaitCollection/Area2D"]
+shape = SubResource("RectangleShape2D_5xrv3")
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/WaterZone"]
+position = Vector2(399, -131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterZone/Area2D"]
+shape = SubResource("RectangleShape2D_3clbk")
+debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
+
+[node name="FinalCutscene" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_3clbk")])
+useableCameras = {
+&"SceneView": NodePath("SceneView")
+}
+
+[node name="SceneView" type="Node2D" parent="Cutscenes/FinalCutscene"]
+position = Vector2(0, -109)
+script = ExtResource("3_no6oc")
+zoom = Vector2(0.9, 0.9)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CutsceneComplete" type="Node2D" parent="Cutscenes/FinalCutscene" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("17_6ifj0")
+tutorialCutsceneManager = NodePath("../..")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]

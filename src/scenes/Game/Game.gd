@@ -22,6 +22,7 @@ func _loadLevel() -> void:
 	_patienceManager.setCargoPatienceGain(level.cargoPatienceGain)
 	add_child(level)
 	await get_tree().process_frame
+	SignalBus.levelLoaded.emit()
 	_gameUI.setMinimapCamera(level.camera)
 	_gameUI.setMinimapTilemaps([level.tileMapLayer])
 	_gameUI.drawMinimap()
