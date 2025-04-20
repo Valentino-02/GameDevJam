@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_etb6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb6u"]
-size = Vector2(50, 500)
+size = Vector2(50, 242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24163"]
 atlas = ExtResource("2_24163")
@@ -64,6 +64,7 @@ shape = SubResource("RectangleShape2D_etb6u")
 
 [node name="SpriteMask" type="Sprite2D" parent="."]
 clip_children = 1
+scale = Vector2(1, 0.5)
 texture = SubResource("AtlasTexture_24163")
 
 [node name="BottomParticles" type="GPUParticles2D" parent="SpriteMask"]
