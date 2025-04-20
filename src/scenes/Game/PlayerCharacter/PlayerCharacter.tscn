@@ -333,7 +333,8 @@ collision_mask = 224
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
 _radius = 100.0
-returnSpeed = 500.0
+_speed = 150.0
+returnSpeed = 300.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="LeftCharacter"]
 emitting = false
@@ -369,7 +370,8 @@ _suffix = "R"
 _rope = NodePath("../RightRope")
 element = 1
 _radius = 100.0
-returnSpeed = 500.0
+_speed = 150.0
+returnSpeed = 300.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="RightCharacter"]
 emitting = false

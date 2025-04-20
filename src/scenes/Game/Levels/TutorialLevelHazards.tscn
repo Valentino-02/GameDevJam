@@ -409,11 +409,11 @@ position = Vector2(401, -49)
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="WindObstacle" parent="Hazards" instance=ExtResource("13_fkqq5")]
-position = Vector2(-542, -129)
+position = Vector2(-571, -168)
 forceDirection = 1
 
 [node name="WindObstacle2" parent="Hazards" instance=ExtResource("13_fkqq5")]
-position = Vector2(543, -127)
+position = Vector2(591, -170)
 
 [node name="Launcher" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-634, 72)

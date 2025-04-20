@@ -26,19 +26,16 @@ func _ready() -> void:
 #get the target position = back to origin or current position + speed in input direciton
 func _physics_process(delta: float) -> void:
 	var inputDir : Vector2 = _getInputVector()
-
-	#if in an up wind tunnel:
-	if _inWind():
-		inputDir += Vector2.UP * 0.01
-		inputDir = inputDir.normalized()
-
-	#If we were struck by a fireball or in the rain, register it as a constant downwards input
-	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or _inRainCloud(): 
-		inputDir += Vector2.DOWN * 0.1
-		inputDir = inputDir.normalized()
 			
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
 	var origin : Vector2 = _origin.global_position
+
+	#if in an up wind tunnel:
+	if _inWind():
+		origin += Vector2.UP * _radius * 0.85
+	#If we were struck by a fireball or in the rain, register it as a constant downwards input
+	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or _inRainCloud(): 
+		origin += Vector2.DOWN * _radius * 0.75
 
 	#move towards the joystick's origin if no input, otherwise go with the input
 	if inputDir == Vector2.ZERO:
@@ -50,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	var difference : Vector2 = (global_position - origin)
 	global_position = origin + difference.limit_length(_radius)
 	
-	outputDir = global_position - origin
+	outputDir = global_position - _origin.global_position
 
 
 	
@@ -73,13 +70,13 @@ static func getComponentAlongDirection(force: Vector2, direction: Vector2) -> Ve
 
 func _inRainCloud() -> bool:
 	for area in get_overlapping_areas():
-		if (element == Types.Element.Fire and area.get_parent() is RainCloud) or (area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.DOWN):
+		if (element == Types.Element.Fire and area.get_parent() is RainCloud and area.get_parent()._raining) or (area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.DOWN and area.get_parent()._active):
 			return true
 	return false
 
 func _inWind() -> bool:
 	for area in get_overlapping_areas():
-		if area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.UP:
+		if area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.UP and area.get_parent()._active:
 			return true
 	return false
 
