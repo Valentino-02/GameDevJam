@@ -55,6 +55,10 @@ IncludeOnMinimap=""
 CollectionZoneWater=""
 CollectionZoneFire=""
 
+[gui]
+
+theme/custom="uid://cd3ca0m5gr616"
+
 [input]
 
 "Up L"={
