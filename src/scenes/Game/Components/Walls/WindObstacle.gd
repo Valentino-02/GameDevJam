@@ -1,4 +1,4 @@
-extends Node2D
+class_name WindObstacle extends Node2D
 enum windDirection {
 	UP,
 	DOWN
