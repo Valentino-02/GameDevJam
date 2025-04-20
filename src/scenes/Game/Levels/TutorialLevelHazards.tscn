@@ -419,7 +419,6 @@ speed_pattern = Array[float]([0.5, 0.5, 1.0, 1.0, 1.2])
 [node name="Launcher2" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-883, -592)
 rotation = 2.73548
-scale = Vector2(1, 1)
 spawn_pattern = Array[float]([1.0, 1.0, 5.0, 0.5, 3.0])
 speed_pattern = Array[float]([0.5, 0.5, 1.0, 1.0, 1.2])
 
