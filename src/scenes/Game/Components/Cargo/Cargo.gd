@@ -14,6 +14,7 @@ func _ready() -> void:
 	if _element == Types.Element.Null:
 		_element = element
 	_loadElementTextures()
+	_playAppereanceAnimation()
 
 
 func setElement(targetElement: Types.Element) -> void:
@@ -42,12 +43,19 @@ func uglyDestroy() -> void:
 func _playDestructionAnimation() -> Tween:
 	var tween := create_tween()
 	tween.set_parallel(true)
-	var offset := Vector2(randf_range(-10, 10), randf_range(-30, -10))
 	tween.tween_property(_particles, "modulate:a", 0.0, 0.6).set_ease(Tween.EASE_IN)
-	tween.tween_property(_particles, "scale", Vector2.ZERO, 0.6).set_ease(Tween.EASE_IN)
 	tween.tween_property(_sprite, "modulate:a", 0.0, 0.4).set_ease(Tween.EASE_IN)
 	tween.tween_property(_sprite, "scale", Vector2.ZERO, 0.4).set_ease(Tween.EASE_IN)
 	_particles.restart()
+	return tween
+
+func _playAppereanceAnimation() -> Tween:
+	var tween := create_tween()
+	tween.set_parallel(true)
+	_sprite.modulate.a = 0.0
+	_sprite.scale = Vector2(0.1,0.1)
+	tween.tween_property(_sprite, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_IN)
+	tween.tween_property(_sprite, "scale", Vector2(0.56, 0.56), 0.2).set_ease(Tween.EASE_IN) ## Magic number that comes from the current scale
 	return tween
 
 func _loadElementTextures() -> void:

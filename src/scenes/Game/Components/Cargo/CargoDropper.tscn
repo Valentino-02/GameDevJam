@@ -31,7 +31,7 @@ shape = SubResource("RectangleShape2D_qrmgv")
 
 [node name="SpawnMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -134)
+position = Vector2(0, -132)
 
 [node name="DistributionMarker" type="Marker2D" parent="SpawnMarker"]
 unique_name_in_owner = true
@@ -42,6 +42,7 @@ wait_time = 0.2
 
 [node name="UI_Helpers" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
