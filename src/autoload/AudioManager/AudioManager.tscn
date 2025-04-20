@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=20 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://u1siydat4u3p" path="res://assets/music/Water Level MP3.mp3" id="6_dsnk3"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
 [ext_resource type="AudioStream" uid="uid://b2eycwb263uwo" path="res://assets/music/Elemental Delivery.mp3" id="7_qrd4w"]
+[ext_resource type="AudioStream" uid="uid://cqiqgg61h85b1" path="res://assets/sfx/Select.mp3" id="11_j8xci"]
+[ext_resource type="AudioStream" uid="uid://ma6lpfk1fc8l" path="res://assets/sfx/Drop.mp3" id="12_sl0f0"]
 
 [sub_resource type="Resource" id="Resource_u4rwl"]
 script = ExtResource("3_p58k6")
@@ -52,6 +54,24 @@ pitchScale = 1.0
 limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
+[sub_resource type="Resource" id="Resource_munpx"]
+script = ExtResource("6_4cy6h")
+id = 1
+stream = ExtResource("11_j8xci")
+volume = 0.0
+pitchScale = 1.0
+limit = 10
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_ex2we"]
+script = ExtResource("6_4cy6h")
+id = 2
+stream = ExtResource("12_sl0f0")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_7j23j")
@@ -70,4 +90,4 @@ process_mode = 3
 [node name="SfxManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_7j23j")
-sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3")])
+sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we")])

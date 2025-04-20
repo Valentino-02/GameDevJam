@@ -15,4 +15,6 @@ func _on_body_entered(body: Node2D) -> void:
 		var cargo: Cargo = body as Cargo
 		if cargo.getElement() == neededElement:
 			SignalBus.zoneGotCargo.emit(zone)
-		cargo.destroy()
+			cargo.destroy()
+		else:
+			cargo.uglyDestroy()
