@@ -41,6 +41,8 @@ func _launchBody(force : float):
 	#this is to stop the projectile from accelerating too far
 	await get_tree().create_timer(0.3).timeout
 	if body: body.constant_force = Vector2.ZERO
+	await get_tree().create_timer(5).timeout
+	if body: body.queue_free()
 
 ##To help us oreintate it in editor only
 func _draw() -> void:

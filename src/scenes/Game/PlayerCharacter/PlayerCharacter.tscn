@@ -1,12 +1,12 @@
 [gd_scene load_steps=43 format=3 uid="uid://1p2m5d3jdn6i"]
 
-[ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
+[ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
 [ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_emnkp"]
 [ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/RopeParticles.gd" id="4_08p4k"]
-[ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
+[ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="5_s41jm"]
 [ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
@@ -438,6 +438,7 @@ occluder_light_mask = 0
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-85, -13)
+collision_mask = 32
 
 [node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-39, -9)

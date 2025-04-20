@@ -6,6 +6,7 @@
 [node name="Launcher" type="Node2D"]
 script = ExtResource("1_vn8d4")
 rigid_body_projectile_scene = ExtResource("2_ew32a")
+spawn_pattern = Array[float]([3.0, 0.5, 3.0, 1.0, 5.0])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

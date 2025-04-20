@@ -44,7 +44,7 @@ text = "Tutorial Level"
 [node name="Hazard Tutorial" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Tutorial Level"
+text = "Hazard Tutorial"
 
 [node name="TestGameButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
