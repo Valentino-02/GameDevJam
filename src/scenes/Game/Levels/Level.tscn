@@ -16,7 +16,7 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2odft"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a17mw"]
 texture = ExtResource("5_128bx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -69,7 +69,7 @@ texture = ExtResource("5_128bx")
 
 [sub_resource type="TileSet" id="TileSet_m5ppy"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2odft")
+sources/0 = SubResource("TileSetAtlasSource_a17mw")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1cp8o")
