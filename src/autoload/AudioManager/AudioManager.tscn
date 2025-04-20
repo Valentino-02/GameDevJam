@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=29 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
@@ -12,6 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://b2eycwb263uwo" path="res://assets/music/Elemental Delivery.mp3" id="7_qrd4w"]
 [ext_resource type="AudioStream" uid="uid://cqiqgg61h85b1" path="res://assets/sfx/Select.mp3" id="11_j8xci"]
 [ext_resource type="AudioStream" uid="uid://ma6lpfk1fc8l" path="res://assets/sfx/Drop.mp3" id="12_sl0f0"]
+[ext_resource type="AudioStream" uid="uid://cjofrpdv4pb82" path="res://assets/sfx/Fireball.mp3" id="13_munpx"]
+[ext_resource type="AudioStream" uid="uid://dybp5ql2dkut0" path="res://assets/sfx/Water Calm MP3.mp3" id="14_ctta6"]
+[ext_resource type="AudioStream" uid="uid://b34efg666kkjl" path="res://assets/sfx/Water Aggressive MP3.mp3" id="15_imgi5"]
+[ext_resource type="AudioStream" uid="uid://pcqi83gx1t8u" path="res://assets/sfx/Wing Aggressive MP3.mp3" id="16_egq4x"]
 
 [sub_resource type="Resource" id="Resource_u4rwl"]
 script = ExtResource("3_p58k6")
@@ -72,6 +76,51 @@ pitchScale = 1.0
 limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
+[sub_resource type="Resource" id="Resource_t07ss"]
+script = ExtResource("6_4cy6h")
+id = 3
+stream = ExtResource("13_munpx")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_080kg"]
+script = ExtResource("6_4cy6h")
+id = 4
+stream = ExtResource("13_munpx")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_kx8bi"]
+script = ExtResource("6_4cy6h")
+id = 5
+stream = ExtResource("14_ctta6")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_jode2"]
+script = ExtResource("6_4cy6h")
+id = 6
+stream = ExtResource("15_imgi5")
+volume = 3.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_h17n5"]
+script = ExtResource("6_4cy6h")
+id = 7
+stream = ExtResource("16_egq4x")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_7j23j")
@@ -90,4 +139,4 @@ process_mode = 3
 [node name="SfxManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_7j23j")
-sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we")])
+sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we"), SubResource("Resource_t07ss"), SubResource("Resource_080kg"), SubResource("Resource_kx8bi"), SubResource("Resource_jode2"), SubResource("Resource_h17n5")])

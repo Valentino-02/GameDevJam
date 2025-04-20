@@ -31,6 +31,8 @@ var activeParticles: GPUParticles2D
 @onready var _area: Area2D = $Area2D
 @onready var _bottomParticles: GPUParticles2D = $SpriteMask/BottomParticles
 @onready var _topParticles: GPUParticles2D = $SpriteMask/TopParticles
+@onready var _audioPlayer : AudioStreamPlayer2D =AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Wind)
+
 
 func _ready() -> void:
 	_area.body_entered.connect(_addBody)
@@ -42,6 +44,9 @@ func _ready() -> void:
 	activeParticles = _bottomParticles if forceDirection == windDirection.UP else _topParticles
 	activeParticles.show()
 
+	add_child(_audioPlayer)
+	_audioPlayer.position = Vector2.ZERO
+
 ##This should be used to activate the wind tunnel
 func Activate(_node: Node2D = null) -> void:
 	if _active: return
@@ -49,8 +54,10 @@ func Activate(_node: Node2D = null) -> void:
 	_changeParticleSpeed(500)
 	_changeParticleQuantity(12)
 	_active = true
+	_audioPlayer.play(0.0)
 	await get_tree().create_timer(blastDuration).timeout
 	_active = false
+	_audioPlayer.stop()
 	_changeParticleSpeed(80)
 	_changeParticleQuantity(8)
 	

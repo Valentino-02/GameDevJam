@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 func _onCollision(_collided : Node) -> void:
 	_explosion_emitter.emitting = true
 	_fireball_sprite.visible = false
+	AudioManager.sfx.playAtPosition(ResourceIds.SfxId.Explosion, global_position)
 	var bodies : Array = _getBodiesInRadius()
 	for body in bodies:
 		if not body is RigidBody2D or body == self: continue

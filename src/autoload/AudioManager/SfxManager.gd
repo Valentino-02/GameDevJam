@@ -11,24 +11,35 @@ func _ready() -> void:
 		_sfxById[sfx.id] = sfx
 
 
-func playAtPosition(id: ResourceIds.SfxId, pos: Vector2) -> void:
+func playAtPosition(id: ResourceIds.SfxId, pos: Vector2):
 	var sfx : Sfx = _sfxById.get(id) as Sfx
 	if sfx == null:
 		push_error("Sfx Manager failed to find sfx with id ", id)
 	if not sfx.shouldPlay() :
-		return
+		return null
 	
+	var player2D := createPlayer2D(id)
+	player2D.global_position = pos
 	sfx.addCount()
-	var player2D := AudioStreamPlayer2D.new()
-	player2D.set_bus('Sfx')
-	player2D.position = pos
-	player2D.stream = sfx.sound_effect
-	player2D.volume_db = sfx.volume
-	player2D.pitch_scale = sfx.pitch_scale
 	player2D.finished.connect(sfx._onAudioFinished)
 	player2D.finished.connect(player2D.queue_free)
 	add_child(player2D)
 	player2D.play()
+
+func createPlayer2D(id: ResourceIds.SfxId) -> AudioStreamPlayer2D:
+	var sfx : Sfx = _sfxById.get(id) as Sfx
+	if sfx == null:
+		push_error("Sfx Manager failed to find sfx with id ", id)
+	if not sfx.shouldPlay() :
+		return null
+	
+	var player2D := AudioStreamPlayer2D.new()
+	player2D.set_bus('Sfx')
+	player2D.stream = sfx.stream
+	player2D.volume_db = sfx.volume
+	player2D.pitch_scale = sfx.pitchScale
+	player2D.attenuation = 2.0
+	return player2D
 
 func play(id: ResourceIds.SfxId) -> void:
 	var sfx : Sfx = _sfxById.get(id) as Sfx

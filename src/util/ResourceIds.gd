@@ -9,6 +9,12 @@ enum SfxId {
 	Click,
 	CargoCollect,
 	CargoDiscard,
+	Fireball,
+	Explosion,
+	Raining,
+	Splashing,
+	Wind,
+
 }
 
 enum MusicId {
