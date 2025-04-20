@@ -27,22 +27,24 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var inputDir : Vector2 = _getInputVector()
 
+	#if in an up wind tunnel:
+	if _inWind():
+		inputDir += Vector2.UP * 0.01
+		inputDir = inputDir.normalized()
+
 	#If we were struck by a fireball or in the rain, register it as a constant downwards input
-	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or (element == Types.Element.Fire and  _inRainCloud()): 
+	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or _inRainCloud(): 
 		inputDir += Vector2.DOWN * 0.1
 		inputDir = inputDir.normalized()
 			
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
 	var origin : Vector2 = _origin.global_position
 
-	#move towards the joystick's origin if no input
+	#move towards the joystick's origin if no input, otherwise go with the input
 	if inputDir == Vector2.ZERO:
 		var distance : float = global_position.distance_to(origin)
 		global_position = global_position.lerp(origin, clampf((returnSpeed * delta)/distance, 0, 1))
-
-	else:
-		global_position += _speed * delta * inputDir
-		#global_position = global_position.lerp(target, ())
+	else:global_position += _speed * delta * inputDir
 
 	#If beyond the radius, move back to within
 	var difference : Vector2 = (global_position - origin)
@@ -71,15 +73,22 @@ static func getComponentAlongDirection(force: Vector2, direction: Vector2) -> Ve
 
 func _inRainCloud() -> bool:
 	for area in get_overlapping_areas():
-		if area.get_parent() is RainCloud: return true
+		if (element == Types.Element.Fire and area.get_parent() is RainCloud) or (area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.DOWN):
+			return true
 	return false
 
-func _collideBody(body):
-	if body is Fireball:
+func _inWind() -> bool:
+	for area in get_overlapping_areas():
+		if area.get_parent() is WindObstacle and area.get_parent().forceDirection == WindObstacle.windDirection.UP:
+			return true
+	return false
+
+func _collideArea(area):
+	if area is Fireball:
 		if element == Types.Element.Fire:
-			body._onCollision(self)
+			area._onCollision(self)
 		else:
-			body.explosion_strength *= 2
-			body._shape_cast.shape.radius *= 2
-			body._onCollision(self)
+			area.explosion_strength *= 2
+			area._shape_cast.shape.radius *= 2
+			area._onCollision(self)
 			_struck = Time.get_ticks_msec()

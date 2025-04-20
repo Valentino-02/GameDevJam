@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://wjr4oltanu5r"]
+[gd_scene load_steps=2 format=3 uid="uid://wjr4oltanu5r"]
 
 [ext_resource type="Script" uid="uid://dd3csfws62o2l" path="res://src/scenes/Game/Components/Fireball/Launcher.gd" id="1_vn8d4"]
-[ext_resource type="PackedScene" uid="uid://cgguquisbu86e" path="res://src/scenes/Game/Components/Fireball/Fireball.tscn" id="2_ew32a"]
 
 [node name="Launcher" type="Node2D"]
 script = ExtResource("1_vn8d4")
-rigid_body_projectile_scene = ExtResource("2_ew32a")
 spawn_pattern = Array[float]([3.0, 0.5, 3.0, 1.0, 5.0])
+speed_pattern = null
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

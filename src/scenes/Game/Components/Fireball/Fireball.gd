@@ -1,4 +1,4 @@
-class_name Fireball extends RigidBody2D
+class_name Fireball extends Area2D
 ##a multiplier to the explosion force
 @export var explosion_strength : float = 1.0
 ##(radius-Distance)^power = strength coefficient, 0 = constant, 1 = linear, 2 = quadratic, etc...
@@ -8,7 +8,12 @@ class_name Fireball extends RigidBody2D
 @onready var _fireball_sprite : Sprite2D = get_node("FireballSprite")
 @onready var _shape_cast : ShapeCast2D = get_node("ShapeCast2D")
 @onready var _ray_cast : RayCast2D = get_node("RayCast2D")
-const STRENGTH_MULTIPLIER : float = 200
+const STRENGTH_MULTIPLIER : float = 100
+
+var linearVelocity : Vector2 = Vector2.ZERO
+func _physics_process(delta: float) -> void:
+	global_position += linearVelocity * delta
+
 
 
 ##Pushes everything with los to the collision away
@@ -23,7 +28,7 @@ func _onCollision(_collided : Node) -> void:
 			var explosion_radius : float = _shape_cast.shape.radius
 			var force : float = pow(clampf((explosion_radius - diff.length()), 0, explosion_radius)/explosion_radius, strength_fall_off_power) * STRENGTH_MULTIPLIER * explosion_strength
 			var direction : Vector2 = diff.normalized()
-			body.apply_impulse(direction * force * body.mass, _ray_cast.get_collision_point())
+			body.apply_impulse(direction * force, _ray_cast.get_collision_point())
 
 	await get_tree().create_timer(0.4).timeout
 	self.queue_free()
