@@ -10,18 +10,26 @@ signal rainingChanged
 @onready var _hitbox : Area2D = get_node("RainHitBox")
 @onready var _particlePlayer : GPUParticles2D = get_node("RainEmitterPlayer")
 @onready var _particleBack : GPUParticles2D = get_node("RainEmitterBehind")
+@onready var _audioPlayer : AudioStreamPlayer2D = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Raining)
 
+func _ready() -> void:
+	add_child(_audioPlayer)
+	_audioPlayer.position = Vector2.DOWN * 100
+	_setRaining(_raining)
 
 func _setRaining(is_raining : bool = not _raining ):
 	if is_raining:
 		_particlePlayer.emitting = true
 		_particleBack.emitting = true
+		_audioPlayer.play(0.0)
+		
 		await get_tree().create_timer(0.3).timeout
 		_hitbox.get_overlapping_bodies().all(_assignMaterial.bind(slippery_material))
 		
 	else:
 		_particlePlayer.emitting = false
 		_particleBack.emitting = false
+		_audioPlayer.stop()
 		await get_tree().create_timer(0.3).timeout
 		_hitbox.get_overlapping_bodies().all(_assignMaterial.bind(null))
 		

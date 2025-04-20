@@ -1,7 +1,12 @@
 extends Area2D
 
 @onready var _emitter : GPUParticles2D = get_node("GPUParticles2D")
-##TODO: Add rain sound effects here
+@onready var _audioPlayer : AudioStreamPlayer2D =AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Splashing)
+
+func _ready() -> void:
+	add_child(_audioPlayer)
+	_audioPlayer.position = Vector2.ZERO
+
 
 
 var _clouds : Array[RainCloud] = []
@@ -30,5 +35,7 @@ func updateParticles():
 	for rainCloud in _clouds:
 		if rainCloud._raining:
 			_emitter.emitting = true
+			_audioPlayer.play(0.0)
 			return
 	_emitter.emitting = false
+	_audioPlayer.stop()
