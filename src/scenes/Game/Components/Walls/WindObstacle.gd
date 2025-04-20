@@ -8,7 +8,7 @@ enum windDirection {
 @export var force: float = 800
 @export var platformForceModifier: float = 6
 @export var forceDirection: windDirection
-@export var blastDuration: float = 2
+@export var blastDuration: float = 6
 
 ##Multiplier for the heavier platform
 var _platformForce: float:
@@ -53,10 +53,12 @@ func Activate(_node: Node2D = null) -> void:
 	if _bodies.size() <= 0: return
 	_changeParticleSpeed(500)
 	_changeParticleQuantity(12)
-	_active = true
 	_audioPlayer.play(0.0)
+	await get_tree().create_timer(0.3).timeout
+	_active = true
 	await get_tree().create_timer(blastDuration).timeout
 	_active = false
+	await get_tree().create_timer(0.3).timeout
 	_audioPlayer.stop()
 	_changeParticleSpeed(80)
 	_changeParticleQuantity(8)
@@ -75,7 +77,7 @@ func _physics_process(_delta: float) -> void:
 	if !_active: return
 	for body in _bodies:
 		var selectedForce = force if body.get_groups().has("Player") else _platformForce
-		body.apply_force(_direction * selectedForce, activeParticles.position)
+		#body.apply_force(_direction * selectedForce, activeParticles.position)
 
 func _changeParticleSpeed(speed: float) -> void:
 	var targetVelocity = activeParticles.process_material.get("initial_velocity")
