@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://1p2m5d3jdn6i"]
 
-[ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
+[ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
@@ -126,7 +126,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
-radius = 6.0
+radius = 20.0
 
 [sub_resource type="Curve" id="Curve_08p4k"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.525547, 0.727642), -1.11382, -1.11382, 0, 0, Vector2(1, 0.223577), 0.0, 0.0, 0, 0]
@@ -325,9 +325,11 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_08p4k")
 script = ExtResource("4_08p4k")
 
-[node name="LeftCharacter" type="Node2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
+[node name="LeftCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(-86, -109)
+collision_layer = 96
+collision_mask = 96
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
 _radius = 100.0
@@ -351,12 +353,14 @@ frame_progress = 0.751805
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCharacter"]
-position = Vector2(0, 3)
+scale = Vector2(0.7, 1.2)
 shape = SubResource("CircleShape2D_pv250")
 
-[node name="RightCharacter" type="Node2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
+[node name="RightCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -109)
+collision_layer = 96
+collision_mask = 96
 script = ExtResource("1_h7irl")
 _suffix = "R"
 _rope = NodePath("../RightRope")
@@ -384,7 +388,7 @@ frame_progress = 0.637282
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightCharacter"]
-position = Vector2(0, 3)
+scale = Vector2(0.7, 1.2)
 shape = SubResource("CircleShape2D_pv250")
 
 [node name="Platform" type="RigidBody2D" parent="." groups=["PlayerPlatform"]]
@@ -438,7 +442,6 @@ occluder_light_mask = 0
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-85, -13)
-collision_mask = 32
 
 [node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-39, -9)
@@ -451,3 +454,6 @@ position = Vector2(45, -10)
 
 [node name="SplashParticles5" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(92, -9)
+
+[connection signal="body_entered" from="LeftCharacter" to="LeftCharacter" method="_collideBody"]
+[connection signal="body_entered" from="RightCharacter" to="RightCharacter" method="_collideBody"]

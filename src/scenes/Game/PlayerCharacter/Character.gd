@@ -1,4 +1,4 @@
-class_name Character extends Node2D
+class_name Character extends Area2D
 
 
 @export var orientationStrength: float = 5000
@@ -11,6 +11,8 @@ class_name Character extends Node2D
 @export var _speed : float = 200
 @export var returnSpeed : float = 200
 var outputDir : Vector2
+const STRUCK_TIME : int = 2500
+var _struck : int = Time.get_ticks_msec() - STRUCK_TIME
 
 @onready var _origin : Marker2D = get_node("../"+_suffix + "Origin")
 
@@ -21,11 +23,15 @@ func _ready() -> void:
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
 	
 
-
-
 #get the target position = back to origin or current position + speed in input direciton
 func _physics_process(delta: float) -> void:
 	var inputDir : Vector2 = _getInputVector()
+
+	#If we were struck by a fireball or in the rain, register it as a constant downwards input
+	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or (element == Types.Element.Fire and  _inRainCloud()): 
+		inputDir += Vector2.DOWN * 0.1
+		inputDir = inputDir.normalized()
+			
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
 	var origin : Vector2 = _origin.global_position
 
@@ -62,3 +68,18 @@ func _getInputVector() -> Vector2:
 
 static func getComponentAlongDirection(force: Vector2, direction: Vector2) -> Vector2:
 	return (max(force.dot(direction), 0) * direction)
+
+func _inRainCloud() -> bool:
+	for area in get_overlapping_areas():
+		if area.get_parent() is RainCloud: return true
+	return false
+
+func _collideBody(body):
+	if body is Fireball:
+		if element == Types.Element.Fire:
+			body._onCollision(self)
+		else:
+			body.explosion_strength *= 2
+			body._shape_cast.shape.radius *= 2
+			body._onCollision(self)
+			_struck = Time.get_ticks_msec()
