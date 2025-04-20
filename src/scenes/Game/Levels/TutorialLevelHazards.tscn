@@ -1,24 +1,26 @@
-[gd_scene load_steps=22 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=24 format=4 uid="uid://flslwe42rd3l"]
 
-[ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_no6oc"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_octr6"]
-[ext_resource type="Texture2D" uid="uid://dn7dx5rh2rve3" path="res://assets/images/TILESET_SUMMER_DAY.png" id="5_l3e5w"]
-[ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_8cynx"]
-[ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
-[ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
-[ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
-[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="10_ux4hj"]
+[ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_117lr"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_x37kp"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3mljl"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_fkqq5"]
+[ext_resource type="Texture2D" uid="uid://dn7dx5rh2rve3" path="res://assets/images/TILESET_SUMMER_DAY.png" id="5_coiru"]
+[ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_owgte"]
+[ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_gfoan"]
+[ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="8_ryhou"]
+[ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="9_5x4vm"]
+[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="10_vejsg"]
+[ext_resource type="PackedScene" uid="uid://wjr4oltanu5r" path="res://src/scenes/Game/Components/Fireball/Launcher.tscn" id="11_3mljl"]
+[ext_resource type="PackedScene" uid="uid://dcp1acwb278w1" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.tscn" id="12_fkqq5"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
-script = ExtResource("4_octr6")
+script = ExtResource("4_fkqq5")
 duration = 1.0
 transition = 0
 ease = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2odft"]
-texture = ExtResource("5_l3e5w")
+texture = ExtResource("5_coiru")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -89,26 +91,24 @@ sources/0 = SubResource("TileSetAtlasSource_2odft")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl2ud"]
 
 [node name="TutorialLevel" type="Node2D"]
-script = ExtResource("1_jkrqs")
+script = ExtResource("1_117lr")
 maxScore = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
-position = Vector2(-1, -30)
-process_callback = 0
+position = Vector2(-1, -109)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("2_ux4hj")
+script = ExtResource("2_x37kp")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
 top_level = true
 position = Vector2(-1, -109)
-script = ExtResource("3_no6oc")
+script = ExtResource("3_3mljl")
 priority = 10
 follow_mode = 3
 follow_targets = [NodePath("../PlayerCharacter/LeftCharacter"), NodePath("../PlayerCharacter/RightCharacter")]
@@ -121,25 +121,25 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAALAP3/AAADAAAAAAAMAP3/AAADAAAAAAANAP3/AAADAAAAAAAOAP3/AAADAAAAAAAPAP3/AAADAAAAAAD0//3/AAADAAAAAADz//3/AAADAAAAAADy//3/AAADAAAAAADx//3/AAADAAAAAADw//3/AAADAAAAAADv//3/AAADAAAAAAD4/wMAAAADAAAAAAD5/wMAAAADAAAAAAD6/wMAAAADAAAAAAD7/wMAAAADAAAAAAD8/wMAAAADAAAAAAD9/wMAAAADAAAAAAD+/wMAAAADAAAAAAD//wMAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAACAAMAAAADAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAAAAAAAFAAMAAAADAAAAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAQAP3/AAADAAAAAAARAP3/AAADAAAAAADu//3/AAADAAAAAADs//j/AAADAAAAAADs//n/AAADAAAAAADs//r/AAADAAAAAADs//v/AAADAAAAAADs//z/AAADAAAAAADs//3/AAADAAAAAADs////AAADAAAAAADs/wAAAAADAAAAAADs//7/AAADAAAAAADs/wEAAAADAAAAAAATAAEAAAADAAAAAAATAAAAAAADAAAAAAATAP//AAADAAAAAAATAP3/AAADAAAAAAATAPv/AAADAAAAAAATAPr/AAADAAAAAAATAPn/AAADAAAAAAATAPj/AAADAAAAAAATAPz/AAADAAAAAAATAP7/AAADAAAAAAAWAP7/AAADAAAAAAAWAP//AAADAAAAAAAWAAAAAAADAAAAAAAWAAEAAAADAAAAAAAWAAIAAAADAAAAAAAWAAMAAAADAAAAAAAXAAMAAAADAAAAAAAYAAMAAAADAAAAAAAZAAMAAAADAAAAAAAaAAMAAAADAAAAAAAbAAMAAAADAAAAAAAcAAMAAAADAAAAAAAeAAMAAAADAAAAAAAeAAIAAAADAAAAAAAeAAEAAAADAAAAAAAeAAAAAAADAAAAAAAeAP//AAADAAAAAAAeAP7/AAADAAAAAAAdAAMAAAADAAAAAAAWAP3/AAADAAAAAAAeAP3/AAADAAAAAADp//3/AAADAAAAAADp//7/AAADAAAAAADp////AAADAAAAAADp/wAAAAADAAAAAADp/wEAAAADAAAAAADp/wIAAAADAAAAAADp/wMAAAADAAAAAADo/wMAAAADAAAAAADn/wMAAAADAAAAAADm/wMAAAADAAAAAADl/wMAAAADAAAAAADk/wMAAAADAAAAAADj/wMAAAADAAAAAADi/wMAAAADAAAAAADh//3/AAADAAAAAADh//7/AAADAAAAAADh////AAADAAAAAADh/wAAAAADAAAAAADh/wEAAAADAAAAAADh/wIAAAADAAAAAADh/wMAAAADAAAAAAD3/wMAAAADAAAAAAD2/wMAAAADAAAAAAAKAAMAAAADAAAAAAD1/wMAAAADAAAAAADt//3/AAADAAAAAAD1//3/AAADAAAAAAD2//3/AAADAAAAAAD3//3/AAADAAAAAAASAP3/AAADAAAAAAAKAP3/AAADAAAAAAAJAP3/AAADAAAAAAAIAP3/AAADAAAAAADh//j/AAADAAAAAADh//n/AAADAAAAAADh//r/AAADAAAAAADh//v/AAADAAAAAADh//z/AAADAAAAAAAeAPj/AAADAAAAAAAeAPn/AAADAAAAAAAeAPr/AAADAAAAAAAeAPv/AAADAAAAAAAeAPz/AAADAAAAAAD4/wAAAAADAAAAAAD4/wEAAAADAAAAAAD4/wIAAAADAAAAAAAHAAAAAAADAAAAAAAHAAEAAAADAAAAAAAHAAIAAAADAAAAAAAHAP//AAADAAAAAAAHAP7/AAADAAAAAAAHAP3/AAADAAAAAAD4//3/AAADAAAAAAD4//7/AAADAAAAAAD4////AAADAAAAAAD1/wQAAAADAAAAAAD1/wUAAAADAAAAAAAKAAQAAAADAAAAAAAKAAUAAAADAAAAAAAKAAYAAAADAAAAAAAJAAMAAAADAAAAAAD1/wYAAAADAAAAAAAeAPf/AAADAAAAAAAeAPb/AAADAAAAAAAeAPX/AAADAAAAAAAeAPT/AAADAAAAAAAeAPP/AAADAAAAAAAeAPL/AAADAAAAAAAeAPH/AAADAAAAAAAeAPD/AAADAAAAAAAeAO//AAADAAAAAAAeAO7/AAADAAAAAAAeAO3/AAADAAAAAADh//f/AAADAAAAAADh//b/AAADAAAAAADh//X/AAADAAAAAADh//T/AAADAAAAAADh//P/AAADAAAAAADh//L/AAADAAAAAADh//H/AAADAAAAAADh//D/AAADAAAAAADh/+//AAADAAAAAADh/+7/AAADAAAAAADh/+3/AAADAAAAAADi/wUAAAADAAAAAADj/wUAAAADAAAAAADk/wUAAAADAAAAAADl/wUAAAADAAAAAADm/wUAAAADAAAAAADn/wUAAAADAAAAAADo/wUAAAADAAAAAADp/wUAAAADAAAAAADq/wUAAAADAAAAAADr/wUAAAADAAAAAADs/wUAAAADAAAAAAAdAAUAAAADAAAAAAAcAAUAAAADAAAAAAAbAAUAAAADAAAAAAAaAAUAAAADAAAAAAAZAAUAAAADAAAAAAAYAAUAAAADAAAAAAAXAAUAAAADAAAAAAAWAAUAAAADAAAAAAAVAAUAAAADAAAAAAAUAAUAAAADAAAAAAATAAUAAAABAAAAAADi/wYAAAADAAAAAAAdAAYAAAADAAAAAAAdAAcAAAADAAAAAADi/wcAAAADAAAAAADs/wIAAAABAAAAAADs/wMAAAABAAAAAADs/wQAAAABAAAAAAATAAIAAAABAAAAAAATAAMAAAABAAAAAAATAAQAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAALAP3/AAADAAAAAAAMAP3/AAADAAAAAAANAP3/AAADAAAAAAAOAP3/AAADAAAAAAAPAP3/AAADAAAAAAD0//3/AAADAAAAAADz//3/AAADAAAAAADy//3/AAADAAAAAADx//3/AAADAAAAAADw//3/AAADAAAAAADv//3/AAADAAAAAAD4/wMAAAADAAAAAAD5/wMAAAADAAAAAAD6/wMAAAADAAAAAAD7/wMAAAADAAAAAAD8/wMAAAADAAAAAAD9/wMAAAADAAAAAAD+/wMAAAADAAAAAAD//wMAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAACAAMAAAADAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAAAAAAAFAAMAAAADAAAAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAQAP3/AAADAAAAAAARAP3/AAADAAAAAADu//3/AAADAAAAAAD3/wMAAAADAAAAAAD2/wMAAAADAAAAAAAKAAMAAAADAAAAAAD1/wMAAAADAAAAAADt//3/AAADAAAAAAD1//3/AAADAAAAAAD2//3/AAADAAAAAAD3//3/AAADAAAAAAASAP3/AAADAAAAAAAKAP3/AAADAAAAAAAJAP3/AAADAAAAAAAIAP3/AAADAAAAAAD4/wAAAAADAAAAAAD4/wEAAAADAAAAAAD4/wIAAAADAAAAAAAHAAAAAAADAAAAAAAHAAEAAAADAAAAAAAHAAIAAAADAAAAAAAHAP//AAADAAAAAAAHAP7/AAADAAAAAAAHAP3/AAADAAAAAAD4//3/AAADAAAAAAD4//7/AAADAAAAAAD4////AAADAAAAAAD1/wQAAAADAAAAAAD1/wUAAAADAAAAAAAKAAQAAAADAAAAAAAKAAUAAAADAAAAAAAKAAYAAAADAAAAAAAJAAMAAAADAAAAAAD1/wYAAAADAAAAAADh//j/AAADAAAAAADh//n/AAADAAAAAADh//r/AAADAAAAAADh//v/AAADAAAAAADh//z/AAADAAAAAADh//3/AAADAAAAAADh//7/AAADAAAAAADh////AAADAAAAAADh/wAAAAADAAAAAADh/wEAAAADAAAAAADh/wIAAAABAAAAAADh/wMAAAABAAAAAADW/+3/AAADAAAAAADW/+7/AAADAAAAAADW/+//AAADAAAAAADW//D/AAADAAAAAADW//H/AAADAAAAAADW//L/AAADAAAAAADW//P/AAADAAAAAADW//T/AAADAAAAAADW//X/AAADAAAAAADW//b/AAADAAAAAADW//f/AAADAAAAAADW//j/AAADAAAAAADW//n/AAADAAAAAADW//r/AAADAAAAAADW//v/AAADAAAAAADW//z/AAADAAAAAADW//3/AAADAAAAAADW//7/AAADAAAAAADW////AAADAAAAAADW/wAAAAADAAAAAADW/wEAAAADAAAAAADW/wIAAAADAAAAAADW/wMAAAADAAAAAADX/wMAAAADAAAAAADX/wUAAAADAAAAAADX/wYAAAADAAAAAADX/wcAAAADAAAAAADY/wMAAAADAAAAAADY/wUAAAADAAAAAADZ/wMAAAADAAAAAADZ/wUAAAADAAAAAADa/wMAAAADAAAAAADa/wUAAAADAAAAAADb/wMAAAADAAAAAADb/wUAAAADAAAAAADc/wMAAAADAAAAAADc/wUAAAADAAAAAADd/wMAAAADAAAAAADd/wUAAAADAAAAAADe//3/AAADAAAAAADe//7/AAADAAAAAADe////AAADAAAAAADe/wAAAAADAAAAAADe/wEAAAADAAAAAADe/wIAAAADAAAAAADe/wMAAAADAAAAAADe/wUAAAADAAAAAADf/wUAAAADAAAAAADg/wUAAAADAAAAAADh/wQAAAABAAAAAADh/wUAAAADAAAAAAAeAPj/AAADAAAAAAAeAPn/AAADAAAAAAAeAPr/AAADAAAAAAAeAPv/AAADAAAAAAAeAPz/AAADAAAAAAAeAP3/AAADAAAAAAAeAP7/AAADAAAAAAAeAP//AAADAAAAAAAeAAAAAAADAAAAAAAeAAEAAAADAAAAAAAeAAIAAAABAAAAAAAeAAMAAAABAAAAAAAeAAQAAAABAAAAAAAeAAUAAAABAAAAAAAfAAUAAAADAAAAAAAgAAUAAAADAAAAAAAhAP3/AAADAAAAAAAhAP7/AAADAAAAAAAhAP//AAADAAAAAAAhAAAAAAADAAAAAAAhAAEAAAADAAAAAAAhAAIAAAADAAAAAAAhAAMAAAADAAAAAAAhAAUAAAADAAAAAAAiAAMAAAADAAAAAAAiAAUAAAADAAAAAAAjAAMAAAADAAAAAAAjAAUAAAADAAAAAAAkAAMAAAADAAAAAAAkAAUAAAADAAAAAAAlAAMAAAADAAAAAAAlAAUAAAADAAAAAAAmAAMAAAADAAAAAAAmAAUAAAADAAAAAAAnAAMAAAADAAAAAAAnAAUAAAADAAAAAAAoAAMAAAADAAAAAAAoAAUAAAADAAAAAAAoAAYAAAADAAAAAAAoAAcAAAADAAAAAAApAO3/AAADAAAAAAApAO7/AAADAAAAAAApAO//AAADAAAAAAApAPD/AAADAAAAAAApAPH/AAADAAAAAAApAPL/AAADAAAAAAApAPP/AAADAAAAAAApAPT/AAADAAAAAAApAPX/AAADAAAAAAApAPb/AAADAAAAAAApAPf/AAADAAAAAAApAPj/AAADAAAAAAApAPn/AAADAAAAAAApAPr/AAADAAAAAAApAPv/AAADAAAAAAApAPz/AAADAAAAAAApAP3/AAADAAAAAAApAP7/AAADAAAAAAApAP//AAADAAAAAAApAAAAAAADAAAAAAApAAEAAAADAAAAAAApAAIAAAADAAAAAAApAAMAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAAOAAUAAAADAAAAAAAPAAUAAAADAAAAAAAQAAUAAAADAAAAAAARAAUAAAADAAAAAAASAAUAAAADAAAAAAATAAUAAAADAAAAAAAUAAUAAAADAAAAAAAVAAUAAAADAAAAAAAWAAUAAAADAAAAAAAXAAUAAAADAAAAAAAYAAUAAAADAAAAAAAZAAUAAAADAAAAAAAaAAUAAAADAAAAAAAbAAUAAAADAAAAAAAcAAUAAAADAAAAAAAdAAUAAAADAAAAAADi/wUAAAADAAAAAADj/wUAAAADAAAAAADk/wUAAAADAAAAAADl/wUAAAADAAAAAADm/wUAAAADAAAAAADn/wUAAAADAAAAAADo/wUAAAADAAAAAADp/wUAAAADAAAAAADq/wUAAAADAAAAAADr/wUAAAADAAAAAADs/wUAAAADAAAAAADt/wUAAAADAAAAAADu/wUAAAADAAAAAADv/wUAAAADAAAAAADw/wUAAAADAAAAAADx/wUAAAADAAAAAADy/wUAAAADAAAAAADz/wUAAAADAAAAAAD0/wUAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_m5ppy")
 
-[node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
-position = Vector2(-424, -1)
+[node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_owgte")]
+position = Vector2(-597, -3)
 
-[node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_8cynx")]
-position = Vector2(425, -3)
+[node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_owgte")]
+position = Vector2(603, -4)
 zone = 1
 neededElement = 1
 
-[node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_qqjvl")]
+[node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_gfoan")]
 position = Vector2(-219, -65)
 element = 1
 
-[node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_qqjvl")]
+[node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_gfoan")]
 position = Vector2(220, -65)
 
-[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("9_tl2ud")]
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_ryhou")]
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
@@ -154,7 +154,7 @@ position = Vector2(0, -449)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 438)
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("9_5x4vm")]
 
 [node name="Indications" type="Control" parent="."]
 z_index = -1
@@ -162,7 +162,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("10_ux4hj")
+theme = ExtResource("10_vejsg")
 
 [node name="Panel" type="Panel" parent="Indications"]
 layout_mode = 1
@@ -184,7 +184,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Deilver Elemental Crates to the corrsponding zones before the patience runs out!"
+text = "As the patience Goes Down, The Weather will get worse. Elementals Aren't Immune!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -207,9 +207,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -89.0
+offset_right = -162.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Bring Water to the Fire zone!"
+text = "Douse All the Flames on the Map"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -232,12 +236,30 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 167.0
+offset_top = -100.0
+offset_right = 167.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Bring Fire to the Water zone!"
+text = "Thaw all the ice on map"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Launcher" parent="Indications/Panel3" instance=ExtResource("11_3mljl")]
+position = Vector2(-776, 184)
+
+[node name="Launcher2" parent="Indications/Panel3" instance=ExtResource("11_3mljl")]
+position = Vector2(-1095, -348)
+rotation = 2.32008
+spawn_pattern = Array[float]([1.0, 1.0, 5.0, 0.5, 3.0])
+
+[node name="RainCloud" parent="Indications/Panel3" instance=ExtResource("12_fkqq5")]
+position = Vector2(-116, -413)
+
+[node name="RainCloud2" parent="Indications/Panel3" instance=ExtResource("12_fkqq5")]
+position = Vector2(34, -241)
 
 [node name="Panel4" type="Panel" parent="Indications"]
 layout_mode = 1
@@ -245,9 +267,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -258.0
-offset_top = -193.0
+offset_top = -218.0
 offset_right = -212.0
-offset_bottom = -198.0
+offset_bottom = -223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_l3e5w")
@@ -259,7 +281,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ask for Fire!"
+text = "Fire Elementals Absorb Fireballs"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -270,9 +292,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 182.0
-offset_top = -193.0
+offset_top = -221.0
 offset_right = 228.0
-offset_bottom = -198.0
+offset_bottom = -226.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8cynx")
@@ -282,9 +304,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ask for Water!"
+text = "Rain Clouds Douse Fire Elementas"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -307,9 +333,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Click cratesto destoy them"
+text = "Wind Blows Everyone Equally"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -334,7 +362,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "WASD to Move"
+text = "Fireballs will explode!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -359,7 +387,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Arrows To Move"
+text = "Rain is SLippery"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
