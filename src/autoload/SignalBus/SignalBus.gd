@@ -11,3 +11,4 @@ signal maxScoreSetted(value: float)
 signal playerEnteredZone(zone: Types.Zone)
 signal restart
 signal game_over
+signal levelLoaded

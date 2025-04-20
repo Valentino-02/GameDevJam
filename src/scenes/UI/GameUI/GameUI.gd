@@ -1,13 +1,16 @@
 class_name GameUI extends Control
 
-@onready var _minmapUI: MinimapUI = %MinimapUI
+@onready var _minimapUI: MinimapUI = %MinimapUI
 
 
 func setMinimapTilemaps(tileMaps: Array[TileMapLayer]) -> void:
-	_minmapUI.minimap.setTilemaps(tileMaps)
+	_minimapUI.minimap.setTilemaps(tileMaps)
 
 func setMinimapCamera(camera: Camera2D) -> void:
-	_minmapUI.minimap.setCamera(camera)
+	_minimapUI.minimap.setCamera(camera)
+	
+func drawMinimap() -> void:
+	_minimapUI.minimap.BeginDraw()
 
 func _on_reset_button_pressed() -> void:
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)

@@ -94,7 +94,9 @@ maxScore = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, -109)
+physics_interpolation_mode = 1
+position = Vector2(-1, -30)
+process_callback = 0
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -243,9 +245,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -258.0
-offset_top = -218.0
+offset_top = -193.0
 offset_right = -212.0
-offset_bottom = -223.0
+offset_bottom = -198.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_l3e5w")
@@ -268,9 +270,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 182.0
-offset_top = -221.0
+offset_top = -193.0
 offset_right = 228.0
-offset_bottom = -226.0
+offset_bottom = -198.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8cynx")

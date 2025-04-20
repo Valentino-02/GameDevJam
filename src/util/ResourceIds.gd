@@ -7,6 +7,8 @@ enum SceneId {
 
 enum SfxId {
 	Click,
+	CargoCollect,
+	CargoDiscard,
 }
 
 enum MusicId {

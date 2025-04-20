@@ -12,17 +12,19 @@ func _ready() -> void:
 	_loadLevel()
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)
 	SignalBus.hazardFixed.connect(_onHazardFix)
-	#CutsceneManager.sceneLoaded.emit()
 	SignalBus.playerEnteredZone.connect(_onPlayerEnteredZone)
 
 
 func _loadLevel() -> void:
 	var level: Level = LevelManager.getTargetLevel().instantiate()
 	_scoreManager.setMaxScore(level.maxScore)
+	_patienceManager.setPatienceLoss(level.patienceLossPerSecond)
+	_patienceManager.setCargoPatienceGain(level.cargoPatienceGain)
 	add_child(level)
 	await get_tree().process_frame
 	_gameUI.setMinimapCamera(level.camera)
 	_gameUI.setMinimapTilemaps([level.tileMapLayer])
+	_gameUI.drawMinimap()
 
 func _onZoneGotCargo(zone: Types.Zone) -> void:
 	_patienceManager.gainPatience(zone)
