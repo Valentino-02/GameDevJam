@@ -23,3 +23,8 @@ func _on_test_game_button_pressed() -> void:
 func _on_level_1_game_button_pressed() -> void:
 		LevelManager.setTargetLevel(ResourceIds.LevelId.Level1)
 		_startGame()
+
+
+func _on_hazard_tutorial_pressed() -> void:
+		LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial2)
+		_startGame()

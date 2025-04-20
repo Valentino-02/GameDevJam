@@ -36,7 +36,12 @@ layout_mode = 2
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="TutorialGameButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Movement Tutorial" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial Level"
+
+[node name="Hazard Tutorial" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Tutorial Level"
@@ -65,6 +70,7 @@ layout_mode = 2
 title = "Sfx"
 type = 1
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/TutorialGameButton" to="." method="_on_tutorial_game_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Movement Tutorial" to="." method="_on_tutorial_game_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Hazard Tutorial" to="." method="_on_hazard_tutorial_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/TestGameButton" to="." method="_on_test_game_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Level1GameButton" to="." method="_on_level_1_game_button_pressed"]
