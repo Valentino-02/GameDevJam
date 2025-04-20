@@ -39,7 +39,7 @@ color_initial_ramp = SubResource("GradientTexture1D_c26w7")
 radius = 75.0
 
 [node name="Fireball" type="RigidBody2D"]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 64
 mass = 25.0
 gravity_scale = 0.05
@@ -49,6 +49,8 @@ continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_y0wbd")
+explosion_strength = 0.5
+strength_fall_off_power = 1
 
 [node name="FireballSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 7)

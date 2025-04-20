@@ -21,5 +21,6 @@ enum MusicId {
 enum LevelId {
 	Tutorial,
 	Test,
-	Level1
+	Level1,
+	Tutorial2,
 }
