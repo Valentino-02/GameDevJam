@@ -5,6 +5,13 @@ extends RigidBody2D
 @onready var _animator: AnimationPlayer = $AnimationPlayer
 @onready var _staticPlatform: Node2D = $Sprite2D
 @onready var _animatedPlatform: Node2D = $AnimatedPlatform
+@onready var _lplayer : Character = get_node("../LeftCharacter")
+@onready var _rplayer : Character = get_node("../RightCharacter")
+
+func _physics_process(delta: float) -> void:
+	self.gravity_scale = 0.0 if _noPlayerInput() else 0.6
+func _noPlayerInput() -> bool:
+	return _lplayer.outputDir == Vector2.ZERO and _rplayer.outputDir == Vector2.ZERO
 
 var _dropping: bool = false
 
