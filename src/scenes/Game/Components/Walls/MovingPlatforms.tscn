@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://diwl2vy6uy5tg"]
 
-[ext_resource type="Script" uid="uid://b3ivimkrplpxy" path="res://src/scenes/Game/Components/Walls/moving_platforms.gd" id="1_nomca"]
+[ext_resource type="Script" path="res://src/scenes/Game/Components/Walls/moving_platforms.gd" id="1_nomca"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="2_ew5rk"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="3_ew5rk"]
 

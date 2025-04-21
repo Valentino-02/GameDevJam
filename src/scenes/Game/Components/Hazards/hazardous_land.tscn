@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c10anevjkkxgt"]
+
+[ext_resource type="Script" uid="uid://j7ef15vy888b" path="res://src/scenes/Game/Levels/hazardous_land.gd" id="1_23uff"]
+[ext_resource type="Material" uid="uid://doihbhsgjc3gj" path="res://resources/particles/fireParticle.tres" id="2_cktvc"]
+[ext_resource type="Material" uid="uid://cf6knxqj82pju" path="res://resources/particles/icyParticle.tres" id="3_e00eq"]
+
+[node name="HazardousLand" type="Area2D"]
+script = ExtResource("1_23uff")
+dangerType = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="FireParticle" type="GPUParticles2D" parent="."]
+visible = false
+amount = 50
+process_material = ExtResource("2_cktvc")
+
+[node name="WaterParticle" type="GPUParticles2D" parent="."]
+visible = false
+amount = 50
+process_material = ExtResource("3_e00eq")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://flslwe42rd3l"]
+[gd_scene load_steps=29 format=4 uid="uid://flslwe42rd3l"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_117lr"]
 [ext_resource type="PackedScene" uid="uid://diwl2vy6uy5tg" path="res://src/scenes/Game/Components/Walls/MovingPlatforms.tscn" id="2_coiru"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dcp1acwb278w1" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.tscn" id="12_fkqq5"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="12_owgte"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="13_fkqq5"]
+[ext_resource type="PackedScene" uid="uid://c10anevjkkxgt" path="res://src/scenes/Game/Components/Hazards/hazardous_land.tscn" id="16_gfoan"]
 
 [sub_resource type="Curve2D" id="Curve2D_coiru"]
 _data = {
@@ -43,6 +44,12 @@ ease = 2
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abecf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl2ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfoan"]
+size = Vector2(166.61, 33.47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryhou"]
+size = Vector2(207.1, 34.81)
 
 [node name="TutorialLevel" type="Node2D"]
 script = ExtResource("1_117lr")
@@ -380,6 +387,17 @@ position = Vector2(415, -376)
 process_callback = 0
 wait_time = 4.0
 autostart = true
+
+[node name="HazardousLand" parent="Hazards" instance=ExtResource("16_gfoan")]
+position = Vector2(424, -62)
+collision_layer = 0
+collision_mask = 0
+dangerType = 0
+shape = SubResource("RectangleShape2D_gfoan")
+
+[node name="HazardousLand2" parent="Hazards" instance=ExtResource("16_gfoan")]
+position = Vector2(-423, -62)
+shape = SubResource("RectangleShape2D_ryhou")
 
 [connection signal="timeout" from="Hazards/RainCloud2/Timer" to="Hazards/RainCloud2" method="_setRaining"]
 
