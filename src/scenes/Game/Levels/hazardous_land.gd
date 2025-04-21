@@ -18,6 +18,7 @@ var _rect: Rect2:
 var activeParticle: GPUParticles2D
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	SignalBus.cargoDroppedOnSurface.connect(_checkDiffuseHazard)
 	activeParticle = _waterParticle if dangerType == Types.Element.Water else _fireParticle
 	activeParticle.show()
