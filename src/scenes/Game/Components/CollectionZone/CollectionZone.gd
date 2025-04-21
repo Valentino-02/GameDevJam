@@ -2,13 +2,19 @@ class_name CollectionZone extends Area2D
 
 @export var zone : Types.Zone
 @export var neededElement : Types.Element 
+@export var fireTextures: Array[Texture2D] = []
+@export var waterTextures: Array[Texture2D] = []
 
+@onready var altar: Sprite2D = $Altar
+@onready var core: Sprite2D = $Altar/Core
 
 func _ready() -> void:
 	if neededElement == Types.Element.Water:
-		modulate = Color("d32600")
+		altar.texture = fireTextures[0]
+		core.texture = fireTextures[1]
 	if neededElement == Types.Element.Fire:
-		modulate = Color("3c3bdc")
+		altar.texture = waterTextures[0]
+		core.texture = waterTextures[1]
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_groups().has("Cargo"):

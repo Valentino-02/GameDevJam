@@ -68,7 +68,7 @@ sources/0 = SubResource("TileSetAtlasSource_nomca")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nomca"]
 polygon = PackedVector2Array(1, -42, 31, -44, 44, -59, 74, -59, 93, -43, 121, -45, 122, -2, -1, 0)
 
-[node name="MovingPlatforms" type="Path2D"]
+[node name="MovingPlatforms" type="Path2D" groups=["MovingPlatform"]]
 curve = SubResource("Curve2D_nomca")
 script = ExtResource("1_nomca")
 
