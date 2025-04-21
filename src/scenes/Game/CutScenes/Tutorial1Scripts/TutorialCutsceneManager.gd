@@ -6,7 +6,6 @@ var cutscenesPlayed: int = 0
 
 func completeCutscene() -> void:
 	cutscenesPlayed += 1
-	print("Cutscenes %s / %s"%[cutscenesPlayed, cutscenes.size()])
 	if cutscenesPlayed == cutscenes.size():
 		TransitionManager.changeToScene(ResourceIds.SceneId.MainMenu)
 	elif cutscenesPlayed >= cutscenes.size()-1:

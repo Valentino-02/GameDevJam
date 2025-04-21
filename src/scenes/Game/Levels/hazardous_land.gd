@@ -1,8 +1,17 @@
+@tool
 extends Area2D
 
 @export var dangerType: Types.Element
+@export var shape: Shape2D:	
+	set(value):
+		shape = value
+		if Engine.is_editor_hint():
+			get_child(0).shape = value
+		update_configuration_warnings()
 
-@onready var _rect: Rect2 = get_child(0).shape.get_rect()
+var _rect: Rect2:
+	get: return shape.get_rect()
+
 @onready var _fireParticle: GPUParticles2D = get_node("FireParticle")
 @onready var _waterParticle: GPUParticles2D = get_node("WaterParticle")
 
@@ -12,7 +21,6 @@ func _ready() -> void:
 	SignalBus.cargoDroppedOnSurface.connect(_checkDiffuseHazard)
 	activeParticle = _waterParticle if dangerType == Types.Element.Water else _fireParticle
 	activeParticle.show()
-	print(_rect.size.x)
 	activeParticle.process_material.set("emission_box_extents", Vector2(_rect.size.x / 2, 1))
 	activeParticle.emitting = true
 	
@@ -32,3 +40,8 @@ func _diffuse(cargo: Cargo) -> void:
 	cargo.destroy()
 	SignalBus.hazardFixed.emit(cargo.element)
 	queue_free()
+	
+func _get_configuration_warnings():
+	if shape == null:
+		return ["No area has been set for triggering!"]
+	return []

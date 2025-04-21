@@ -1,85 +1,31 @@
-[gd_scene load_steps=53 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=52 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_no6oc"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_octr6"]
-[ext_resource type="Texture2D" uid="uid://dn7dx5rh2rve3" path="res://assets/images/TILESET_SUMMER_DAY.png" id="5_l3e5w"]
+[ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_61xil"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_8cynx"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
 [ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="10_ux4hj"]
-[ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneManager.gd" id="11_bete1"]
+[ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneManager.gd" id="11_bete1"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="14_3hvhq"]
 [ext_resource type="Texture2D" uid="uid://dj5535ppxnbtn" path="res://assets/images/playerCharacters/Water Elemental.png" id="15_61xil"]
 [ext_resource type="Texture2D" uid="uid://d1vt5xnchlnkk" path="res://assets/images/playerCharacters/Fire Elemental.png" id="16_y6tqc"]
-[ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
-[ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/TutorialScripts/CutsceneComplete.gd" id="17_6ifj0"]
-[ext_resource type="Script" uid="uid://cpenlt242k7hn" path="res://src/scenes/Game/CutScenes/TutorialScripts/TutorialCutsceneRequireCargo.gd" id="18_gfe1e"]
+[ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
+[ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/CutsceneComplete.gd" id="17_6ifj0"]
+[ext_resource type="PackedScene" uid="uid://0upwnl40riqb" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/ControlDisplay.tscn" id="18_61xil"]
+[ext_resource type="Script" uid="uid://cpenlt242k7hn" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneRequireCargo.gd" id="18_gfe1e"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_octr6")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2odft"]
-texture = ExtResource("5_l3e5w")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:3/0 = 0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_m5ppy"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2odft")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux4hj"]
 
@@ -194,7 +140,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_mpwdg"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "Once you've got some water on-board, try dropping it here using the [color=red][b]Space[/color][/b] runekey."
+dialogueLine = "Once you've got some water on-board, try dropping it here using the [color=red][b]Space[/b][/color] runekey."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_s2r5k"]
@@ -261,8 +207,10 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAALAP3/AAADAAAAAAAMAP3/AAADAAAAAAANAP3/AAADAAAAAAAOAP3/AAADAAAAAAAPAP3/AAADAAAAAAD0//3/AAADAAAAAADz//3/AAADAAAAAADy//3/AAADAAAAAADx//3/AAADAAAAAADw//3/AAADAAAAAADv//3/AAADAAAAAAD4/wMAAAADAAAAAAD5/wMAAAADAAAAAAD6/wMAAAADAAAAAAD7/wMAAAADAAAAAAD8/wMAAAADAAAAAAD9/wMAAAADAAAAAAD+/wMAAAADAAAAAAD//wMAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAACAAMAAAADAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAAAAAAAFAAMAAAADAAAAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAQAP3/AAADAAAAAAARAP3/AAADAAAAAADu//3/AAADAAAAAADs//j/AAADAAAAAADs//n/AAADAAAAAADs//r/AAADAAAAAADs//v/AAADAAAAAADs//z/AAADAAAAAADs//3/AAADAAAAAADs////AAADAAAAAADs/wAAAAADAAAAAADs//7/AAADAAAAAADs/wEAAAADAAAAAAATAAEAAAADAAAAAAATAAAAAAADAAAAAAATAP//AAADAAAAAAATAP3/AAADAAAAAAATAPv/AAADAAAAAAATAPr/AAADAAAAAAATAPn/AAADAAAAAAATAPj/AAADAAAAAAATAPz/AAADAAAAAAATAP7/AAADAAAAAAAWAP7/AAADAAAAAAAWAP//AAADAAAAAAAWAAAAAAADAAAAAAAWAAEAAAADAAAAAAAWAAIAAAADAAAAAAAWAAMAAAADAAAAAAAXAAMAAAADAAAAAAAYAAMAAAADAAAAAAAZAAMAAAADAAAAAAAaAAMAAAADAAAAAAAbAAMAAAADAAAAAAAcAAMAAAADAAAAAAAeAAMAAAADAAAAAAAeAAIAAAADAAAAAAAeAAEAAAADAAAAAAAeAAAAAAADAAAAAAAeAP//AAADAAAAAAAeAP7/AAADAAAAAAAdAAMAAAADAAAAAAAWAP3/AAADAAAAAAAeAP3/AAADAAAAAADp//3/AAADAAAAAADp//7/AAADAAAAAADp////AAADAAAAAADp/wAAAAADAAAAAADp/wEAAAADAAAAAADp/wIAAAADAAAAAADp/wMAAAADAAAAAADo/wMAAAADAAAAAADn/wMAAAADAAAAAADm/wMAAAADAAAAAADl/wMAAAADAAAAAADk/wMAAAADAAAAAADj/wMAAAADAAAAAADi/wMAAAADAAAAAADh//3/AAADAAAAAADh//7/AAADAAAAAADh////AAADAAAAAADh/wAAAAADAAAAAADh/wEAAAADAAAAAADh/wIAAAADAAAAAADh/wMAAAADAAAAAAD3/wMAAAADAAAAAAD2/wMAAAADAAAAAAAKAAMAAAADAAAAAAD1/wMAAAADAAAAAADt//3/AAADAAAAAAD1//3/AAADAAAAAAD2//3/AAADAAAAAAD3//3/AAADAAAAAAASAP3/AAADAAAAAAAKAP3/AAADAAAAAAAJAP3/AAADAAAAAAAIAP3/AAADAAAAAADh//j/AAADAAAAAADh//n/AAADAAAAAADh//r/AAADAAAAAADh//v/AAADAAAAAADh//z/AAADAAAAAAAeAPj/AAADAAAAAAAeAPn/AAADAAAAAAAeAPr/AAADAAAAAAAeAPv/AAADAAAAAAAeAPz/AAADAAAAAAD4/wAAAAADAAAAAAD4/wEAAAADAAAAAAD4/wIAAAADAAAAAAAHAAAAAAADAAAAAAAHAAEAAAADAAAAAAAHAAIAAAADAAAAAAAHAP//AAADAAAAAAAHAP7/AAADAAAAAAAHAP3/AAADAAAAAAD4//3/AAADAAAAAAD4//7/AAADAAAAAAD4////AAADAAAAAAD1/wQAAAADAAAAAAD1/wUAAAADAAAAAAAKAAQAAAADAAAAAAAKAAUAAAADAAAAAAAKAAYAAAADAAAAAAAJAAMAAAADAAAAAAD1/wYAAAADAAAAAAAeAPf/AAADAAAAAAAeAPb/AAADAAAAAAAeAPX/AAADAAAAAAAeAPT/AAADAAAAAAAeAPP/AAADAAAAAAAeAPL/AAADAAAAAAAeAPH/AAADAAAAAAAeAPD/AAADAAAAAAAeAO//AAADAAAAAAAeAO7/AAADAAAAAAAeAO3/AAADAAAAAADh//f/AAADAAAAAADh//b/AAADAAAAAADh//X/AAADAAAAAADh//T/AAADAAAAAADh//P/AAADAAAAAADh//L/AAADAAAAAADh//H/AAADAAAAAADh//D/AAADAAAAAADh/+//AAADAAAAAADh/+7/AAADAAAAAADh/+3/AAADAAAAAADi/wUAAAADAAAAAADj/wUAAAADAAAAAADk/wUAAAADAAAAAADl/wUAAAADAAAAAADm/wUAAAADAAAAAADn/wUAAAADAAAAAADo/wUAAAADAAAAAADp/wUAAAADAAAAAADq/wUAAAADAAAAAADr/wUAAAADAAAAAADs/wUAAAADAAAAAAAdAAUAAAADAAAAAAAcAAUAAAADAAAAAAAbAAUAAAADAAAAAAAaAAUAAAADAAAAAAAZAAUAAAADAAAAAAAYAAUAAAADAAAAAAAXAAUAAAADAAAAAAAWAAUAAAADAAAAAAAVAAUAAAADAAAAAAAUAAUAAAADAAAAAAATAAUAAAABAAAAAADi/wYAAAADAAAAAAAdAAYAAAADAAAAAAAdAAcAAAADAAAAAADi/wcAAAADAAAAAADs/wIAAAABAAAAAADs/wMAAAABAAAAAADs/wQAAAABAAAAAAATAAIAAAABAAAAAAATAAMAAAABAAAAAAATAAQAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_m5ppy")
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("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AAAUAAUAAAABAAgAAAATAAUAAAAAAAgAAADi/wYAAAABAAYAAADi/wcAAAABAAgAAADs/wIAAAACAAcAAADs/wMAAAACAAcAAADs/wQAAAACAAcAAAATAAIAAAAAAAcAAAATAAMAAAAAAAcAAAATAAQAAAAAAAcAAADh/wcAAAABAAgAAADh/wYAAAABAAcAAADh/wUAAAACAAcAAADh/wQAAAACAAcAAADg/wcAAAAAAAgAAADg/wYAAAAAAAcAAADg/wUAAAAAAAcAAADg/wQAAAAAAAcAAADg/wMAAAAAAAcAAADg/wIAAAAAAAcAAADg/wEAAAAAAAcAAADg/wAAAAAAAAcAAADg////AAAAAAcAAADg//7/AAAAAAcAAADg//3/AAAAAAcAAADg//z/AAAAAAcAAADg//v/AAAAAAcAAADg//r/AAAAAAcAAADg//n/AAAAAAcAAADg//j/AAAAAAcAAADg//f/AAAAAAcAAADg//b/AAAAAAcAAADg//X/AAAAAAcAAADg//T/AAAAAAcAAADg//P/AAAAAAcAAADg//L/AAAAAAcAAADg//H/AAAAAAcAAADg//D/AAAAAAcAAADg/+//AAAAAAcAAADg/+7/AAAAAAcAAADg/+3/AAAAAAYAAADp/wcAAAACAAgAAADp/wYAAAABAAcAAADo/wcAAAABAAgAAADo/wYAAAABAAYAAADn/wcAAAABAAgAAADn/wYAAAABAAYAAADm/wcAAAABAAgAAADm/wYAAAABAAYAAADl/wcAAAABAAgAAADl/wYAAAABAAYAAADk/wcAAAABAAgAAADk/wYAAAABAAYAAADj/wcAAAABAAgAAADj/wYAAAABAAYAAADs/wYAAAACAAgAAADr/wYAAAABAAgAAADq/wYAAAABAAgAAADr/wQAAAABAAcAAADr/wMAAAABAAcAAADr/wIAAAABAAcAAADr/wEAAAABAAcAAADr/wAAAAABAAcAAADr////AAABAAcAAADr//7/AAABAAcAAADr//3/AAABAAcAAADr//z/AAAAAAcAAADr//v/AAAAAAcAAADr//r/AAAAAAcAAADr//n/AAAAAAcAAADr//j/AAAAAAYAAADp/wQAAAAAAAYAAADo/wQAAAAJAAYAAADn/wQAAAAIAAYAAADm/wQAAAAIAAYAAADl/wQAAAAIAAYAAADk/wQAAAAIAAYAAADj/wQAAAAIAAYAAADi/wQAAAAHAAYAAADq/wIAAAAAAAcAAADq/wEAAAAAAAcAAADq/wAAAAAAAAcAAADq////AAAAAAcAAADq//7/AAAAAAcAAADq//3/AAAAAAYAAADq/wUAAAABAAcAAADq/wQAAAABAAcAAADq/wMAAAAAAAcAAADp/wUAAAAAAAcAAAD3//7/AAABAAcAAAD2//7/AAABAAgAAAD1//7/AAABAAgAAAD0//7/AAABAAgAAADz//7/AAABAAgAAADy//7/AAABAAgAAADx//7/AAABAAgAAADw//7/AAABAAgAAADv//7/AAABAAgAAADu//7/AAABAAgAAADt//7/AAABAAgAAAD3/wIAAAAAAAcAAAD3/wEAAAAAAAcAAAD3/wAAAAAAAAcAAAD3////AAAAAAcAAAD2/wYAAAACAAgAAAD2/wUAAAACAAcAAAD2/wQAAAABAAcAAAAJAAQAAAABAAcAAAAIAAQAAAABAAgAAAAHAAQAAAABAAgAAAAGAAQAAAABAAgAAAAFAAQAAAABAAgAAAAEAAQAAAABAAgAAAADAAQAAAABAAgAAAACAAQAAAABAAgAAAABAAQAAAABAAgAAAAAAAQAAAABAAgAAAD//wQAAAABAAgAAAD+/wQAAAABAAgAAAD9/wQAAAABAAgAAAD8/wQAAAABAAgAAAD7/wQAAAABAAgAAAD6/wQAAAABAAgAAAD5/wQAAAABAAgAAAD4/wQAAAABAAgAAAD3/wQAAAABAAgAAAAJAAYAAAAAAAgAAAAJAAUAAAAAAAcAAAAIAAIAAAACAAcAAAAIAAEAAAACAAcAAAAIAAAAAAACAAcAAAAIAP//AAACAAcAAAAIAP7/AAACAAcAAAAUAAQAAAABAAcAAAAUAAMAAAABAAcAAAAUAAIAAAABAAcAAAAUAAEAAAABAAcAAAAUAAAAAAABAAcAAAAUAP//AAABAAcAAAAUAP7/AAABAAcAAAAUAP3/AAABAAcAAAAUAPz/AAACAAcAAAAUAPv/AAACAAcAAAAUAPr/AAACAAcAAAAUAPn/AAACAAcAAAAUAPj/AAACAAYAAAASAP7/AAAJAAYAAAARAP7/AAAIAAYAAAAQAP7/AAAIAAYAAAAPAP7/AAAAAAcAAQAOAP7/AAAAAAcAAQANAP7/AAAAAAcAAQAMAP7/AAAAAAcAAQALAP7/AAAAAAcAAQAKAP7/AAAAAAcAAQAJAP7/AAAHAAYAAAAPAP//AAAJAAYAAAAOAP//AAAIAAYAAAANAP//AAAIAAYAAAAMAP//AAAIAAYAAAALAP//AAAIAAYAAAAKAP//AAAHAAYAAAAeAAQAAAAJAAYAAAAdAAQAAAAIAAYAAAAcAAQAAAAIAAYAAAAbAAQAAAAAAAcAAQAaAAQAAAAAAAcAAQAZAAQAAAAAAAcAAQAYAAQAAAAAAAcAAQAXAAQAAAAIAAYAAAAWAAQAAAAHAAYAAAAVAAQAAAACAAcAAAAVAAMAAAACAAcAAAAVAAIAAAACAAcAAAAVAAEAAAACAAcAAAAVAAAAAAACAAcAAAAVAP//AAACAAcAAAAVAP7/AAACAAcAAAAVAP3/AAACAAYAAAAfAAIAAAACAAgAAAAfAAEAAAACAAcAAAAfAAAAAAACAAcAAAAfAP//AAACAAcAAAAfAP7/AAACAAcAAAAfAP3/AAACAAcAAAAfAPz/AAACAAcAAAAfAPv/AAACAAcAAAAfAPr/AAACAAcAAAAfAPn/AAACAAcAAAAfAPj/AAACAAcAAAAfAPf/AAACAAcAAAAfAPb/AAACAAcAAAAfAPX/AAACAAcAAAAfAPT/AAACAAcAAAAfAPP/AAACAAcAAAAfAPL/AAACAAcAAAAfAPH/AAACAAcAAAAfAPD/AAACAAcAAAAfAO//AAACAAcAAAAfAO7/AAACAAcAAAAfAO3/AAACAAYAAAA=")
+tile_set = ExtResource("5_61xil")
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(-424, 18)
@@ -528,15 +476,16 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="PlayerControlsDisplay" type="Node2D" parent="Cutscenes/Intro" node_paths=PackedStringArray("tutorialCutsceneManager")]
 script = ExtResource("17_3hvhq")
 tutorialCutsceneManager = NodePath("../..")
+controlsDisplay = ExtResource("18_61xil")
 
 [node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja"), SubResource("Resource_61xil")])
-collisionLayers = 8
 useableCameras = {
 &"FireDrop": NodePath("FireDrop"),
 &"WaterZone": NodePath("WaterZone")
 }
+collisionLayers = 8
 
 [node name="FireDrop" type="Node2D" parent="Cutscenes/FireDropper"]
 position = Vector2(-214, -141)
@@ -580,11 +529,11 @@ tutorialCutsceneManager = NodePath("../..")
 [node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl"), SubResource("Resource_s2r5k")])
-collisionLayers = 8
 useableCameras = {
 &"FireZone": NodePath("FireZone"),
 &"WaterDrop": NodePath("WaterDrop")
 }
+collisionLayers = 8
 
 [node name="Area2D" type="Area2D" parent="Cutscenes/WaterDropper"]
 position = Vector2(219, -146)

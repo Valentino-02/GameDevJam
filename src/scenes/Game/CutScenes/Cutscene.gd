@@ -14,12 +14,13 @@ enum triggerType {
 
 ##Dialogue points to use
 @export var storyPoints: Array[StoryPoint] = []
+##Cameras to use for each story point
+@export var useableCameras: Dictionary[StringName, PhantomCamera2D] = {}
 
+@export_group("For use with zones")
 ##collisions to detect for zone type triggers
 @export_flags_2d_physics var collisionLayers
 
-##Cameras to use for each story point
-@export var useableCameras: Dictionary[StringName, PhantomCamera2D] = {}
 var triggerZone: Area2D
 var _cutscenePlayed := false
 

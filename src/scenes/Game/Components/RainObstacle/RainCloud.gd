@@ -13,6 +13,8 @@ signal rainingChanged
 @onready var _audioPlayer : AudioStreamPlayer2D = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Raining)
 
 func _ready() -> void:
+	_particlePlayer.emitting = true
+	_particleBack.emitting = true
 	add_child(_audioPlayer)
 	_audioPlayer.position = Vector2.DOWN * 100
 	_setRaining(_raining)
