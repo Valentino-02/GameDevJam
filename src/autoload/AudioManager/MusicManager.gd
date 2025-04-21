@@ -52,13 +52,15 @@ func fadeOut(duration := 1.5, activePlayer := true) -> Tween:
 
 func enableLowPass(duration := 0.5) -> void:
 	var tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	var effect = AudioServer.get_bus_effect(AudioManager.getMusicBusIndex(), 0)
-	tween.tween_property(effect, "cutoff_hz", Settings.LOW_PASS_HZ_VALUE, duration).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(effect, "cutoff_hz", 400, duration).set_trans(Tween.TRANS_LINEAR)
 
 func disableLowPass(duration := 0.5) -> void:
 	var tween = get_tree().create_tween()
-	var effect = AudioServer.get_bus_effect(AudioManager.getSfxBusIndex(), 0)
-	tween.tween_property(effect, "cutoff_hz", Settings.NORMAL_HZ_VALUE, duration).set_trans(Tween.TRANS_LINEAR)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	var effect = AudioServer.get_bus_effect(AudioManager.getMusicBusIndex(), 0)
+	tween.tween_property(effect, "cutoff_hz", 10000, duration).set_trans(Tween.TRANS_LINEAR)
 
 func crossFadeTo(id: ResourceIds.MusicId, duration := 0.3) -> void:
 	var currentTime := _activePlayer.get_playback_position()

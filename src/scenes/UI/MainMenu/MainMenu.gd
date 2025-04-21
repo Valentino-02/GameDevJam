@@ -1,30 +1,23 @@
 class_name MainMenu
 extends CanvasLayer
 
+@onready var _levelSelector : LevelSelector = %LevelSelector
+
 
 func _ready() -> void:
 	AudioManager.music.play(ResourceIds.MusicId.MainMenuTheme)
 
 
-func _startGame() -> void:
+func _on_start_game_button_pressed() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial)
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
 	AudioManager.music.stop()
 
+func _on_level_selection_button_pressed() -> void:
+	AudioManager.sfx.play(ResourceIds.SfxId.Click)
+	_levelSelector.changeOpenState()
 
-func _on_tutorial_game_button_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial)
-		_startGame()
-
-func _on_test_game_button_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Test)
-		_startGame()
-
-func _on_level_1_game_button_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Level1)
-		_startGame()
-
-
-func _on_hazard_tutorial_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial2)
-		_startGame()
+func _on_quit_game_button_pressed() -> void:
+	AudioManager.sfx.play(ResourceIds.SfxId.Click)
+	get_tree().quit()
