@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=47 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -20,13 +20,13 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hu46i"]
 size = Vector2(100, 20)
 
-[sub_resource type="Curve" id="Curve_j0y4q"]
+[sub_resource type="Curve" id="Curve_61ysk"]
 _limits = [0.0, 1.0, 0.0, 4.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
-curve = SubResource("Curve_j0y4q")
+curve = SubResource("Curve_61ysk")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08p4k"]
 particle_flag_align_y = true
@@ -44,6 +44,14 @@ scale_curve = SubResource("CurveTexture_qgvce")
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
 size = Vector2(100, 20)
 
+[sub_resource type="Curve" id="Curve_j0y4q"]
+_limits = [0.0, 1.0, 0.0, 4.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hu46i"]
+curve = SubResource("Curve_j0y4q")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vt20b"]
 particle_flag_disable_z = true
 emission_shape = 3
@@ -56,7 +64,7 @@ initial_velocity_min = 5.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 120, 0)
 scale_max = 4.0
-scale_curve = SubResource("CurveTexture_qgvce")
+scale_curve = SubResource("CurveTexture_hu46i")
 color = Color(0.262745, 0.87451, 0.996078, 1)
 hue_variation_min = -0.07
 hue_variation_max = 0.03
@@ -132,8 +140,16 @@ radius = 20.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.525547, 0.727642), -1.11382, -1.11382, 0, 0, Vector2(1, 0.223577), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_j0y4q"]
+[sub_resource type="CurveTexture" id="CurveTexture_0hvym"]
 curve = SubResource("Curve_08p4k")
+
+[sub_resource type="Curve" id="Curve_04iwi"]
+_limits = [0.0, 1.0, 0.0, 4.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sr8ub"]
+curve = SubResource("Curve_04iwi")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aou6w"]
 particle_flag_disable_z = true
@@ -147,9 +163,9 @@ initial_velocity_min = 60.0
 initial_velocity_max = 110.0
 gravity = Vector3(0, -50, 0)
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_qgvce")
+scale_curve = SubResource("CurveTexture_sr8ub")
 color = Color(1, 0.168627, 0.396078, 1)
-alpha_curve = SubResource("CurveTexture_j0y4q")
+alpha_curve = SubResource("CurveTexture_0hvym")
 hue_variation_min = -0.08
 hue_variation_max = 0.2
 turbulence_enabled = true

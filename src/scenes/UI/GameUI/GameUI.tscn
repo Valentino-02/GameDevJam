@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blqjsj4wbhr8u"]
+[gd_scene load_steps=6 format=3 uid="uid://blqjsj4wbhr8u"]
 
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
 [ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.tscn" id="2_fwjtt"]
 [ext_resource type="PackedScene" uid="uid://6dt2pr7ig14l" path="res://src/scenes/UI/GameUI/Score/GlobalScoreUI.tscn" id="4_b00as"]
 [ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.tscn" id="5_b00as"]
+[ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/PauseMenu/PauseMenu.tscn" id="5_dw237"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -70,11 +71,11 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control"]
+[node name="PauseMenuButton" type="Button" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control"]
 layout_mode = 1
 offset_right = 70.0
 offset_bottom = 37.0
-text = "Reset!"
+text = "Pause"
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
 layout_mode = 2
@@ -95,4 +96,9 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 mouse_filter = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control/ResetButton" to="." method="_on_reset_button_pressed"]
+[node name="PauseMenu" parent="." instance=ExtResource("5_dw237")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control/PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
