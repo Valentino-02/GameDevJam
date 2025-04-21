@@ -45,6 +45,7 @@ shape = SubResource("RectangleShape2D_kaqv7")
 
 [node name="RainEmitterPlayer" type="GPUParticles2D" parent="."]
 position = Vector2(1, -2)
+emitting = false
 amount = 30
 texture = ExtResource("3_kaqv7")
 lifetime = 1.5
@@ -54,6 +55,7 @@ process_material = SubResource("ParticleProcessMaterial_kaqv7")
 
 [node name="RainEmitterBehind" type="GPUParticles2D" parent="."]
 position = Vector2(1, 6)
+emitting = false
 amount = 30
 texture = ExtResource("3_kaqv7")
 lifetime = 1.5
