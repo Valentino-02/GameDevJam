@@ -22,7 +22,7 @@ size = Vector2(100, 20)
 
 [sub_resource type="Curve" id="Curve_j0y4q"]
 _limits = [0.0, 1.0, 0.0, 4.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50996, 0.844456), 0.473509, 0.473509, 0, 0, Vector2(1.54582, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_qgvce"]
