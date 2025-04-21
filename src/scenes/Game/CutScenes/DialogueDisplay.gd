@@ -20,8 +20,16 @@ func PlayDialogue(dialogue: Dialogue, keepPanelUp = false) -> void:
 	else:
 		spriteDisplay.hide()
 	show()
+	var _isTag:= false
 	for i in range(dialogue.dialogueLine.length()):
 		if interrupted: break
+		if _isTag:
+			if dialogue.dialogueLine[i] == "]":
+				_isTag = false
+			continue
+		if dialogue.dialogueLine[i] == "[":
+			_isTag = true
+			continue
 		textDisplay.text = dialogue.dialogueLine.substr(0,i)
 		await get_tree().create_timer(speedPerLetter).timeout
 	interrupted = true
