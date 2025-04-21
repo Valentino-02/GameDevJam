@@ -112,13 +112,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_elyr4"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "Yes of course! Use the W-A-S-D runes on your runeboard to give me directions."
+dialogueLine = "Yes of course! Use the [color=blue][b]W-A-S-D[/b][/color] runes on your runeboard to give me directions."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "It's the arrow runes for me. Give it go, take us on an adventure."
+dialogueLine = "It's the [color=red][b]arrow[/b][/color] runes for me. Give it go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_e3ggw"]
@@ -137,53 +137,15 @@ ease = 2
 [sub_resource type="Resource" id="Resource_jdpu4"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "This is where fire cargo gets generated. You'll need this to slow the freeze over in the water lands. You can summon some using the E rune. Try it now!"
+dialogueLine = "This is where fire cargo gets generated. You'll need this to slow the freeze over in the water lands. You can summon some using the [color=red][b]E[/b][/color] rune. Try it now!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_8kfja"]
 script = ExtResource("12_l3e5w")
 cameraToUse = &"FireDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_jdpu4")])
-childToTrigger = "CutsceneComplete"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3clbk"]
-size = Vector2(164, 174)
-
-[sub_resource type="Resource" id="Resource_edi57"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
-dialogueLine = "This is my world's cargo dropper. Use your E rune to collect some cargo. You'll need it to cool down the fire realm's core!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_km0gl"]
-script = ExtResource("12_l3e5w")
-cameraToUse = &"WaterDrop"
-dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
-childToTrigger = "CutsceneComplete"
-metadata/_custom_type_script = "uid://dr4g3okg075lr"
-
-[sub_resource type="Resource" id="Resource_q5b8i"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
-dialogueLine = "Aha! You've found one of the cores to my homeland. It needs water to stop overheating!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_mpwdg"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
-dialogueLine = "Once you've got some water on-board, try dropping it here using the Space runekey."
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_s2r5k"]
-script = ExtResource("12_l3e5w")
-cameraToUse = &"FireZone"
-dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_q5b8i"), SubResource("Resource_mpwdg")])
-childToTrigger = "AwaitCollection"
-metadata/_custom_type_script = "uid://dr4g3okg075lr"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrv3"]
-size = Vector2(100, 100)
 
 [sub_resource type="Resource" id="Resource_bete1"]
 script = ExtResource("14_3hvhq")
@@ -194,13 +156,51 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_3hvhq"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "If you can drop off fire cargo here by dropping it with the Space Runekey, you'll help us keep warm and survive!"
+dialogueLine = "If you can drop off fire cargo here by dropping it with the [color=blue][b]Space[/b][/color] Runekey, you'll help us keep warm and survive!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_61xil"]
 script = ExtResource("12_l3e5w")
 cameraToUse = &"WaterZone"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_bete1"), SubResource("Resource_3hvhq")])
+childToTrigger = "AwaitCollection"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrv3"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3clbk"]
+size = Vector2(164, 174)
+
+[sub_resource type="Resource" id="Resource_edi57"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("15_61xil")
+dialogueLine = "This is my world's cargo dropper. Use your [color=blue][b]E[/b][/color] rune to collect some cargo. You'll need it to cool down the fire realm's core!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_km0gl"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"WaterDrop"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
+childToTrigger = ""
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_q5b8i"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Speaking of which, this is one of the cores to my homeland. It needs that water to stop overheating!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_mpwdg"]
+script = ExtResource("14_3hvhq")
+speaker = ExtResource("16_y6tqc")
+dialogueLine = "Once you've got some water on-board, try dropping it here using the [color=red][b]Space[/color][/b] runekey."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_s2r5k"]
+script = ExtResource("12_l3e5w")
+cameraToUse = &"FireZone"
+dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_q5b8i"), SubResource("Resource_mpwdg")])
 childToTrigger = "AwaitCollection"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
@@ -265,10 +265,10 @@ tile_map_data = PackedByteArray("AAALAP3/AAADAAAAAAAMAP3/AAADAAAAAAANAP3/AAADAAA
 tile_set = SubResource("TileSet_m5ppy")
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
-position = Vector2(-424, -1)
+position = Vector2(-424, 18)
 
 [node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_8cynx")]
-position = Vector2(425, -3)
+position = Vector2(425, 20)
 zone = 1
 neededElement = 1
 
@@ -297,6 +297,7 @@ position = Vector2(0, 438)
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
 [node name="Indications" type="Control" parent="."]
+visible = false
 z_index = -1
 layout_mode = 3
 anchors_preset = 0
@@ -506,7 +507,7 @@ autowrap_mode = 2
 
 [node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes", "finalCutscene")]
 script = ExtResource("11_bete1")
-cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), NodePath("FireZone"), NodePath("WaterZone"), NodePath("FinalCutscene")]
+cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), NodePath("FinalCutscene")]
 finalCutscene = NodePath("FinalCutscene")
 
 [node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
@@ -530,10 +531,11 @@ tutorialCutsceneManager = NodePath("../..")
 
 [node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
-storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja")])
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja"), SubResource("Resource_61xil")])
 collisionLayers = 8
 useableCameras = {
-&"FireDrop": NodePath("FireDrop")
+&"FireDrop": NodePath("FireDrop"),
+&"WaterZone": NodePath("WaterZone")
 }
 
 [node name="FireDrop" type="Node2D" parent="Cutscenes/FireDropper"]
@@ -543,6 +545,26 @@ zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_8cynx")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="WaterZone" type="Node2D" parent="Cutscenes/FireDropper"]
+position = Vector2(422, -32)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="AwaitCollection" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("18_gfe1e")
+cargoLayer = 16
+tutorialCutsceneManager = NodePath("../..")
+requiredElement = 1
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/FireDropper/AwaitCollection"]
+position = Vector2(424, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireDropper/AwaitCollection/Area2D"]
+shape = SubResource("RectangleShape2D_5xrv3")
 
 [node name="Area2D" type="Area2D" parent="Cutscenes/FireDropper"]
 position = Vector2(-217, -146)
@@ -557,9 +579,10 @@ tutorialCutsceneManager = NodePath("../..")
 
 [node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
-storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl")])
+storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl"), SubResource("Resource_s2r5k")])
 collisionLayers = 8
 useableCameras = {
+&"FireZone": NodePath("FireZone"),
 &"WaterDrop": NodePath("WaterDrop")
 }
 
@@ -570,6 +593,14 @@ position = Vector2(219, -146)
 shape = SubResource("RectangleShape2D_3clbk")
 debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
 
+[node name="FireZone" type="Node2D" parent="Cutscenes/WaterDropper"]
+position = Vector2(-405, -36)
+script = ExtResource("3_no6oc")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_8cynx")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
 [node name="WaterDrop" type="Node2D" parent="Cutscenes/WaterDropper"]
 position = Vector2(223, -141)
 script = ExtResource("3_no6oc")
@@ -578,78 +609,20 @@ tween_resource = SubResource("Resource_8cynx")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
+[node name="AwaitCollection" type="Node2D" parent="Cutscenes/WaterDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
+script = ExtResource("18_gfe1e")
+cargoLayer = 16
+tutorialCutsceneManager = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="Cutscenes/WaterDropper/AwaitCollection"]
+position = Vector2(-425, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterDropper/AwaitCollection/Area2D"]
+shape = SubResource("RectangleShape2D_5xrv3")
+
 [node name="CutsceneComplete" type="Node2D" parent="Cutscenes/WaterDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
 script = ExtResource("17_6ifj0")
 tutorialCutsceneManager = NodePath("../..")
-
-[node name="FireZone" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
-type = 0
-storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_s2r5k")])
-collisionLayers = 8
-useableCameras = {
-&"FireZone": NodePath("FireZone")
-}
-
-[node name="FireZone" type="Node2D" parent="Cutscenes/FireZone"]
-position = Vector2(-405, -36)
-script = ExtResource("3_no6oc")
-zoom = Vector2(1.5, 1.5)
-tween_resource = SubResource("Resource_8cynx")
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="Area2D" type="Area2D" parent="Cutscenes/FireZone"]
-position = Vector2(-407, -131)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireZone/Area2D"]
-shape = SubResource("RectangleShape2D_3clbk")
-debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
-
-[node name="AwaitCollection" type="Node2D" parent="Cutscenes/FireZone" node_paths=PackedStringArray("tutorialCutsceneManager")]
-script = ExtResource("18_gfe1e")
-cargoLayer = 16
-tutorialCutsceneManager = NodePath("../..")
-
-[node name="Area2D" type="Area2D" parent="Cutscenes/FireZone/AwaitCollection"]
-position = Vector2(-425, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/FireZone/AwaitCollection/Area2D"]
-shape = SubResource("RectangleShape2D_5xrv3")
-
-[node name="WaterZone" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
-type = 0
-storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_61xil")])
-collisionLayers = 8
-useableCameras = {
-&"WaterZone": NodePath("WaterZone")
-}
-
-[node name="WaterZone" type="Node2D" parent="Cutscenes/WaterZone"]
-position = Vector2(422, -32)
-script = ExtResource("3_no6oc")
-zoom = Vector2(1.5, 1.5)
-tween_resource = SubResource("Resource_8cynx")
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="AwaitCollection" type="Node2D" parent="Cutscenes/WaterZone" node_paths=PackedStringArray("tutorialCutsceneManager")]
-script = ExtResource("18_gfe1e")
-cargoLayer = 16
-tutorialCutsceneManager = NodePath("../..")
-requiredElement = 1
-
-[node name="Area2D" type="Area2D" parent="Cutscenes/WaterZone/AwaitCollection"]
-position = Vector2(424, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterZone/AwaitCollection/Area2D"]
-shape = SubResource("RectangleShape2D_5xrv3")
-
-[node name="Area2D" type="Area2D" parent="Cutscenes/WaterZone"]
-position = Vector2(399, -131)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/WaterZone/Area2D"]
-shape = SubResource("RectangleShape2D_3clbk")
-debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
 
 [node name="FinalCutscene" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_3clbk")])

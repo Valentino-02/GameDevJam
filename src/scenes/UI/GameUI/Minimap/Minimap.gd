@@ -61,7 +61,7 @@ func _draw() -> void:
 	
 	for tilemap in _tilemaps:
 		var cameraCell: Vector2i = tilemap.local_to_map(tilemap.to_local(cameraPosition))
-		var tilemapOffset: Vector2i = (Vector2i(cameraPosition) - tilemap.local_to_map(cameraCell)) / tilemap.tile_set.tile_size
+		var tilemapOffset: Vector2i = ((Vector2i(cameraPosition-tilemap.global_position) - tilemap.local_to_map(cameraCell)) / tilemap.tile_set.tile_size)
 
 		for id in _cellColors.keys():
 			var color = _cellColors[id]

@@ -55,6 +55,7 @@ IncludeOnMinimap=""
 CollectionZoneWater=""
 CollectionZoneFire=""
 MainCamera=""
+MovingPlatform=""
 
 [gui]
 

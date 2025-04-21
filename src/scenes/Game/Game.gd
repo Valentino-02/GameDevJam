@@ -24,7 +24,7 @@ func _loadLevel() -> void:
 	await get_tree().process_frame
 	SignalBus.levelLoaded.emit()
 	_gameUI.setMinimapCamera(level.camera)
-	_gameUI.setMinimapTilemaps([level.tileMapLayer])
+	_gameUI.setMinimapTilemaps(level.tileMapLayers)
 	_gameUI.drawMinimap()
 
 func _onZoneGotCargo(zone: Types.Zone) -> void:
