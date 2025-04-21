@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cvq5wp4h7knq6"]
+[gd_scene load_steps=13 format=4 uid="uid://cvq5wp4h7knq6"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_hwqca"]
 [ext_resource type="Texture2D" uid="uid://dn7dx5rh2rve3" path="res://assets/images/TILESET_SUMMER_DAY.png" id="1_i6fm4"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_xb0jl"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="7_y71yj"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="8_xb0jl"]
-[ext_resource type="Script" uid="uid://j7ef15vy888b" path="res://src/scenes/Game/Levels/hazardous_land.gd" id="9_3377l"]
 
 [sub_resource type="Resource" id="Resource_hwqca"]
 script = ExtResource("3_xb0jl")
@@ -117,9 +116,6 @@ position = Vector2(0, -226)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_xb0jl")]
 phantom_camera = NodePath("../../PhantomCamera2D")
-
-[node name="HazardousLand" type="Node2D" parent="Layout"]
-script = ExtResource("9_3377l")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("7_y71yj")]
 position = Vector2(0, -66)
