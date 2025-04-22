@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=39 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dbwljywwt4l33" path="res://assets/sfx/Win Condition Shorter MP3.mp3" id="17_egq4x"]
 [ext_resource type="AudioStream" uid="uid://dvp7gu5ii37vw" path="res://assets/sfx/Lose Condition Shorter MP3.mp3" id="18_080kg"]
 [ext_resource type="AudioStream" uid="uid://cfjxcnrtluccs" path="res://assets/sfx/Attack-Snap.mp3" id="19_080kg"]
+[ext_resource type="AudioStream" uid="uid://bek515apcwi3n" path="res://assets/sfx/Death.mp3" id="21_jode2"]
 
 [sub_resource type="Resource" id="Resource_u4rwl"]
 script = ExtResource("3_p58k6")
@@ -160,6 +161,15 @@ pitchScale = 1.0
 limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
+[sub_resource type="Resource" id="Resource_o7ug3"]
+script = ExtResource("6_4cy6h")
+id = 11
+stream = ExtResource("21_jode2")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_7j23j")
@@ -178,4 +188,4 @@ process_mode = 3
 [node name="SfxManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_7j23j")
-sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we"), SubResource("Resource_t07ss"), SubResource("Resource_080kg"), SubResource("Resource_kx8bi"), SubResource("Resource_jode2"), SubResource("Resource_h17n5"), SubResource("Resource_ctta6"), SubResource("Resource_imgi5"), SubResource("Resource_egq4x")])
+sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we"), SubResource("Resource_t07ss"), SubResource("Resource_080kg"), SubResource("Resource_kx8bi"), SubResource("Resource_jode2"), SubResource("Resource_h17n5"), SubResource("Resource_ctta6"), SubResource("Resource_imgi5"), SubResource("Resource_egq4x"), SubResource("Resource_o7ug3")])

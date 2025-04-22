@@ -65,7 +65,7 @@ func disableLowPass(duration := 0.5) -> void:
 func crossFadeTo(id: ResourceIds.MusicId, duration := 0.3) -> void:
 	var currentTime := _activePlayer.get_playback_position()
 	play(id, duration, currentTime, false)
-	await stop(duration)
+	await stop(duration*2)
 	var temp = _activePlayer
 	_activePlayer = _inactivePlayer
 	_inactivePlayer = temp

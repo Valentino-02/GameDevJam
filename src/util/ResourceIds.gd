@@ -16,7 +16,8 @@ enum SfxId {
 	Wind,
 	WinFanfare,
 	LoseFanfare,
-	Clack
+	Clack,
+	PowerDown,
 }
 
 enum MusicId {

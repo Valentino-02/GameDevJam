@@ -3,6 +3,7 @@ class_name Game extends Node2D
 @onready var _gameUI : GameUI = %GameUI
 @onready var _backgroundTextureRect : TextureRect = %BackgroundTextureRect
 @onready var _parallax : Node2D = %Parallax2DGroup
+@onready var _zoneTransitionTimer : Timer = %ZoneTransitionTimer
 
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
@@ -83,19 +84,24 @@ func _onHazardFix(hazard: Types.Element) -> void:
 	_patienceManager.gainPatience(zone)
 
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
+	if not _zoneTransitionTimer.is_stopped():
+		await _zoneTransitionTimer.timeout
+	_zoneTransitionTimer.start(3.0)
 	var target_color: Color
-	var music_id
+	var music_id : ResourceIds.MusicId
 	match zone:
 		Types.Zone.Left:
-			music_id = ResourceIds.MusicId.WaterTheme
-			target_color = Color("2e45da")
+			music_id = ResourceIds.MusicId.FireTheme
+			target_color = Color("81543f")
 		Types.Zone.Middle:
 			music_id = ResourceIds.MusicId.WindTheme
-			target_color = Color("ffffff")
+			target_color = Color("857a7a")
 		Types.Zone.Right:
-			music_id = ResourceIds.MusicId.FireTheme
-			target_color = Color("aa1d2c")
+			music_id = ResourceIds.MusicId.WaterTheme
+			target_color = Color("5a80ab")
 
 	AudioManager.music.crossFadeTo(music_id)
 	var tween = create_tween()
-	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel(true)
+	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_parallax, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

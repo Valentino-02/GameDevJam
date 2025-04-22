@@ -445,7 +445,7 @@ script = ExtResource("4_08p4k")
 [node name="LeftCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(-86, -109)
-collision_layer = 0
+collision_layer = 2
 collision_mask = 224
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
@@ -481,7 +481,7 @@ position = Vector2(3, -17)
 [node name="RightCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true
 position = Vector2(84, -109)
-collision_layer = 0
+collision_layer = 2
 collision_mask = 224
 script = ExtResource("1_h7irl")
 _suffix = "R"

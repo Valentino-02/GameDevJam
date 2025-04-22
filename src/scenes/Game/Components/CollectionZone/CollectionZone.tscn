@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce7fih3ihtd3w"]
+[gd_scene load_steps=11 format=3 uid="uid://ce7fih3ihtd3w"]
 
 [ext_resource type="Script" uid="uid://cramf5py76bex" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.gd" id="1_5cbe3"]
 [ext_resource type="Texture2D" uid="uid://deodufingmol5" path="res://assets/images/Cores/fire stone/Fire Stone altar.png" id="2_63o22"]
@@ -8,6 +8,46 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hydwb"]
 size = Vector2(112, 66)
+
+[sub_resource type="Animation" id="Animation_x0266"]
+resource_name = "DISABLED"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Altar/Core:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4.66667, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Altar/Core:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.380482]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Altar/Core:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.223103, 0.223103, 0.223103, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ksfdo"]
 length = 0.001
@@ -22,6 +62,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Altar/Core:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Altar/Core:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_63o22"]
@@ -43,11 +107,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0266"]
 _data = {
+&"DISABLED": SubResource("Animation_x0266"),
 &"RESET": SubResource("Animation_ksfdo"),
 &"coreAnimation": SubResource("Animation_63o22")
 }
 
 [node name="CollectionZone" type="Area2D" groups=["IncludeOnMinimap"]]
+collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_5cbe3")
 fireTextures = Array[Texture2D]([ExtResource("2_63o22"), ExtResource("3_ksfdo")])
@@ -57,14 +123,6 @@ waterTextures = Array[Texture2D]([ExtResource("4_x0266"), ExtResource("5_qqnfv")
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_hydwb")
 debug_color = Color(0, 0.6, 0.701961, 0.0470588)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-color = Color(1, 1, 1, 0.45098)
 
 [node name="Altar" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -77,6 +135,7 @@ texture_filter = 1
 texture = ExtResource("3_ksfdo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_x0266")
 }
