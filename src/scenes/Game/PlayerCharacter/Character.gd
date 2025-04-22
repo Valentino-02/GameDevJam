@@ -21,7 +21,7 @@ func _ready() -> void:
 	_particles.emitting = true
 	#_rope.springLength = _origin.global_position.distance_to(_rope.platform_attachement.global_position)
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
-	
+	SignalBus.zonePatienceEnded.connect(_onZonePatienceEnded)
 
 #get the target position = back to origin or current position + speed in input direciton
 func _physics_process(delta: float) -> void:
@@ -89,3 +89,6 @@ func _collideArea(area):
 			area._shape_cast.shape.radius *= 2
 			area._onCollision(self)
 			_struck = Time.get_ticks_msec()
+
+func _onZonePatienceEnded(_zone : Types.Zone) -> void:
+	set_physics_process(false)

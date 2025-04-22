@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpvu5ti8bdk7a"]
 
-[ext_resource type="Script" uid="uid://bl5dfk5rd5b6j" path="res://src/scenes/UI/PauseMenu/PauseMenu.gd" id="1_7ng4x"]
+[ext_resource type="Script" uid="uid://bl5dfk5rd5b6j" path="res://src/scenes/UI/GameUI/PauseMenu/PauseMenu.gd" id="1_7ng4x"]
 [ext_resource type="PackedScene" uid="uid://wmffm1lec8xx" path="res://src/scenes/UI/MainMenu/VolumeSlider.tscn" id="1_j6cl5"]
 
 [node name="PauseMenu" type="Control"]

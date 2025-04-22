@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://blqjsj4wbhr8u"]
+[gd_scene load_steps=8 format=3 uid="uid://blqjsj4wbhr8u"]
 
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
 [ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.tscn" id="2_fwjtt"]
 [ext_resource type="PackedScene" uid="uid://6dt2pr7ig14l" path="res://src/scenes/UI/GameUI/Score/GlobalScoreUI.tscn" id="4_b00as"]
 [ext_resource type="PackedScene" uid="uid://browjfmejnq75" path="res://src/scenes/UI/GameUI/Minimap/MinimapUI.tscn" id="5_b00as"]
-[ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/PauseMenu/PauseMenu.tscn" id="5_dw237"]
+[ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/GameUI/PauseMenu/PauseMenu.tscn" id="5_dw237"]
+[ext_resource type="PackedScene" uid="uid://bko4wd0mdgil0" path="res://src/scenes/UI/GameUI/LoseScreen/LoseScreen.tscn" id="6_dw237"]
+[ext_resource type="PackedScene" uid="uid://i3to2f6oeh1n" path="res://src/scenes/UI/GameUI/WinScreen/WinScreen.tscn" id="7_qj02x"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -16,89 +18,78 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_elwfl")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="TopUI" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TopUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="LeftZoneCounter" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("2_fwjtt")]
-layout_mode = 2
-
-[node name="GlobalScore" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("4_b00as")]
-layout_mode = 2
-
-[node name="RightZoneCounter" parent="MarginContainer/VBoxContainer/TopUI/HBoxContainer" instance=ExtResource("2_fwjtt")]
-layout_mode = 2
-zone = 1
-
-[node name="UpperMiddleUI" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/UpperMiddleUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-alignment = 2
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PauseMenuButton" type="Button" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control"]
-layout_mode = 1
-offset_right = 70.0
-offset_bottom = 37.0
-text = "Pause"
-
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MinimapUI" parent="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control3" instance=ExtResource("5_b00as")]
-unique_name_in_owner = true
-layout_mode = 0
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 6.0
-mouse_filter = 1
-
 [node name="PauseMenu" parent="." instance=ExtResource("5_dw237")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/UpperMiddleUI/HBoxContainer/Control/PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
+[node name="LoseScreen" parent="." instance=ExtResource("6_dw237")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="WinScreen" parent="." instance=ExtResource("7_qj02x")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="MinimapUI" parent="." instance=ExtResource("5_b00as")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -70.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="LeftZoneCounter" parent="." instance=ExtResource("2_fwjtt")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 177.0
+offset_bottom = 109.0
+
+[node name="RightZoneCounter" parent="." instance=ExtResource("2_fwjtt")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -177.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 109.0
+grow_horizontal = 0
+zone = 1
+
+[node name="GlobalScore" parent="." instance=ExtResource("4_b00as")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.225
+anchor_top = 0.025
+anchor_right = 0.775
+anchor_bottom = 0.15
+grow_vertical = 1
+
+[node name="PauseMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -37.0
+offset_right = 70.0
+offset_bottom = -5.0
+grow_vertical = 0
+text = "Pause"
+
+[connection signal="pressed" from="PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]

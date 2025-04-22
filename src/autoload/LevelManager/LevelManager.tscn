@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://pplsmk3w7xbg"]
+[gd_scene load_steps=15 format=3 uid="uid://pplsmk3w7xbg"]
 
 [ext_resource type="Script" uid="uid://6tngpyc08ql6" path="res://src/autoload/LevelManager/LevelManager.gd" id="1_efybg"]
 [ext_resource type="Script" uid="uid://b5ba2yrcw6xeg" path="res://src/autoload/LevelManager/PackedLevel.gd" id="2_c5d04"]
 [ext_resource type="PackedScene" uid="uid://d2kynfde44quw" path="res://src/scenes/Game/Levels/TutorialLevel.tscn" id="3_dmswm"]
-[ext_resource type="PackedScene" uid="uid://cvq5wp4h7knq6" path="res://src/scenes/Game/Levels/TestLevel.tscn" id="4_ei8jq"]
+[ext_resource type="PackedScene" uid="uid://d2coyxn87hnja" path="res://src/scenes/Game/Levels/TutorialLevel2.tscn" id="4_2sx6q"]
 [ext_resource type="PackedScene" uid="uid://dj7sjrctqr8ld" path="res://src/scenes/Game/Levels/Level1.tscn" id="5_ewb0q"]
 [ext_resource type="PackedScene" uid="uid://flslwe42rd3l" path="res://src/scenes/Game/Levels/TutorialLevelHazards.tscn" id="6_2sx6q"]
+[ext_resource type="PackedScene" uid="uid://cvq5wp4h7knq6" path="res://src/scenes/Game/Levels/TestLevel.tscn" id="7_1uwpm"]
 
 [sub_resource type="Resource" id="Resource_dmswm"]
 script = ExtResource("2_c5d04")
@@ -16,7 +17,7 @@ metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
 [sub_resource type="Resource" id="Resource_ewb0q"]
 script = ExtResource("2_c5d04")
 id = 1
-levelScene = ExtResource("4_ei8jq")
+levelScene = ExtResource("4_2sx6q")
 metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
 
 [sub_resource type="Resource" id="Resource_2sx6q"]
@@ -31,6 +32,24 @@ id = 3
 levelScene = ExtResource("6_2sx6q")
 metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
 
+[sub_resource type="Resource" id="Resource_jgqr3"]
+script = ExtResource("2_c5d04")
+id = 4
+levelScene = ExtResource("6_2sx6q")
+metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
+
+[sub_resource type="Resource" id="Resource_ao10w"]
+script = ExtResource("2_c5d04")
+id = 5
+levelScene = ExtResource("7_1uwpm")
+metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
+
+[sub_resource type="Resource" id="Resource_jas5p"]
+script = ExtResource("2_c5d04")
+id = 6
+levelScene = ExtResource("5_ewb0q")
+metadata/_custom_type_script = "uid://b5ba2yrcw6xeg"
+
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_efybg")
-levelList = Array[ExtResource("2_c5d04")]([SubResource("Resource_dmswm"), SubResource("Resource_ewb0q"), SubResource("Resource_2sx6q"), SubResource("Resource_1uwpm")])
+levelList = Array[ExtResource("2_c5d04")]([SubResource("Resource_dmswm"), SubResource("Resource_ewb0q"), SubResource("Resource_2sx6q"), SubResource("Resource_1uwpm"), SubResource("Resource_jgqr3"), SubResource("Resource_ao10w"), SubResource("Resource_jas5p")])

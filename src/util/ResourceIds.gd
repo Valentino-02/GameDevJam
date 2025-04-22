@@ -14,19 +14,25 @@ enum SfxId {
 	Raining,
 	Splashing,
 	Wind,
-
+	WinFanfare,
+	LoseFanfare,
+	Clack
 }
 
 enum MusicId {
 	FireTheme,
 	WindTheme,
 	WaterTheme,
-	MainMenuTheme
+	MainMenuTheme,
+	WaitTheme,
 }
 
 enum LevelId {
 	Tutorial,
+	Tutorial2,
+	Tutorial3,
+	Tutorial4,
+	HazardTutorial,
 	Test,
 	Level1,
-	Tutorial2,
 }

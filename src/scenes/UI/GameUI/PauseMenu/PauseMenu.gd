@@ -12,7 +12,6 @@ var _wasCalled : bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	await self.ready 
 	await get_tree().process_frame 
 	_targetPosition = _modal.position
 	_hiddenPosition.x = _modal.position.x
@@ -77,11 +76,13 @@ func _waitForTransitionEnd() -> void:
 
 
 func _on_restart_button_pressed() -> void:
+	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	get_tree().paused = false
 	AudioManager.music.disableLowPass()
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
 
 func _on_main_menu_button_pressed() -> void:
+	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	get_tree().paused = false
 	AudioManager.music.disableLowPass()
 	TransitionManager.changeToScene(ResourceIds.SceneId.MainMenu)

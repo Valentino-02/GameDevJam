@@ -5,6 +5,7 @@ extends Node2D
 var cutscenesPlayed: int = 0 
 
 func completeCutscene() -> void:
+	return
 	cutscenesPlayed += 1
 	if cutscenesPlayed == cutscenes.size():
 		TransitionManager.changeToScene(ResourceIds.SceneId.MainMenu)
