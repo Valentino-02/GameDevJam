@@ -3,22 +3,7 @@
 [ext_resource type="Script" uid="uid://dwatib16fqrvd" path="res://src/scenes/Game/CutScenes/DialogueDisplay.gd" id="1_ren1c"]
 [ext_resource type="FontFile" uid="uid://banjbbba265s4" path="res://assets/fonts/aesymatt.ttf" id="2_ren1c"]
 [ext_resource type="Texture2D" uid="uid://o6dhk2eaqgpn" path="res://assets/images/TeamIcon.png" id="3_bswin"]
-[ext_resource type="FontFile" uid="uid://cmjxdhhgvjuhq" path="res://assets/fonts/I-pixel-u.ttf" id="4_a3fb6"]
-
-[sub_resource type="Animation" id="Animation_bswin"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/default_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [null]
-}
+[ext_resource type="FontFile" uid="uid://dofgiddqsibgf" path="res://assets/fonts/I-pixel-u.ttf" id="4_a3fb6"]
 
 [sub_resource type="Animation" id="Animation_a3fb6"]
 resource_name = "flickerNext"
@@ -34,6 +19,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bswin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t18qv"]

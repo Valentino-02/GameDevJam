@@ -54,11 +54,11 @@ func Activate(_node: Node2D = null) -> void:
 	_changeParticleSpeed(500)
 	_changeParticleQuantity(12)
 	_audioPlayer.play(0.0)
-	await get_tree().create_timer(0.3,true).timeout
+	await get_tree().create_timer(0.3).timeout
 	_active = true
-	await get_tree().create_timer(blastDuration,true).timeout
+	await get_tree().create_timer(blastDuration).timeout
 	_active = false
-	await get_tree().create_timer(0.3,true).timeout
+	await get_tree().create_timer(0.3).timeout
 	_audioPlayer.stop()
 	_changeParticleSpeed(80)
 	_changeParticleQuantity(8)
