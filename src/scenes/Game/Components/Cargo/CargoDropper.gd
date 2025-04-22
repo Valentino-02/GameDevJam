@@ -10,6 +10,7 @@ class_name CargoDropper extends Node2D
 @onready var _uiHelpers : Control = %UI_Helpers
 @onready var _spawnMarker : Marker2D = %SpawnMarker
 @onready var _distributionMarker : Marker2D = %DistributionMarker
+@onready var _temporaryIcon : Sprite2D = %TemporaryIcon
 
 var _interactable : bool = false
 var _onCooldown : bool = false
@@ -20,6 +21,7 @@ var _currentTick : int = 0 :
 
 
 func _ready() -> void:
+	_temporaryIcon.texture = PreloadedResources.fireCrateTexture if element == Types.Element.Fire else PreloadedResources.waterCrateTexture 
 	_cooldownTimer.wait_time = tickDuration
 	_progressBar.max_value = cooldownTicks
 

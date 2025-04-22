@@ -40,7 +40,6 @@ func _ready() -> void:
 	_area.body_entered.connect(Activate)
 	###---------
 	_area.body_exited.connect(_removeBody)
-	SignalBus.restart.connect(_reset)
 	activeParticles = _bottomParticles if forceDirection == windDirection.UP else _topParticles
 	activeParticles.show()
 
@@ -86,6 +85,3 @@ func _changeParticleSpeed(speed: float) -> void:
 
 func _changeParticleQuantity(quantity: int) -> void:
 	activeParticles.amount = quantity
-
-func _reset() -> void:
-	_bodies = []
