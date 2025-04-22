@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=37 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
@@ -10,12 +10,16 @@
 [ext_resource type="AudioStream" uid="uid://u1siydat4u3p" path="res://assets/music/Water Level MP3.mp3" id="6_dsnk3"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
 [ext_resource type="AudioStream" uid="uid://b2eycwb263uwo" path="res://assets/music/Elemental Delivery.mp3" id="7_qrd4w"]
+[ext_resource type="AudioStream" uid="uid://dr1b4e4yjh4n7" path="res://assets/music/Pause Music Rave Deluxe Edition.mp3" id="8_kx8bi"]
 [ext_resource type="AudioStream" uid="uid://cqiqgg61h85b1" path="res://assets/sfx/Select.mp3" id="11_j8xci"]
 [ext_resource type="AudioStream" uid="uid://ma6lpfk1fc8l" path="res://assets/sfx/Drop.mp3" id="12_sl0f0"]
 [ext_resource type="AudioStream" uid="uid://cjofrpdv4pb82" path="res://assets/sfx/Fireball.mp3" id="13_munpx"]
 [ext_resource type="AudioStream" uid="uid://dybp5ql2dkut0" path="res://assets/sfx/Water Calm MP3.mp3" id="14_ctta6"]
 [ext_resource type="AudioStream" uid="uid://b34efg666kkjl" path="res://assets/sfx/Water Aggressive MP3.mp3" id="15_imgi5"]
 [ext_resource type="AudioStream" uid="uid://pcqi83gx1t8u" path="res://assets/sfx/Wing Aggressive MP3.mp3" id="16_egq4x"]
+[ext_resource type="AudioStream" uid="uid://dbwljywwt4l33" path="res://assets/sfx/Win Condition Shorter MP3.mp3" id="17_egq4x"]
+[ext_resource type="AudioStream" uid="uid://dvp7gu5ii37vw" path="res://assets/sfx/Lose Condition Shorter MP3.mp3" id="18_080kg"]
+[ext_resource type="AudioStream" uid="uid://cfjxcnrtluccs" path="res://assets/sfx/Attack-Snap.mp3" id="19_080kg"]
 
 [sub_resource type="Resource" id="Resource_u4rwl"]
 script = ExtResource("3_p58k6")
@@ -45,6 +49,14 @@ metadata/_custom_type_script = "uid://b67exh4v0a6ij"
 script = ExtResource("3_p58k6")
 id = 3
 stream = ExtResource("7_qrd4w")
+volume = 0.0
+pitchScale = 1.0
+metadata/_custom_type_script = "uid://b67exh4v0a6ij"
+
+[sub_resource type="Resource" id="Resource_y777s"]
+script = ExtResource("3_p58k6")
+id = 4
+stream = ExtResource("8_kx8bi")
 volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
@@ -121,6 +133,33 @@ pitchScale = 1.0
 limit = 5
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
+[sub_resource type="Resource" id="Resource_ctta6"]
+script = ExtResource("6_4cy6h")
+id = 8
+stream = ExtResource("17_egq4x")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_imgi5"]
+script = ExtResource("6_4cy6h")
+id = 9
+stream = ExtResource("18_080kg")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_egq4x"]
+script = ExtResource("6_4cy6h")
+id = 10
+stream = ExtResource("19_080kg")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_7j23j")
@@ -129,7 +168,7 @@ script = ExtResource("1_7j23j")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("2_ge8yv")
-musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w"), SubResource("Resource_j8xci"), SubResource("Resource_sl0f0")])
+musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w"), SubResource("Resource_j8xci"), SubResource("Resource_sl0f0"), SubResource("Resource_y777s")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3
@@ -139,4 +178,4 @@ process_mode = 3
 [node name="SfxManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_7j23j")
-sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we"), SubResource("Resource_t07ss"), SubResource("Resource_080kg"), SubResource("Resource_kx8bi"), SubResource("Resource_jode2"), SubResource("Resource_h17n5")])
+sfxList = Array[ExtResource("6_4cy6h")]([SubResource("Resource_dsnk3"), SubResource("Resource_munpx"), SubResource("Resource_ex2we"), SubResource("Resource_t07ss"), SubResource("Resource_080kg"), SubResource("Resource_kx8bi"), SubResource("Resource_jode2"), SubResource("Resource_h17n5"), SubResource("Resource_ctta6"), SubResource("Resource_imgi5"), SubResource("Resource_egq4x")])

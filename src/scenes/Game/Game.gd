@@ -1,10 +1,12 @@
 class_name Game extends Node2D
 
-@onready var _gameUI: GameUI = %GameUI
-@onready var _backgroundTextureRect = %BackgroundTextureRect
+@onready var _gameUI : GameUI = %GameUI
+@onready var _backgroundTextureRect : TextureRect = %BackgroundTextureRect
+@onready var _parallax : Node2D = %Parallax2DGroup
 
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
+var _level : Level
 
 
 func _ready() -> void:
@@ -13,6 +15,9 @@ func _ready() -> void:
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)
 	SignalBus.hazardFixed.connect(_onHazardFix)
 	SignalBus.playerEnteredZone.connect(_onPlayerEnteredZone)
+	SignalBus.zonePatienceEnded.connect(_onZonePatienceEnded)
+	SignalBus.nextLevelClicked.connect(_onNextLevelClicked)
+	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
 
 func _loadLevel() -> void:
@@ -20,6 +25,7 @@ func _loadLevel() -> void:
 	_scoreManager.setMaxScore(level.maxScore)
 	_patienceManager.setPatienceLoss(level.patienceLossPerSecond)
 	_patienceManager.setCargoPatienceGain(level.cargoPatienceGain)
+	_level = level
 	add_child(level)
 	await get_tree().process_frame
 	SignalBus.levelLoaded.emit()
@@ -27,9 +33,47 @@ func _loadLevel() -> void:
 	_gameUI.setMinimapTilemaps(level.tileMapLayers)
 	_gameUI.drawMinimap()
 
+func _onNextLevelClicked() -> void:
+	LevelManager.setTargetLevel(_level.nextLevelId)
+	AudioManager.music.stop()
+	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
+
 func _onZoneGotCargo(zone: Types.Zone) -> void:
 	_patienceManager.gainPatience(zone)
 	_scoreManager.incrementScore(zone)
+
+func _onBothScoreMaxed() -> void:
+	AudioManager.music.stop()
+	var tween = create_tween()
+	tween.tween_property(_level, "position", Vector2(10, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_level, "position", Vector2(-10, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_level, "position", Vector2(5, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_level, "position", Vector2(-5, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_level.phantomCamera, "zoom", Vector2(1.1, 1.1), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	_gameUI.openWinScreen()
+
+func _onZonePatienceEnded(zone: Types.Zone) -> void:
+	AudioManager.music.stop()
+	var target_color: Color
+	if zone == Types.Zone.Left:
+		target_color = Color("6e120c")
+	if zone == Types.Zone.Right:
+		target_color = Color("051183")
+	var colourTween = create_tween()
+	colourTween.set_parallel(true)
+	colourTween.tween_property(_backgroundTextureRect, "modulate", target_color, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	colourTween.tween_property(_level, "modulate", target_color, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	colourTween.tween_property(_parallax, "modulate", target_color, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var posTween = create_tween()
+	posTween.tween_property(_level, "position", Vector2(40, 0), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	posTween.tween_property(_level, "position", Vector2(-40, 0), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	posTween.tween_property(_level, "position", Vector2(30, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	posTween.tween_property(_level, "position", Vector2(-30, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	posTween.tween_property(_level, "position", Vector2(20, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	posTween.tween_property(_level, "position", Vector2(-20, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await posTween.finished
+	_gameUI.openLoseScreen(_level.activateSecretWin)
 
 func _on_timer_timeout() -> void:
 	_patienceManager.triggerPatienceLoss()

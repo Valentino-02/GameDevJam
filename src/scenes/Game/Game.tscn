@@ -43,6 +43,7 @@ hideWhileTalking = [NodePath("../GameUI")]
 autostart = true
 
 [node name="Parallax2DGroup" type="Node2D" parent="."]
+unique_name_in_owner = true
 modulate = Color(0.509286, 0.509286, 0.509286, 1)
 z_index = -3
 

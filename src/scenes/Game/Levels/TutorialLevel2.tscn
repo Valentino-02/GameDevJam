@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=4 uid="uid://d2coyxn87hnja"]
+
+[ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_8t3it"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_r2rr6"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_vdaln"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_tc3ar"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_43grl"]
+[ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_jkjg2"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="6_6xdjt"]
+[ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_be5u0"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_uel7w"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="7_71cuf"]
+[ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_oh5fu"]
+[ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="8_w26dr"]
+[ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="9_b5hix"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_g5jiv"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_4h3e3"]
+
+[sub_resource type="Resource" id="Resource_a17mw"]
+script = ExtResource("4_tc3ar")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="TutorialLevel2" type="Node2D"]
+script = ExtResource("1_8t3it")
+maxScore = 1.0
+patienceLossPerSecond = 2.5
+nextLevelId = 2
+activateSecretWin = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+position = Vector2(-1, -109)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_r2rr6")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets") groups=["MainCamera"]]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(-1, -109)
+script = ExtResource("3_vdaln")
+priority = 10
+follow_mode = 3
+follow_targets = [NodePath("../PlayerCharacter/LeftCharacter"), NodePath("../PlayerCharacter/RightCharacter")]
+tween_resource = SubResource("Resource_a17mw")
+follow_damping = true
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Layout" type="Node2D" parent="."]
+
+[node name="DecorationsBack" type="Node2D" parent="Layout"]
+z_index = -1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-207, -190)
+scale = Vector2(2, 2)
+texture = ExtResource("5_43grl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(226, 63)
+scale = Vector2(2, 2)
+texture = ExtResource("6_uel7w")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
+unique_name_in_owner = true
+z_index = -1
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD5/wMAAAABAAIAAAD6/wMAAAABAAYAAAD7/wMAAAABAAYAAAD8/wMAAAABAAYAAAD9/wMAAAABAAYAAAD+/wMAAAABAAYAAAD//wMAAAABAAYAAAAAAAMAAAABAAYAAAABAAMAAAABAAYAAAACAAMAAAABAAYAAAADAAMAAAABAAYAAAAEAAMAAAABAAYAAAAFAAMAAAABAAYAAAAGAAMAAAAGAAIAAAAGAAQAAAAGAAMAAAAFAAQAAAAFAAMAAAAEAAQAAAAIAAYAAAADAAQAAAABAAgAAAACAAQAAAABAAgAAAABAAQAAAABAAgAAAAAAAQAAAABAAgAAAD//wQAAAABAAgAAAD+/wQAAAABAAgAAAD9/wQAAAABAAgAAAD8/wQAAAABAAgAAAD7/wQAAAABAAcAAAD6/wQAAAACAAMAAAD5/wQAAAABAAMAAAANAP7/AAABAAIAAAANAP//AAABAAMAAAAOAP7/AAACAAIAAAAOAP//AAACAAMAAAAOAAAAAAACAAQAAAAPAP7/AAADAAIAAAAPAP//AAADAAMAAAAPAAAAAAADAAQAAAAQAP7/AAAEAAIAAAAQAP//AAAEAAMAAAAQAAAAAAAEAAQAAAARAP7/AAAFAAIAAAARAP//AAAFAAMAAAARAAAAAAAFAAQAAAASAP7/AAAGAAIAAAASAP//AAAGAAMAAADt////AAABAAIAAADt/wAAAAABAAMAAADu////AAACAAIAAADu/wAAAAACAAMAAADu/wEAAAACAAQAAADv////AAADAAIAAADv/wAAAAADAAMAAADv/wEAAAADAAQAAADw////AAAEAAIAAADw/wAAAAAEAAMAAADw/wEAAAAEAAQAAADx////AAAFAAIAAADx/wAAAAAFAAMAAADx/wEAAAAFAAQAAADy////AAAGAAIAAADy/wAAAAAGAAMAAADz/wUAAAAHAAUAAADz/wYAAAAHAAYAAAD0/wUAAAAIAAUAAAD0/wYAAAAIAAYAAAD1/wUAAAAJAAUAAAD1/wYAAAAJAAYAAAAPAAQAAAAHAAUAAAAPAAUAAAAHAAYAAAAQAAQAAAAIAAUAAAAQAAUAAAAIAAYAAAARAAQAAAAJAAUAAAARAAUAAAAJAAYAAAD6/wUAAAACAAQAAAD7/wYAAAACAAQAAAD8/wcAAAACAAQAAAD8/wYAAAACAAMAAAD8/wUAAAACAAMAAAD7/wUAAAACAAMAAAD9/wcAAAADAAQAAAD+/wcAAAADAAQAAAD//wcAAAADAAQAAAAAAAcAAAAEAAQAAAABAAcAAAAFAAQAAAABAAYAAAAFAAMAAAACAAYAAAAGAAMAAAADAAUAAAADAAQAAAAEAAUAAAAEAAQAAAAFAAUAAAAFAAQAAAACAAUAAAADAAMAAAABAAUAAAADAAMAAAAAAAUAAAADAAMAAAAAAAYAAAADAAMAAAD//wYAAAADAAMAAAD//wUAAAADAAMAAAD+/wUAAAADAAMAAAD+/wYAAAADAAMAAAD9/wYAAAADAAMAAAD9/wUAAAADAAMAAADy//L/AAABAAIAAADy//P/AAABAAMAAADz//P/AAACAAMAAADz//T/AAACAAQAAAD1//L/AAACAAIAAAD1//P/AAACAAMAAAD2//L/AAADAAIAAAD2//P/AAADAAMAAAD2//T/AAADAAQAAAD3//L/AAACAAIAAAD3//P/AAACAAMAAAAVAPv/AAABAAIAAAAVAPz/AAABAAMAAAAWAPv/AAACAAIAAAAWAPz/AAACAAMAAAAWAP3/AAACAAQAAAAXAPv/AAADAAIAAAAXAPz/AAADAAMAAAAXAP3/AAADAAQAAAAYAPv/AAAEAAIAAAAYAPz/AAAEAAMAAAAYAP3/AAAEAAQAAAAZAPv/AAAFAAIAAAAZAPz/AAAFAAMAAAAZAP3/AAAFAAQAAAAaAPv/AAAGAAIAAAAaAPz/AAAGAAMAAAD3//T/AAADAAQAAAD4//L/AAADAAIAAAD4//P/AAADAAMAAAD4//T/AAADAAQAAAD5//L/AAAEAAIAAAD5//P/AAAEAAMAAAD5//T/AAAEAAQAAAD6//L/AAAFAAIAAAD6//P/AAAFAAMAAAD6//T/AAAFAAQAAAD7//L/AAAGAAIAAAD7//P/AAAGAAMAAAD0//T/AAADAAQAAAD1//T/AAAEAAQAAAD0//L/AAACAAIAAADz//L/AAACAAIAAAD0//P/AAACAAMAAAA=")
+tile_set = ExtResource("5_jkjg2")
+
+[node name="DecorationsFront" type="Node2D" parent="Layout"]
+z_index = -1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Layout/DecorationsFront"]
+position = Vector2(370, -100)
+texture = ExtResource("6_6xdjt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Layout/DecorationsFront"]
+position = Vector2(-184, -250)
+texture = ExtResource("7_71cuf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Layout/DecorationsFront"]
+position = Vector2(-71, -223)
+scale = Vector2(2, 2)
+texture = ExtResource("5_43grl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Layout/DecorationsFront"]
+position = Vector2(-204, 118)
+scale = Vector2(2, 2)
+texture = ExtResource("10_g5jiv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsFront"]
+position = Vector2(431, -40)
+scale = Vector2(2, 2)
+texture = ExtResource("11_4h3e3")
+
+[node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_be5u0")]
+position = Vector2(-258, -45)
+
+[node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_be5u0")]
+position = Vector2(256, -62)
+zone = 1
+neededElement = 1
+
+[node name="CargoDropper" parent="Layout" instance=ExtResource("7_oh5fu")]
+position = Vector2(253, -48)
+element = 1
+
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_w26dr")]
+phantom_camera = NodePath("../../PhantomCamera2D")
+
+[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
+position = Vector2(635, 0)
+
+[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
+position = Vector2(-666, 0)
+
+[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
+position = Vector2(0, -449)
+
+[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
+position = Vector2(0, 438)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("9_b5hix")]
+
+[editable path="Layout/BoundaryWalls"]
+[editable path="PlayerCharacter"]

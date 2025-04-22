@@ -1,46 +1,98 @@
-[gd_scene load_steps=2 format=3 uid="uid://rvm2k5e6fiu5"]
+[gd_scene load_steps=6 format=3 uid="uid://rvm2k5e6fiu5"]
 
 [ext_resource type="Script" uid="uid://b4jftxhwgjgal" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.gd" id="1_o24to"]
+[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/ui/WaterStabilityIcon1.png" id="2_xbofg"]
 
-[node name="ZoneCounter" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbofg"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr2qy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_xbofg"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_xbofg")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_vr2qy")
+
+[node name="ZoneCounter" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.233
+anchor_bottom = 0.202
+offset_right = 0.319992
+offset_bottom = -0.0800018
 script = ExtResource("1_o24to")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="Panel"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 6
-text = "Left Side Patience"
+text = "Water Realm Stability"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme = SubResource("Theme_xbofg")
+step = 5.0
+show_percentage = false
+
+[node name="StatusBoxContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="StatusBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="StatusBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xbofg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="StatusBoxContainer"]
+z_index = -1
+custom_minimum_size = Vector2(90, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="StatusLabel" type="Label" parent="StatusBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 6
-step = 1.0
-value = 100.0
+text = "happy!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="StatusBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

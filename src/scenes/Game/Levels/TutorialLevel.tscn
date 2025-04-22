@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=39 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
-[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="10_ux4hj"]
 [ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneManager.gd" id="11_bete1"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
@@ -26,22 +25,6 @@ script = ExtResource("4_octr6")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux4hj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_no6oc"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_octr6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3e5w"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cynx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqjvl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abecf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl2ud"]
 
 [sub_resource type="Resource" id="Resource_g87ld"]
 script = ExtResource("14_3hvhq")
@@ -150,34 +133,11 @@ dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_q5b8i"), SubRe
 childToTrigger = "AwaitCollection"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
-[sub_resource type="Resource" id="Resource_y6tqc"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
-dialogueLine = "Seems like you're getting into the flow of this!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_6ifj0"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
-dialogueLine = "Yeah, you're real hot at it! I think you're ready for the real thing now."
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_gfe1e"]
-script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
-dialogueLine = "Same! Good luck to you, see you soon!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_3clbk"]
-script = ExtResource("12_l3e5w")
-cameraToUse = &"SceneView"
-dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_y6tqc"), SubResource("Resource_6ifj0"), SubResource("Resource_gfe1e")])
-childToTrigger = "CutsceneComplete"
-metadata/_custom_type_script = "uid://dr4g3okg075lr"
-
 [node name="TutorialLevel" type="Node2D"]
 script = ExtResource("1_jkrqs")
 maxScore = 5.0
+patienceLossPerSecond = 0.0
+nextLevelId = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -192,6 +152,7 @@ script = ExtResource("2_ux4hj")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets") groups=["MainCamera"]]
+unique_name_in_owner = true
 top_level = true
 position = Vector2(-1, -109)
 script = ExtResource("3_no6oc")
@@ -244,219 +205,9 @@ position = Vector2(0, 438)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
-[node name="Indications" type="Control" parent="."]
-visible = false
-z_index = -1
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("10_ux4hj")
-
-[node name="Panel" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -136.0
-offset_top = 77.0
-offset_right = 96.0
-offset_bottom = 82.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ux4hj")
-
-[node name="Label" type="Label" parent="Indications/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Deilver Elemental Crates to the corrsponding zones before the patience runs out!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel2" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -468.0
-offset_top = -125.0
-offset_right = -417.0
-offset_bottom = -115.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_no6oc")
-
-[node name="Label" type="Label" parent="Indications/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Bring Water to the Fire zone!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel3" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 378.0
-offset_top = -125.0
-offset_right = 429.0
-offset_bottom = -115.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_octr6")
-
-[node name="Label" type="Label" parent="Indications/Panel3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Bring Fire to the Water zone!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel4" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -258.0
-offset_top = -193.0
-offset_right = -212.0
-offset_bottom = -198.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_l3e5w")
-
-[node name="Label" type="Label" parent="Indications/Panel4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Ask for Fire!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel5" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 182.0
-offset_top = -193.0
-offset_right = 228.0
-offset_bottom = -198.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_8cynx")
-
-[node name="Label" type="Label" parent="Indications/Panel5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Ask for Water!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel6" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -294.0
-offset_right = 2.0
-offset_bottom = -299.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_qqjvl")
-
-[node name="Label" type="Label" parent="Indications/Panel6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Click cratesto destoy them"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel7" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -261.0
-offset_top = -17.0
-offset_right = -220.0
-offset_bottom = -22.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_abecf")
-
-[node name="Label" type="Label" parent="Indications/Panel7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "WASD to Move"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Panel8" type="Panel" parent="Indications"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 174.0
-offset_top = -17.0
-offset_right = 215.0
-offset_bottom = -22.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_tl2ud")
-
-[node name="Label" type="Label" parent="Indications/Panel8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Arrows To Move"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes", "finalCutscene")]
+[node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes")]
 script = ExtResource("11_bete1")
-cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), NodePath("FinalCutscene")]
-finalCutscene = NodePath("FinalCutscene")
+cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), null]
 
 [node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 1
@@ -573,23 +324,13 @@ shape = SubResource("RectangleShape2D_5xrv3")
 script = ExtResource("17_6ifj0")
 tutorialCutsceneManager = NodePath("../..")
 
-[node name="FinalCutscene" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
-storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_3clbk")])
-useableCameras = {
-&"SceneView": NodePath("SceneView")
-}
-
-[node name="SceneView" type="Node2D" parent="Cutscenes/FinalCutscene"]
+[node name="SceneView" type="Node2D" parent="Cutscenes/WaterDropper"]
 position = Vector2(0, -109)
 script = ExtResource("3_no6oc")
 zoom = Vector2(0.9, 0.9)
 tween_resource = SubResource("Resource_8cynx")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="CutsceneComplete" type="Node2D" parent="Cutscenes/FinalCutscene" node_paths=PackedStringArray("tutorialCutsceneManager")]
-script = ExtResource("17_6ifj0")
-tutorialCutsceneManager = NodePath("../..")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]

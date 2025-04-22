@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bli8ngq66xclj"]
+[gd_scene load_steps=13 format=3 uid="uid://bli8ngq66xclj"]
 
 [ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_vbmld"]
 [ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_k7a1g"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_1ik0f"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="5_g3vug"]
 [ext_resource type="PackedScene" uid="uid://xtvt0yphthm5" path="res://src/scenes/Game/Components/Cargo/FleetingNumber.tscn" id="6_g3vug"]
+[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/ui/WaterStabilityIcon1.png" id="7_icipq"]
+[ext_resource type="Texture2D" uid="uid://d0et187ya5gtk" path="res://assets/images/ui/WaterStabilityIcon2.png" id="8_lmtmb"]
+[ext_resource type="Texture2D" uid="uid://dwqcwqaaxxgjq" path="res://assets/images/ui/WaterStabilityIcon3.png" id="9_qqyir"]
+[ext_resource type="Texture2D" uid="uid://ca4k4yje57ndp" path="res://assets/images/ui/WaterStabilityIcon4.png" id="10_ctiq6"]
+[ext_resource type="Texture2D" uid="uid://f7m8w331in6f" path="res://assets/images/ui/FireStabilityIcon1.png" id="11_yvgwk"]
+[ext_resource type="Texture2D" uid="uid://b4xy4snqsumly" path="res://assets/images/ui/FireStabilityIcon2.png" id="12_udwkh"]
 
 [node name="PreloadedResources" type="Node"]
 script = ExtResource("1_vbmld")
@@ -14,3 +20,11 @@ waterCrateTexture = ExtResource("3_rckiu")
 fireParticleTexture = ExtResource("4_1ik0f")
 waterParticleTexture = ExtResource("5_g3vug")
 fleetingNumber = ExtResource("6_g3vug")
+waterStability1Texture = ExtResource("7_icipq")
+waterStability2Texture = ExtResource("8_lmtmb")
+waterStability3Texture = ExtResource("9_qqyir")
+waterStability4Texture = ExtResource("10_ctiq6")
+fireStability1Texture = ExtResource("11_yvgwk")
+fireStability2Texture = ExtResource("12_udwkh")
+fireStability3Texture = ExtResource("12_udwkh")
+fireStability4Texture = ExtResource("12_udwkh")

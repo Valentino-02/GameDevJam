@@ -74,6 +74,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 current = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+unique_name_in_owner = true
 top_level = true
 position = Vector2(-1, -109)
 script = ExtResource("3_3mljl")
