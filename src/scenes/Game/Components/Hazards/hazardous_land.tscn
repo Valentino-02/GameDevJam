@@ -9,6 +9,7 @@ script = ExtResource("1_23uff")
 dangerType = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(0.772549, 0, 0.25098, 0)
 
 [node name="FireParticle" type="GPUParticles2D" parent="."]
 visible = false
