@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=48 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -179,6 +179,9 @@ absorbent = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
 size = Vector2(193, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu46i"]
+size = Vector2(99, 14)
+
 [sub_resource type="Animation" id="Animation_vt20b"]
 length = 0.001
 tracks/0/type = "value"
@@ -232,6 +235,54 @@ tracks/1/keys = {
 "update": 0,
 "values": [-1.309, 0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightPlatformCollider:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(85.318, 47.3304), Vector2(63.128, 34.25), Vector2(52.238, 17.38), Vector2(48, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPlatformCollider:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.309, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LeftPlatformCollider:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-84.1886, 47.8134), Vector2(-64.733, 38.861), Vector2(-53.35, 25.381), Vector2(-48, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LeftPlatformCollider:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.309, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_qgvce"]
 resource_name = "openDoors"
@@ -258,6 +309,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.309]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPlatformCollider:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-48, 0), Vector2(-53.35, 25.381), Vector2(-64.733, 38.861), Vector2(-84.1886, 47.8134)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftPlatformCollider:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.309]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightPlatformCollider:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.309]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightPlatformCollider:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(48, 0), Vector2(52.238, 17.38), Vector2(63.128, 34.25), Vector2(85.318, 47.3304)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aou6w"]
@@ -428,7 +527,22 @@ physics_material_override = SubResource("PhysicsMaterial_hu46i")
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+[node name="StaticPlatformCollider" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_pv250")
+
+[node name="RightPlatformCollider" type="CollisionShape2D" parent="Platform"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_hu46i")
+disabled = true
+
+[node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_hu46i")
+disabled = true
+
+[node name="StaticPlatform" type="Node2D" parent="Platform"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform/StaticPlatform"]
 texture = ExtResource("9_j2hj5")
 region_rect = Rect2(144, 36, 55, 18)
 
@@ -447,9 +561,6 @@ texture = ExtResource("15_hu46i")
 centered = false
 offset = Vector2(0, -8.5)
 region_rect = Rect2(0, 0, 98, 17)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-shape = SubResource("RectangleShape2D_pv250")
 
 [node name="Left Attachment" type="Node2D" parent="Platform"]
 position = Vector2(-90, -5)
