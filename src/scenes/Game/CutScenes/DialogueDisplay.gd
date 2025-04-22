@@ -5,6 +5,7 @@ signal dialogueComplete
 
 @onready var textDisplay: RichTextLabel = get_node("VBoxContainer/MarginContainer/DialogueDisplay/VBoxContainer/Panel/MarginContainer/RichTextLabel")
 @onready var spriteDisplay: TextureRect = get_node("VBoxContainer/MarginContainer/DialogueDisplay/TextureRect")
+@onready var nextDisplay: RichTextLabel = get_node("VBoxContainer/MarginContainer/DialogueDisplay/Next")
 
 var interrupted: bool = false
 var speedPerLetter: float = 0.02
@@ -33,19 +34,22 @@ func PlayDialogue(dialogue: Dialogue, keepPanelUp = false) -> void:
 		textDisplay.text = dialogue.dialogueLine.substr(0,i)
 		await get_tree().create_timer(speedPerLetter).timeout
 	interrupted = true
+	nextDisplay.show()
 	textDisplay.text = dialogue.dialogueLine
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action("Drop") && Input.is_action_just_pressed("Drop"):
-		if interrupted:
-			_closeDialogue()
-		else:
-			interrupted = true
+	if (event is InputEventKey or event is InputEventMouseButton):
+		if event.is_released():
+			if interrupted:
+				_closeDialogue()
+			else:
+				interrupted = true
 
 func _closeDialogue() -> void:
 	if !holdPanel:
 		hide()
 	dialogueComplete.emit()
+	nextDisplay.hide()
 	
 func Declutter(shouldHide: bool) -> void:
 	for node: Node in hideWhileTalking:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://flslwe42rd3l"]
+[gd_scene load_steps=31 format=4 uid="uid://flslwe42rd3l"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_117lr"]
 [ext_resource type="PackedScene" uid="uid://diwl2vy6uy5tg" path="res://src/scenes/Game/Components/Walls/MovingPlatforms.tscn" id="2_coiru"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="12_owgte"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="13_fkqq5"]
 [ext_resource type="PackedScene" uid="uid://c10anevjkkxgt" path="res://src/scenes/Game/Components/Hazards/hazardous_land.tscn" id="16_gfoan"]
+[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_5x4vm"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/HazardTutorialScripts/HazardTutorialDemonstrate.gd" id="18_vejsg"]
 
 [sub_resource type="Curve2D" id="Curve2D_coiru"]
 _data = {
@@ -93,10 +95,10 @@ tile_map_data = PackedByteArray("AAD4/wAAAAACAAcAAAD4/wEAAAACAAcAAAD4/wIAAAACAAc
 tile_set = ExtResource("6_gfoan")
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_owgte")]
-position = Vector2(-792, -7)
+position = Vector2(-792, 19)
 
 [node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_owgte")]
-position = Vector2(808, -1)
+position = Vector2(808, 18)
 zone = 1
 neededElement = 1
 
@@ -398,6 +400,11 @@ shape = SubResource("RectangleShape2D_gfoan")
 [node name="HazardousLand2" parent="Hazards" instance=ExtResource("16_gfoan")]
 position = Vector2(-423, -62)
 shape = SubResource("RectangleShape2D_ryhou")
+
+[node name="Cutscene" parent="." instance=ExtResource("17_5x4vm")]
+
+[node name="DemonstrateHazards" type="Node2D" parent="Cutscene"]
+script = ExtResource("18_vejsg")
 
 [connection signal="timeout" from="Hazards/RainCloud2/Timer" to="Hazards/RainCloud2" method="_setRaining"]
 
