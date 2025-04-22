@@ -19,7 +19,7 @@ layer = -1
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
-modulate = Color(0.489622, 0.489622, 0.489622, 1)
+modulate = Color(0.521569, 0.478431, 0.478431, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,7 +44,7 @@ autostart = true
 
 [node name="Parallax2DGroup" type="Node2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.509286, 0.509286, 0.509286, 1)
+modulate = Color(0.521569, 0.478431, 0.478431, 1)
 z_index = -3
 
 [node name="MountainParallax2D" type="Parallax2D" parent="Parallax2DGroup"]
@@ -73,5 +73,10 @@ repeat_size = Vector2(1350, 0)
 scale = Vector2(3.375, 3.375)
 texture = ExtResource("7_njjgc")
 centered = false
+
+[node name="ZoneTransitionTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]

@@ -94,7 +94,8 @@ ease = 2
 [node name="TutorialLevel2" type="Node2D"]
 script = ExtResource("1_8t3it")
 maxScore = 1.0
-patienceLossPerSecond = 2.5
+patienceLossPerSecond = 3.0
+cargoPatienceGain = 5.0
 nextLevelId = 2
 activateSecretWin = true
 
