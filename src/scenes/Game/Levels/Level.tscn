@@ -136,5 +136,13 @@ position = Vector2(0, 438)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_6ay7r")]
 
+[node name="RightPlatformCollider" parent="PlayerCharacter/Platform" index="1"]
+position = Vector2(85.318, 47.3304)
+rotation = -1.309
+
+[node name="LeftPlatformCollider" parent="PlayerCharacter/Platform" index="2"]
+position = Vector2(-84.1886, 47.8134)
+rotation = 1.309
+
 [editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]
