@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://diwl2vy6uy5tg"]
+[gd_scene load_steps=5 format=4 uid="uid://diwl2vy6uy5tg"]
 
-[ext_resource type="Script" path="res://src/scenes/Game/Components/Walls/moving_platforms.gd" id="1_nomca"]
+[ext_resource type="Script" uid="uid://b3ivimkrplpxy" path="res://src/scenes/Game/Components/Walls/moving_platforms.gd" id="1_nomca"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="2_ew5rk"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="3_ew5rk"]
 
@@ -9,9 +9,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0)
 }
 point_count = 2
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nomca"]
-polygon = PackedVector2Array(1, -42, 31, -44, 44, -59, 74, -59, 93, -43, 121, -45, 122, -2, -1, 0)
 
 [node name="MovingPlatforms" type="Path2D" groups=["MovingPlatform"]]
 curve = SubResource("Curve2D_nomca")
@@ -23,10 +20,6 @@ rotates = false
 [node name="TileMapLayer" type="TileMapLayer" parent="PathFollow2D"]
 tile_map_data = PackedByteArray("AAD8/wAAAAAAAAYAAAD8/wEAAAAAAAcAAAD9/wAAAAABAAYAAAD9/wEAAAABAAcAAAD+/wAAAAABAAcAAAD+/wEAAAABAAcAAAD/////AAABAAYAAAD//wAAAAABAAcAAAD//wEAAAABAAcAAAAAAP//AAABAAYAAAAAAAAAAAABAAcAAAAAAAEAAAABAAcAAAABAP//AAACAAYAAAABAAAAAAABAAcAAAABAAEAAAABAAcAAAACAAAAAAABAAYAAAACAAEAAAABAAcAAAADAAAAAAACAAYAAAADAAEAAAACAAcAAAD+////AAAAAAYAAAADAAIAAAACAAgAAAACAAIAAAABAAgAAAABAAIAAAABAAgAAAAAAAIAAAABAAgAAAD//wIAAAABAAgAAAD+/wIAAAABAAgAAAD9/wIAAAABAAgAAAD8/wIAAAAAAAgAAAA=")
 tile_set = ExtResource("2_ew5rk")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="PathFollow2D/TileMapLayer"]
-position = Vector2(-61, 46)
-occluder = SubResource("OccluderPolygon2D_nomca")
 
 [node name="SplashParticles" parent="PathFollow2D/TileMapLayer" instance=ExtResource("3_ew5rk")]
 position = Vector2(-61, -1)

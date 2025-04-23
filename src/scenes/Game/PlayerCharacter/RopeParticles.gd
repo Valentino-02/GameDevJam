@@ -1,4 +1,4 @@
-class_name RopeParticles extends GPUParticles2D
+class_name RopeParticles extends CPUParticles2D
 
 var _mask: Sprite2D = get_parent()
 var _rope : Rope
