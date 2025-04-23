@@ -69,10 +69,24 @@ size_flags_horizontal = 6
 text = "Fourth Tutorial
 "
 
+[node name="Tutorial5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Fifth Tutorial
+"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
+
+[node name="Tutorial6" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Sixth Tutorial
+"
 
 [node name="HazardTutorial" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
@@ -96,6 +110,8 @@ text = "Level 1 ???"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial2" to="." method="_on_tutorial_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial3" to="." method="_on_tutorial_3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial4" to="." method="_on_tutorial_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial5" to="." method="_on_tutorial_5_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Tutorial6" to="." method="_on_tutorial_6_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/HazardTutorial" to="." method="_on_hazard_tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/TestLevel" to="." method="_on_test_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Level1" to="." method="_on_level_1_game_button_pressed"]
