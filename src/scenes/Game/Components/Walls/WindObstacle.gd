@@ -25,7 +25,7 @@ var activeParticles: GPUParticles2D
 @onready var _bottomParticles: GPUParticles2D = $SpriteMask/BottomParticles
 @onready var _topParticles: GPUParticles2D = $SpriteMask/TopParticles
 @onready var _audioPlayer : AudioStreamPlayer2D =AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Wind)
-
+@onready var _cooldownTimer : Timer = %CooldownTimer
 
 func _ready() -> void:
 	activeParticles = _bottomParticles if forceDirection == windDirection.UP else _topParticles
@@ -48,6 +48,8 @@ func Activate(_node: Node2D = null) -> void:
 	_audioPlayer.stop()
 	_changeParticleSpeed(80)
 	_changeParticleQuantity(8)
+	_cooldownTimer.start()
+	
 		
 
 func _changeParticleSpeed(speed: float) -> void:
@@ -57,3 +59,6 @@ func _changeParticleSpeed(speed: float) -> void:
 
 func _changeParticleQuantity(quantity: int) -> void:
 	activeParticles.amount = quantity
+
+func _on_cooldown_timer_timeout() -> void:
+	Activate()
