@@ -2,8 +2,7 @@ class_name Minimap extends Control
 
 @export var terrainColor: Color
 @export var zoom: float = 1.0
-@export var iconSize: float = 32
-@export var poiTextures: Dictionary[StringName, Texture2D]
+@export var iconSize: float = 16
 
 var _tilemaps: Array[TileMapLayer] = []
 var _cellColors: Dictionary[int, Color]
@@ -11,21 +10,30 @@ var _refreshRate: float = 0.05
 var _timer: float = 0
 var _camera: Camera2D
 var _poiToTexture: Dictionary[Node,TextureRect]
-var _readyToDraw: bool                     = false
-var _savedTextureRects: Array[TextureRect] = []
+var _readyToDraw: bool = false
 	
 func BeginDraw() -> void:
 	_clearSavedRects()
 	for node in get_tree().get_nodes_in_group("IncludeOnMinimap"):
 		for group in node.get_groups():
-			if poiTextures.keys().has(group):
-				var textureRect = TextureRect.new()
-				textureRect.texture = poiTextures[group]
-				textureRect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-				textureRect.size = Vector2(iconSize, iconSize)
-				_poiToTexture[node] = textureRect
-				add_child(textureRect)
-				break
+			var texture: Texture2D = null
+			if group == "CollectionZoneFire":
+				texture = PreloadedResources.fireCoreTexture
+			elif group == "CollectionZoneWater":
+				texture = PreloadedResources.waterCoreTexture
+			elif group == "DropperFire":
+				texture = PreloadedResources.fireDropperTexture
+			elif group == "DropperWater":
+				texture = PreloadedResources.waterDropperTexture
+			else:
+				continue
+			var textureRect: TextureRect = TextureRect.new()
+			textureRect.texture = texture
+			textureRect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			textureRect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			textureRect.size = Vector2(iconSize, iconSize)
+			_poiToTexture[node] = textureRect
+			add_child(textureRect)
 	_readyToDraw = true
 			
 func _physics_process(_delta: float) -> void:
@@ -48,10 +56,10 @@ func _getCells(tilemap: TileMapLayer, id) -> Array[Vector2i]:
 	return tilemap.get_used_cells_by_id(id)
 	
 func _clearSavedRects() -> void:
-	if _savedTextureRects.size() <= 0 : return
-	for rect in _savedTextureRects:
-		rect.queue_free()
-	_savedTextureRects.clear()
+	if _poiToTexture.size() <= 0 : return
+	for key in _poiToTexture.keys():
+		_poiToTexture[key].queue_free()
+	_poiToTexture.clear()
 
 func _draw() -> void:
 	if !_readyToDraw: return
@@ -72,6 +80,7 @@ func _draw() -> void:
 		if first_draw:
 			first_draw = false
 			for poi in _poiToTexture.keys():
-				var _pos = poi.position
+				print("%s: (%s,%s)"%[poi.name,poi.global_position.x,poi.global_position.y])
+				var _pos = poi.global_position
 				var _targetPoint = ((tilemap.local_to_map(Vector2i(_pos)) - tilemapOffset) * zoom) + (size / 2) - _poiToTexture[poi].size/2
 				_poiToTexture[poi].position = _targetPoint

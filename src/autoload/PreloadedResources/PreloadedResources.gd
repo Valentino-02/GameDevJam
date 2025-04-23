@@ -13,3 +13,8 @@ extends Node
 @export var fireStability2Texture : Texture2D
 @export var fireStability3Texture : Texture2D
 @export var fireStability4Texture : Texture2D
+@export_group("MinimapTextures")
+@export var fireCoreTexture: Texture2D
+@export var waterCoreTexture: Texture2D
+@export var fireDropperTexture: Texture2D
+@export var waterDropperTexture: Texture2D
