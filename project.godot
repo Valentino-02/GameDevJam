@@ -51,13 +51,8 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 PlayerPlatform=""
 Cargo=""
 Player=""
-IncludeOnMinimap=""
-CollectionZoneWater=""
-CollectionZoneFire=""
 MainCamera=""
 MovingPlatform=""
-DropperFire=""
-DropperWater=""
 
 [gui]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bli8ngq66xclj"]
+[gd_scene load_steps=23 format=3 uid="uid://bli8ngq66xclj"]
 
 [ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_vbmld"]
 [ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_k7a1g"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bld10hn0qw0cx" path="res://assets/images/ui/fireStabilityIcon4.png" id="14_ctiq6"]
 [ext_resource type="Texture2D" uid="uid://iksg1wrewdht" path="res://assets/images/Cores/fire stone/Fire Stone stone.png" id="15_yvgwk"]
 [ext_resource type="Texture2D" uid="uid://cryvsv56myhsp" path="res://assets/images/Cores/water stone/Water stone stone .png" id="16_udwkh"]
+[ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="17_jvi78"]
+[ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="18_1just"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvi78"]
 atlas = ExtResource("15_yvgwk")
@@ -52,3 +54,5 @@ fireCoreTexture = SubResource("AtlasTexture_jvi78")
 waterCoreTexture = SubResource("AtlasTexture_1just")
 fireDropperTexture = SubResource("AtlasTexture_0yafc")
 waterDropperTexture = SubResource("AtlasTexture_p5cni")
+fireCharacter = ExtResource("18_1just")
+waterCharacter = ExtResource("17_jvi78")

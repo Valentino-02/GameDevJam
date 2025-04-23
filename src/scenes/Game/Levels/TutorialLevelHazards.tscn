@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="12_owgte"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="13_fkqq5"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_5x4vm"]
-[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/HazardTutorialScripts/HazardTutorialDemonstrate.gd" id="18_vejsg"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="18_vejsg"]
 
 [sub_resource type="Curve2D" id="Curve2D_coiru"]
 _data = {

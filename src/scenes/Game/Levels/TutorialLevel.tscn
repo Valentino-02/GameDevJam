@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=37 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="14_3hvhq"]
-[ext_resource type="Texture2D" uid="uid://dj5535ppxnbtn" path="res://assets/images/playerCharacters/Water Elemental.png" id="15_61xil"]
-[ext_resource type="Texture2D" uid="uid://d1vt5xnchlnkk" path="res://assets/images/playerCharacters/Fire Elemental.png" id="16_y6tqc"]
 [ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
 [ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/CutsceneComplete.gd" id="17_6ifj0"]
 [ext_resource type="PackedScene" uid="uid://0upwnl40riqb" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/ControlDisplay.tscn" id="18_61xil"]
@@ -28,25 +26,25 @@ ease = 2
 
 [sub_resource type="Resource" id="Resource_g87ld"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
+speakingCharacter = 2
 dialogueLine = "A new guide? How exciting!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_785nr"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
+speakingCharacter = 1
 dialogueLine = "Let's teach them fast so we can get moving, I can't sit still this long..."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_elyr4"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
+speakingCharacter = 2
 dialogueLine = "Yes of course! Use the [color=blue][b]W-A-S-D[/b][/color] Runes on your Runeboard to give me directions."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
+speakingCharacter = 1
 dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -65,7 +63,7 @@ ease = 2
 
 [sub_resource type="Resource" id="Resource_jdpu4"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
+speakingCharacter = 1
 dialogueLine = "This is the [color=red][b]Fire Forge[/b][/color] of my realm! You can get [color=red][b]Fire Packages[/b][/color] here if you use the [color=black][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=blue][b]Water Realm[/b][/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -78,13 +76,13 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_bete1"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
+speakingCharacter = 2
 dialogueLine = "This is the [color=blue][b]Water Core[/b][/color] of my realm. It keeps producing more and more cold, so we need [color=red][b]Fire Packages[/b][/color] in order to  [color=red][b]BAL[/b][/color][color=blue][b]ANCE[/b][/color] it!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_3hvhq"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
+speakingCharacter = 2
 dialogueLine = "You can drop off [color=red][b]Fire Packages[/b][/color] here by using the [color=black][b]Space[/b][/color] Runekey!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -103,7 +101,7 @@ size = Vector2(164, 174)
 
 [sub_resource type="Resource" id="Resource_edi57"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("15_61xil")
+speakingCharacter = 2
 dialogueLine = "This is the [color=blue][b]Water Forge[/b][/color] that feeds on the water of my realm. Use your [color=black][b]E[/b][/color] Rune to collect some [color=blue][b]Water Packages[/b][/color]. You'll need it to cool down the [color=red][b]Fire Core[/b][/color]!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -116,13 +114,13 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_q5b8i"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
+speakingCharacter = 1
 dialogueLine = "Speaking of which, here it is, the [color=red][b]Fire Core[/b][/color] of my realm. It needs [color=blue][b]Water Packages[/b][/color] to stop overheating!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_mpwdg"]
 script = ExtResource("14_3hvhq")
-speaker = ExtResource("16_y6tqc")
+speakingCharacter = 1
 dialogueLine = "Once you've got some [color=blue][b]Water Packages[/b][/color] on-board, try dropping it here using the [color=black][b]Space[/b][/color] Runekey."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -173,21 +171,21 @@ z_as_relative = false
 tile_map_data = PackedByteArray("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AADi/wYAAAABAAYAAADi/wcAAAABAAgAAADs/wIAAAACAAcAAADs/wMAAAACAAcAAADs/wQAAAACAAcAAAATAAIAAAAAAAcAAAATAAMAAAAAAAcAAAATAAQAAAAAAAcAAADh/wcAAAABAAgAAADh/wYAAAABAAcAAADh/wUAAAACAAcAAADh/wQAAAACAAcAAADg/wcAAAAAAAgAAADg/wYAAAAAAAcAAADg/wUAAAAAAAcAAADg/wQAAAAAAAcAAADg/wMAAAAAAAcAAADg/wIAAAAAAAcAAADg/wEAAAAAAAcAAADg/wAAAAAAAAcAAADg////AAAAAAcAAADg//7/AAAAAAcAAADg//3/AAAAAAcAAADg//z/AAAAAAcAAADg//v/AAAAAAcAAADg//r/AAAAAAcAAADg//n/AAAAAAcAAADg//j/AAAAAAcAAADg//f/AAAAAAcAAADg//b/AAAAAAcAAADg//X/AAAAAAcAAADg//T/AAAAAAcAAADg//P/AAAAAAcAAADg//L/AAAAAAcAAADg//H/AAAAAAcAAADg//D/AAAAAAcAAADg/+//AAAAAAcAAADg/+7/AAAAAAcAAADg/+3/AAAAAAYAAADp/wcAAAACAAgAAADp/wYAAAABAAcAAADo/wcAAAABAAgAAADo/wYAAAABAAYAAADn/wcAAAABAAgAAADn/wYAAAABAAYAAADm/wcAAAABAAgAAADm/wYAAAABAAYAAADl/wcAAAABAAgAAADl/wYAAAABAAYAAADk/wcAAAABAAgAAADk/wYAAAABAAYAAADj/wcAAAABAAgAAADj/wYAAAABAAYAAADs/wYAAAACAAgAAADr/wYAAAABAAgAAADq/wYAAAABAAgAAADr/wQAAAABAAcAAADr/wMAAAABAAcAAADr/wIAAAABAAcAAADr/wEAAAABAAcAAADr/wAAAAABAAcAAADr////AAABAAcAAADr//7/AAABAAcAAADr//3/AAABAAcAAADr//z/AAAAAAcAAADr//v/AAAAAAcAAADr//r/AAAAAAcAAADr//n/AAAAAAcAAADr//j/AAAAAAYAAADp/wQAAAAAAAYAAADo/wQAAAAJAAYAAADn/wQAAAAIAAYAAADm/wQAAAAIAAYAAADl/wQAAAAIAAYAAADk/wQAAAAIAAYAAADj/wQAAAAIAAYAAADi/wQAAAAHAAYAAADq/wIAAAAAAAcAAADq/wEAAAAAAAcAAADq/wAAAAAAAAcAAADq////AAAAAAcAAADq//7/AAAAAAcAAADq//3/AAAAAAYAAADq/wUAAAABAAcAAADq/wQAAAABAAcAAADq/wMAAAAAAAcAAADp/wUAAAAAAAcAAAD3//7/AAABAAcAAAD2//7/AAABAAgAAAD1//7/AAABAAgAAAD0//7/AAABAAgAAADz//7/AAABAAgAAADy//7/AAABAAgAAADx//7/AAABAAgAAADw//7/AAABAAgAAADv//7/AAABAAgAAADu//7/AAABAAgAAADt//7/AAABAAgAAAD3/wIAAAAAAAcAAAD3/wEAAAAAAAcAAAD3/wAAAAAAAAcAAAD3////AAAAAAcAAAD2/wYAAAACAAgAAAD2/wUAAAACAAcAAAD2/wQAAAABAAcAAAAJAAQAAAABAAcAAAAIAAQAAAABAAgAAAAHAAQAAAABAAgAAAAGAAQAAAABAAgAAAAFAAQAAAABAAgAAAAEAAQAAAABAAgAAAADAAQAAAABAAgAAAACAAQAAAABAAgAAAABAAQAAAABAAgAAAAAAAQAAAABAAgAAAD//wQAAAABAAgAAAD+/wQAAAABAAgAAAD9/wQAAAABAAgAAAD8/wQAAAABAAgAAAD7/wQAAAABAAgAAAD6/wQAAAABAAgAAAD5/wQAAAABAAgAAAD4/wQAAAABAAgAAAD3/wQAAAABAAgAAAAJAAYAAAAAAAgAAAAJAAUAAAAAAAcAAAAIAAIAAAACAAcAAAAIAAEAAAACAAcAAAAIAAAAAAACAAcAAAAIAP//AAACAAcAAAAIAP7/AAACAAcAAAAUAAQAAAABAAcAAAAUAAMAAAABAAcAAAAUAAIAAAABAAcAAAAUAAEAAAABAAcAAAAUAAAAAAABAAcAAAAUAP//AAABAAcAAAAUAP7/AAABAAcAAAAUAP3/AAABAAcAAAAUAPz/AAACAAcAAAAUAPv/AAACAAcAAAAUAPr/AAACAAcAAAAUAPn/AAACAAcAAAAUAPj/AAACAAYAAAAOAP7/AAABAAcAAQANAP7/AAABAAcAAQAMAP7/AAABAAcAAQALAP7/AAABAAcAAQAKAP7/AAABAAcAAQAJAP7/AAAHAAYAAAAPAP//AAAJAAYAAAAOAP//AAAIAAYAAAANAP//AAAIAAYAAAAMAP//AAAIAAYAAAALAP//AAAIAAYAAAAKAP//AAAHAAYAAAAcAAQAAAAJAAYAAAAbAAQAAAAFAAMAAAAaAAQAAAABAAcAAQAZAAQAAAABAAcAAQAYAAQAAAABAAcAAQAXAAQAAAAIAAYAAAAWAAQAAAAHAAYAAAAVAAQAAAACAAcAAAAVAAMAAAACAAcAAAAVAAIAAAACAAcAAAAVAAEAAAACAAcAAAAVAAAAAAACAAcAAAAVAP//AAACAAcAAAAVAP7/AAACAAcAAAAVAP3/AAACAAYAAAAfAAIAAAACAAgAAAAfAAEAAAACAAcAAAAfAAAAAAACAAcAAAAfAP//AAACAAcAAAAfAP7/AAACAAcAAAAfAP3/AAACAAcAAAAfAPz/AAACAAcAAAAfAPv/AAACAAcAAAAfAPr/AAACAAcAAAAfAPn/AAACAAcAAAAfAPj/AAACAAcAAAAfAPf/AAACAAcAAAAfAPb/AAACAAcAAAAfAPX/AAACAAcAAAAfAPT/AAACAAcAAAAfAPP/AAACAAcAAAAfAPL/AAACAAcAAAAfAPH/AAACAAcAAAAfAPD/AAACAAcAAAAfAO//AAACAAcAAAAfAO7/AAACAAcAAAAfAO3/AAACAAYAAAAPAP7/AAAFAAMAAAAQAP7/AAAJAAYAAAAdAAMAAAAFAAYAAQAcAAMAAAAIAAUAAAA=")
 tile_set = ExtResource("5_61xil")
 
-[node name="CollectionZoneLeft" parent="Layout" groups=["CollectionZoneFire"] instance=ExtResource("6_8cynx")]
+[node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(-424, 18)
 limit = 5
 
-[node name="CollectionZoneRight" parent="Layout" groups=["CollectionZoneWater"] instance=ExtResource("6_8cynx")]
+[node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(425, 20)
 zone = 1
 neededElement = 1
 limit = 5
 
-[node name="CargoDropperLeft" parent="Layout" groups=["DropperFire", "IncludeOnMinimap"] instance=ExtResource("7_qqjvl")]
+[node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_qqjvl")]
 position = Vector2(-219, -65)
 element = 1
 
-[node name="CargoDropperRight" parent="Layout" groups=["DropperWater", "IncludeOnMinimap"] instance=ExtResource("7_qqjvl")]
+[node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_qqjvl")]
 position = Vector2(220, -65)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("9_tl2ud")]
@@ -210,15 +208,9 @@ position = Vector2(-1, 365)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
-[node name="GPUParticles2D" parent="PlayerCharacter/LeftRope/ParticleMask" index="0"]
-script = null
-
-[node name="GPUParticles2D" parent="PlayerCharacter/RightRope/ParticleMask" index="0"]
-script = null
-
 [node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes")]
 script = ExtResource("11_bete1")
-cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), null]
+cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper")]
 
 [node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 1
