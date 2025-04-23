@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bli8ngq66xclj"]
+[gd_scene load_steps=21 format=3 uid="uid://bli8ngq66xclj"]
 
 [ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_vbmld"]
 [ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_k7a1g"]
@@ -14,6 +14,24 @@
 [ext_resource type="Texture2D" uid="uid://b4xy4snqsumly" path="res://assets/images/ui/FireStabilityIcon2.png" id="12_udwkh"]
 [ext_resource type="Texture2D" uid="uid://bs1166mjjjwfo" path="res://assets/images/ui/fireStabilityIcon3.png" id="13_qqyir"]
 [ext_resource type="Texture2D" uid="uid://bld10hn0qw0cx" path="res://assets/images/ui/fireStabilityIcon4.png" id="14_ctiq6"]
+[ext_resource type="Texture2D" uid="uid://iksg1wrewdht" path="res://assets/images/Cores/fire stone/Fire Stone stone.png" id="15_yvgwk"]
+[ext_resource type="Texture2D" uid="uid://cryvsv56myhsp" path="res://assets/images/Cores/water stone/Water stone stone .png" id="16_udwkh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvi78"]
+atlas = ExtResource("15_yvgwk")
+region = Rect2(20, 18, 28, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1just"]
+atlas = ExtResource("16_udwkh")
+region = Rect2(26, 8, 12, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yafc"]
+atlas = ExtResource("2_k7a1g")
+region = Rect2(7, 7, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5cni"]
+atlas = ExtResource("3_rckiu")
+region = Rect2(7, 7, 25, 25)
 
 [node name="PreloadedResources" type="Node"]
 script = ExtResource("1_vbmld")
@@ -30,3 +48,7 @@ fireStability1Texture = ExtResource("11_yvgwk")
 fireStability2Texture = ExtResource("12_udwkh")
 fireStability3Texture = ExtResource("13_qqyir")
 fireStability4Texture = ExtResource("14_ctiq6")
+fireCoreTexture = SubResource("AtlasTexture_jvi78")
+waterCoreTexture = SubResource("AtlasTexture_1just")
+fireDropperTexture = SubResource("AtlasTexture_0yafc")
+waterDropperTexture = SubResource("AtlasTexture_p5cni")
