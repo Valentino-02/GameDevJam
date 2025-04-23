@@ -210,6 +210,12 @@ position = Vector2(-1, 365)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
+[node name="GPUParticles2D" parent="PlayerCharacter/LeftRope/ParticleMask" index="0"]
+script = null
+
+[node name="GPUParticles2D" parent="PlayerCharacter/RightRope/ParticleMask" index="0"]
+script = null
+
 [node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes")]
 script = ExtResource("11_bete1")
 cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper"), null]
