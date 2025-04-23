@@ -24,6 +24,7 @@ func _ready() -> void:
 	_temporaryIcon.texture = PreloadedResources.fireCrateTexture if element == Types.Element.Fire else PreloadedResources.waterCrateTexture 
 	_cooldownTimer.wait_time = tickDuration
 	_progressBar.max_value = cooldownTicks
+	_progressBar.value = cooldownTicks
 
 func _input(event: InputEvent) -> void:
 	if not _interactable:
@@ -37,6 +38,7 @@ func _input(event: InputEvent) -> void:
 func _triggerDrop() -> void:
 	_onCooldown = true
 	_cooldownTimer.start()
+	_currentTick = 0
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	_spawnCargo()
 
@@ -71,5 +73,4 @@ func _on_cooldown_timer_timeout() -> void:
 	_currentTick += 1
 	if _currentTick == cooldownTicks:
 		_cooldownTimer.stop()
-		_currentTick = 0
 		_onCooldownRecovery()

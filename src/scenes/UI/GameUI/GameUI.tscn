@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blqjsj4wbhr8u"]
+[gd_scene load_steps=9 format=3 uid="uid://blqjsj4wbhr8u"]
 
 [ext_resource type="Script" uid="uid://daw2o861jj0vl" path="res://src/scenes/UI/GameUI/GameUI.gd" id="2_elwfl"]
 [ext_resource type="PackedScene" uid="uid://rvm2k5e6fiu5" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.tscn" id="2_fwjtt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/GameUI/PauseMenu/PauseMenu.tscn" id="5_dw237"]
 [ext_resource type="PackedScene" uid="uid://bko4wd0mdgil0" path="res://src/scenes/UI/GameUI/LoseScreen/LoseScreen.tscn" id="6_dw237"]
 [ext_resource type="PackedScene" uid="uid://i3to2f6oeh1n" path="res://src/scenes/UI/GameUI/WinScreen/WinScreen.tscn" id="7_qj02x"]
+[ext_resource type="Texture2D" uid="uid://c17kilxt5w128" path="res://assets/images/ui/ElementalBalance.png" id="8_hplg1"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -91,5 +92,19 @@ offset_right = 70.0
 offset_bottom = -5.0
 grow_vertical = 0
 text = "Pause"
+
+[node name="BalanceIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 25.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("8_hplg1")
+expand_mode = 1
 
 [connection signal="pressed" from="PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]

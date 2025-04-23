@@ -61,3 +61,7 @@ func _on_tutorial_2_pressed() -> void:
 func _on_tutorial_3_pressed() -> void:
 	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial3)
 	_startGame()
+
+func _on_tutorial_4_pressed() -> void:
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial4)
+	_startGame()

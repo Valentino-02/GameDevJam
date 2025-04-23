@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cryvsv56myhsp" path="res://assets/images/Cores/water stone/Water stone stone .png" id="5_qqnfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hydwb"]
+resource_local_to_scene = true
 size = Vector2(112, 66)
 
 [sub_resource type="Animation" id="Animation_x0266"]

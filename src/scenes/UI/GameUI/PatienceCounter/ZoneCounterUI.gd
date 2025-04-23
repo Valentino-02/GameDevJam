@@ -14,12 +14,12 @@ var _startingPosition : Vector2
 var _threshold : Threshold = Threshold.Good:
 	set(newValue):
 		if newValue != _threshold:
-			_onThresholdChanged()
+			_onThresholdChanged(_threshold, newValue)
 		_threshold = newValue
 
 
 func _ready() -> void:
-	_titleLabel.text = "Fire Realm Stability" if zone == Types.Zone.Left else "Water Realm Stability"
+	_titleLabel.text = "Fire Realm Overheat Level" if zone == Types.Zone.Left else "Water Realm Freeze Level"
 	_bar.modulate = Color("6e120c") if zone == Types.Zone.Left else Color("051183")
 	_icon.texture = PreloadedResources.fireStability1Texture if zone == Types.Zone.Left else PreloadedResources.waterStability1Texture
 	_statusLabel.text = "Sunny!" if zone == Types.Zone.Left else "Chill!"
@@ -27,24 +27,37 @@ func _ready() -> void:
 		_container.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	SignalBus.zonePatienceChanged.connect(_onPatienceValueChanged)
 	SignalBus.zoneScoreChanged.connect(_onScoreChanged)
+	SignalBus.zonePatienceEnded.connect(_onZonePatienceEnded)
 	await get_tree().process_frame 
 	_startingPosition = position
 
-func _onThresholdChanged() -> void:
-	AudioManager.sfx.play(ResourceIds.SfxId.Clack)
+func _onThresholdChanged(oldValue : Threshold, newValue : Threshold) -> void:
+	if newValue < oldValue:
+		return
 	var tween = create_tween()
+	AudioManager.sfx.play(ResourceIds.SfxId.Clack)
 	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _onScoreChanged(targetZone: Types.Zone, _value: float) -> void:
 	if zone != targetZone:
 		return
+	_bar.modulate = Color("051183") if zone == Types.Zone.Left else Color("6e120c")
 	var tween := create_tween()
 	tween.tween_property(self, "position", _startingPosition - Vector2(2, 0), 0.05)
 	tween.tween_property(self, "position", _startingPosition + Vector2(0, 2), 0.05)
 	tween.tween_property(self, "position", _startingPosition - Vector2(0, 2), 0.05)
 	tween.tween_property(self, "position", _startingPosition + Vector2(2, 0), 0.05)
 	tween.tween_property(self, "position", _startingPosition, 0.1)
+	tween.tween_property(_bar, "modulate", Color("6e120c") if zone == Types.Zone.Left else Color("051183"), 1.5)
+
+func _onZonePatienceEnded(_targetZone : Types.Zone) -> void:
+	var tween = create_tween()
+	AudioManager.sfx.play(ResourceIds.SfxId.Clack)
+	if _targetZone != zone:
+		tween.tween_property(self, "scale", Vector2(0.8, 0.8), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	else:
+		tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _onPatienceValueChanged(targetZone: Types.Zone, value: float) -> void:
 	if zone != targetZone:

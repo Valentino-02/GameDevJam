@@ -41,13 +41,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_elyr4"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "Yes of course! Use the [color=blue][b]W-A-S-D[/b][/color] runes on your runeboard to give me directions."
+dialogueLine = "Yes of course! Use the [color=blue][b]W-A-S-D[/b][/color] Runes on your Runeboard to give me directions."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "It's the [color=red][b]arrow[/b][/color] runes for me. Give it go, take us on an adventure."
+dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_e3ggw"]
@@ -66,7 +66,7 @@ ease = 2
 [sub_resource type="Resource" id="Resource_jdpu4"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "This is where fire cargo gets generated. You'll need this to slow the freeze over in the water lands. You can summon some using the [color=red][b]E[/b][/color] rune. Try it now!"
+dialogueLine = "This is the [color=red][b]Fire Forge[/b][/color] of my realm! You can get [color=red][b]Fire Packages[/b][/color] here if you use the [color=black][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=blue][b]Water Realm[/b][/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_8kfja"]
@@ -79,13 +79,13 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_bete1"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "This is my home core. If we get too cold, we'll freeze!"
+dialogueLine = "This is the [color=blue][b]Water Core[/b][/color] of my realm. It keeps producing more and more cold, so we need [color=red][b]Fire Packages[/b][/color] in order to  [color=red][b]BAL[/b][/color][color=blue][b]ANCE[/b][/color] it!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_3hvhq"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "If you can drop off fire cargo here by dropping it with the [color=blue][b]Space[/b][/color] Runekey, you'll help us keep warm and survive!"
+dialogueLine = "You can drop off [color=red][b]Fire Packages[/b][/color] here by using the [color=black][b]Space[/b][/color] Runekey!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_61xil"]
@@ -104,7 +104,7 @@ size = Vector2(164, 174)
 [sub_resource type="Resource" id="Resource_edi57"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("15_61xil")
-dialogueLine = "This is my world's cargo dropper. Use your [color=blue][b]E[/b][/color] rune to collect some cargo. You'll need it to cool down the fire realm's core!"
+dialogueLine = "This is the [color=blue][b]Water Forge[/b][/color] that feeds on the water of my realm. Use your [color=black][b]E[/b][/color] Rune to collect some [color=blue][b]Water Packages[/b][/color]. You'll need it to cool down the [color=red][b]Fire Core[/b][/color]!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_km0gl"]
@@ -117,13 +117,13 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_q5b8i"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "Speaking of which, this is one of the cores to my homeland. It needs that water to stop overheating!"
+dialogueLine = "Speaking of which, here it is, the [color=red][b]Fire Core[/b][/color] of my realm. It needs [color=blue][b]Water Packages[/b][/color] to stop overheating!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_mpwdg"]
 script = ExtResource("14_3hvhq")
 speaker = ExtResource("16_y6tqc")
-dialogueLine = "Once you've got some water on-board, try dropping it here using the [color=red][b]Space[/b][/color] runekey."
+dialogueLine = "Once you've got some [color=blue][b]Water Packages[/b][/color] on-board, try dropping it here using the [color=black][b]Space[/b][/color] Runekey."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_s2r5k"]
@@ -175,11 +175,13 @@ tile_set = ExtResource("5_61xil")
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(-424, 18)
+limit = 5
 
 [node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(425, 20)
 zone = 1
 neededElement = 1
+limit = 5
 
 [node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_qqjvl")]
 position = Vector2(-219, -65)
