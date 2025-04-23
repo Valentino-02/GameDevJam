@@ -133,24 +133,25 @@ position = Vector2(0, 440)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
 position = Vector2(-5, 397)
+script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
-[node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
+[node name="CollectionZoneLeft" parent="Layout/CollectionZones" groups=["CollectionZoneFire"] instance=ExtResource("12_hqina")]
 position = Vector2(-692, 51)
 limit = 5
 
-[node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
+[node name="CollectionZoneLeft2" parent="Layout/CollectionZones" groups=["CollectionZoneFire"] instance=ExtResource("12_hqina")]
 position = Vector2(-1022, -189)
 limit = 5
 
-[node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
+[node name="CollectionZoneRight" parent="Layout/CollectionZones" groups=["CollectionZoneWater"] instance=ExtResource("12_hqina")]
 position = Vector2(702, -397)
 zone = 1
 neededElement = 1
 limit = 5
 
-[node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
+[node name="CollectionZoneRight2" parent="Layout/CollectionZones" groups=["CollectionZoneWater"] instance=ExtResource("12_hqina")]
 position = Vector2(1118, -205)
 zone = 1
 neededElement = 1
@@ -190,6 +191,12 @@ position = Vector2(114.5, -162)
 shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
+
+[node name="GPUParticles2D" parent="PlayerCharacter/LeftRope/ParticleMask" index="0"]
+script = null
+
+[node name="GPUParticles2D" parent="PlayerCharacter/RightRope/ParticleMask" index="0"]
+script = null
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]
