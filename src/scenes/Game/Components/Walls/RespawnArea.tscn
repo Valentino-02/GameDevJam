@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1p01esy8xx5j"]
+
+[ext_resource type="Script" uid="uid://bmhmv2oes4cel" path="res://src/scenes/Game/Components/Walls/RespawnArea.gd" id="1_sgia8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rr83a"]
+
+[node name="RespawnArea" type="Area2D"]
+script = ExtResource("1_sgia8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_rr83a")
+
+[node name="RespawnAreas" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_onFloorBodyEntered"]

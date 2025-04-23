@@ -101,6 +101,9 @@ position = Vector2(1, -556)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(-1, 169)
 
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(-15, 24)
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_5x4vm")]
 
 [node name="SplashEffects" type="Node2D" parent="."]

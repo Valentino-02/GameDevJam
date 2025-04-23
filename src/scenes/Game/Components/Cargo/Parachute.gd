@@ -1,11 +1,8 @@
 ##IMPORTANT: the Parachute node is purely visual, adding it or removing it doesn't effect the cargo. That said, on addition and removal, it toggles the parent cargo's parachuting boolean
 class_name Parachute extends Node2D
 
-
-@onready var sprite: Sprite2D = get_node("ParachuteSprite")
 @onready var l_string: Line2D = get_node("Parachute String L")
 @onready var r_string: Line2D = get_node("Parachute String R")
-@onready var parachute_sprite: Sprite2D = get_node("ParachuteSprite")
 
 var _cargo : Cargo
 var _state : State
@@ -30,7 +27,7 @@ func addToCargo(cargo : Cargo):
 	_cargo.gravity_scale = 0.3
 	_cargo.body_entered.connect(_onBodyEntered)
 	_state = State.attached
-	_updateParachuteAnimation()
+	if is_inside_tree(): _updateParachuteAnimation()
 
 #removes the parachute from the cargo
 func _removeFromCargo(delay = null):
@@ -42,20 +39,19 @@ func _removeFromCargo(delay = null):
 		_state = State.waiting
 		await get_tree().create_timer(delay).timeout
 
-	#fix the cargo to not parachute state
-	_cargo._parachute = false
-	_cargo.gravity_scale = 1
-	_cargo.body_entered.disconnect(_onBodyEntered)
-
 	#remove from the cargo (let it fly away)
 	_state = State.leaving
 	self.reparent(_cargo.get_parent(), true )
-	_updateParachuteAnimation()
-	_cargo = null
 	l_string.visible = false
 	r_string.visible = false
+
+	if _cargo:#fix the cargo to not parachute state
+		_cargo._parachute = false
+		_cargo.gravity_scale = 1
+		_cargo.body_entered.disconnect(_onBodyEntered)
+		_cargo = null
 	
-	#remove from scene
+	#remove from scene after its done flying
 	await get_tree().create_timer(2.5).timeout
 	self.queue_free()
 
