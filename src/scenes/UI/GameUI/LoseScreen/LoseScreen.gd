@@ -2,6 +2,7 @@ class_name LoseScreen extends Control
 
 @onready var _modal : Control = %Modal
 @onready var _restartButton : Button = %RestartButton
+@onready var _label : Label = %Label
 
 var _hiddenPosition := Vector2(0, -300)
 var _targetPosition : Vector2
@@ -13,6 +14,7 @@ func _ready() -> void:
 	await get_tree().process_frame 
 	_targetPosition = _modal.position
 	_hiddenPosition.x = _modal.position.x
+	SignalBus.zonePatienceEnded
 
 
 func trigger(isSecretWin: bool = false) -> void:
@@ -35,6 +37,8 @@ func _playIntroAnimation() -> Tween:
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	return tween
 
+func _onZonePatienceEnded(zone: Types.Zone) -> void:
+	_label.text = "The World Exploded in a Sea of Flames" if zone == Types.Zone.Left else "Desolation in the Form of and Endless Tundra"
 
 func _on_restart_button_pressed() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)

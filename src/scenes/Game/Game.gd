@@ -3,7 +3,6 @@ class_name Game extends Node2D
 @onready var _gameUI : GameUI = %GameUI
 @onready var _backgroundTextureRect : TextureRect = %BackgroundTextureRect
 @onready var _parallax : Node2D = %Parallax2DGroup
-@onready var _zoneTransitionTimer : Timer = %ZoneTransitionTimer
 
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
@@ -48,9 +47,7 @@ func _onBothScoreMaxed() -> void:
 	var tween = create_tween()
 	tween.tween_property(_level, "position", Vector2(10, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(_level, "position", Vector2(-10, 0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_level, "position", Vector2(5, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_level, "position", Vector2(-5, 0), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_level.phantomCamera, "zoom", Vector2(1.1, 1.1), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_level.phantomCamera, "zoom", Vector2(1.2, 1.2), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	_gameUI.openWinScreen()
 
@@ -84,9 +81,6 @@ func _onHazardFix(hazard: Types.Element) -> void:
 	_patienceManager.gainPatience(zone)
 
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
-	if not _zoneTransitionTimer.is_stopped():
-		await _zoneTransitionTimer.timeout
-	_zoneTransitionTimer.start(3.0)
 	var target_color: Color
 	var music_id : ResourceIds.MusicId
 	match zone:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bli8ngq66xclj"]
+[gd_scene load_steps=15 format=3 uid="uid://bli8ngq66xclj"]
 
 [ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_vbmld"]
 [ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_k7a1g"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://ca4k4yje57ndp" path="res://assets/images/ui/WaterStabilityIcon4.png" id="10_ctiq6"]
 [ext_resource type="Texture2D" uid="uid://f7m8w331in6f" path="res://assets/images/ui/FireStabilityIcon1.png" id="11_yvgwk"]
 [ext_resource type="Texture2D" uid="uid://b4xy4snqsumly" path="res://assets/images/ui/FireStabilityIcon2.png" id="12_udwkh"]
+[ext_resource type="Texture2D" uid="uid://bs1166mjjjwfo" path="res://assets/images/ui/fireStabilityIcon3.png" id="13_qqyir"]
+[ext_resource type="Texture2D" uid="uid://bld10hn0qw0cx" path="res://assets/images/ui/fireStabilityIcon4.png" id="14_ctiq6"]
 
 [node name="PreloadedResources" type="Node"]
 script = ExtResource("1_vbmld")
@@ -26,5 +28,5 @@ waterStability3Texture = ExtResource("9_qqyir")
 waterStability4Texture = ExtResource("10_ctiq6")
 fireStability1Texture = ExtResource("11_yvgwk")
 fireStability2Texture = ExtResource("12_udwkh")
-fireStability3Texture = ExtResource("12_udwkh")
-fireStability4Texture = ExtResource("12_udwkh")
+fireStability3Texture = ExtResource("13_qqyir")
+fireStability4Texture = ExtResource("14_ctiq6")

@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://crqrv5lsmuftg"]
+[gd_scene load_steps=6 format=3 uid="uid://crqrv5lsmuftg"]
 
 [ext_resource type="Script" uid="uid://ctnjtvl46kqr6" path="res://src/scenes/Game/Components/Cargo/CargoDropper.gd" id="1_ky43u"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="2_gihkj"]
 [ext_resource type="Texture2D" uid="uid://332tqfjafwnw" path="res://assets/images/Forge.png" id="3_gihkj"]
-[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="3_jmmfj"]
 [ext_resource type="Texture2D" uid="uid://ctpjhv3x1hych" path="res://assets/images/cargo/Alternatives/Packages_1.png" id="5_qxb30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrmgv"]
-size = Vector2(166, 99)
+size = Vector2(166, 141)
 
 [node name="CargoDropper" type="Node2D"]
 script = ExtResource("1_ky43u")
+cooldownTicks = 4
 cargoScene = ExtResource("2_gihkj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,7 +27,7 @@ collision_layer = 0
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
-position = Vector2(0, -31.5)
+position = Vector2(0, -36.5)
 shape = SubResource("RectangleShape2D_qrmgv")
 debug_color = Color(3.70607e-06, 0.664926, 0.338222, 0)
 
@@ -51,16 +51,15 @@ anchors_preset = 0
 offset_top = -191.0
 offset_right = 40.0
 offset_bottom = -151.0
-theme = ExtResource("3_jmmfj")
 
 [node name="Control" type="Control" parent="UI_Helpers"]
 z_index = -1
 layout_mode = 3
 anchors_preset = 0
-offset_left = -12.0
-offset_top = -69.0
-offset_right = 41.0
-offset_bottom = -53.0
+offset_left = -11.0
+offset_top = -74.0
+offset_right = 66.0
+offset_bottom = -45.0
 
 [node name="Panel" type="Panel" parent="UI_Helpers/Control"]
 layout_mode = 1
@@ -84,12 +83,14 @@ vertical_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="UI_Helpers"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -37.0
-offset_top = -76.0
-offset_right = -33.0
-offset_bottom = -49.0
+offset_left = -36.0
+offset_top = -73.0
+offset_right = -24.0
+offset_bottom = -46.0
 max_value = 3.0
 step = 1.0
+fill_mode = 3
+show_percentage = false
 
 [node name="TemporaryIcon" type="Sprite2D" parent="."]
 unique_name_in_owner = true

@@ -74,9 +74,4 @@ scale = Vector2(3.375, 3.375)
 texture = ExtResource("7_njjgc")
 centered = false
 
-[node name="ZoneTransitionTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 3.0
-one_shot = true
-
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_timer_timeout"]
