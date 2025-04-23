@@ -398,6 +398,7 @@ storyPoints = Array[ExtResource("19_w2mcj")]([SubResource("Resource_c3p7v"), Sub
 useableCameras = {
 &"HolePan": NodePath("HolePan"),
 &"Intro": NodePath("Intro"),
+&"Intro2": NodePath("Intro2"),
 &"L1": NodePath("Left1"),
 &"L2": NodePath("Left2"),
 &"R1": NodePath("Right1"),
