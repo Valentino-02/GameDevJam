@@ -139,6 +139,9 @@ position = Vector2(0, -762)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 440)
 
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(-2, 404)
+
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_k1wl4")]
