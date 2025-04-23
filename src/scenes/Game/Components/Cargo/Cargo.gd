@@ -8,6 +8,9 @@ class_name Cargo extends RigidBody2D
 var _element: Types.Element = Types.Element.Null
 var _beingDestroyed : bool = false
 
+#Are we actively being parachuted
+var _parachute : bool = false
+const parachute_speed_limit : float = 35.0
 
 func _ready() -> void:
 	body_entered.connect(_bodyEntered)
@@ -75,3 +78,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		uglyDestroy()
+
+##has to go here, otherwise it would be a pain to access the direct body state
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if _parachute:
+		state.linear_velocity = state.linear_velocity.limit_length(parachute_speed_limit)

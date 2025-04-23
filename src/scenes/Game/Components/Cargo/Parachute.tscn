@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://nprt3pk5estb"]
+
+[ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="1_7dwob"]
+[ext_resource type="Script" uid="uid://gb01cdh3sdwm" path="res://src/scenes/Game/Components/Cargo/Parachute.gd" id="1_nov0o"]
+[ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/decoration/Clouds/Cloud 1 no 3.png" id="2_nov0o"]
+
+[node name="Parachute" type="Node2D"]
+script = ExtResource("1_nov0o")
+
+[node name="Parachute String L" type="Line2D" parent="."]
+position = Vector2(22, -6)
+width = 3.0
+texture = ExtResource("1_7dwob")
+texture_mode = 1
+
+[node name="Parachute String R" type="Line2D" parent="."]
+position = Vector2(-20, -6)
+width = 3.0
+texture = ExtResource("1_7dwob")
+texture_mode = 1
+
+[node name="ParachuteSprite" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -3)
+scale = Vector2(1.41748, 1.04321)
+texture = ExtResource("2_nov0o")
+offset = Vector2(3, -7)
