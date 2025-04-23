@@ -22,3 +22,6 @@ func openWinScreen() -> void:
 
 func _on_pause_menu_button_pressed() -> void:
 	_pauseMenu.changeOpenState()
+	
+func setMinimapTargets(nodes: Array[Node2D]) -> void:
+	_minimapUI.minimap.SetTargets(nodes)

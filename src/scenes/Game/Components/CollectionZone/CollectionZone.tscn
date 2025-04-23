@@ -113,7 +113,7 @@ _data = {
 &"coreAnimation": SubResource("Animation_63o22")
 }
 
-[node name="CollectionZone" type="Area2D" groups=["IncludeOnMinimap"]]
+[node name="CollectionZone" type="Area2D"]
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_5cbe3")
