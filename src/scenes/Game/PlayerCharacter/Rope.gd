@@ -18,7 +18,7 @@ func _ready() -> void:
 func _physics_process(_delta):
 	# Update line points
 	points = [to_local(character.global_position), to_local(platform_attachement.global_position)]
-	_updateSpringForce()
+	if get_tree().paused == false : _updateSpringForce()
 	_updateRopeParticles()
 
 func _updateSpringForce():

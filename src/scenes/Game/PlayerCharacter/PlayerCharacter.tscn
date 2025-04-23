@@ -309,6 +309,7 @@ position = Vector2(90, -170)
 
 [node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
+process_mode = 3
 z_index = -2
 texture_repeat = 2
 width = 3.0
@@ -351,6 +352,7 @@ scale_amount_curve = SubResource("Curve_61ysk")
 
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
+process_mode = 3
 texture_repeat = 2
 width = 3.0
 texture = ExtResource("6_qgvce")
