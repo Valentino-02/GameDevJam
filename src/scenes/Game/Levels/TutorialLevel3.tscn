@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://tyqhqa1c65v7"]
+[gd_scene load_steps=47 format=4 uid="uid://tyqhqa1c65v7"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jovba"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eo8bu"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="14_tqhj4"]
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_eo8bu"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="15_tot5p"]
+[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_pc0oe"]
+[ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="18_hm1sc"]
+[ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="19_egjbk"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="20_rcf8f"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_tqlkj")
@@ -34,6 +38,144 @@ size = Vector2(922, 1206)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eo8bu"]
 resource_local_to_scene = true
 size = Vector2(855, 1218)
+
+[sub_resource type="Resource" id="Resource_joadm"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "Back the the real world now. No more memories!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_pc0oe"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 2
+dialogueLine = "You will find that this village is a bit bigger! if you get lost, remember to use the minimap on the bottom corner."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_hm1sc"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "We will still give you a head start! Let's have a look."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_qow2f"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("19_egjbk")]([SubResource("Resource_joadm"), SubResource("Resource_pc0oe"), SubResource("Resource_hm1sc")])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_egjbk"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Pan1"
+dialogues = Array[ExtResource("19_egjbk")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_rcf8f"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Pan2"
+dialogues = Array[ExtResource("19_egjbk")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_8q4vy"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Pan3"
+dialogues = Array[ExtResource("19_egjbk")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_tqhj4"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Pan4"
+dialogues = Array[ExtResource("19_egjbk")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_tot5p"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "As you see this time we have four cores. You will need to feed [color=red]all[/color] of these, since the cores might oversaturate when feed to much elemental goodness!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_qahow"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 2
+dialogueLine = "Also, please remember to pay atention to each realm! Don't just concentrate on one, or the other will get out of control! We need to maintain..."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_jrpou"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 2
+dialogueLine = "[center][font_size=80][color=red]B[/color][color=blue]A[/color][color=red]L[/color][color=blue]A[/color][color=red]N[/color][color=blue]C[/color][color=red]E[/color][/font_size][/center]"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_xc6p4"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "..."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_567lk"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 2
+dialogueLine = "..."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_ui3g4"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "Anyway.. Remember that each package delivered to a core gives you more time, until that realm explodes!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_oh64t"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 2
+dialogueLine = "Explodes?!?"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_l53nw"]
+script = ExtResource("19_egjbk")
+speakingCharacter = 1
+dialogueLine = "Well, freezes over, burns to a crisp, you get it."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_swekr"]
+script = ExtResource("18_hm1sc")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("19_egjbk")]([SubResource("Resource_tot5p"), SubResource("Resource_qahow"), SubResource("Resource_jrpou"), SubResource("Resource_xc6p4"), SubResource("Resource_567lk"), SubResource("Resource_ui3g4"), SubResource("Resource_oh64t"), SubResource("Resource_l53nw")])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_hqina"]
+script = ExtResource("4_tqlkj")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_s45xm"]
+script = ExtResource("4_tqlkj")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_geqpf"]
+script = ExtResource("4_tqlkj")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_o2vim"]
+script = ExtResource("4_tqlkj")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_ol8rq"]
+script = ExtResource("4_tqlkj")
+duration = 2.0
+transition = 0
+ease = 2
 
 [node name="TutorialLevel3" type="Node2D"]
 script = ExtResource("1_jovba")
@@ -137,21 +279,21 @@ script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
-[node name="CollectionZoneLeft" parent="Layout/CollectionZones" groups=["CollectionZoneFire"] instance=ExtResource("12_hqina")]
+[node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
 position = Vector2(-692, 51)
 limit = 5
 
-[node name="CollectionZoneLeft2" parent="Layout/CollectionZones" groups=["CollectionZoneFire"] instance=ExtResource("12_hqina")]
+[node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
 position = Vector2(-1022, -189)
 limit = 5
 
-[node name="CollectionZoneRight" parent="Layout/CollectionZones" groups=["CollectionZoneWater"] instance=ExtResource("12_hqina")]
+[node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
 position = Vector2(702, -397)
 zone = 1
 neededElement = 1
 limit = 5
 
-[node name="CollectionZoneRight2" parent="Layout/CollectionZones" groups=["CollectionZoneWater"] instance=ExtResource("12_hqina")]
+[node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
 position = Vector2(1118, -205)
 zone = 1
 neededElement = 1
@@ -191,6 +333,60 @@ position = Vector2(114.5, -162)
 shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
+
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("17_pc0oe")]
+type = 1
+storyPoints = Array[ExtResource("18_hm1sc")]([SubResource("Resource_qow2f"), SubResource("Resource_egjbk"), SubResource("Resource_rcf8f"), SubResource("Resource_8q4vy"), SubResource("Resource_tqhj4"), SubResource("Resource_swekr")])
+useableCameras = {
+&"Intro": NodePath("FirstCam"),
+&"Pan1": NodePath("Pan1"),
+&"Pan2": NodePath("Pan2"),
+&"Pan3": NodePath("Pan3"),
+&"Pan4": NodePath("Pan4")
+}
+
+[node name="FirstCam" type="Node2D" parent="Cutscene"]
+script = ExtResource("3_ugr50")
+zoom = Vector2(1.3, 1.3)
+tween_resource = SubResource("Resource_hqina")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Pan1" type="Node2D" parent="Cutscene"]
+position = Vector2(-685, 37)
+script = ExtResource("3_ugr50")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_s45xm")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Pan2" type="Node2D" parent="Cutscene"]
+position = Vector2(-1020, -198)
+script = ExtResource("3_ugr50")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_geqpf")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Pan3" type="Node2D" parent="Cutscene"]
+position = Vector2(703, -398)
+script = ExtResource("3_ugr50")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_o2vim")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Pan4" type="Node2D" parent="Cutscene"]
+position = Vector2(1110, -216)
+script = ExtResource("3_ugr50")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_ol8rq")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("20_rcf8f")
+hazardsToDemonstrate = [NodePath("../../Layout/CollectionZones/CollectionZoneLeft"), NodePath("../../Layout/CollectionZones/CollectionZoneLeft2"), NodePath("../../Layout/CollectionZones/CollectionZoneRight"), NodePath("../../Layout/CollectionZones/CollectionZoneRight2")]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]

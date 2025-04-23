@@ -5,12 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_etb6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb6u"]
-resource_local_to_scene = true
-size = Vector2(355, 523.5)
+size = Vector2(148.47, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24163"]
 atlas = ExtResource("2_24163")
-region = Rect2(0, 0, 50, 500)
+region = Rect2(-74.235, -75, 148.47, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6qf7"]
 atlas = ExtResource("2_etb6u")
@@ -27,11 +26,11 @@ curve = SubResource("Curve_0opmp")
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
+emission_box_extents = Vector3(74.235, 75, 0)
 direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 20.0
-initial_velocity_max = 70.0
+initial_velocity_max = 80.0
 gravity = Vector3(0, 0, 0)
 scale_max = 5.0
 alpha_curve = SubResource("CurveTexture_4wyjw")
@@ -42,7 +41,7 @@ hue_variation_max = 0.00999998
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
+emission_box_extents = Vector3(74.235, 75, 0)
 direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 20.0
@@ -55,35 +54,33 @@ hue_variation_max = 0.00999998
 
 [node name="WindObstacle" type="Node2D"]
 script = ExtResource("1_xs381")
+area = SubResource("RectangleShape2D_etb6u")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_etb6u")
 debug_color = Color(0, 0.941176, 0.831373, 0)
 
 [node name="SpriteMask" type="Sprite2D" parent="."]
 clip_children = 1
-position = Vector2(1.49999, 2.5)
-scale = Vector2(7.14, 0.978)
 texture = SubResource("AtlasTexture_24163")
 
 [node name="BottomParticles" type="GPUParticles2D" parent="SpriteMask"]
 visible = false
-position = Vector2(0, 250)
+amount = 30
 texture = SubResource("AtlasTexture_q6qf7")
-visibility_rect = Rect2(-25, -250, 50, 500)
+visibility_rect = Rect2(-74.235, -75, 148.47, 150)
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_uyhky")
 
 [node name="TopParticles" type="GPUParticles2D" parent="SpriteMask"]
 visible = false
-position = Vector2(0, -250)
+amount = 30
 texture = SubResource("AtlasTexture_q6qf7")
-visibility_rect = Rect2(-25, -250, 50, 500)
+visibility_rect = Rect2(-74.235, -75, 148.47, 150)
 process_material = SubResource("ParticleProcessMaterial_etb6u")
 
 [node name="CooldownTimer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://d2coyxn87hnja"]
+[gd_scene load_steps=35 format=4 uid="uid://d2coyxn87hnja"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_8t3it"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_r2rr6"]
@@ -18,9 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="16_g5jiv"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="17_vdaln"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="18_tc3ar"]
-[ext_resource type="Texture2D" uid="uid://d1vt5xnchlnkk" path="res://assets/images/playerCharacters/Fire Elemental.png" id="19_jkjg2"]
-[ext_resource type="Texture2D" uid="uid://dj5535ppxnbtn" path="res://assets/images/playerCharacters/Water Elemental.png" id="20_be5u0"]
-[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/HazardTutorialScripts/HazardTutorialDemonstrate.gd" id="21_oh5fu"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="21_oh5fu"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_tc3ar")
@@ -30,25 +28,25 @@ ease = 2
 
 [sub_resource type="Resource" id="Resource_w26dr"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("19_jkjg2")
+speakingCharacter = 1
 dialogueLine = "Now you are getting it! but it is important you understand why we are doing this."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_b5hix"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("20_be5u0")
+speakingCharacter = 2
 dialogueLine = "Let us show you a distant memory!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_vdaln"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("19_jkjg2")
+speakingCharacter = 2
 dialogueLine = "There was once a villiage that was destined for prosperity! but there was a small oversight when we were building it..."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_tc3ar"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("20_be5u0")
+speakingCharacter = 1
 dialogueLine = "We kinda forgot to put in a [color=blue]Water Forge[/color] to cool down the [color=red]Fire Core[/color]..."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -61,7 +59,7 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_cqliw"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("19_jkjg2")
+speakingCharacter = 2
 dialogueLine = "Without [color=blue]Water Packages[/color], it became too [color=red]Hot[/color] and volatile!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -74,25 +72,25 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_gnca1"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("20_be5u0")
+speakingCharacter = 2
 dialogueLine = "The overheating of the [color=red]Fire Core[/color] was inevitable... and now you must experience that yourself..."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_8osp4"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("20_be5u0")
-dialogueLine = "Dont worry though! just accept defeat, and we will move on to the real world again!"
+speakingCharacter = 1
+dialogueLine = "Dont worry though! Just accept defeat, and we will move on to the real world again!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_jkjg2"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("19_jkjg2")
+speakingCharacter = 2
 dialogueLine = "While we wait, you can try keeping the [color=blue]Water Core[/color] warm! Just use the handy [color=red]Fire Forge[/color] that was placed above it! "
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_be5u0"]
 script = ExtResource("18_tc3ar")
-speaker = ExtResource("19_jkjg2")
+speakingCharacter = 2
 dialogueLine = "Check how the [color=blue]Water Volatility[/color] goes down as you feed the core! (check the upper right corner)"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
@@ -237,9 +235,8 @@ useableCameras = {
 }
 
 [node name="IntroCam" type="Node2D" parent="Cutscene"]
-position = Vector2(7, -6)
+position = Vector2(7, -91)
 script = ExtResource("3_vdaln")
-zoom = Vector2(0.8, 0.8)
 tween_resource = SubResource("Resource_3eku6")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

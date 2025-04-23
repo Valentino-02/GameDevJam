@@ -25,6 +25,7 @@ func _ready() -> void:
 	if neededElement == Types.Element.Fire:
 		altar.texture = waterTextures[0]
 		core.texture = waterTextures[1]
+	SignalBus.registerForMinimap.emit(self)
 
 func _disable() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.PowerDown)

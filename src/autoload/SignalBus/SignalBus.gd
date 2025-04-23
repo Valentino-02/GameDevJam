@@ -10,6 +10,7 @@ signal zoneScoreMaxed(zone: Types.Zone)
 signal maxScoreSetted(value: float)
 signal playerEnteredZone(zone: Types.Zone)
 signal zonePatienceEnded(zone: Types.Zone)
+signal registerForMinimap(target: Node2D)
 signal nextLevelClicked()
 signal bothScoreMaxed()
 signal levelLoaded

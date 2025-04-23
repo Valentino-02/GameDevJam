@@ -14,6 +14,7 @@ signal sceneLoaded
 func PlayCutscene(cutscene: Cutscene) -> void:
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
+	await get_tree().process_frame
 	get_tree().paused = true
 	dialogueDisplay.Declutter(true)
 	currentCutscene = cutscene
@@ -28,14 +29,17 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 	currentStoryPoint = storyPoint
 	currentCamera = cutsceneCameras[storyPoint.cameraToUse]
 	currentCamera.priority = 20
-	await currentCamera.tween_completed
 	if storyPoint.childToTrigger != "":
 		_activateChild(storyPoint.childToTrigger)
+	await currentCamera.tween_completed
 	var dialogueRemaining: int = storyPoint.dialogues.size()
-	for dialogue in storyPoint.dialogues:
-		dialogueRemaining -= 1
-		dialogueDisplay.PlayDialogue(dialogue, dialogueRemaining > 0)
-		await dialogueDisplay.dialogueComplete
+	if storyPoint.dialogues.size() > 0:
+		for dialogue in storyPoint.dialogues:
+			dialogueRemaining -= 1
+			dialogueDisplay.PlayDialogue(dialogue, dialogueRemaining > 0)
+			await dialogueDisplay.dialogueComplete
+	else:
+		await get_tree().create_timer(1,true).timeout
 	if storyPoint.childToTrigger != "":
 		_finishChild(storyPoint.childToTrigger)
 		

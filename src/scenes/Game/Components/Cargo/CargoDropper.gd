@@ -25,6 +25,7 @@ func _ready() -> void:
 	_cooldownTimer.wait_time = tickDuration
 	_progressBar.max_value = cooldownTicks
 	_progressBar.value = cooldownTicks
+	SignalBus.registerForMinimap.emit(self)
 
 func _process(delta: float) -> void:
 	if not _interactable:
