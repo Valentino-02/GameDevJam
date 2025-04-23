@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=34 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -109,10 +109,13 @@ bounce = 1.0
 absorbent = true
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_aou6w"]
-points = PackedVector2Array(87, -7, 89, 3, 97, 7, -6, 7, -6, -7)
+points = PackedVector2Array(89, -7, 90, 0, 92, 7, -6, 7, -6, -7)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hu46i"]
-points = PackedVector2Array(7, 7, 7, -7, -84, -7, -86, 3, -93, 7)
+points = PackedVector2Array(7, 7, 7, -7, -89, -7, -90, 0, -92, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt20b"]
+radius = 12.0416
 
 [node name="PlayerCharacter" type="Node2D"]
 
@@ -322,23 +325,8 @@ collision_layer = 232
 collision_mask = 17
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_hu46i")
-center_of_mass_mode = 1
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
-
-[node name="RightPlatform" type="Sprite2D" parent="Platform"]
-position = Vector2(91, 0)
-texture = ExtResource("14_aou6w")
-centered = false
-offset = Vector2(-94, -8.5)
-region_rect = Rect2(98, 0, 98, 17)
-
-[node name="LeftPlatform" type="Sprite2D" parent="Platform"]
-position = Vector2(-89, 0)
-texture = ExtResource("15_hu46i")
-centered = false
-offset = Vector2(-7, -8.5)
-region_rect = Rect2(0, 0, 98, 17)
 
 [node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]
 position = Vector2(-90, 0)
@@ -349,13 +337,57 @@ position = Vector2(90, 0)
 shape = SubResource("ConvexPolygonShape2D_hu46i")
 
 [node name="Left Attachment" type="Node2D" parent="Platform"]
-position = Vector2(-90, -5)
+position = Vector2(-90, 0)
+
+[node name="LeftPlatform" type="Sprite2D" parent="Platform/Left Attachment"]
+position = Vector2(1, 0)
+texture = ExtResource("15_hu46i")
+centered = false
+offset = Vector2(-7, -8.5)
+region_rect = Rect2(0, 0, 98, 17)
+
+[node name="Area2D" type="Area2D" parent="Platform/Left Attachment"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 1.0
+gravity_point_center = Vector2(97, -5)
+gravity_direction = Vector2(97, -5)
+gravity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Left Attachment/Area2D"]
+position = Vector2(97, -1)
+shape = SubResource("CircleShape2D_vt20b")
 
 [node name="Right Attachment" type="Node2D" parent="Platform"]
-position = Vector2(90, -5)
+position = Vector2(90, 0)
+
+[node name="RightPlatform" type="Sprite2D" parent="Platform/Right Attachment"]
+position = Vector2(1, 0)
+texture = ExtResource("14_aou6w")
+centered = false
+offset = Vector2(-94, -8.5)
+region_rect = Rect2(98, 0, 98, 17)
+
+[node name="Area2D" type="Area2D" parent="Platform/Right Attachment"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 1.0
+gravity_point_center = Vector2(-95, -5)
+gravity_direction = Vector2(-95, -5)
+gravity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Right Attachment/Area2D"]
+position = Vector2(-95, -1)
+shape = SubResource("CircleShape2D_vt20b")
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
-position = Vector2(-85, -13)
+position = Vector2(-85, -11)
 
 [node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-39, -9)
