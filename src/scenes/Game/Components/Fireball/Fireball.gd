@@ -4,7 +4,7 @@ class_name Fireball extends Area2D
 ##(radius-Distance)^power = strength coefficient, 0 = constant, 1 = linear, 2 = quadratic, etc...
 @export var strength_fall_off_power : int = 0
 
-@onready var _explosion_emitter : GPUParticles2D = get_node("GPUParticles2D")
+@onready var _explosion_emitter : CPUParticles2D = get_node("GPUParticles2D")
 @onready var _fireball_sprite : Sprite2D = get_node("FireballSprite")
 @onready var _shape_cast : ShapeCast2D = get_node("ShapeCast2D")
 @onready var _ray_cast : RayCast2D = get_node("RayCast2D")

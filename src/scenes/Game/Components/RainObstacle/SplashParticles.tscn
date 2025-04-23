@@ -1,20 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cat8ed8simsd7"]
+[gd_scene load_steps=4 format=3 uid="uid://cat8ed8simsd7"]
 
 [ext_resource type="Script" uid="uid://c71wmnatn67mn" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.gd" id="1_1yfuu"]
 [ext_resource type="Texture2D" uid="uid://c3ovbsaepi48d" path="res://assets/images/playerCharacters/WaterParticle_2.png" id="2_bd1kq"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bd1kq"]
-particle_flag_disable_z = true
-angle_min = -45.0
-angle_max = 45.0
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 25.0
-initial_velocity_max = 25.0
-gravity = Vector3(0, 45, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = -2.23517e-06
-scale_min = 0.3
-scale_max = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwhb2"]
 
@@ -23,21 +10,26 @@ collision_layer = 32
 collision_mask = 32
 script = ExtResource("1_1yfuu")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 4
 texture = ExtResource("2_bd1kq")
 lifetime = 0.8
 explosiveness = 0.77
+fixed_fps = 30
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_bd1kq")
+draw_order = 1
+direction = Vector2(0, -1)
+gravity = Vector2(0, 45)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 0.3
+scale_amount_max = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uwhb2")
-
-[node name="SplashSFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 4
-visible = false
 
 [connection signal="area_entered" from="." to="." method="_onAreaEntered"]
 [connection signal="area_exited" from="." to="." method="_onAreaLeft"]

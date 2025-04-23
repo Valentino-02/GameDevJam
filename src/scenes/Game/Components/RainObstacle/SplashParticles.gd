@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var _emitter : GPUParticles2D = get_node("GPUParticles2D")
+@onready var _emitter : CPUParticles2D = get_node("GPUParticles2D")
 @onready var _audioPlayer : AudioStreamPlayer2D =AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Splashing)
 
 func _ready() -> void:

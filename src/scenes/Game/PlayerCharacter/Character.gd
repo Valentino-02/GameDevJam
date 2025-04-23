@@ -17,7 +17,7 @@ var _struck : int = Time.get_ticks_msec() - STRUCK_TIME
 @onready var _origin : Marker2D = get_node("../"+_suffix + "Origin")
 
 func _ready() -> void:
-	var _particles: GPUParticles2D = $GPUParticles2D
+	var _particles: CPUParticles2D = $GPUParticles2D
 	_particles.emitting = true
 	#_rope.springLength = _origin.global_position.distance_to(_rope.platform_attachement.global_position)
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
@@ -32,10 +32,10 @@ func _physics_process(delta: float) -> void:
 
 	#if in an up wind tunnel:
 	if _inWind():
-		origin += Vector2.UP * _radius * 0.85
+		origin += Vector2.UP * _radius * 0.55
 	#If we were struck by a fireball or in the rain, register it as a constant downwards input
 	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or _inRainCloud(): 
-		origin += Vector2.DOWN * _radius * 0.75
+		origin += Vector2.DOWN * _radius * 0.55
 
 	#move towards the joystick's origin if no input, otherwise go with the input
 	if inputDir == Vector2.ZERO:
