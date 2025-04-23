@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/decoration/Clouds/Cloud 1 no 3.png" id="2_nov0o"]
 
 [node name="Parachute" type="Node2D"]
+physics_interpolation_mode = 2
+visible = false
 z_index = -1
 script = ExtResource("1_nov0o")
 

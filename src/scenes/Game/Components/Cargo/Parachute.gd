@@ -18,6 +18,9 @@ const dissapearSpeed : float = 155
 
 func _ready() -> void:
 	if not _cargo and get_parent() is Cargo: addToCargo(get_parent())
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	self.visible = true
 
 #Adds the parachute to the cargo
 func addToCargo(cargo : Cargo):
@@ -41,31 +44,32 @@ func _removeFromCargo(delay = null):
 
 	#remove from the cargo (let it fly away)
 	_state = State.leaving
-	self.reparent(_cargo.get_parent(), true )
+	self.visible = false
+	self.reparent(_cargo.get_parent(), true)
 	l_string.visible = false
 	r_string.visible = false
-
 	if _cargo:#fix the cargo to not parachute state
 		_cargo._parachute = false
 		_cargo.gravity_scale = 1
 		_cargo.body_entered.disconnect(_onBodyEntered)
 		_cargo = null
-	
+	self.visible = true
 	#remove from scene after its done flying
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(10).timeout
 	self.queue_free()
 
 
 func _physics_process(delta: float) -> void:
-	if _state == State.attached:
-		_updateParachuteAnimation()
-		if _checkAtRest(delta) : _removeFromCargo()
-	elif _state == State.leaving: #if theres no cargo, float away
-		self.global_position += Vector2.UP * dissapearSpeed * delta
-		self.global_rotation = 0
-	elif _state == State.waiting: #drift down before releasing
-		_updateParachuteAnimation()
-		self.global_position += Vector2.DOWN * dissapearSpeed * 0.65 * delta
+	match _state:
+		State.attached:
+			_updateParachuteAnimation()
+			if _checkAtRest(delta) : _removeFromCargo()
+		State.leaving: #if theres no cargo, float away
+			self.global_position += Vector2.UP * dissapearSpeed * delta
+			self.global_rotation = 0
+		State.waiting: #drift down before releasing
+			self.global_position -= Vector2.UP * dissapearSpeed * 0.7 * delta
+			_updateParachuteAnimation(false)
 
 
 ##turns the parachute off if we are stationary
@@ -78,9 +82,9 @@ func _checkAtRest(delta : float) -> bool:
 	return false
 
 ##Positions the parachute to be directly above and upright regardless of cargo orienation, also draws the strings properly
-func _updateParachuteAnimation():
+func _updateParachuteAnimation(pos : bool = true):
 	self.global_rotation = 0
-	self.global_position = _cargo.global_position + (Vector2.UP * parachute_string_length)
+	if pos: self.global_position = _cargo.global_position + (Vector2.UP * parachute_string_length)
 	l_string.points = [Vector2.ZERO, l_string.to_local(_cargo.global_position)]
 	r_string.points = [Vector2.ZERO, r_string.to_local(_cargo.global_position)]
 
