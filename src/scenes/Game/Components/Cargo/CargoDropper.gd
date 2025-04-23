@@ -26,12 +26,12 @@ func _ready() -> void:
 	_progressBar.max_value = cooldownTicks
 	_progressBar.value = cooldownTicks
 
-func _input(event: InputEvent) -> void:
+func _process(delta: float) -> void:
 	if not _interactable:
 		return
 	if _onCooldown:
 		return
-	if event.is_action_pressed("Interact"):
+	if Input.is_action_pressed("Interact"):
 		_triggerDrop()
 
 
