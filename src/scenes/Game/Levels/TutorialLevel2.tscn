@@ -223,6 +223,9 @@ position = Vector2(0, -449)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 438)
 
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(11, 268)
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_b5hix")]
 
 [node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("16_g5jiv")]

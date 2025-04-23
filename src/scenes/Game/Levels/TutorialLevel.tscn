@@ -133,7 +133,7 @@ dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_q5b8i"), SubRe
 childToTrigger = "AwaitCollection"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
-[node name="TutorialLevel" type="Node2D"]
+[node name="TutorialLevel2" type="Node2D"]
 script = ExtResource("1_jkrqs")
 maxScore = 5.0
 patienceLossPerSecond = 0.0
@@ -204,6 +204,9 @@ position = Vector2(0, -449)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 438)
+
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(-1, 365)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
