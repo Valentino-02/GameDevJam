@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=33 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
 [ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="7_j2hj5"]
-[ext_resource type="Texture2D" uid="uid://djhriutvg3jms" path="res://assets/images/playerCharacters/Platform1.png" id="9_j2hj5"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 [ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
 [ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
@@ -109,195 +108,11 @@ rough = true
 bounce = 1.0
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv250"]
-size = Vector2(193, 14)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_aou6w"]
+points = PackedVector2Array(87, -7, 89, 3, 97, 7, -6, 7, -6, -7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu46i"]
-size = Vector2(99, 14)
-
-[sub_resource type="Animation" id="Animation_vt20b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_aou6w"]
-resource_name = "closeDoors"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.309, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.309, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RightPlatformCollider:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(85.318, 47.3304), Vector2(63.128, 34.25), Vector2(52.238, 17.38), Vector2(48, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightPlatformCollider:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.309, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LeftPlatformCollider:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3333, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-84.1886, 47.8134), Vector2(-64.733, 38.861), Vector2(-53.35, 25.381), Vector2(-48, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("LeftPlatformCollider:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.309, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_qgvce"]
-resource_name = "openDoors"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedPlatform/RightPlatform:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.309]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedPlatform/LeftPlatform:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.309]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftPlatformCollider:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-48, 0), Vector2(-53.35, 25.381), Vector2(-64.733, 38.861), Vector2(-84.1886, 47.8134)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LeftPlatformCollider:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.309]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RightPlatformCollider:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.309]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("RightPlatformCollider:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(48, 0), Vector2(52.238, 17.38), Vector2(63.128, 34.25), Vector2(85.318, 47.3304)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aou6w"]
-_data = {
-&"RESET": SubResource("Animation_vt20b"),
-&"closeDoors": SubResource("Animation_aou6w"),
-&"openDoors": SubResource("Animation_qgvce")
-}
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hu46i"]
+points = PackedVector2Array(7, 7, 7, -7, -84, -7, -86, 3, -93, 7)
 
 [node name="PlayerCharacter" type="Node2D"]
 
@@ -309,6 +124,7 @@ position = Vector2(90, -170)
 
 [node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
+process_mode = 3
 z_index = -2
 texture_repeat = 2
 width = 3.0
@@ -351,6 +167,7 @@ scale_amount_curve = SubResource("Curve_61ysk")
 
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
+process_mode = 3
 texture_repeat = 2
 width = 3.0
 texture = ExtResource("6_qgvce")
@@ -502,56 +319,40 @@ position = Vector2(2, -17)
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
 collision_layer = 232
+collision_mask = 17
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_hu46i")
+center_of_mass_mode = 1
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
 
-[node name="StaticPlatformCollider" type="CollisionShape2D" parent="Platform"]
-shape = SubResource("RectangleShape2D_pv250")
-
-[node name="RightPlatformCollider" type="CollisionShape2D" parent="Platform"]
-position = Vector2(48, 0)
-shape = SubResource("RectangleShape2D_hu46i")
-disabled = true
-
-[node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]
-position = Vector2(-48, 0)
-shape = SubResource("RectangleShape2D_hu46i")
-disabled = true
-
-[node name="StaticPlatform" type="Node2D" parent="Platform"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform/StaticPlatform"]
-texture = ExtResource("9_j2hj5")
-region_rect = Rect2(144, 36, 55, 18)
-
-[node name="AnimatedPlatform" type="Node2D" parent="Platform"]
-
-[node name="RightPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
-position = Vector2(98, 0)
+[node name="RightPlatform" type="Sprite2D" parent="Platform"]
+position = Vector2(91, 0)
 texture = ExtResource("14_aou6w")
 centered = false
-offset = Vector2(-101, -8.5)
+offset = Vector2(-94, -8.5)
 region_rect = Rect2(98, 0, 98, 17)
 
-[node name="LeftPlatform" type="Sprite2D" parent="Platform/AnimatedPlatform"]
-position = Vector2(-97, 0)
+[node name="LeftPlatform" type="Sprite2D" parent="Platform"]
+position = Vector2(-89, 0)
 texture = ExtResource("15_hu46i")
 centered = false
-offset = Vector2(0, -8.5)
+offset = Vector2(-7, -8.5)
 region_rect = Rect2(0, 0, 98, 17)
+
+[node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-90, 0)
+shape = SubResource("ConvexPolygonShape2D_aou6w")
+
+[node name="RightPlatformCollider" type="CollisionShape2D" parent="Platform"]
+position = Vector2(90, 0)
+shape = SubResource("ConvexPolygonShape2D_hu46i")
 
 [node name="Left Attachment" type="Node2D" parent="Platform"]
 position = Vector2(-90, -5)
 
 [node name="Right Attachment" type="Node2D" parent="Platform"]
 position = Vector2(90, -5)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
-libraries = {
-&"": SubResource("AnimationLibrary_aou6w")
-}
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-85, -13)
