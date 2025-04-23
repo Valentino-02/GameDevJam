@@ -1,11 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=38 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
 [ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_emnkp"]
-[ext_resource type="Script" uid="uid://l7s071hn7h47" path="res://src/scenes/Game/PlayerCharacter/RopeParticles.gd" id="4_08p4k"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="5_s41jm"]
@@ -349,7 +348,6 @@ linear_accel_max = 20.0
 scale_amount_min = 3.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_61ysk")
-script = ExtResource("4_08p4k")
 
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
@@ -391,7 +389,6 @@ linear_accel_max = 20.0
 scale_amount_min = 3.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_61ysk")
-script = ExtResource("4_08p4k")
 
 [node name="LeftCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
 unique_name_in_owner = true

@@ -192,6 +192,12 @@ shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
 
+[node name="GPUParticles2D" parent="PlayerCharacter/LeftRope/ParticleMask" index="0"]
+script = null
+
+[node name="GPUParticles2D" parent="PlayerCharacter/RightRope/ParticleMask" index="0"]
+script = null
+
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
