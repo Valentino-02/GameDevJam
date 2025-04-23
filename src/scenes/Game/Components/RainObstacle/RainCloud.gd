@@ -8,8 +8,8 @@ var _raining : bool = true
 signal rainingChanged
 
 @onready var _hitbox : Area2D = get_node("RainHitBox")
-@onready var _particlePlayer : GPUParticles2D = get_node("RainEmitterPlayer")
-@onready var _particleBack : GPUParticles2D = get_node("RainEmitterBehind")
+@onready var _particlePlayer : CPUParticles2D = get_node("RainEmitterPlayer")
+@onready var _particleBack : CPUParticles2D = get_node("RainEmitterBehind")
 @onready var _audioPlayer : AudioStreamPlayer2D = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Raining)
 
 func _ready() -> void:

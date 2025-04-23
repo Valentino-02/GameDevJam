@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcp1acwb278w1"]
+[gd_scene load_steps=6 format=3 uid="uid://dcp1acwb278w1"]
 
 [ext_resource type="Script" uid="uid://bwtb1jvuuy63" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.gd" id="1_12i4d"]
 [ext_resource type="Texture2D" uid="uid://d4j4hrb7yusyq" path="res://addons/phantom_camera/icons/phantom_camera_updater_panel_icon.svg" id="2_4hjjb"]
@@ -9,27 +9,6 @@ friction = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqv7"]
 size = Vector2(120, 344)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kaqv7"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(60, 4, 0)
-angle_min = -15.0
-angle_max = 15.0
-spread = 94.88
-gravity = Vector3(0, 300, 0)
-collision_mode = 2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nbk4r"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(60, 6, 1)
-angle_min = -15.0
-angle_max = 15.0
-spread = 90.542
-gravity = Vector3(0, 300, 0)
-scale_min = 0.4
-scale_max = 0.9
 
 [node name="RainCloud" type="Node2D"]
 script = ExtResource("1_12i4d")
@@ -44,25 +23,33 @@ position = Vector2(2, 163)
 shape = SubResource("RectangleShape2D_kaqv7")
 debug_color = Color(0.329412, 0.458824, 1, 0)
 
-[node name="RainEmitterPlayer" type="GPUParticles2D" parent="."]
+[node name="RainEmitterPlayer" type="CPUParticles2D" parent="."]
 position = Vector2(1, -2)
 emitting = false
 amount = 30
 texture = ExtResource("3_kaqv7")
 lifetime = 1.5
-fixed_fps = 0
-draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_kaqv7")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 4)
+spread = 94.88
+gravity = Vector2(0, 300)
+angle_min = -15.0
+angle_max = 15.0
 
-[node name="RainEmitterBehind" type="GPUParticles2D" parent="."]
+[node name="RainEmitterBehind" type="CPUParticles2D" parent="."]
 position = Vector2(1, 6)
 emitting = false
 amount = 30
 texture = ExtResource("3_kaqv7")
 lifetime = 1.5
-fixed_fps = 0
-draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_nbk4r")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 6)
+spread = 90.542
+gravity = Vector2(0, 300)
+angle_min = -15.0
+angle_max = 15.0
+scale_amount_min = 0.4
+scale_amount_max = 0.9
 
 [node name="CloudSprite" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
