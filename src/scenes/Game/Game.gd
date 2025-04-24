@@ -94,7 +94,7 @@ func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 			music_id = ResourceIds.MusicId.WaterTheme
 			target_color = Color("5a80ab")
 
-	AudioManager.music.crossFadeTo(music_id)
+	AudioManager.music.crossFadeTo(music_id, 3)
 	var tween = create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
