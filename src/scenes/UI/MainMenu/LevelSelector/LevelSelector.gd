@@ -38,20 +38,9 @@ func _startGame() -> void:
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
 	AudioManager.music.stop()
 
-func _on_test_game_button_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Test)
-		_startGame()
-
-func _on_level_1_game_button_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.Level1)
-		_startGame()
-
-func _on_hazard_tutorial_pressed() -> void:
-		LevelManager.setTargetLevel(ResourceIds.LevelId.HazardTutorial)
-		_startGame()
 
 func _on_tutorial_1_pressed() -> void:
-	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial)
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial1)
 	_startGame()
 
 func _on_tutorial_2_pressed() -> void:
@@ -72,4 +61,12 @@ func _on_tutorial_5_pressed() -> void:
 
 func _on_tutorial_6_pressed() -> void:
 	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial6)
+	_startGame()
+
+func _on_tutorial_7_pressed() -> void:
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial7)
+	_startGame()
+
+func _on_tutorial_8_pressed() -> void:
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial8)
 	_startGame()
