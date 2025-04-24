@@ -17,7 +17,7 @@ func _ready() -> void:
 	_hiddenPosition.x = _modal.position.x
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel") :
+	if event.is_action_pressed("ui_cancel") && !CutsceneManager.Running && !TransitionManager.Transitioning:
 		changeOpenState()
 
 

@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://c76q5kt2uwbws"]
+
+[ext_resource type="Texture2D" uid="uid://twxplj4nr4w8" path="res://assets/images/Forges/FireForgeAnim_1.png" id="1_wd0es"]
+[ext_resource type="Texture2D" uid="uid://siptm7iqma0r" path="res://assets/images/Forges/FireForgeAnim_2.png" id="2_t8ytj"]
+[ext_resource type="Texture2D" uid="uid://bd4jnrob0mpdq" path="res://assets/images/Forges/FireForgeAnim_3.png" id="3_yvkmm"]
+[ext_resource type="Texture2D" uid="uid://divktds0g5fc1" path="res://assets/images/Forges/FireForgeAnim_4.png" id="4_p1lmc"]
+[ext_resource type="Texture2D" uid="uid://h0o216ml8usl" path="res://assets/images/Forges/WaterForgeAnim_1.png" id="5_k5oen"]
+[ext_resource type="Texture2D" uid="uid://cgfgcdg5bwob0" path="res://assets/images/Forges/WaterForgeAnim_2.png" id="6_l14e6"]
+[ext_resource type="Texture2D" uid="uid://dhwdw4aa16eq8" path="res://assets/images/Forges/WaterForgeAnim_3.png" id="7_7vr8b"]
+[ext_resource type="Texture2D" uid="uid://2lvpyb4ide7h" path="res://assets/images/Forges/WaterForgeAnim_4.png" id="8_co5ji"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wd0es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t8ytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yvkmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p1lmc")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_k5oen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l14e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7vr8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_co5ji")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}]

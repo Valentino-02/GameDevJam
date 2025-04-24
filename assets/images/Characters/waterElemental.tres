@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://b0yisa6hhamyo"]
+
+[ext_resource type="Texture2D" uid="uid://2o04b4v04ssa" path="res://assets/images/Characters/WaterElementalAnim_1.png" id="1_inacj"]
+[ext_resource type="Texture2D" uid="uid://4ijn54q0wool" path="res://assets/images/Characters/WaterElementalAnim_2.png" id="2_7vbr3"]
+[ext_resource type="Texture2D" uid="uid://8v82v4uhnm5h" path="res://assets/images/Characters/WaterElementalAnim_3.png" id="3_al7gq"]
+[ext_resource type="Texture2D" uid="uid://cmwri2fc7hoaf" path="res://assets/images/Characters/WaterElementalAnim_4.png" id="4_0k0ly"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_inacj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7vbr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_al7gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0k0ly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

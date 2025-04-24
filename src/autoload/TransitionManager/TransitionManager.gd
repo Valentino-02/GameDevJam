@@ -7,6 +7,11 @@ extends CanvasLayer
 var _sceneById: Dictionary[ResourceIds.SceneId, Scene] = {} 
 var _transitionTime := 2.0
 
+var _transitioning: bool = false
+var Transitioning: bool:
+	get:
+		return _transitioning
+
 
 func _ready() -> void:
 	for scene in sceneList:
@@ -18,9 +23,11 @@ func changeToScene(id: ResourceIds.SceneId) -> void:
 	var scene = _sceneById.get(id) as Scene
 	if scene == null:
 		push_error("Transition Manager failed to find scene with id ", id)
+	_transitioning = true
 	await _transitionIn()
 	get_tree().change_scene_to_packed(scene.packedScene)
-	_transitionOut()
+	await _transitionOut()
+	_transitioning = false
 
 func _transitionIn() -> void:
 	var tween := get_tree().create_tween()

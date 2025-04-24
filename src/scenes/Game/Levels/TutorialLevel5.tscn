@@ -64,7 +64,7 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_w2mcj"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "And the forges are very far away! They are even futher away that the cores!"
+dialogueLine = "And the forges are very far away! They are even further away than the cores!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_0f85y"]
@@ -117,13 +117,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_kfmm1"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "You can also destroy packages that are anoying you by [color=black]clicking[/color] on them"
+dialogueLine = "You can also destroy packages that are annoying you by [color=black]clicking[/color] on them"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_aal6j"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 1
-dialogueLine = "Well, best of lucks, it seems you will have to hurry for this one!"
+dialogueLine = "Well, best of luck, it seems you will have to hurry for this one!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_ao04q"]
@@ -309,11 +309,11 @@ shape = SubResource("RectangleShape2D_nxtsb")
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_lek75")]
-position = Vector2(-1168, -31)
+position = Vector2(-1168, -217)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_lek75")]
-position = Vector2(1136, -32)
+position = Vector2(1136, -218)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 
@@ -342,52 +342,66 @@ shape = SubResource("RectangleShape2D_eo8bu")
 [node name="InitialCargo" type="Node2D" parent="Layout"]
 
 [node name="Cargo2" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-292, 79)
 
 [node name="Cargo7" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(181, 80)
 element = 0
 
 [node name="Cargo12" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-26, -9)
 element = 0
 
 [node name="Cargo15" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-22, 214)
 element = 0
 
 [node name="Cargo8" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(309, 82)
 element = 0
 
 [node name="Cargo9" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(282, 81)
 element = 0
 
 [node name="Cargo10" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(246, 81)
 element = 0
 
 [node name="Cargo11" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(208, 79)
 element = 0
 
 [node name="Cargo3" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-266, 80)
 
 [node name="Cargo4" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-241, 79)
 
 [node name="Cargo13" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(26, 218)
 
 [node name="Cargo14" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(28, -10)
 
 [node name="Cargo5" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-216, 79)
 
 [node name="Cargo6" parent="Layout/InitialCargo" instance=ExtResource("16_8envh")]
+process_mode = 3
 position = Vector2(-191, 78)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("16_4dtu3")]
@@ -410,6 +424,7 @@ script = ExtResource("19_irisn")
 hazardsToDemonstrate = [NodePath("../../Layout/CollectionZones"), NodePath("../../Layout/CargoDroppers")]
 
 [node name="Intro" type="Node2D" parent="Cutscene"]
+position = Vector2(0, 76)
 script = ExtResource("3_dxl7l")
 tween_resource = SubResource("Resource_u4eit")
 draw_limits = true
@@ -423,9 +438,8 @@ draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="HolePan" type="Node2D" parent="Cutscene"]
-position = Vector2(0, -577)
+position = Vector2(-55, -577)
 script = ExtResource("3_dxl7l")
-zoom = Vector2(0.8, 0.8)
 tween_resource = SubResource("Resource_wu1g8")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

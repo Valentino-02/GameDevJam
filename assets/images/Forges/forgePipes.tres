@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://b4inykhulujrb"]
+
+[ext_resource type="Texture2D" uid="uid://bteu7oughon8b" path="res://assets/images/Forges/ForgePipeAnim_01.png" id="1_o7mkv"]
+[ext_resource type="Texture2D" uid="uid://cuiqpxlg8y255" path="res://assets/images/Forges/ForgePipeAnim_02.png" id="2_4rdx7"]
+[ext_resource type="Texture2D" uid="uid://bfii4qaoh66ok" path="res://assets/images/Forges/ForgePipeAnim_03.png" id="3_okhm8"]
+[ext_resource type="Texture2D" uid="uid://35aswkhha2pu" path="res://assets/images/Forges/ForgePipeAnim_04.png" id="4_is0sl"]
+[ext_resource type="Texture2D" uid="uid://dafj8nfofet8l" path="res://assets/images/Forges/ForgePipeAnim_05.png" id="5_rum30"]
+[ext_resource type="Texture2D" uid="uid://co6crabe1eyei" path="res://assets/images/Forges/ForgePipeAnim_06.png" id="6_qsebx"]
+[ext_resource type="Texture2D" uid="uid://dufjtss2k1m7e" path="res://assets/images/Forges/ForgePipeAnim_07.png" id="7_veis4"]
+[ext_resource type="Texture2D" uid="uid://qc7vohm7jbdw" path="res://assets/images/Forges/ForgePipeAnim_08.png" id="8_ux0cg"]
+[ext_resource type="Texture2D" uid="uid://dt1poxwl7o2fq" path="res://assets/images/Forges/ForgePipeAnim_09.png" id="9_opeaf"]
+[ext_resource type="Texture2D" uid="uid://cr4bepgpj08dc" path="res://assets/images/Forges/ForgePipeAnim_10.png" id="10_bc6t7"]
+[ext_resource type="Texture2D" uid="uid://dyqpvk72bs050" path="res://assets/images/Forges/ForgePipeAnim_11.png" id="11_b14vf"]
+[ext_resource type="Texture2D" uid="uid://dd62u1wj26fkv" path="res://assets/images/Forges/ForgePipeAnim_12.png" id="12_56ate"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o7mkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4rdx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_okhm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_is0sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rum30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qsebx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_veis4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ux0cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_opeaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bc6t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b14vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_56ate")
+}],
+"loop": false,
+"name": &"drop",
+"speed": 15.0
+}]

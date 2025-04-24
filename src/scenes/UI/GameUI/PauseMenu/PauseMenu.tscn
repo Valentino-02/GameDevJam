@@ -58,11 +58,13 @@ alignment = 1
 [node name="RestartButton" type="Button" parent="Modal/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 text = "Restart "
 
 [node name="MainMenuButton" type="Button" parent="Modal/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 text = "Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Modal/VBoxContainer"]

@@ -45,7 +45,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it go, take us on an adventure."
+dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it a go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_e3ggw"]
@@ -182,11 +182,11 @@ neededElement = 1
 limit = 5
 
 [node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_qqjvl")]
-position = Vector2(-219, -65)
+position = Vector2(-219, -268)
 element = 1
 
 [node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_qqjvl")]
-position = Vector2(220, -65)
+position = Vector2(220, -268)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("9_tl2ud")]
 phantom_camera = NodePath("../../PhantomCamera2D")

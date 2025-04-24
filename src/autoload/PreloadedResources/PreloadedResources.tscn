@@ -1,58 +1,44 @@
-[gd_scene load_steps=23 format=3 uid="uid://bli8ngq66xclj"]
+[gd_scene load_steps=21 format=3 uid="uid://bli8ngq66xclj"]
 
-[ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_vbmld"]
-[ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_k7a1g"]
-[ext_resource type="Texture2D" uid="uid://cxyw51dvomotp" path="res://assets/images/cargo/Packages_12.png" id="3_rckiu"]
-[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_1ik0f"]
-[ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="5_g3vug"]
-[ext_resource type="PackedScene" uid="uid://xtvt0yphthm5" path="res://src/scenes/Game/Components/Cargo/FleetingNumber.tscn" id="6_g3vug"]
-[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/ui/WaterStabilityIcon1.png" id="7_icipq"]
-[ext_resource type="Texture2D" uid="uid://d0et187ya5gtk" path="res://assets/images/ui/WaterStabilityIcon2.png" id="8_lmtmb"]
-[ext_resource type="Texture2D" uid="uid://dwqcwqaaxxgjq" path="res://assets/images/ui/WaterStabilityIcon3.png" id="9_qqyir"]
-[ext_resource type="Texture2D" uid="uid://ca4k4yje57ndp" path="res://assets/images/ui/WaterStabilityIcon4.png" id="10_ctiq6"]
-[ext_resource type="Texture2D" uid="uid://f7m8w331in6f" path="res://assets/images/ui/FireStabilityIcon1.png" id="11_yvgwk"]
-[ext_resource type="Texture2D" uid="uid://b4xy4snqsumly" path="res://assets/images/ui/FireStabilityIcon2.png" id="12_udwkh"]
-[ext_resource type="Texture2D" uid="uid://bs1166mjjjwfo" path="res://assets/images/ui/fireStabilityIcon3.png" id="13_qqyir"]
-[ext_resource type="Texture2D" uid="uid://bld10hn0qw0cx" path="res://assets/images/ui/fireStabilityIcon4.png" id="14_ctiq6"]
-[ext_resource type="Texture2D" uid="uid://iksg1wrewdht" path="res://assets/images/Cores/fire stone/Fire Stone stone.png" id="15_yvgwk"]
-[ext_resource type="Texture2D" uid="uid://cryvsv56myhsp" path="res://assets/images/Cores/water stone/Water stone stone .png" id="16_udwkh"]
-[ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="17_jvi78"]
-[ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="18_1just"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvi78"]
-atlas = ExtResource("15_yvgwk")
-region = Rect2(20, 18, 28, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1just"]
-atlas = ExtResource("16_udwkh")
-region = Rect2(26, 8, 12, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yafc"]
-atlas = ExtResource("2_k7a1g")
-region = Rect2(7, 7, 25, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5cni"]
-atlas = ExtResource("3_rckiu")
-region = Rect2(7, 7, 25, 25)
+[ext_resource type="Script" uid="uid://dmdnkidlt6tbd" path="res://src/autoload/PreloadedResources/PreloadedResources.gd" id="1_5ueq3"]
+[ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_s36m3"]
+[ext_resource type="Texture2D" uid="uid://cxyw51dvomotp" path="res://assets/images/cargo/Packages_12.png" id="3_riau5"]
+[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_4bgtc"]
+[ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="5_s1swo"]
+[ext_resource type="PackedScene" uid="uid://xtvt0yphthm5" path="res://src/scenes/Game/Components/Cargo/FleetingNumber.tscn" id="6_drih1"]
+[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/ui/WaterStabilityIcon1.png" id="7_m4oc1"]
+[ext_resource type="Texture2D" uid="uid://d0et187ya5gtk" path="res://assets/images/ui/WaterStabilityIcon2.png" id="8_6x01n"]
+[ext_resource type="Texture2D" uid="uid://dwqcwqaaxxgjq" path="res://assets/images/ui/WaterStabilityIcon3.png" id="9_yxj8h"]
+[ext_resource type="Texture2D" uid="uid://ca4k4yje57ndp" path="res://assets/images/ui/WaterStabilityIcon4.png" id="10_ri3kv"]
+[ext_resource type="Texture2D" uid="uid://f7m8w331in6f" path="res://assets/images/ui/FireStabilityIcon1.png" id="11_ktmva"]
+[ext_resource type="Texture2D" uid="uid://b4xy4snqsumly" path="res://assets/images/ui/FireStabilityIcon2.png" id="12_1gfvj"]
+[ext_resource type="Texture2D" uid="uid://bs1166mjjjwfo" path="res://assets/images/ui/fireStabilityIcon3.png" id="13_4n6dn"]
+[ext_resource type="Texture2D" uid="uid://bld10hn0qw0cx" path="res://assets/images/ui/fireStabilityIcon4.png" id="14_ijp7m"]
+[ext_resource type="Texture2D" uid="uid://6xvdhvh1hvo7" path="res://assets/images/MinimapIcons/FireCoreIcon.png" id="15_rdj4y"]
+[ext_resource type="Texture2D" uid="uid://c3sb0svkjdn23" path="res://assets/images/MinimapIcons/WaterCoreIcon.png" id="16_ko23i"]
+[ext_resource type="Texture2D" uid="uid://bk6ehn4ymbfx8" path="res://assets/images/MinimapIcons/FireDropperIcon.png" id="17_molx2"]
+[ext_resource type="Texture2D" uid="uid://dxcftj1hariol" path="res://assets/images/MinimapIcons/WaterDropperIcon.png" id="18_ql7yq"]
+[ext_resource type="SpriteFrames" uid="uid://osxi0wif081b" path="res://assets/images/Characters/fireElemental.tres" id="19_qo6is"]
+[ext_resource type="SpriteFrames" uid="uid://b0yisa6hhamyo" path="res://assets/images/Characters/waterElemental.tres" id="20_4ujh8"]
 
 [node name="PreloadedResources" type="Node"]
-script = ExtResource("1_vbmld")
-fireCrateTexture = ExtResource("2_k7a1g")
-waterCrateTexture = ExtResource("3_rckiu")
-fireParticleTexture = ExtResource("4_1ik0f")
-waterParticleTexture = ExtResource("5_g3vug")
-fleetingNumber = ExtResource("6_g3vug")
-waterStability1Texture = ExtResource("7_icipq")
-waterStability2Texture = ExtResource("8_lmtmb")
-waterStability3Texture = ExtResource("9_qqyir")
-waterStability4Texture = ExtResource("10_ctiq6")
-fireStability1Texture = ExtResource("11_yvgwk")
-fireStability2Texture = ExtResource("12_udwkh")
-fireStability3Texture = ExtResource("13_qqyir")
-fireStability4Texture = ExtResource("14_ctiq6")
-fireCoreTexture = SubResource("AtlasTexture_jvi78")
-waterCoreTexture = SubResource("AtlasTexture_1just")
-fireDropperTexture = SubResource("AtlasTexture_0yafc")
-waterDropperTexture = SubResource("AtlasTexture_p5cni")
-fireCharacter = ExtResource("18_1just")
-waterCharacter = ExtResource("17_jvi78")
+script = ExtResource("1_5ueq3")
+fireCrateTexture = ExtResource("2_s36m3")
+waterCrateTexture = ExtResource("3_riau5")
+fireParticleTexture = ExtResource("4_4bgtc")
+waterParticleTexture = ExtResource("5_s1swo")
+fleetingNumber = ExtResource("6_drih1")
+waterStability1Texture = ExtResource("7_m4oc1")
+waterStability2Texture = ExtResource("8_6x01n")
+waterStability3Texture = ExtResource("9_yxj8h")
+waterStability4Texture = ExtResource("10_ri3kv")
+fireStability1Texture = ExtResource("11_ktmva")
+fireStability2Texture = ExtResource("12_1gfvj")
+fireStability3Texture = ExtResource("13_4n6dn")
+fireStability4Texture = ExtResource("14_ijp7m")
+fireCoreTexture = ExtResource("15_rdj4y")
+waterCoreTexture = ExtResource("16_ko23i")
+fireDropperTexture = ExtResource("17_molx2")
+waterDropperTexture = ExtResource("18_ql7yq")
+fireCharacter = ExtResource("19_qo6is")
+waterCharacter = ExtResource("20_4ujh8")

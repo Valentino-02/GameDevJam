@@ -56,7 +56,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_mqpgw"]
 script = ExtResource("19_nbmg5")
 speakingCharacter = 2
-dialogueLine = "Let's see what we to handle this time."
+dialogueLine = "Let's see what we have to handle this time."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_eki7p"]
@@ -89,7 +89,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_k1wl4"]
 script = ExtResource("19_nbmg5")
 speakingCharacter = 1
-dialogueLine = "Thats true! Going back and forth delivering 2 to 3 packages at a time wont cut it this time."
+dialogueLine = "That's true! Going back and forth delivering 2 to 3 packages at a time wont cut it this time."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_674lg"]
@@ -252,11 +252,11 @@ shape = SubResource("RectangleShape2D_nxtsb")
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_674lg")]
-position = Vector2(-225, -18)
+position = Vector2(-225, -201)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_674lg")]
-position = Vector2(186, -20)
+position = Vector2(186, -203)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 

@@ -10,7 +10,10 @@ class_name CargoDropper extends Node2D
 @onready var _uiHelpers : Control = %UI_Helpers
 @onready var _spawnMarker : Marker2D = %SpawnMarker
 @onready var _distributionMarker : Marker2D = %DistributionMarker
-@onready var _temporaryIcon : Sprite2D = %TemporaryIcon
+@onready var _forgeSprites: AnimatedSprite2D = $ForgeBody
+@onready var _pipes: AnimatedSprite2D = $ForgeBody/Pipes
+@onready var _smoke: Node2D = $ForgeBody/Pipes/Smoke
+@onready var _bubbles: Node2D = $ForgeBody/Bubbles
 
 var _interactable : bool = false
 var _onCooldown : bool = false
@@ -21,7 +24,7 @@ var _currentTick : int = 0 :
 
 
 func _ready() -> void:
-	_temporaryIcon.texture = PreloadedResources.fireCrateTexture if element == Types.Element.Fire else PreloadedResources.waterCrateTexture 
+	_prepareSprites()
 	_cooldownTimer.wait_time = tickDuration
 	_progressBar.max_value = cooldownTicks
 	_progressBar.value = cooldownTicks
@@ -39,6 +42,7 @@ func _process(delta: float) -> void:
 func _triggerDrop() -> void:
 	_onCooldown = true
 	_cooldownTimer.start()
+	_animateDrop()
 	_currentTick = 0
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	_spawnCargo()
@@ -75,3 +79,17 @@ func _on_cooldown_timer_timeout() -> void:
 	if _currentTick == cooldownTicks:
 		_cooldownTimer.stop()
 		_onCooldownRecovery()
+		
+func _prepareSprites() -> void:
+	_forgeSprites.play("fire" if element == Types.Element.Fire else "water")
+	if element == Types.Element.Fire:
+		_pipes.position.y += 1 
+	else:
+		_bubbles.show()
+		_smoke.show()
+		
+func _animateDrop() -> void:
+	_pipes.play("drop")
+	await _pipes.animation_finished
+	_pipes.frame = 0
+	

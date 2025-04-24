@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://crqrv5lsmuftg"]
+[gd_scene load_steps=9 format=3 uid="uid://crqrv5lsmuftg"]
 
 [ext_resource type="Script" uid="uid://ctnjtvl46kqr6" path="res://src/scenes/Game/Components/Cargo/CargoDropper.gd" id="1_ky43u"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="2_gihkj"]
-[ext_resource type="Texture2D" uid="uid://332tqfjafwnw" path="res://assets/images/Forge.png" id="3_gihkj"]
+[ext_resource type="SpriteFrames" uid="uid://c76q5kt2uwbws" path="res://assets/images/Forges/forge.tres" id="3_ljqjl"]
+[ext_resource type="SpriteFrames" uid="uid://b4inykhulujrb" path="res://assets/images/Forges/forgePipes.tres" id="4_u4flg"]
 [ext_resource type="Texture2D" uid="uid://ctpjhv3x1hych" path="res://assets/images/cargo/Alternatives/Packages_1.png" id="5_qxb30"]
+[ext_resource type="SpriteFrames" uid="uid://c0jh3uryv1v3i" path="res://assets/images/Forges/smoke.tres" id="5_xpxgs"]
+[ext_resource type="SpriteFrames" uid="uid://2l1r36dpe3ik" path="res://assets/images/Forges/bubbles.tres" id="6_0ried"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrmgv"]
 size = Vector2(166, 141)
@@ -13,16 +16,67 @@ script = ExtResource("1_ky43u")
 cooldownTicks = 4
 cargoScene = ExtResource("2_gihkj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -183)
-texture = ExtResource("3_gihkj")
-region_rect = Rect2(98, 11, 28, 41)
+[node name="ForgeBody" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_ljqjl")
+animation = &"water"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -183)
-region_rect = Rect2(98, 11, 28, 41)
+[node name="Pipes" type="AnimatedSprite2D" parent="ForgeBody"]
+position = Vector2(0, -20)
+sprite_frames = ExtResource("4_u4flg")
+animation = &"drop"
+
+[node name="Smoke" type="Node2D" parent="ForgeBody/Pipes"]
+visible = false
+
+[node name="Smoke" type="AnimatedSprite2D" parent="ForgeBody/Pipes/Smoke"]
+self_modulate = Color(0.174626, 0.174626, 0.174626, 1)
+clip_children = 2
+z_index = -1
+position = Vector2(35, -28)
+sprite_frames = ExtResource("5_xpxgs")
+animation = &"drop"
+autoplay = "drop"
+frame_progress = 0.401534
+
+[node name="Smoke2" type="AnimatedSprite2D" parent="ForgeBody/Pipes/Smoke"]
+self_modulate = Color(0.174626, 0.174626, 0.174626, 1)
+clip_children = 2
+z_index = -1
+position = Vector2(-35, -28)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = ExtResource("5_xpxgs")
+animation = &"drop"
+autoplay = "drop"
+frame_progress = 0.31386
+
+[node name="Bubbles" type="Node2D" parent="ForgeBody"]
+visible = false
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="ForgeBody/Bubbles"]
+position = Vector2(-6, -40)
+sprite_frames = ExtResource("6_0ried")
+animation = &"Bubble"
+autoplay = "Bubble"
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="ForgeBody/Bubbles"]
+position = Vector2(7, -48)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("6_0ried")
+animation = &"Bubble"
+autoplay = "Bubble"
+frame = 2
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="ForgeBody/Bubbles"]
+position = Vector2(-5, -58)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("6_0ried")
+animation = &"Bubble"
+autoplay = "Bubble"
+frame = 1
 
 [node name="DetectionArea2D" type="Area2D" parent="."]
+position = Vector2(0.5, 184)
 collision_layer = 0
 collision_mask = 14
 
@@ -33,7 +87,7 @@ debug_color = Color(3.70607e-06, 0.664926, 0.338222, 0)
 
 [node name="SpawnMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -132)
+position = Vector2(0.5, 52)
 
 [node name="DistributionMarker" type="Marker2D" parent="SpawnMarker"]
 unique_name_in_owner = true
@@ -94,7 +148,8 @@ show_percentage = false
 
 [node name="TemporaryIcon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -184)
+visible = false
+position = Vector2(0.5, 0)
 texture = ExtResource("5_qxb30")
 
 [connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]

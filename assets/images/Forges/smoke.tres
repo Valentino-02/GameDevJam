@@ -1,0 +1,94 @@
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://c0jh3uryv1v3i"]
+
+[ext_resource type="Texture2D" uid="uid://b8ktpdosf51od" path="res://assets/images/Forges/ForgeSmokeAnim_01.png" id="1_7cn1e"]
+[ext_resource type="Texture2D" uid="uid://c6u15v8xx3g7c" path="res://assets/images/Forges/ForgeSmokeAnim_02.png" id="2_qv6st"]
+[ext_resource type="Texture2D" uid="uid://4r7y8la338cr" path="res://assets/images/Forges/ForgeSmokeAnim_03.png" id="3_umq0t"]
+[ext_resource type="Texture2D" uid="uid://bvey4f3ulkhvy" path="res://assets/images/Forges/ForgeSmokeAnim_04.png" id="4_r8ku0"]
+[ext_resource type="Texture2D" uid="uid://bxxlr7hw487da" path="res://assets/images/Forges/ForgeSmokeAnim_05.png" id="5_nnhsv"]
+[ext_resource type="Texture2D" uid="uid://cl43dxng5tyu8" path="res://assets/images/Forges/ForgeSmokeAnim_06.png" id="6_hu8g7"]
+[ext_resource type="Texture2D" uid="uid://dxudq5veawq87" path="res://assets/images/Forges/ForgeSmokeAnim_07.png" id="7_rdyv4"]
+[ext_resource type="Texture2D" uid="uid://b1ab4tvxy80rh" path="res://assets/images/Forges/ForgeSmokeAnim_08.png" id="8_2xei0"]
+[ext_resource type="Texture2D" uid="uid://dvthyn3u1q3ak" path="res://assets/images/Forges/ForgeSmokeAnim_09.png" id="9_gpox7"]
+[ext_resource type="Texture2D" uid="uid://dbs577qel8o77" path="res://assets/images/Forges/ForgeSmokeAnim_10.png" id="10_h02jn"]
+[ext_resource type="Texture2D" uid="uid://dljqhta8ct528" path="res://assets/images/Forges/ForgeSmokeAnim_11.png" id="11_agto8"]
+[ext_resource type="Texture2D" uid="uid://dm882soao1re2" path="res://assets/images/Forges/ForgeSmokeAnim_12.png" id="12_1cffu"]
+[ext_resource type="Texture2D" uid="uid://bj3xv0rqoecxr" path="res://assets/images/Forges/ForgeSmokeAnim_13.png" id="13_ukxv1"]
+[ext_resource type="Texture2D" uid="uid://ctkqsy578ctws" path="res://assets/images/Forges/ForgeSmokeAnim_14.png" id="14_3fr3k"]
+[ext_resource type="Texture2D" uid="uid://c8i2mn1uvlnsi" path="res://assets/images/Forges/ForgeSmokeAnim_15.png" id="15_bmm6s"]
+[ext_resource type="Texture2D" uid="uid://bwkn2wkaj14y8" path="res://assets/images/Forges/ForgeSmokeAnim_16.png" id="16_b7rp3"]
+[ext_resource type="Texture2D" uid="uid://tqnu7qvqb0ue" path="res://assets/images/Forges/ForgeSmokeAnim_17.png" id="17_yxgv3"]
+[ext_resource type="Texture2D" uid="uid://dwnqkk70jqko" path="res://assets/images/Forges/ForgeSmokeAnim_18.png" id="18_ffubr"]
+[ext_resource type="Texture2D" uid="uid://b3v4glujbwakm" path="res://assets/images/Forges/ForgeSmokeAnim_19.png" id="19_b7b62"]
+[ext_resource type="Texture2D" uid="uid://c87i3uwrotece" path="res://assets/images/Forges/ForgeSmokeAnim_20.png" id="20_bxsds"]
+[ext_resource type="Texture2D" uid="uid://btp1riqya3pf6" path="res://assets/images/Forges/ForgeSmokeAnim_21.png" id="21_7mj5q"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7cn1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qv6st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_umq0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r8ku0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nnhsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hu8g7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rdyv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2xei0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gpox7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h02jn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_agto8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1cffu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ukxv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3fr3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bmm6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_b7rp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yxgv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ffubr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_b7b62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bxsds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7mj5q")
+}],
+"loop": true,
+"name": &"drop",
+"speed": 10.0
+}]
