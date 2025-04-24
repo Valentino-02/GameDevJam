@@ -7,7 +7,7 @@ enum character {
 }
 @export var speakingCharacter: character
 
-var speaker: Texture2D:
+var speaker: SpriteFrames:
 	get:
 		match speakingCharacter:
 			character.FIRE:

@@ -252,11 +252,11 @@ shape = SubResource("RectangleShape2D_nxtsb")
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_674lg")]
-position = Vector2(-225, -18)
+position = Vector2(-225, -201)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_674lg")]
-position = Vector2(186, -20)
+position = Vector2(186, -203)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 

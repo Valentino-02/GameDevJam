@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://osxi0wif081b"]
+
+[ext_resource type="Texture2D" uid="uid://b8qyw7xpf1n1k" path="res://assets/images/Characters/FireElementalAnim_1.png" id="1_n032c"]
+[ext_resource type="Texture2D" uid="uid://cwk62nqgpbj5y" path="res://assets/images/Characters/FireElementalAnim_2.png" id="2_1hxqp"]
+[ext_resource type="Texture2D" uid="uid://kv4ec2mtomqy" path="res://assets/images/Characters/FireElementalAnim_3.png" id="3_lvrjw"]
+[ext_resource type="Texture2D" uid="uid://bteov57tl6h72" path="res://assets/images/Characters/FireElementalAnim_4.png" id="4_icx7u"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n032c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1hxqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lvrjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_icx7u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

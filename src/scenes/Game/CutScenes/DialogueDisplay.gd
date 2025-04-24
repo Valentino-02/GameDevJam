@@ -4,7 +4,7 @@ signal dialogueComplete
 @export var hideWhileTalking: Array[Node]
 
 @onready var textDisplay: RichTextLabel = get_node("VBoxContainer/MarginContainer/DialogueDisplay/VBoxContainer/Panel/MarginContainer/RichTextLabel")
-@onready var spriteDisplay: TextureRect = get_node("VBoxContainer/MarginContainer/DialogueDisplay/TextureRect")
+@onready var spriteDisplay: AnimatedSprite2D = get_node("VBoxContainer/MarginContainer/DialogueDisplay/AnimatedSprite2D")
 @onready var nextDisplay: RichTextLabel = get_node("VBoxContainer/MarginContainer/DialogueDisplay/Next")
 
 var interrupted: bool = false
@@ -16,7 +16,8 @@ func PlayDialogue(dialogue: Dialogue, keepPanelUp = false) -> void:
 	holdPanel = keepPanelUp
 	textDisplay.text = ""
 	if dialogue.speaker != null:
-		spriteDisplay.texture = dialogue.speaker	
+		spriteDisplay.sprite_frames = dialogue.speaker
+		spriteDisplay.play("default")
 		spriteDisplay.show()
 	else:
 		spriteDisplay.hide()

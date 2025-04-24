@@ -9,6 +9,12 @@ var currentStoryPoint: StoryPoint
 var cutsceneCameras: Dictionary[StringName, PhantomCamera2D]
 var parallax: ParallaxZoom = null
 
+var _cutsceneRunning:bool  = false
+
+var Running: bool:
+	get:
+		return _cutsceneRunning
+
 @warning_ignore_start("unused_signal")
 signal sceneLoaded
 
@@ -18,6 +24,7 @@ func PlayCutscene(cutscene: Cutscene) -> void:
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
+	_cutsceneRunning = true
 	get_tree().paused = true
 	dialogueDisplay.Declutter(true)
 	currentCutscene = cutscene
@@ -57,6 +64,7 @@ func _endCutscene() -> void:
 	currentCutscene = null
 	dialogueDisplay.Declutter(false)
 	get_tree().paused = false
+	_cutsceneRunning = false
 
 func _activateChild(childName: String) -> void:
 	currentCutscene.get_node(childName).Activate()

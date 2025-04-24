@@ -19,5 +19,5 @@ extends Node
 @export var fireDropperTexture: Texture2D
 @export var waterDropperTexture: Texture2D
 @export_group("DialogueTextures")
-@export var fireCharacter: Texture2D
-@export var waterCharacter: Texture2D
+@export var fireCharacter: SpriteFrames
+@export var waterCharacter: SpriteFrames

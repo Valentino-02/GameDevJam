@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwatib16fqrvd" path="res://src/scenes/Game/CutScenes/DialogueDisplay.gd" id="1_ren1c"]
 [ext_resource type="FontFile" uid="uid://banjbbba265s4" path="res://assets/fonts/aesymatt.ttf" id="2_ren1c"]
-[ext_resource type="Texture2D" uid="uid://o6dhk2eaqgpn" path="res://assets/images/TeamIcon.png" id="3_bswin"]
+[ext_resource type="SpriteFrames" uid="uid://b0yisa6hhamyo" path="res://assets/images/Characters/waterElemental.tres" id="3_a3fb6"]
 [ext_resource type="FontFile" uid="uid://cmjxdhhgvjuhq" path="res://assets/fonts/I-pixel-u.ttf" id="4_a3fb6"]
 
 [sub_resource type="Animation" id="Animation_bswin"]
@@ -117,15 +117,12 @@ theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "This is some example text with [b]bold[/b] and [color=red]color[/color] tests. with [color=green]green[/color], [color=yellow]yellow[/color] and [color=purple]purple[/color]"
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/DialogueDisplay"]
-layout_mode = 0
-offset_left = 769.0
-offset_top = -134.0
-offset_right = 919.0
-offset_bottom = 16.0
-texture = ExtResource("3_bswin")
-expand_mode = 1
-stretch_mode = 5
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/MarginContainer/DialogueDisplay"]
+position = Vector2(824, -67)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_a3fb6")
+autoplay = "default"
+frame_progress = 0.393339
 
 [node name="Next" type="RichTextLabel" parent="VBoxContainer/MarginContainer/DialogueDisplay"]
 visible = false
