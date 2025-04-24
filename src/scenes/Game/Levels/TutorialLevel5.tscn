@@ -410,6 +410,7 @@ script = ExtResource("19_irisn")
 hazardsToDemonstrate = [NodePath("../../Layout/CollectionZones"), NodePath("../../Layout/CargoDroppers")]
 
 [node name="Intro" type="Node2D" parent="Cutscene"]
+position = Vector2(0, 76)
 script = ExtResource("3_dxl7l")
 tween_resource = SubResource("Resource_u4eit")
 draw_limits = true

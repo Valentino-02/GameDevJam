@@ -7,11 +7,14 @@ var currentCutscene: Cutscene
 var currentCamera: PhantomCamera2D
 var currentStoryPoint: StoryPoint
 var cutsceneCameras: Dictionary[StringName, PhantomCamera2D]
+var parallax: ParallaxZoom = null
 
 @warning_ignore_start("unused_signal")
 signal sceneLoaded
 
 func PlayCutscene(cutscene: Cutscene) -> void:
+	if parallax == null:
+		parallax = get_node("/root/Game/Parallax2DGroup")
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
@@ -29,6 +32,7 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 	currentStoryPoint = storyPoint
 	currentCamera = cutsceneCameras[storyPoint.cameraToUse]
 	currentCamera.priority = 20
+	parallax.ZoomParallax(currentCamera.zoom.x, currentCamera.tween_duration)
 	if storyPoint.childToTrigger != "":
 		_activateChild(storyPoint.childToTrigger)
 	await currentCamera.tween_completed
@@ -45,6 +49,7 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 		
 func _endCutscene() -> void:
 	currentCamera.priority = 0
+	parallax.ZoomParallax(playerCamera.zoom.x, playerCamera.tween_duration)
 	await playerCamera.tween_completed
 	currentCamera = null
 	currentStoryPoint = null
