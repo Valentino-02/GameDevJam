@@ -64,7 +64,7 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_w2mcj"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "And the forges are very far away! They are even futher away that the cores!"
+dialogueLine = "And the forges are very far away! They are even further away than the cores!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_0f85y"]
@@ -117,13 +117,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_kfmm1"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "You can also destroy packages that are anoying you by [color=black]clicking[/color] on them"
+dialogueLine = "You can also destroy packages that are annoying you by [color=black]clicking[/color] on them"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_aal6j"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 1
-dialogueLine = "Well, best of lucks, it seems you will have to hurry for this one!"
+dialogueLine = "Well, best of luck, it seems you will have to hurry for this one!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_ao04q"]
