@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_start_game_button_pressed() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
-	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial)
+	LevelManager.setTargetLevel(ResourceIds.LevelId.Tutorial1)
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
 	AudioManager.music.stop()
 

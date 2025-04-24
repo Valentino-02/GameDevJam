@@ -29,13 +29,14 @@ enum MusicId {
 }
 
 enum LevelId {
-	Tutorial,
+	Tutorial1,
 	Tutorial2,
 	Tutorial3,
 	Tutorial4,
 	Tutorial5,
 	Tutorial6,
+	Tutorial7,
+	Tutorial8,
+	Win,
 	HazardTutorial,
-	Test,
-	Level1,
 }
