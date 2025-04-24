@@ -41,13 +41,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_vdaln"]
 script = ExtResource("18_tc3ar")
 speakingCharacter = 2
-dialogueLine = "There was once a villiage that was destined for prosperity! but there was a small oversight when we were building it..."
+dialogueLine = "There was once a village that was destined for prosperity! but there was a small oversight when we were building it..."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_tc3ar"]
 script = ExtResource("18_tc3ar")
 speakingCharacter = 1
-dialogueLine = "We kinda forgot to put in a [color=blue]Water Forge[/color] to cool down the [color=red]Fire Core[/color]..."
+dialogueLine = "	"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_igt7v"]
@@ -79,7 +79,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_8osp4"]
 script = ExtResource("18_tc3ar")
 speakingCharacter = 1
-dialogueLine = "Dont worry though! Just accept defeat, and we will move on to the real world again!"
+dialogueLine = "Don’t worry though! Just accept defeat, and we will move on to the real world again!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_jkjg2"]

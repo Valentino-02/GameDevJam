@@ -45,7 +45,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it go, take us on an adventure."
+dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it a go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_e3ggw"]

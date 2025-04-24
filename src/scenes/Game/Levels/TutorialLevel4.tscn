@@ -56,7 +56,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_mqpgw"]
 script = ExtResource("19_nbmg5")
 speakingCharacter = 2
-dialogueLine = "Let's see what we to handle this time."
+dialogueLine = "Let's see what we have to handle this time."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_eki7p"]
@@ -89,7 +89,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_k1wl4"]
 script = ExtResource("19_nbmg5")
 speakingCharacter = 1
-dialogueLine = "Thats true! Going back and forth delivering 2 to 3 packages at a time wont cut it this time."
+dialogueLine = "That's true! Going back and forth delivering 2 to 3 packages at a time wont cut it this time."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_674lg"]
