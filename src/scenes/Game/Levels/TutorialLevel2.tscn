@@ -203,7 +203,7 @@ zone = 1
 neededElement = 1
 
 [node name="CargoDropper" parent="Layout" instance=ExtResource("7_oh5fu")]
-position = Vector2(253, -48)
+position = Vector2(253, -250)
 element = 1
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_w26dr")]

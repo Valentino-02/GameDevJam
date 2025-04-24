@@ -1,17 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=26 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
-[ext_resource type="Texture2D" uid="uid://wg6hcgmapqah" path="res://assets/images/playerCharacters/blueSpiritidle.png" id="3_emnkp"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://blum6ymgo3ywn" path="res://assets/images/playerCharacters/Water Elemental O.png" id="5_s41jm"]
 [ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
 [ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="Texture2D" uid="uid://ds2cnexx61vm6" path="res://assets/images/playerCharacters/Fire Elemental O.png" id="7_j2hj5"]
+[ext_resource type="SpriteFrames" uid="uid://b0yisa6hhamyo" path="res://assets/images/Characters/waterElemental.tres" id="9_aou6w"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
+[ext_resource type="SpriteFrames" uid="uid://osxi0wif081b" path="res://assets/images/Characters/fireElemental.tres" id="12_aou6w"]
 [ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
 [ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
 
@@ -30,70 +31,6 @@ size = Vector2(100, 20)
 _limits = [0.0, 1.0, 0.0, 4.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hi8o8"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_geu4h"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3jou"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_td68q"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pm7lo"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj53y"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xjt6"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0y2s3"]
-atlas = ExtResource("3_emnkp")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q075j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hi8o8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_geu4h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c3jou")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_td68q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pm7lo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj53y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xjt6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0y2s3")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv250"]
 radius = 20.0
@@ -127,7 +64,6 @@ position = Vector2(90, -170)
 
 [node name="LeftRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
-process_mode = 3
 process_mode = 3
 z_index = -2
 texture_repeat = 2
@@ -171,7 +107,6 @@ scale_amount_curve = SubResource("Curve_61ysk")
 
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
-process_mode = 3
 process_mode = 3
 texture_repeat = 2
 width = 3.0
@@ -247,15 +182,14 @@ hue_variation_min = -0.07
 hue_variation_max = 0.03
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftCharacter"]
+visible = false
 texture = ExtResource("5_s41jm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftCharacter"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_q075j")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.751805
-speed_scale = 1.5
+process_mode = 3
+sprite_frames = ExtResource("9_aou6w")
+autoplay = "default"
+frame_progress = 0.531345
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCharacter"]
 scale = Vector2(0.7, 1.2)
@@ -302,16 +236,15 @@ hue_variation_min = -0.08
 hue_variation_max = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="RightCharacter"]
+visible = false
 texture = ExtResource("7_j2hj5")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="RightCharacter"]
-visible = false
-self_modulate = Color(0.995932, 0.064121, 0.099692, 1)
-sprite_frames = SubResource("SpriteFrames_q075j")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.637282
-speed_scale = 1.5
+process_mode = 3
+sprite_frames = ExtResource("12_aou6w")
+autoplay = "default"
+frame = 3
+frame_progress = 0.0752804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightCharacter"]
 scale = Vector2(0.7, 1.2)
@@ -324,7 +257,6 @@ position = Vector2(2, -17)
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
 collision_layer = 232
-collision_mask = 17
 collision_mask = 17
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_hu46i")
@@ -347,7 +279,6 @@ position = Vector2(-90, 0)
 position = Vector2(1, 0)
 texture = ExtResource("15_hu46i")
 centered = false
-offset = Vector2(-7, -8.5)
 offset = Vector2(-7, -8.5)
 region_rect = Rect2(0, 0, 98, 17)
 

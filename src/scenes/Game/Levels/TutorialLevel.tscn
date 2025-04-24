@@ -182,11 +182,11 @@ neededElement = 1
 limit = 5
 
 [node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_qqjvl")]
-position = Vector2(-219, -65)
+position = Vector2(-219, -268)
 element = 1
 
 [node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_qqjvl")]
-position = Vector2(220, -65)
+position = Vector2(220, -268)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("9_tl2ud")]
 phantom_camera = NodePath("../../PhantomCamera2D")

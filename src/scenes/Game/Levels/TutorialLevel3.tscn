@@ -302,11 +302,11 @@ limit = 5
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("13_8q4vy")]
-position = Vector2(-261, 186)
+position = Vector2(-261, -15)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("13_8q4vy")]
-position = Vector2(273, -206)
+position = Vector2(273, -407)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 
