@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f7m8w331in6f"
-path="res://.godot/imported/FireStabilityIcon1.png-e552c29c56fe950c750d1b0fd9e7d90c.ctex"
+path="res://.godot/imported/FireStabilityIcon1.png-9fa73ed13cf280a7431b700b6e93bd05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/UI/FireStabilityIcon1.png"
-dest_files=["res://.godot/imported/FireStabilityIcon1.png-e552c29c56fe950c750d1b0fd9e7d90c.ctex"]
+source_file="res://assets/images/ui/FireStabilityIcon1.png"
+dest_files=["res://.godot/imported/FireStabilityIcon1.png-9fa73ed13cf280a7431b700b6e93bd05.ctex"]
 
 [params]
 

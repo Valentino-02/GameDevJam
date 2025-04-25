@@ -36,11 +36,12 @@ var activeParticles: GPUParticles2D
 
 @onready var _bottomParticles: GPUParticles2D = $SpriteMask/BottomParticles
 @onready var _topParticles: GPUParticles2D = $SpriteMask/TopParticles
-@onready var _audioPlayer: AudioStreamPlayer2D = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Wind)
+var _audioPlayer: AudioStreamPlayer2D 
 @onready var _cooldownTimer: Timer = %CooldownTimer
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	_audioPlayer = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Wind)
 	activeParticles = _bottomParticles if forceDirection == windDirection.UP else _topParticles
 	activeParticles.show()
 
