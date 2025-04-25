@@ -136,6 +136,7 @@ script = ExtResource("1_jkrqs")
 maxScore = 5.0
 patienceLossPerSecond = 0.0
 nextLevelId = 1
+backgroundScrollCap = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true

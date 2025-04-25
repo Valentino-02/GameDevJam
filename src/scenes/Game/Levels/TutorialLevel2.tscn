@@ -119,6 +119,7 @@ maxScore = 1.0
 patienceLossPerSecond = 3.0
 cargoPatienceGain = 5.0
 nextLevelId = 2
+backgroundScrollCap = 200.0
 activateSecretWin = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

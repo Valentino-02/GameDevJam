@@ -1,15 +1,15 @@
 class_name Game extends Node2D
 
-@onready var _gameUI : GameUI = %GameUI
-@onready var _backgroundTextureRect : TextureRect = %BackgroundTextureRect
-@onready var _parallax : Node2D = %Parallax2DGroup
+@onready var _gameUI: GameUI = %GameUI
+@onready var _backgroundTextureRect: TextureRect = %BackgroundTextureRect
+@onready var _parallax: Node2D = %Parallax2DGroup
 
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
-var _level : Level
+var _level: Level
 var _maxBackgroundScroll = 895
 
-var _zoneTransitionTweens : Array[Tween] = []
+var _zoneTransitionTweens: Array[Tween] = []
 
 var Camera: Camera2D:
 	get:
@@ -30,12 +30,11 @@ func _ready() -> void:
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
 func _process(_delta: float) -> void:
-	UpdateRelativePositions()
-	
-func UpdateRelativePositions() -> void:
-	var offset = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
-	offset *= _maxBackgroundScroll
-	_backgroundTextureRect.position.x = - offset
+	var center_offset = _maxBackgroundScroll * 0.5
+	var allowed_scroll = min(_level.backgroundScrollCap, center_offset)
+	var relativePosition = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
+	var offset = relativePosition * _maxBackgroundScroll
+	_backgroundTextureRect.position.x = - clamp(offset, center_offset - allowed_scroll, center_offset + allowed_scroll)
 
 func _loadLevel() -> void:
 	var level: Level = LevelManager.getTargetLevel().instantiate()
@@ -99,7 +98,7 @@ func _onHazardFix(hazard: Types.Element) -> void:
 
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 	var target_color: Color
-	var music_id : ResourceIds.MusicId
+	var music_id: ResourceIds.MusicId
 	match zone:
 		Types.Zone.Left:
 			music_id = ResourceIds.MusicId.FireTheme
@@ -117,7 +116,7 @@ func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 		_zoneTransitionTweens = []
 	
 	_zoneTransitionTweens = AudioManager.music.crossFadeTo(music_id)
-	var tween : Tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(_parallax, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
