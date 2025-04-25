@@ -8,6 +8,7 @@ var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
 var _level : Level
 
+var _zoneTransitionTweens : Array[Tween] = []
 
 func _ready() -> void:
 	AudioManager.music.play(ResourceIds.MusicId.WindTheme)
@@ -80,6 +81,8 @@ func _onHazardFix(hazard: Types.Element) -> void:
 	var zone = Types.Zone.Left if hazard == Types.Element.Water else Types.Zone.Right
 	_patienceManager.gainPatience(zone)
 
+
+
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 	var target_color: Color
 	var music_id : ResourceIds.MusicId
@@ -94,8 +97,14 @@ func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 			music_id = ResourceIds.MusicId.WaterTheme
 			target_color = Color("5a80ab")
 
-	AudioManager.music.crossFadeTo(music_id)
-	var tween = create_tween()
+	if _zoneTransitionTweens.size() > 0:
+		for tween in _zoneTransitionTweens:
+			if tween is Tween: tween.kill()
+		_zoneTransitionTweens = []
+	
+	_zoneTransitionTweens = AudioManager.music.crossFadeTo(music_id)
+	var tween : Tween = create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(_parallax, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_zoneTransitionTweens.append(tween)
