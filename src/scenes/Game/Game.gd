@@ -11,6 +11,14 @@ var _maxBackgroundScroll = 895
 
 var _zoneTransitionTweens : Array[Tween] = []
 
+var Camera: Camera2D:
+	get:
+		return _level.get_node("Camera2D")
+
+var Boundaries: BoundaryWall:
+	get:
+		return _level.Boundaries
+
 func _ready() -> void:
 	AudioManager.music.play(ResourceIds.MusicId.WindTheme)
 	_loadLevel()
@@ -22,7 +30,11 @@ func _ready() -> void:
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
 func _process(_delta: float) -> void:
-	var offset = PlayerRelativePosition.relativePosition * _maxBackgroundScroll
+	UpdateRelativePositions()
+	
+func UpdateRelativePositions() -> void:
+	var offset = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
+	offset *= _maxBackgroundScroll
 	_backgroundTextureRect.position.x = - offset
 
 func _loadLevel() -> void:

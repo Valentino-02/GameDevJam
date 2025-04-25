@@ -1,26 +1,44 @@
 extends Node
 
 var dialogueDisplay: DialogueDisplay
-var playerCamera: PhantomCamera2D
 
 var currentCutscene: Cutscene
+var defaultCamera: Camera2D
+var playerCamera: PhantomCamera2D
 var currentCamera: PhantomCamera2D
 var currentStoryPoint: StoryPoint
 var cutsceneCameras: Dictionary[StringName, PhantomCamera2D]
 var parallax: ParallaxZoom = null
+var background: BackgroundZoom = null
 
 var _cutsceneRunning:bool  = false
+var _game: Game
 
 var Running: bool:
 	get:
 		return _cutsceneRunning
 
+
 @warning_ignore_start("unused_signal")
 signal sceneLoaded
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func _process(delta: float) -> void:
+	if _cutsceneRunning:
+		if defaultCamera == null:
+			defaultCamera = _game.Camera
+		_game.UpdateRelativePositions()
+		PlayerRelativePosition.cutscenePosition = (defaultCamera.get_screen_center_position().x - _game.Boundaries.getLeftWallPosition().x)/_game.Boundaries.getLevelWidth()
+
 func PlayCutscene(cutscene: Cutscene) -> void:
+	if _game == null:
+		_game = get_node("/root/Game")
 	if parallax == null:
 		parallax = get_node("/root/Game/Parallax2DGroup")
+	if background == null:
+		background = get_node("/root/Game/Background/BackgroundTextureRect")
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
@@ -39,7 +57,7 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 	currentStoryPoint = storyPoint
 	currentCamera = cutsceneCameras[storyPoint.cameraToUse]
 	currentCamera.priority = 20
-	parallax.ZoomParallax(currentCamera.zoom.x, currentCamera.tween_duration)
+	_zoom(currentCamera.zoom.x, currentCamera.tween_duration)
 	if storyPoint.childToTrigger != "":
 		_activateChild(storyPoint.childToTrigger)
 	await currentCamera.tween_completed
@@ -56,7 +74,7 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 		
 func _endCutscene() -> void:
 	currentCamera.priority = 0
-	parallax.ZoomParallax(playerCamera.zoom.x, playerCamera.tween_duration)
+	_zoom(playerCamera.zoom.x, playerCamera.tween_duration)
 	await playerCamera.tween_completed
 	currentCamera = null
 	currentStoryPoint = null
@@ -65,9 +83,14 @@ func _endCutscene() -> void:
 	dialogueDisplay.Declutter(false)
 	get_tree().paused = false
 	_cutsceneRunning = false
+	defaultCamera = null
 
 func _activateChild(childName: String) -> void:
 	currentCutscene.get_node(childName).Activate()
 
 func _finishChild(childName: String) -> void:
 	currentCutscene.get_node(childName).Finish()
+
+func _zoom(zoomAmount: float, duration: float) -> void:
+	parallax.ZoomParallax(zoomAmount, duration)
+	background.ZoomBackground(zoomAmount, duration)
