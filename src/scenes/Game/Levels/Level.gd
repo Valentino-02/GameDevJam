@@ -14,6 +14,10 @@ class_name Level extends Node2D
 @onready var _boundaryWalls : BoundaryWall = $Layout/BoundaryWalls
 @onready var _player : PlayerCharacter = $PlayerCharacter
 
+var Boundaries: BoundaryWall:
+	get:
+		return _boundaryWalls
+
 
 func _process(_delta: float) -> void:
 	PlayerRelativePosition.relativePosition = (_player.getPlayerPosition().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()

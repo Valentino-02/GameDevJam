@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=12 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
-[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="2_klkct"]
+[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/background/test-background.png" id="2_klkct"]
+[ext_resource type="Script" uid="uid://c516j67xrevs5" path="res://src/scenes/Game/Levels/BackgroundZoom.gd" id="5_g75gr"]
 [ext_resource type="PackedScene" uid="uid://qhls7itmme5b" path="res://src/scenes/UI/DialogueUI/dialogueUI.tscn" id="5_hga1y"]
 [ext_resource type="Script" uid="uid://iaf7h03ijc2l" path="res://src/scenes/Game/Levels/ParallaxZoom.gd" id="6_h22ok"]
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
-[ext_resource type="Texture2D" uid="uid://2q2ism52r5b2" path="res://assets/images/Background/BACKGROUND_WINTER_DAY_4.png" id="6_v38yi"]
-[ext_resource type="Texture2D" uid="uid://begg6frrwam04" path="res://assets/images/Background/BACKGROUND_SUMMER_DAY_5.png" id="7_h22ok"]
-[ext_resource type="Texture2D" uid="uid://is1o2myib50r" path="res://assets/images/Background/BACKGROUND_SUMMER_DAY_1.png" id="7_njjgc"]
-[ext_resource type="Texture2D" uid="uid://dpqdcjsboqgnq" path="res://assets/images/Background/Full background.png" id="10_hkmll"]
+[ext_resource type="Texture2D" uid="uid://2q2ism52r5b2" path="res://assets/images/background/BACKGROUND_WINTER_DAY_4.png" id="6_v38yi"]
+[ext_resource type="Texture2D" uid="uid://begg6frrwam04" path="res://assets/images/background/BACKGROUND_SUMMER_DAY_5.png" id="7_h22ok"]
+[ext_resource type="Texture2D" uid="uid://is1o2myib50r" path="res://assets/images/background/BACKGROUND_SUMMER_DAY_1.png" id="7_njjgc"]
+[ext_resource type="Texture2D" uid="uid://dpqdcjsboqgnq" path="res://assets/images/background/Full background.png" id="10_hkmll"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g75gr")
@@ -34,16 +35,19 @@ expand_mode = 1
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 894.428
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(927.214, 271)
 texture = ExtResource("10_hkmll")
 expand_mode = 3
 stretch_mode = 4
 flip_h = true
+script = ExtResource("5_g75gr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3

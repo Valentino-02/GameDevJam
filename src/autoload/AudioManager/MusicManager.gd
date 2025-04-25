@@ -70,7 +70,7 @@ func crossFadeTo(id: ResourceIds.MusicId, duration := 0.3) -> Array[Tween]:
 	_inactivePlayer = temp
 	#stop and start the players at the right time
 	var currentTime := _inactivePlayer.get_playback_position()
-	var fadeInTween : Tween = play(id, duration, currentTime, false) #fades in the now active player
+	var fadeInTween : Tween = play(id, duration, currentTime, true) #fades in the now active player
 	var fadeOutTween : Tween = fadeOut(duration*2, false) #fades out the now inactive player
 	
 	return [fadeInTween, fadeOutTween]

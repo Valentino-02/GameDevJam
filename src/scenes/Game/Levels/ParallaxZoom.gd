@@ -9,23 +9,19 @@ class_name ParallaxZoom extends Node2D
 @onready var _forestDefault: float = forest.scroll_scale.x
 
 var _zoomMult: float = 1
-var _zooming: bool = false
 var _zoomDuration: float = 1
 
-func _zoomParallax(delta: float) -> bool:
-	mountain.scroll_scale.x = lerp(mountain.scroll_scale.x, _mountainDefault * _zoomMult, delta/_zoomDuration)
-	cloud.scroll_scale.x = lerp(cloud.scroll_scale.x, _cloudDefault * _zoomMult, delta/_zoomDuration)
-	forest.scroll_scale.x = lerp(forest.scroll_scale.x, _forestDefault * _zoomMult, delta/_zoomDuration)
-	if mountain.scroll_scale.x == _mountainDefault*_zoomMult && cloud.scroll_scale.x == _cloudDefault*_zoomMult && forest.scroll_scale.x == _forestDefault*_zoomMult:
-		return true
-	return false
-	
-func _process(delta: float) -> void:
-	if _zooming:
-		if _zoomParallax(delta):
-			_zooming = false
+func _zoomParallax() -> void:
+	_setTween(mountain, _mountainDefault)
+	_setTween(cloud, _cloudDefault)
+	_setTween(forest, _forestDefault)
 			
 func ZoomParallax(zoomMultiplier: float, zoomDuration: float) -> void:
 	_zoomMult = zoomMultiplier
 	_zoomDuration = zoomDuration
-	_zooming = true
+	_zoomParallax()
+	
+func _setTween(obj: Parallax2D, target: float) -> void:
+	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(obj,"scroll_scale",Vector2(target*_zoomMult,obj.scroll_scale.y),_zoomDuration)
