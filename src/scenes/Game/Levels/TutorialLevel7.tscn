@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ccsaiyjgnoe2w"]
+[gd_scene load_steps=27 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
@@ -85,7 +85,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Layout" type="Node2D" parent="."]
 
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
-visible = false
 z_index = -1
 
 [node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsBack"]
@@ -106,7 +105,6 @@ tile_map_data = PackedByteArray("AAAMAP3/AAABAAIAAAAMAP7/AAABAAMAAAANAP3/AAABAAY
 tile_set = ExtResource("7_n0axo")
 
 [node name="DecorationsFront" type="Node2D" parent="Layout"]
-visible = false
 z_index = -1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layout/DecorationsFront"]
