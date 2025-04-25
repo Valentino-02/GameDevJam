@@ -121,6 +121,7 @@ func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 	
 	_zoneTransitionTweens = AudioManager.music.crossFadeTo(music_id)
 	var tween: Tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel(true)
 	tween.tween_property(_backgroundTextureRect, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(_parallax, "modulate", target_color, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
