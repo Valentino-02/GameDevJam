@@ -59,7 +59,7 @@ size = Vector2(600, 2800)
 [sub_resource type="Resource" id="Resource_1kbjl"]
 script = ExtResource("21_xlsoy")
 speakingCharacter = 2
-dialogueLine = "It's time to get these packages [color=blue]flowing[/color]."
+dialogueLine = "It's time to get these packages [color=#42dffe]flowing[/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_lnybr"]

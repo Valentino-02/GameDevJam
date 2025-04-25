@@ -18,6 +18,7 @@ var Running: bool:
 	get:
 		return _cutsceneRunning
 
+var _quitting: bool = false
 
 @warning_ignore_start("unused_signal")
 signal sceneLoaded
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 		PlayerRelativePosition.cutscenePosition = (defaultCamera.get_screen_center_position().x - _game.Boundaries.getLeftWallPosition().x)/_game.Boundaries.getLevelWidth()
 
 func PlayCutscene(cutscene: Cutscene) -> void:
+	_quitting = false
 	if _game == null:
 		_game = get_node("/root/Game")
 	if parallax == null:
@@ -42,14 +44,20 @@ func PlayCutscene(cutscene: Cutscene) -> void:
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
+	await get_tree().create_timer(0.1,true).timeout
 	_cutsceneRunning = true
 	get_tree().paused = true
 	dialogueDisplay.Declutter(true)
 	currentCutscene = cutscene
 	cutsceneCameras = cutscene.useableCameras
 	for point in cutscene.storyPoints:
+		if _quitting:
+			break
 		await _playStoryPoint(point)
 	_endCutscene()
+	
+func QuitCutscene() -> void:
+	_quitting = true
 	
 func _playStoryPoint(storyPoint: StoryPoint) -> void:
 	if currentStoryPoint != null:
