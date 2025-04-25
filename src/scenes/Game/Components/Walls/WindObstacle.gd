@@ -92,9 +92,3 @@ func _updateArea() -> void:
 	var rect: Rect2 = Rect2(-width, -height, width * 2, height * 2)
 	_bottomParticles.visibility_rect = rect
 	_topParticles.visibility_rect = rect
-<< << << < HEAD
-	
-== == == =
-	print("Updated")
-	
->> >> >> > 0e74038716ee2fbf79546082b60fa0fb6f7e6838
