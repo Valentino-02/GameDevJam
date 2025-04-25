@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		if defaultCamera == null:
 			defaultCamera = _game.Camera
 		_game.updateBackgroundPosition()
-		PlayerRelativePosition.cutscenePosition = (defaultCamera.get_screen_center_position().x - _game.Boundaries.getLeftWallPosition().x)/_game.Boundaries.getLevelWidth()
+		PlayerRelativePosition.relativePosition = (defaultCamera.get_screen_center_position().x - _game.Boundaries.getLeftWallPosition().x)/_game.Boundaries.getLevelWidth()
 
 func PlayCutscene(cutscene: Cutscene) -> void:
 	_quitting = false
@@ -44,10 +44,10 @@ func PlayCutscene(cutscene: Cutscene) -> void:
 	playerCamera = get_tree().get_nodes_in_group("MainCamera")[0]
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
-	await get_tree().create_timer(0.1,true).timeout
+	dialogueDisplay.Declutter(true)
+#	await get_tree().create_timer(0.1,true).timeout
 	_cutsceneRunning = true
 	get_tree().paused = true
-	dialogueDisplay.Declutter(true)
 	currentCutscene = cutscene
 	cutsceneCameras = cutscene.useableCameras
 	for point in cutscene.storyPoints:
@@ -72,6 +72,8 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 	var dialogueRemaining: int = storyPoint.dialogues.size()
 	if storyPoint.dialogues.size() > 0:
 		for dialogue in storyPoint.dialogues:
+			if _quitting:
+				break
 			dialogueRemaining -= 1
 			dialogueDisplay.PlayDialogue(dialogue, dialogueRemaining > 0)
 			await dialogueDisplay.dialogueComplete
