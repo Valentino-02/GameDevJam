@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqmfa3we86wrp"]
+
+[ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/Decoration/Clouds/Cloud 1 no 3.png" id="1_iskt4"]
+[ext_resource type="Script" uid="uid://bnewyuqeebi78" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.gd" id="2_o2dkq"]
+
+[node name="AnimatedCloud" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_iskt4")
+script = ExtResource("2_o2dkq")

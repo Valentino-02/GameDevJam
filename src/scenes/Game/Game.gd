@@ -20,7 +20,6 @@ var Boundaries: BoundaryWall:
 		return _level.Boundaries
 
 func _ready() -> void:
-	AudioManager.music.play(ResourceIds.MusicId.WindTheme)
 	_loadLevel()
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)
 	SignalBus.hazardFixed.connect(_onHazardFix)
