@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_dxl7l"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_gjnij"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_td4ji"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_ckvji"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_ckvji"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="8_dxl7l"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_c3p7v"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_c3p7v"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_wu1g8"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_2gtkk"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_lek75"]
@@ -62,7 +62,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("19_w2mcj")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("20_td4ji")]([SubResource("Resource_ckvji")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_w2mcj"]
@@ -75,35 +75,35 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("19_w2mcj")
 cameraToUse = &"HolePan"
 dialogues = Array[ExtResource("20_td4ji")]([SubResource("Resource_w2mcj")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_td4ji"]
 script = ExtResource("19_w2mcj")
 cameraToUse = &"L1"
 dialogues = Array[ExtResource("20_td4ji")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_2gtkk"]
 script = ExtResource("19_w2mcj")
 cameraToUse = &"L2"
 dialogues = Array[ExtResource("20_td4ji")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_lek75"]
 script = ExtResource("19_w2mcj")
 cameraToUse = &"R1"
 dialogues = Array[ExtResource("20_td4ji")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_hr35e"]
 script = ExtResource("19_w2mcj")
 cameraToUse = &"R2"
 dialogues = Array[ExtResource("20_td4ji")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_4dtu3"]
@@ -140,7 +140,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("19_w2mcj")
 cameraToUse = &"Intro2"
 dialogues = Array[ExtResource("20_td4ji")]([SubResource("Resource_4dtu3"), SubResource("Resource_k7gw4"), SubResource("Resource_kfmm1"), SubResource("Resource_aal6j"), SubResource("Resource_ao04q")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_u4eit"]
@@ -485,7 +485,7 @@ position = Vector2(-253, 61)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("16_4dtu3")]
 
-[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("18_gjnij")]
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("18_gjnij")]
 type = 1
 storyPoints = Array[ExtResource("19_w2mcj")]([SubResource("Resource_c3p7v"), SubResource("Resource_0f85y"), SubResource("Resource_td4ji"), SubResource("Resource_2gtkk"), SubResource("Resource_lek75"), SubResource("Resource_hr35e"), SubResource("Resource_xnyqo")])
 useableCameras = {
@@ -497,6 +497,7 @@ useableCameras = {
 &"R1": NodePath("Right1"),
 &"R2": NodePath("Right2")
 }
+keepActive = [NodePath("../Layout")]
 
 [node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
 script = ExtResource("19_irisn")

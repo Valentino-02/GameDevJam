@@ -16,6 +16,7 @@ enum triggerType {
 @export var storyPoints: Array[StoryPoint] = []
 ##Cameras to use for each story point
 @export var useableCameras: Dictionary[StringName, PhantomCamera2D] = {}
+@export var keepActive: Array[Node2D] = []
 
 @export_group("For use with zones")
 ##collisions to detect for zone type triggers

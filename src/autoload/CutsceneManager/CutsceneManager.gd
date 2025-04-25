@@ -47,6 +47,7 @@ func PlayCutscene(cutscene: Cutscene) -> void:
 	dialogueDisplay.Declutter(true)
 #	await get_tree().create_timer(0.1,true).timeout
 	_cutsceneRunning = true
+	_setProcessMode(cutscene.keepActive, true)
 	get_tree().paused = true
 	currentCutscene = cutscene
 	cutsceneCameras = cutscene.useableCameras
@@ -89,9 +90,10 @@ func _endCutscene() -> void:
 	currentCamera = null
 	currentStoryPoint = null
 	cutsceneCameras.clear()
-	currentCutscene = null
 	dialogueDisplay.Declutter(false)
 	get_tree().paused = false
+	_setProcessMode(currentCutscene.keepActive)
+	currentCutscene = null
 	_cutsceneRunning = false
 	defaultCamera = null
 
@@ -104,3 +106,7 @@ func _finishChild(childName: String) -> void:
 func _zoom(zoomAmount: float, duration: float) -> void:
 	parallax.ZoomParallax(zoomAmount, duration)
 	background.ZoomBackground(zoomAmount, duration)
+
+func _setProcessMode(nodes: Array[Node2D], active:bool = false) -> void:
+	for node in nodes:
+		node.process_mode = Node.PROCESS_MODE_ALWAYS if active else Node.PROCESS_MODE_INHERIT
