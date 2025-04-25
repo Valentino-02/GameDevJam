@@ -1,19 +1,57 @@
-[gd_scene load_steps=9 format=3 uid="uid://crqrv5lsmuftg"]
+[gd_scene load_steps=14 format=3 uid="uid://crqrv5lsmuftg"]
 
 [ext_resource type="Script" uid="uid://ctnjtvl46kqr6" path="res://src/scenes/Game/Components/Cargo/CargoDropper.gd" id="1_ky43u"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="2_gihkj"]
 [ext_resource type="SpriteFrames" uid="uid://c76q5kt2uwbws" path="res://assets/images/Forges/forge.tres" id="3_ljqjl"]
 [ext_resource type="SpriteFrames" uid="uid://b4inykhulujrb" path="res://assets/images/Forges/forgePipes.tres" id="4_u4flg"]
-[ext_resource type="Texture2D" uid="uid://ctpjhv3x1hych" path="res://assets/images/cargo/Alternatives/Packages_1.png" id="5_qxb30"]
 [ext_resource type="SpriteFrames" uid="uid://c0jh3uryv1v3i" path="res://assets/images/Forges/smoke.tres" id="5_xpxgs"]
 [ext_resource type="SpriteFrames" uid="uid://2l1r36dpe3ik" path="res://assets/images/Forges/bubbles.tres" id="6_0ried"]
+[ext_resource type="Texture2D" uid="uid://xb58o2rn6qcv" path="res://assets/images/Forges/ForgePackageDropAnim_1.png" id="7_0ried"]
+[ext_resource type="Texture2D" uid="uid://drwvyb1gd2wqg" path="res://assets/images/Forges/ForgePackageDropAnim_2.png" id="8_ax0xa"]
+[ext_resource type="Texture2D" uid="uid://c5jgh3bwfhroe" path="res://assets/images/Forges/ForgePackageDropAnim_3.png" id="9_su3fc"]
+[ext_resource type="Texture2D" uid="uid://civ2iwn8ifdei" path="res://assets/images/Forges/ForgePackageDropAnim_4.png" id="10_j4an4"]
+[ext_resource type="Texture2D" uid="uid://dlkebnoyh6j4g" path="res://assets/images/Forges/ForgePackageDropAnim_5.png" id="11_llxj8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gslo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0ried")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ax0xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_su3fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j4an4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_llxj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j4an4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_su3fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ax0xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0ried")
+}],
+"loop": false,
+"name": &"drop",
+"speed": 30.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrmgv"]
-size = Vector2(166, 141)
+size = Vector2(60, 141)
 
 [node name="CargoDropper" type="Node2D"]
 script = ExtResource("1_ky43u")
-cooldownTicks = 4
 cargoScene = ExtResource("2_gihkj")
 
 [node name="ForgeBody" type="AnimatedSprite2D" parent="."]
@@ -29,7 +67,6 @@ animation = &"drop"
 visible = false
 
 [node name="Smoke" type="AnimatedSprite2D" parent="ForgeBody/Pipes/Smoke"]
-self_modulate = Color(0.174626, 0.174626, 0.174626, 1)
 clip_children = 2
 z_index = -1
 position = Vector2(35, -28)
@@ -39,7 +76,6 @@ autoplay = "drop"
 frame_progress = 0.401534
 
 [node name="Smoke2" type="AnimatedSprite2D" parent="ForgeBody/Pipes/Smoke"]
-self_modulate = Color(0.174626, 0.174626, 0.174626, 1)
 clip_children = 2
 z_index = -1
 position = Vector2(-35, -28)
@@ -75,6 +111,11 @@ animation = &"Bubble"
 autoplay = "Bubble"
 frame = 1
 
+[node name="Dispenser" type="AnimatedSprite2D" parent="ForgeBody"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_1gslo")
+animation = &"drop"
+
 [node name="DetectionArea2D" type="Area2D" parent="."]
 position = Vector2(0.5, 184)
 collision_layer = 0
@@ -87,70 +128,15 @@ debug_color = Color(3.70607e-06, 0.664926, 0.338222, 0)
 
 [node name="SpawnMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0.5, 52)
+position = Vector2(0.5, 56)
 
 [node name="DistributionMarker" type="Marker2D" parent="SpawnMarker"]
 unique_name_in_owner = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.2
-
-[node name="UI_Helpers" type="Control" parent="."]
-unique_name_in_owner = true
-visible = false
-z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_top = -191.0
-offset_right = 40.0
-offset_bottom = -151.0
-
-[node name="Control" type="Control" parent="UI_Helpers"]
-z_index = -1
-layout_mode = 3
-anchors_preset = 0
-offset_left = -11.0
-offset_top = -74.0
-offset_right = 66.0
-offset_bottom = -45.0
-
-[node name="Panel" type="Panel" parent="UI_Helpers/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI_Helpers/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Press [E]"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ProgressBar" type="ProgressBar" parent="UI_Helpers"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = -36.0
-offset_top = -73.0
-offset_right = -24.0
-offset_bottom = -46.0
-max_value = 3.0
-step = 1.0
-fill_mode = 3
-show_percentage = false
-
-[node name="TemporaryIcon" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-position = Vector2(0.5, 0)
-texture = ExtResource("5_qxb30")
+wait_time = 0.4
+one_shot = true
 
 [connection signal="body_entered" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_entered"]
 [connection signal="body_exited" from="DetectionArea2D" to="." method="_on_detection_area_2d_body_exited"]

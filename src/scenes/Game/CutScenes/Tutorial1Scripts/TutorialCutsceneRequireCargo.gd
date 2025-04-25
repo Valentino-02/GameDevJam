@@ -15,7 +15,6 @@ func Activate() -> void:
 	area.body_entered.connect(_taskComplete)
 	
 func _taskComplete(node2d: Node2D) -> void:
-	print("Cargo Detected")
 	var cargo: Cargo = node2d as Cargo
 	if cargo.getElement() == requiredElement:
 		_collected += 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://0upwnl40riqb"]
 
 [ext_resource type="Script" uid="uid://c0p8g3ijeg1f3" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/ControlDisplay.gd" id="1_i23n0"]
-[ext_resource type="Texture2D" uid="uid://cvh4j4wfu0vid" path="res://assets/images/itchAssets/dreamMix/Keyboard Letters and Symbols.png" id="1_ymkes"]
+[ext_resource type="Texture2D" uid="uid://cvh4j4wfu0vid" path="res://assets/images/ItchAssets/dreamMix/Keyboard Letters and Symbols.png" id="1_ymkes"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i23n0"]
 atlas = ExtResource("1_ymkes")

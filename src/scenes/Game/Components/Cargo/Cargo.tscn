@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnmw00r2td2ol"]
 
 [ext_resource type="Script" uid="uid://c6oo4wiagy1lh" path="res://src/scenes/Game/Components/Cargo/Cargo.gd" id="1_rmwal"]
-[ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/cargo/Packages_11.png" id="2_c1vuo"]
-[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="3_c1vuo"]
+[ext_resource type="Texture2D" uid="uid://drfn11q6irkkm" path="res://assets/images/Cargo/Packages_11.png" id="2_c1vuo"]
+[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/PlayerCharacters/FireParticle_1.png" id="3_c1vuo"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmwal"]
 particle_flag_disable_z = true

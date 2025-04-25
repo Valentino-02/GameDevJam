@@ -7,6 +7,7 @@ class_name Game extends Node2D
 var _patienceManager := PatienceManager.new()
 var _scoreManager := ScoreManager.new()
 var _level : Level
+var _maxBackgroundScroll = 895
 
 var _zoneTransitionTweens : Array[Tween] = []
 
@@ -20,6 +21,9 @@ func _ready() -> void:
 	SignalBus.nextLevelClicked.connect(_onNextLevelClicked)
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
+func _process(_delta: float) -> void:
+	var offset = PlayerRelativePosition.relativePosition * _maxBackgroundScroll
+	_backgroundTextureRect.position.x = - offset
 
 func _loadLevel() -> void:
 	var level: Level = LevelManager.getTargetLevel().instantiate()
@@ -80,8 +84,6 @@ func _on_timer_timeout() -> void:
 func _onHazardFix(hazard: Types.Element) -> void:
 	var zone = Types.Zone.Left if hazard == Types.Element.Water else Types.Zone.Right
 	_patienceManager.gainPatience(zone)
-
-
 
 func _onPlayerEnteredZone(zone: Types.Zone) -> void:
 	var target_color: Color

@@ -9,6 +9,13 @@ class_name Level extends Node2D
 @onready var camera : Camera2D = %Camera2D
 @onready var phantomCamera : PhantomCamera2D = %PhantomCamera2D
 @onready var tileMapLayers: Array[TileMapLayer] = _getTilemapLayers()
+@onready var _boundaryWalls : BoundaryWall = $Layout/BoundaryWalls
+@onready var _player : PlayerCharacter = $PlayerCharacter
+
+
+func _process(_delta: float) -> void:
+	PlayerRelativePosition.relativePosition = (_player.getPlayerPosition().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()
+
 
 func _getTilemapLayers() -> Array[TileMapLayer]:
 	var layers: Array[Node] = get_tree().get_nodes_in_group("MovingPlatform")

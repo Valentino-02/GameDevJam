@@ -16,7 +16,7 @@ func _ready() -> void:
 func trigger() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.WinFanfare)
 	_playIntroAnimation()
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	AudioManager.music.play(ResourceIds.MusicId.WaitTheme)
 
 

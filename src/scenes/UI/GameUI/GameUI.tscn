@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/GameUI/PauseMenu/PauseMenu.tscn" id="5_dw237"]
 [ext_resource type="PackedScene" uid="uid://bko4wd0mdgil0" path="res://src/scenes/UI/GameUI/LoseScreen/LoseScreen.tscn" id="6_dw237"]
 [ext_resource type="PackedScene" uid="uid://i3to2f6oeh1n" path="res://src/scenes/UI/GameUI/WinScreen/WinScreen.tscn" id="7_qj02x"]
-[ext_resource type="Texture2D" uid="uid://c17kilxt5w128" path="res://assets/images/ui/ElementalBalance.png" id="8_hplg1"]
+[ext_resource type="Texture2D" uid="uid://c17kilxt5w128" path="res://assets/images/UI/ElementalBalance.png" id="8_hplg1"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3

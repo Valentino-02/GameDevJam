@@ -202,10 +202,10 @@ position = Vector2(-666, 0)
 position = Vector2(0, -449)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 438)
+position = Vector2(-3, 212)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-1, 365)
+position = Vector2(-1, 187)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
