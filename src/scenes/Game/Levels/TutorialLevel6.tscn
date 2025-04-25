@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://b5bdk4aiik0jb"]
+[gd_scene load_steps=45 format=4 uid="uid://b5bdk4aiik0jb"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_4lsem"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_irwij"]
@@ -29,13 +29,17 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkgfo"]
-resource_local_to_scene = true
-size = Vector2(182, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6ke"]
+size = Vector2(100, 106)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtsb"]
-resource_local_to_scene = true
-size = Vector2(178, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlsoy"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqmpj"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbjl"]
+size = Vector2(100, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugr50"]
 resource_local_to_scene = true
@@ -222,10 +226,10 @@ texture = ExtResource("11_t3p53")
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1891, -6)
+position = Vector2(1700, -6)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-1781, 8)
+position = Vector2(-1700, 8)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(-6, -1106)
@@ -240,52 +244,51 @@ script = null
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_egdgh")]
-position = Vector2(-903, -318)
+position = Vector2(-901, -344)
 limit = 10
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft" index="0"]
 position = Vector2(2, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_0j6ke")
 
 [node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("13_egdgh")]
-position = Vector2(-897, 739)
+position = Vector2(-895, 713)
 limit = 10
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft2" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_xlsoy")
 
 [node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("13_egdgh")]
-position = Vector2(957, -446)
+position = Vector2(959, -471)
 zone = 1
 neededElement = 1
 limit = 10
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_qqmpj")
 
 [node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("13_egdgh")]
-position = Vector2(1015, 498)
+position = Vector2(1011, 472)
 zone = 1
 neededElement = 1
 limit = 10
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight2" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_1kbjl")
 
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_iequo")]
-position = Vector2(-470, -378)
+position = Vector2(-467, -557)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_iequo")]
-position = Vector2(380, 523)
+position = Vector2(416, 318)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
-visible = false
 
 [node name="ZoneAerea" parent="Layout/ZoneAreas" instance=ExtResource("15_3ensq")]
 position = Vector2(-193, 0)
@@ -313,92 +316,92 @@ shape = SubResource("RectangleShape2D_eo8bu")
 process_mode = 3
 
 [node name="Cargo2" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(523, 88)
+position = Vector2(565, 75)
 
 [node name="Cargo8" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-380, 266)
+position = Vector2(-446, 271)
 element = 0
 
 [node name="Cargo9" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-414, 266)
+position = Vector2(-444, 292)
 element = 0
 
 [node name="Cargo10" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-450, 266)
+position = Vector2(-466, 293)
 element = 0
 
 [node name="Cargo11" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-488, 264)
+position = Vector2(-446, 250)
 element = 0
 
 [node name="Cargo12" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1383, 338)
+position = Vector2(-1422, 388)
 element = 0
 
 [node name="Cargo13" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1417, 338)
+position = Vector2(-1401, 388)
 element = 0
 
 [node name="Cargo14" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1453, 338)
+position = Vector2(-1403, 367)
 element = 0
 
 [node name="Cargo15" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1491, 336)
+position = Vector2(-1425, 366)
 element = 0
 
 [node name="Cargo26" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1241, 903)
+position = Vector2(-1293, 927)
 element = 0
 
 [node name="Cargo27" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1275, 903)
+position = Vector2(-1293, 949)
 element = 0
 
 [node name="Cargo28" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1311, 903)
+position = Vector2(-1315, 950)
 element = 0
 
 [node name="Cargo29" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1349, 901)
+position = Vector2(-1289, 904)
 element = 0
 
 [node name="Cargo30" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1324, -561)
+position = Vector2(-1382, -564)
 element = 0
 
 [node name="Cargo31" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1358, -561)
+position = Vector2(-1372, -523)
 element = 0
 
 [node name="Cargo32" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1394, -561)
+position = Vector2(-1392, -523)
 element = 0
 
 [node name="Cargo33" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(-1432, -563)
+position = Vector2(-1382, -543)
 element = 0
 
 [node name="Cargo3" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(549, 89)
+position = Vector2(565, 116)
 
 [node name="Cargo16" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(597, 93)
+position = Vector2(565, 94)
 
 [node name="Cargo17" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(634, 100)
+position = Vector2(565, 55)
 
 [node name="Cargo18" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1358, 654)
+position = Vector2(1381, 710)
 
 [node name="Cargo19" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1384, 655)
+position = Vector2(1381, 688)
 
 [node name="Cargo20" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1432, 659)
+position = Vector2(1383, 667)
 
 [node name="Cargo21" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1469, 666)
+position = Vector2(1387, 646)
 
 [node name="Cargo22" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
 position = Vector2(1417, -667)
@@ -413,13 +416,13 @@ position = Vector2(1491, -662)
 position = Vector2(1528, -655)
 
 [node name="Cargo4" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1388, 66)
+position = Vector2(1419, 74)
 
 [node name="Cargo5" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1413, 66)
+position = Vector2(1420, 116)
 
 [node name="Cargo6" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
-position = Vector2(1438, 65)
+position = Vector2(1420, 96)
 
 [node name="Obstacles" type="Node2D" parent="Layout"]
 

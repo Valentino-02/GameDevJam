@@ -16,7 +16,6 @@ class_name Level extends Node2D
 func _process(_delta: float) -> void:
 	PlayerRelativePosition.relativePosition = (_player.getPlayerPosition().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()
 
-
 func _getTilemapLayers() -> Array[TileMapLayer]:
 	var layers: Array[Node] = get_tree().get_nodes_in_group("MovingPlatform")
 	var maps: Array[TileMapLayer] = []

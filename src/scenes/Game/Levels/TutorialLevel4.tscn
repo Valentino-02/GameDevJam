@@ -214,10 +214,10 @@ texture = ExtResource("11_lw4a5")
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1987, -6)
+position = Vector2(2000, -6)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-2165, 0)
+position = Vector2(-2000, 0)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(0, -762)
@@ -232,21 +232,21 @@ script = null
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_k1wl4")]
-position = Vector2(-1735, -28)
+position = Vector2(-1740, -54)
 limit = 15
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft" index="0"]
-position = Vector2(-4, -2)
+position = Vector2(-4, 20)
 shape = SubResource("RectangleShape2D_vkgfo")
 
 [node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("13_k1wl4")]
-position = Vector2(1689, -29)
+position = Vector2(1697, -56)
 zone = 1
 neededElement = 1
 limit = 15
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight" index="0"]
-position = Vector2(13, -2)
+position = Vector2(6, 22)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CargoDroppers" type="Node2D" parent="Layout"]

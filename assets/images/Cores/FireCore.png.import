@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptmxgdwy0bit"
-path="res://.godot/imported/waterBuilding.png-3fd8fdb513ac35f4946d4daa7ba0f60a.ctex"
+uid="uid://dm5e86ui0wglo"
+path="res://.godot/imported/FireCore.png-da3ca5b0e3b2f970b63c9c7bc590b9f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/waterBuilding.png"
-dest_files=["res://.godot/imported/waterBuilding.png-3fd8fdb513ac35f4946d4daa7ba0f60a.ctex"]
+source_file="res://assets/images/Cores/FireCore.png"
+dest_files=["res://.godot/imported/FireCore.png-da3ca5b0e3b2f970b63c9c7bc590b9f2.ctex"]
 
 [params]
 
