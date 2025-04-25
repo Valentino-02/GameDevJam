@@ -11,9 +11,10 @@ class_name Character extends Area2D
 @export var _speed : float = 200
 @export var returnSpeed : float = 200
 var outputDir : Vector2
-const STRUCK_TIME : int = 2500
+const STRUCK_TIME : int = 100
 var _struck : int = Time.get_ticks_msec() - STRUCK_TIME
-
+var _struckDir : Vector2 = Vector2.ZERO
+const STRUCK_SPEED : float = 150
 @onready var _origin : Marker2D = get_node("../"+_suffix + "Origin")
 
 func _ready() -> void:
@@ -34,9 +35,10 @@ func _physics_process(delta: float) -> void:
 	#if in an up wind tunnel:
 	if _inWind():
 		origin += Vector2.UP * _radius * 0.55
-	#If we were struck by a fireball or in the rain, register it as a constant downwards input
-	if (Time.get_ticks_msec() < _struck + STRUCK_TIME) or _inRainCloud(): 
+	if _inRainCloud(): 
 		origin += Vector2.DOWN * _radius * 0.55
+	
+	
 
 	#move towards the joystick's origin if no input, otherwise go with the input
 	if inputDir == Vector2.ZERO:
@@ -49,6 +51,10 @@ func _physics_process(delta: float) -> void:
 	global_position = origin + difference.limit_length(_radius)
 	
 	outputDir = global_position - _origin.global_position
+
+	#If we were struck by a fireball push us in that direction
+	if (Time.get_ticks_msec() < _struck + STRUCK_TIME):
+		global_position += _struckDir * STRUCK_SPEED * delta 
 
 
 	
@@ -84,12 +90,20 @@ func _inWind() -> bool:
 func _collideArea(area):
 	if area is Fireball:
 		if element == Types.Element.Fire:
+			area.explosion_strength *= 0.5
+			area._shape_cast.shape.radius *= 0.5
 			area._onCollision(self)
 		else:
 			area.explosion_strength *= 2
 			area._shape_cast.shape.radius *= 2
 			area._onCollision(self)
-			_struck = Time.get_ticks_msec()
+			
+
+func _onFireball(direction : Vector2):
+	_struck = Time.get_ticks_msec()
+	_struckDir = direction
+
+		#need to do something here to ensure we don't leave the boundary, but implementing move and slide is so tedious
 
 func _onZonePatienceEnded(_zone : Types.Zone) -> void:
 	set_physics_process(false)

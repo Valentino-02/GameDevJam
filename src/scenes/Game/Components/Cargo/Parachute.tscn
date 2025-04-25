@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://nprt3pk5estb"]
 
-[ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/Cargo/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="1_7dwob"]
+[ext_resource type="Texture2D" uid="uid://h0yce1nvi3t8" path="res://assets/images/cargo/ChatGPT Image Apr 15, 2025, 02_06_56 PM.png" id="1_7dwob"]
 [ext_resource type="Script" uid="uid://gb01cdh3sdwm" path="res://src/scenes/Game/Components/Cargo/Parachute.gd" id="1_nov0o"]
-[ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/Decoration/Clouds/Cloud 1 no 3.png" id="2_nov0o"]
+[ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/decoration/Clouds/Cloud 1 no 3.png" id="2_nov0o"]
 
 [node name="Parachute" type="Node2D"]
 physics_interpolation_mode = 2

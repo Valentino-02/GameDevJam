@@ -80,11 +80,11 @@ zone = 1
 neededElement = 1
 
 [node name="CargoDropperLeft" parent="Layout" instance=ExtResource("7_gfoan")]
-position = Vector2(-219, -65)
+position = Vector2(-235, -271)
 element = 1
 
 [node name="CargoDropperRight" parent="Layout" instance=ExtResource("7_gfoan")]
-position = Vector2(220, -65)
+position = Vector2(204, -271)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("8_ryhou")]
 phantom_camera = NodePath("../../PhantomCamera2D")
@@ -131,13 +131,11 @@ autostart = true
 
 [node name="Launcher" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-634, 72)
-speed_pattern = Array[float]([0.5, 0.5, 1.0, 1.0, 1.2])
 
 [node name="Launcher2" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-883, -592)
 rotation = 2.73548
 spawn_pattern = Array[float]([1.0, 1.0, 5.0, 0.5, 3.0])
-speed_pattern = Array[float]([0.5, 0.5, 1.0, 1.0, 1.2])
 
 [node name="RainCloud2" parent="Hazards" instance=ExtResource("12_fkqq5")]
 position = Vector2(415, -376)

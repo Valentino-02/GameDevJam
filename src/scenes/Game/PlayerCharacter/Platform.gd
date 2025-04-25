@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name Platform extends RigidBody2D
 
 @export_custom(PROPERTY_HINT_NONE,"suffix:s") var cargo_drop_time: float = 1.5
 

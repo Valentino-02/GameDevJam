@@ -151,7 +151,7 @@ scale_amount_curve = SubResource("Curve_61ysk")
 unique_name_in_owner = true
 position = Vector2(-86, -109)
 collision_layer = 2
-collision_mask = 224
+collision_mask = 480
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
 _radius = 100.0
@@ -198,7 +198,7 @@ position = Vector2(3, -17)
 unique_name_in_owner = true
 position = Vector2(84, -109)
 collision_layer = 2
-collision_mask = 224
+collision_mask = 480
 script = ExtResource("1_h7irl")
 _suffix = "R"
 _rope = NodePath("../RightRope")
@@ -249,8 +249,8 @@ position = Vector2(2, -17)
 unique_name_in_owner = true
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
-collision_layer = 232
-collision_mask = 17
+collision_layer = 8
+collision_mask = 497
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_hu46i")
 center_of_mass_mode = 1
@@ -317,6 +317,7 @@ shape = SubResource("CircleShape2D_vt20b")
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-85, -11)
+collision_layer = 0
 
 [node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-39, -9)
