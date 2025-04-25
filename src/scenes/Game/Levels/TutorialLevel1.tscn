@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=39 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
+[ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="9_ueyvx"]
 [ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneManager.gd" id="11_bete1"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
@@ -24,6 +25,10 @@ script = ExtResource("4_octr6")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueyvx"]
+resource_local_to_scene = true
+size = Vector2(1375, 800)
 
 [sub_resource type="Resource" id="Resource_g87ld"]
 script = ExtResource("14_3hvhq")
@@ -208,6 +213,14 @@ position = Vector2(-3, 212)
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
 position = Vector2(-1, 187)
 
+[node name="ZoneAerea" parent="Layout" instance=ExtResource("9_ueyvx")]
+position = Vector2(-1, -134)
+zone = 2
+
+[node name="CollisionShape2D" parent="Layout/ZoneAerea" index="0"]
+position = Vector2(-47.5, 0)
+shape = SubResource("RectangleShape2D_ueyvx")
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 
 [node name="Cutscenes" type="Node2D" parent="." node_paths=PackedStringArray("cutscenes")]
@@ -351,4 +364,5 @@ script = ExtResource("16_ueyvx")
 hazardsToDemonstrate = [NodePath("../../../Layout")]
 
 [editable path="Layout/BoundaryWalls"]
+[editable path="Layout/ZoneAerea"]
 [editable path="PlayerCharacter"]
