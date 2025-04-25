@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=48 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="18_h8odc"]
 [ext_resource type="PackedScene" uid="uid://dcp1acwb278w1" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.tscn" id="18_sjj33"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="20_kmbku"]
-[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="21_0280k"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="21_eauoq"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="22_n0axo"]
 
@@ -88,35 +87,35 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("21_eauoq")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("22_n0axo")]([SubResource("Resource_kbui7")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_lwbbo"]
 script = ExtResource("21_eauoq")
 cameraToUse = &"Core1"
 dialogues = Array[ExtResource("22_n0axo")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_18vdf"]
 script = ExtResource("21_eauoq")
 cameraToUse = &"Core2"
 dialogues = Array[ExtResource("22_n0axo")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_t4naf"]
 script = ExtResource("21_eauoq")
 cameraToUse = &"Core3"
 dialogues = Array[ExtResource("22_n0axo")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_7mk0e"]
 script = ExtResource("21_eauoq")
 cameraToUse = &"Core4"
 dialogues = Array[ExtResource("22_n0axo")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_eauoq"]
@@ -129,7 +128,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("21_eauoq")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("22_n0axo")]([SubResource("Resource_eauoq")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_6g0lr"]
@@ -385,7 +384,7 @@ position = Vector2(1098, -885)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("18_h8odc")]
 
-[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("20_kmbku")]
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("20_kmbku")]
 type = 1
 storyPoints = Array[ExtResource("21_eauoq")]([SubResource("Resource_2nf82"), SubResource("Resource_lwbbo"), SubResource("Resource_18vdf"), SubResource("Resource_t4naf"), SubResource("Resource_7mk0e"), SubResource("Resource_fx7be")])
 useableCameras = {
@@ -395,10 +394,7 @@ useableCameras = {
 &"Core4": NodePath("CoreSet4"),
 &"Intro": NodePath("Intro")
 }
-
-[node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("21_0280k")
-hazardsToDemonstrate = [NodePath("../../Layout")]
+keepActive = [NodePath("../Layout")]
 
 [node name="Intro" type="Node2D" parent="Cutscene"]
 script = ExtResource("3_joxkf")

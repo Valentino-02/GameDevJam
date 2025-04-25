@@ -42,7 +42,6 @@ func _input(event: InputEvent) -> void:
 	if (event is InputEventKey or event is InputEventMouseButton):
 		if event.is_released():
 			if event.is_action("ui_cancel"):
-				print("Quitting cutscene")
 				CutsceneManager.QuitCutscene()
 				_closeDialogue(true)
 			elif interrupted:

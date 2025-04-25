@@ -19,6 +19,10 @@ var Boundaries: BoundaryWall:
 	get:
 		return _level.Boundaries
 
+var CurrentLevel: Level:
+	get:
+		return _level
+
 func _ready() -> void:
 	_loadLevel()
 	SignalBus.zoneGotCargo.connect(_onZoneGotCargo)

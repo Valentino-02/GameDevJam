@@ -78,7 +78,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("12_l3e5w")
 cameraToUse = &"FireDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_jdpu4")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_bete1"]
@@ -116,7 +116,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("12_l3e5w")
 cameraToUse = &"WaterDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_q5b8i"]
@@ -257,12 +257,13 @@ shape = SubResource("RectangleShape2D_ueyvx")
 script = ExtResource("11_bete1")
 cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper")]
 
-[node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 1
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_e3ggw")])
 useableCameras = {
 &"Player": NodePath("Player")
 }
+keepActive = [NodePath("../../Layout")]
 
 [node name="Player" type="Node2D" parent="Cutscenes/Intro"]
 position = Vector2(0, -68)
@@ -277,17 +278,14 @@ script = ExtResource("17_3hvhq")
 tutorialCutsceneManager = NodePath("../..")
 controlsDisplay = ExtResource("18_61xil")
 
-[node name="Demonstrate" type="Node2D" parent="Cutscenes/Intro" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("16_ueyvx")
-hazardsToDemonstrate = [NodePath("../../../Layout")]
-
-[node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja"), SubResource("Resource_61xil")])
 useableCameras = {
 &"FireDrop": NodePath("FireDrop"),
 &"WaterZone": NodePath("WaterZone")
 }
+keepActive = [NodePath("../../Layout")]
 collisionLayers = 8
 
 [node name="FireDrop" type="Node2D" parent="Cutscenes/FireDropper"]
@@ -329,17 +327,14 @@ debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
 script = ExtResource("17_6ifj0")
 tutorialCutsceneManager = NodePath("../..")
 
-[node name="Demonstrate" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("16_ueyvx")
-hazardsToDemonstrate = [NodePath("../../../Layout")]
-
-[node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl"), SubResource("Resource_s2r5k")])
 useableCameras = {
 &"FireZone": NodePath("FireZone"),
 &"WaterDrop": NodePath("WaterDrop")
 }
+keepActive = [NodePath("../../Layout")]
 collisionLayers = 8
 
 [node name="Area2D" type="Area2D" parent="Cutscenes/WaterDropper"]

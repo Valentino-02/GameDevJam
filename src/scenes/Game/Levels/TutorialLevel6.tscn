@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://b5bdk4aiik0jb"]
+[gd_scene load_steps=41 format=4 uid="uid://b5bdk4aiik0jb"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_4lsem"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_irwij"]
@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_up10j"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="7_eh6si"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_xlsoy"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_qqmpj"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_1kbjl"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_qqmpj"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_1kbjl"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_hoscn"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_egdgh"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_iequo"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="19_eh6si"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="20_0j6ke"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="21_xlsoy"]
-[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="22_qqmpj"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_up10j")
@@ -69,42 +68,42 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("21_xlsoy")]([SubResource("Resource_1kbjl"), SubResource("Resource_lnybr")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_hoscn"]
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Core1"
 dialogues = Array[ExtResource("21_xlsoy")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_egdgh"]
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Core2"
 dialogues = Array[ExtResource("21_xlsoy")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_iequo"]
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Core3"
 dialogues = Array[ExtResource("21_xlsoy")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_3ensq"]
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Core4"
 dialogues = Array[ExtResource("21_xlsoy")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_xxyxp"]
 script = ExtResource("20_0j6ke")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("21_xlsoy")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_f3el3"]
@@ -534,7 +533,7 @@ area = SubResource("RectangleShape2D_irwij")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("17_f3el3")]
 
-[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("19_eh6si")]
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("19_eh6si")]
 type = 1
 storyPoints = Array[ExtResource("20_0j6ke")]([SubResource("Resource_t3p53"), SubResource("Resource_hoscn"), SubResource("Resource_egdgh"), SubResource("Resource_iequo"), SubResource("Resource_3ensq"), SubResource("Resource_xxyxp")])
 useableCameras = {
@@ -544,6 +543,7 @@ useableCameras = {
 &"Core4": NodePath("Core4"),
 &"Intro": NodePath("Intro")
 }
+keepActive = [NodePath("../Layout")]
 
 [node name="Intro" type="Node2D" parent="Cutscene"]
 script = ExtResource("3_eh6si")
@@ -578,10 +578,6 @@ script = ExtResource("3_eh6si")
 tween_resource = SubResource("Resource_r46br")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("22_qqmpj")
-hazardsToDemonstrate = [NodePath("../../Layout")]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]
