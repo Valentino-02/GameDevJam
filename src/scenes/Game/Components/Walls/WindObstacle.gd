@@ -10,7 +10,8 @@ enum windDirection {
 @export var area: Shape2D:
 	set(value):
 		area = value
-		area.changed.connect(_updateArea)
+		if area != null:
+			area.changed.connect(_updateArea)
 @export var activate: bool:
 	set(value):
 		activate = false
@@ -50,8 +51,8 @@ func _ready() -> void:
 func Activate(_node: Node2D = null) -> void:
 	if Engine.is_editor_hint(): return
 	if _active: return
-	_changeParticleSpeed(500)
-	_changeParticleQuantity(80)
+	_changeParticleSpeed(700)
+	_changeParticleQuantity(150)
 	_audioPlayer.play(0.0)
 	await get_tree().create_timer(0.3,true).timeout
 	_active = true
@@ -60,7 +61,7 @@ func Activate(_node: Node2D = null) -> void:
 	await get_tree().create_timer(0.3,true).timeout
 	_audioPlayer.stop()
 	_changeParticleSpeed(80)
-	_changeParticleQuantity(30)
+	_changeParticleQuantity(50)
 	_cooldownTimer.start()
 	
 		
@@ -92,4 +93,5 @@ func _updateArea() -> void:
 	var rect: Rect2 = Rect2(-width,-height,width*2,height*2)
 	_bottomParticles.visibility_rect = rect
 	_topParticles.visibility_rect = rect
+	print("Updated")
 	
