@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqueegl6unt72"
-path="res://.godot/imported/WaterStabilityIcon1.png-ca87e53a912805ad7c0676c4fb6f4052.ctex"
+path="res://.godot/imported/WaterStabilityIcon1.png-b95c369841efd0bc6778340fca72268d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/UI/WaterStabilityIcon1.png"
-dest_files=["res://.godot/imported/WaterStabilityIcon1.png-ca87e53a912805ad7c0676c4fb6f4052.ctex"]
+source_file="res://assets/images/ui/WaterStabilityIcon1.png"
+dest_files=["res://.godot/imported/WaterStabilityIcon1.png-b95c369841efd0bc6778340fca72268d.ctex"]
 
 [params]
 

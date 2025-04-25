@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cw7piruksfhxr"
-path="res://.godot/imported/FireParticle_1.png-ed5558b0a3a1a505ce46b438991976d6.ctex"
+path="res://.godot/imported/FireParticle_1.png-4572f49a30be278bd7a115885280791b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/PlayerCharacters/FireParticle_1.png"
-dest_files=["res://.godot/imported/FireParticle_1.png-ed5558b0a3a1a505ce46b438991976d6.ctex"]
+source_file="res://assets/images/playerCharacters/FireParticle_1.png"
+dest_files=["res://.godot/imported/FireParticle_1.png-4572f49a30be278bd7a115885280791b.ctex"]
 
 [params]
 
