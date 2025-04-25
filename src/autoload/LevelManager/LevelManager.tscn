@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgnwgxomfrrqc" path="res://src/scenes/Game/Levels/TutorialLevel5.tscn" id="7_ao10w"]
 [ext_resource type="PackedScene" uid="uid://b5bdk4aiik0jb" path="res://src/scenes/Game/Levels/TutorialLevel6.tscn" id="8_jas5p"]
 [ext_resource type="PackedScene" uid="uid://crbdnu2euab7g" path="res://src/scenes/Game/Levels/TutorialLevel8.tscn" id="10_7npa2"]
-[ext_resource type="PackedScene" uid="uid://ccsaiyjgnoe2w" path="res://src/scenes/Game/Levels/TutorialLevel7.tscn" id="10_jas5p"]
+[ext_resource type="PackedScene" uid="uid://c0mml0v1r3d8b" path="res://src/scenes/Game/Levels/TutorialLevel7.tscn" id="10_jas5p"]
 [ext_resource type="PackedScene" uid="uid://ckq61v4u30o2u" path="res://src/scenes/Game/Levels/WinLevel.tscn" id="11_j1w0n"]
 
 [sub_resource type="Resource" id="Resource_dmswm"]

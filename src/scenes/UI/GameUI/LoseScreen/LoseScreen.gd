@@ -14,7 +14,6 @@ func _ready() -> void:
 	await get_tree().process_frame 
 	_targetPosition = _modal.position
 	_hiddenPosition.x = _modal.position.x
-	SignalBus.zonePatienceEnded
 
 
 func trigger(isSecretWin: bool = false) -> void:
@@ -23,7 +22,7 @@ func trigger(isSecretWin: bool = false) -> void:
 		_restartButton.text = "Next Level"
 	AudioManager.sfx.play(ResourceIds.SfxId.LoseFanfare)
 	_playIntroAnimation()
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	AudioManager.music.play(ResourceIds.MusicId.WaitTheme)
 
 

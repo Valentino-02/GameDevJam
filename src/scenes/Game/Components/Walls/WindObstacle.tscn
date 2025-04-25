@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://b47dr2vts133"]
 
 [ext_resource type="Script" uid="uid://c76jcqku8dkkf" path="res://src/scenes/Game/Components/Walls/WindObstacle.gd" id="1_xs381"]
-[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/test-background.png" id="2_24163"]
-[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/tilemap_packed.png" id="2_etb6u"]
+[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="2_24163"]
+[ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/Tilemap/tilemap_packed.png" id="2_etb6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etb6u"]
 size = Vector2(148.47, 150)

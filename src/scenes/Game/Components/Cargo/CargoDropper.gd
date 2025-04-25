@@ -5,7 +5,6 @@ class_name CargoDropper extends Node2D
 @export var element : Types.Element 
 
 @onready var _cooldownTimer : Timer = %CooldownTimer
-@onready var _uiHelpers : Control = %UI_Helpers
 @onready var _spawnMarker : Marker2D = %SpawnMarker
 @onready var _distributionMarker : Marker2D = %DistributionMarker
 @onready var _forgeSprites: AnimatedSprite2D = $ForgeBody
@@ -25,7 +24,7 @@ func _ready() -> void:
 	SignalBus.registerForMinimap.emit(self)
 	_floatForever(_forgeSprites.position)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not _interactable:
 		return
 	if _onCooldown:

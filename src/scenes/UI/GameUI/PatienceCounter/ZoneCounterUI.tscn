@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://rvm2k5e6fiu5"]
 
 [ext_resource type="Script" uid="uid://b4jftxhwgjgal" path="res://src/scenes/UI/GameUI/PatienceCounter/ZoneCounterUI.gd" id="1_o24to"]
-[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/ui/WaterStabilityIcon1.png" id="2_xbofg"]
+[ext_resource type="Texture2D" uid="uid://dqueegl6unt72" path="res://assets/images/UI/WaterStabilityIcon1.png" id="2_xbofg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbofg"]
 bg_color = Color(0, 0, 0, 1)

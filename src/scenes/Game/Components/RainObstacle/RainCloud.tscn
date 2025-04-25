@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcp1acwb278w1"]
 
 [ext_resource type="Script" uid="uid://bwtb1jvuuy63" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.gd" id="1_12i4d"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="3_nbk4r"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="3_nbk4r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kaqv7"]
 friction = 0.2

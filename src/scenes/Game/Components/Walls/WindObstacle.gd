@@ -16,19 +16,19 @@ enum windDirection {
 		activate = false
 		Activate()
 
-signal sizeChanged
+#signal sizeChanged
 
 ##Current bodies within collider
-var _bodies: Array[RigidBody2D] = []
-var _direction: Vector2:
-	get:
-		match forceDirection:
-			windDirection.UP:
-				return Vector2.UP
-			windDirection.DOWN:
-				return Vector2.DOWN
-			_:
-				return Vector2.ZERO
+#var _bodies: Array[RigidBody2D] = []
+#var _direction: Vector2:
+	#get:
+		#match forceDirection:
+			#windDirection.UP:
+				#return Vector2.UP
+			#windDirection.DOWN:
+				#return Vector2.DOWN
+			#_:
+				#return Vector2.ZERO
 var _active: bool = false
 var activeParticles: GPUParticles2D
 

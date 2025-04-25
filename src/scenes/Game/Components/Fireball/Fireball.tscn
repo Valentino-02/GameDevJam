@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgguquisbu86e"]
 
-[ext_resource type="Texture2D" uid="uid://c4pwdexb65v4e" path="res://assets/images/playerCharacters/FireParticle_2.png" id="1_0domy"]
+[ext_resource type="Texture2D" uid="uid://c4pwdexb65v4e" path="res://assets/images/PlayerCharacters/FireParticle_2.png" id="1_0domy"]
 [ext_resource type="Script" uid="uid://bhlbb5l5uxxt" path="res://src/scenes/Game/Components/Fireball/Fireball.gd" id="1_y0wbd"]
-[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="3_icb7b"]
+[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/PlayerCharacters/FireParticle_1.png" id="3_icb7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0domy"]
 radius = 4.0

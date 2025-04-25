@@ -26,7 +26,7 @@ func changeToScene(id: ResourceIds.SceneId) -> void:
 	_transitioning = true
 	await _transitionIn()
 	get_tree().change_scene_to_packed(scene.packedScene)
-	await _transitionOut()
+	_transitionOut()
 	_transitioning = false
 
 func _transitionIn() -> void:

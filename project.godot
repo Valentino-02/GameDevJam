@@ -22,7 +22,6 @@ buses/default_bus_layout="uid://jylubkxfmgja"
 
 [autoload]
 
-RngManager="*res://src/autoload/RngManager/RngManager.gd"
 AudioManager="*res://src/autoload/AudioManager/AudioManager.tscn"
 SignalBus="*res://src/autoload/SignalBus/SignalBus.gd"
 TransitionManager="*res://src/autoload/TransitionManager/TransitionManager.tscn"
@@ -30,6 +29,7 @@ PreloadedResources="*res://src/autoload/PreloadedResources/PreloadedResources.ts
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 LevelManager="*res://src/autoload/LevelManager/LevelManager.tscn"
 CutsceneManager="*res://src/autoload/CutsceneManager/CutsceneManager.gd"
+PlayerRelativePosition="*res://src/autoload/PlayerRelativePosition/PlayerRelativePosition.gd"
 
 [display]
 

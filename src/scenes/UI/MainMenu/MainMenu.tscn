@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cigwrtdx1cq0l" path="res://src/scenes/UI/MainMenu/MainMenu.gd" id="2_vahk2"]
 [ext_resource type="PackedScene" uid="uid://cfkmar6pxjrgv" path="res://src/scenes/UI/MainMenu/LevelSelector/LevelSelector.tscn" id="3_dgtb3"]
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="3_vahk2"]
-[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/test-background.png" id="4_dgtb3"]
+[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="4_dgtb3"]
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 2

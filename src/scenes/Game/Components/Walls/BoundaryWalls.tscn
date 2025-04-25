@@ -16,10 +16,10 @@ normal = Vector2(0, 1)
 
 [node name="BoundaryWalls" type="Node2D"]
 script = ExtResource("1_8rynp")
+border = 0
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(2600, 0)
-collision_layer = 14
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
@@ -27,7 +27,6 @@ shape = SubResource("WorldBoundaryShape2D_q4hgp")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(-2600, 0)
-collision_layer = 14
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
@@ -35,7 +34,6 @@ shape = SubResource("WorldBoundaryShape2D_x2im0")
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(0, -700)
-collision_layer = 14
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
@@ -43,7 +41,6 @@ shape = SubResource("WorldBoundaryShape2D_bqyfw")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 700)
-collision_layer = 14
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
