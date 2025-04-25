@@ -35,7 +35,8 @@ func _process(_delta: float) -> void:
 func updateBackgroundPosition() -> void:
 	var center_offset = _maxBackgroundScroll * 0.5
 	var allowed_scroll = min(_level.backgroundScrollCap, center_offset)
-	var relativePosition = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
+#	var relativePosition = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
+	var relativePosition = PlayerRelativePosition.relativePosition
 	var offset = relativePosition * _maxBackgroundScroll
 	_backgroundTextureRect.position.x = - clamp(offset, center_offset - allowed_scroll, center_offset + allowed_scroll)
 

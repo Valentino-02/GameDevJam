@@ -92,6 +92,7 @@ region_rect = Rect2(8, 47, 100, 31)
 [resource]
 default_font = ExtResource("1_fjke4")
 default_font_size = 14
+Button/constants/outline_size = 3
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxEmpty_v7hcx")
 Button/styles/hover = SubResource("StyleBoxFlat_gi2nq")

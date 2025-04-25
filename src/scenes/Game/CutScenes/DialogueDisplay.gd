@@ -41,7 +41,9 @@ func PlayDialogue(dialogue: Dialogue, keepPanelUp = false) -> void:
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey or event is InputEventMouseButton):
 		if event.is_released():
-			if interrupted:
+			if event.is_action("ui_cancel"):
+				CutsceneManager.QuitCutscene()
+			elif interrupted:
 				_closeDialogue()
 			else:
 				interrupted = true

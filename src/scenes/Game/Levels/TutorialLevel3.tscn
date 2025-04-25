@@ -42,7 +42,7 @@ size = Vector2(855, 1218)
 [sub_resource type="Resource" id="Resource_joadm"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "Back the the real world now. No more memories!"
+dialogueLine = "Back to the real world now. No more memories!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_pc0oe"]
@@ -54,7 +54,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_hm1sc"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "We will still give you a head start! Let's have a look."
+dialogueLine = "We will give you a head start! Let's have a look."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_qow2f"]
@@ -95,19 +95,19 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_tot5p"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "As you see this time we have four cores. You will need to feed [color=red]all[/color] of these, since the cores might oversaturate when feed to much elemental goodness!"
+dialogueLine = "As you can see, here we have four cores. You will need to deliver to  [color=#ff4e50]all[/color] of these, to keep the cores stable!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_qahow"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 2
-dialogueLine = "Also, please remember to pay attention to each realm! Don't just concentrate on one, or the other will get out of control! We need to maintain..."
+dialogueLine = "​​Also, please remember to pay attention to each realm! Don't just concentrate on one, or the others will get out of control! We need to maintain…"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_jrpou"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 2
-dialogueLine = "[center][font_size=80][color=red]B[/color][color=blue]A[/color][color=red]L[/color][color=blue]A[/color][color=red]N[/color][color=blue]C[/color][color=red]E[/color][/font_size][/center]"
+dialogueLine = "[center][font_size=80][color=#ff4e50]B[/color][color=#42dffe]A[/color][color=#ff4e50]L[/color][color=#42dffe]A[/color][color=#ff4e50]N[/color][color=#42dffe]C[/color][color=#ff4e50]E[/color][/font_size][/center]"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_xc6p4"]
