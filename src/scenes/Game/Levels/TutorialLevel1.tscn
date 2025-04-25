@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=41 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -6,24 +6,15 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_octr6"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_61xil"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_8cynx"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="6_8qktd"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="8_0mkr8"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="8_gbvjv"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="9_ueyvx"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="9_x8a63"]
-[ext_resource type="Texture2D" uid="uid://45o2cn2u8dix" path="res://assets/images/Decoration/Clouds/Cloud 2.1.png" id="10_ek4en"]
-[ext_resource type="Texture2D" uid="uid://brctbs6rotc21" path="res://assets/images/Decoration/Clouds/Cloud 3.1.png" id="10_gbvjv"]
 [ext_resource type="Script" uid="uid://di8kk4fwqu2is" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneManager.gd" id="11_bete1"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="11_octr6"]
-[ext_resource type="Texture2D" uid="uid://c4i34jl2mke1f" path="res://assets/images/Decoration/Clouds/Cloud 1.png" id="12_ek4en"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="12_l3e5w"]
-[ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/Decoration/Clouds/Cloud 1 no 3.png" id="13_8qktd"]
-[ext_resource type="Texture2D" uid="uid://b6oamg1i0ft7f" path="res://assets/images/Decoration/Clouds/Cloud 2.2.png" id="14_0mkr8"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="14_3hvhq"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="15_g4jxx"]
 [ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="16_ueyvx"]
 [ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
 [ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/CutsceneComplete.gd" id="17_6ifj0"]
@@ -184,42 +175,14 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
 z_index = -1
 
-[node name="Sprite2D10" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(-501, -120)
-scale = Vector2(2, 2)
-texture = ExtResource("14_0mkr8")
-flip_h = true
-
-[node name="Sprite2D14" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(504, -157)
-scale = Vector2(2, 2)
-texture = ExtResource("14_0mkr8")
-
-[node name="Sprite2D15" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(-60, 86)
-scale = Vector2(2, 2)
-texture = ExtResource("6_8qktd")
-
-[node name="Sprite2D11" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(532, -222)
-scale = Vector2(2, 2)
-texture = ExtResource("15_g4jxx")
-flip_h = true
-
-[node name="Sprite2D12" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(274, -6)
-scale = Vector2(2, 2)
-texture = ExtResource("15_g4jxx")
-flip_h = true
-
-[node name="Sprite2D13" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(-241, -9)
-scale = Vector2(2, 2)
-texture = ExtResource("15_g4jxx")
-flip_h = true
-
 [node name="AnimatedCloud" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
-position = Vector2(132, -55)
+position = Vector2(87, 76)
+
+[node name="AnimatedCloud2" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
+position = Vector2(487, -234)
+
+[node name="AnimatedCloud3" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
+position = Vector2(-314, -5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
@@ -230,41 +193,20 @@ tile_set = ExtResource("5_61xil")
 
 [node name="Decorations" type="Node2D" parent="Layout"]
 
-[node name="Sprite2D4" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(309, -56)
-scale = Vector2(2, 2)
-texture = ExtResource("8_gbvjv")
-flip_h = true
-
-[node name="Sprite2D5" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(88, 69)
-scale = Vector2(2, 2)
-texture = ExtResource("9_x8a63")
-flip_h = true
-
-[node name="Sprite2D7" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(558, -8)
-scale = Vector2(2, 2)
-texture = ExtResource("10_gbvjv")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(-307, -51)
-scale = Vector2(2, 2)
-texture = ExtResource("10_ek4en")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(-468, -232)
-scale = Vector2(2, 2)
-texture = ExtResource("12_ek4en")
-
-[node name="Sprite2D9" type="Sprite2D" parent="Layout/Decorations"]
-position = Vector2(465, -272)
-scale = Vector2(2, 2)
-texture = ExtResource("13_8qktd")
-flip_h = true
-
 [node name="AnimatedCloud2" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
-position = Vector2(-120, -38)
+position = Vector2(-122, -40)
+
+[node name="AnimatedCloud3" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(-493, -196)
+
+[node name="AnimatedCloud4" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(-509, -76)
+
+[node name="AnimatedCloud5" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(311, -63)
+
+[node name="AnimatedCloud6" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(511, -40)
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(-415, -7)
