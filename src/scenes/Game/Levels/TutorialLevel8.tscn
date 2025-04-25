@@ -475,7 +475,7 @@ position = Vector2(5, 0)
 area = SubResource("RectangleShape2D_dkd77")
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
-position = Vector2(-1274, 1309)
+position = Vector2(-1684, 1123)
 
 [node name="RainCloud" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
 position = Vector2(628, 173)
