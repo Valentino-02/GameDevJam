@@ -22,8 +22,11 @@ func _ready() -> void:
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
 func _process(_delta: float) -> void:
+	var center_offset = _maxBackgroundScroll * 0.5
+	var allowed_scroll = min(_level.backgroundScrollCap, center_offset)  # Prevent going beyond bounds
 	var offset = PlayerRelativePosition.relativePosition * _maxBackgroundScroll
-	_backgroundTextureRect.position.x = - offset
+	_backgroundTextureRect.position.x = - clamp(offset, center_offset - allowed_scroll, center_offset + allowed_scroll)
+
 
 func _loadLevel() -> void:
 	var level: Level = LevelManager.getTargetLevel().instantiate()
