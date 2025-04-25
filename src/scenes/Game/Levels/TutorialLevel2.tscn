@@ -1,20 +1,21 @@
-[gd_scene load_steps=35 format=4 uid="uid://d2coyxn87hnja"]
+[gd_scene load_steps=37 format=4 uid="uid://d2coyxn87hnja"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_8t3it"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_r2rr6"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_vdaln"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_tc3ar"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_43grl"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_43grl"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_jkjg2"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="6_6xdjt"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="6_6xdjt"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_be5u0"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_uel7w"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="7_71cuf"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_uel7w"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="7_71cuf"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_oh5fu"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="8_w26dr"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="9_b5hix"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_g5jiv"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_4h3e3"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_g5jiv"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_4h3e3"]
+[ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_r2rr6"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="16_g5jiv"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="17_vdaln"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="18_tc3ar"]
@@ -25,6 +26,10 @@ script = ExtResource("4_tc3ar")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2rr6"]
+resource_local_to_scene = true
+size = Vector2(1308, 800)
 
 [sub_resource type="Resource" id="Resource_w26dr"]
 script = ExtResource("18_tc3ar")
@@ -225,6 +230,13 @@ position = Vector2(0, 243)
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
 position = Vector2(0, 234)
 
+[node name="ZoneAerea" parent="Layout" instance=ExtResource("15_r2rr6")]
+position = Vector2(-2, -62)
+
+[node name="CollisionShape2D" parent="Layout/ZoneAerea" index="0"]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_r2rr6")
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_b5hix")]
 
 [node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("16_g5jiv")]
@@ -255,4 +267,5 @@ script = ExtResource("21_oh5fu")
 hazardsToDemonstrate = [NodePath("../../Layout/CollectionZoneRight")]
 
 [editable path="Layout/BoundaryWalls"]
+[editable path="Layout/ZoneAerea"]
 [editable path="PlayerCharacter"]
