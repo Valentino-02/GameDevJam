@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	if _cutsceneRunning:
 		if defaultCamera == null:
 			defaultCamera = _game.Camera
-		_game.UpdateRelativePositions()
+		_game.updateBackgroundPosition()
 		PlayerRelativePosition.cutscenePosition = (defaultCamera.get_screen_center_position().x - _game.Boundaries.getLeftWallPosition().x)/_game.Boundaries.getLevelWidth()
 
 func PlayCutscene(cutscene: Cutscene) -> void:
