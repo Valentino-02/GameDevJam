@@ -30,6 +30,9 @@ func _ready() -> void:
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
 func _process(_delta: float) -> void:
+	updateBackgroundPosition()
+
+func updateBackgroundPosition() -> void:
 	var center_offset = _maxBackgroundScroll * 0.5
 	var allowed_scroll = min(_level.backgroundScrollCap, center_offset)
 	var relativePosition = PlayerRelativePosition.cutscenePosition if CutsceneManager.Running else PlayerRelativePosition.relativePosition
