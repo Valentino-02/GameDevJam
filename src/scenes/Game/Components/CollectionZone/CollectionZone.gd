@@ -28,11 +28,14 @@ func _ready() -> void:
 	SignalBus.registerForMinimap.emit(self)
 
 func _disable() -> void:
+	print("disabled!")
 	AudioManager.sfx.play(ResourceIds.SfxId.PowerDown)
 	_isDisabled = true
 	if neededElement == Types.Element.Water:
+		print("disabled fire!")
 		_animationPlayer.play("FIRE_DISABLED")
-	if neededElement == Types.Element.Water:
+	if neededElement == Types.Element.Fire:
+		print("disabled water!")
 		_animationPlayer.play("WATER_DISABLED")
 
 func _on_body_entered(body: Node2D) -> void:

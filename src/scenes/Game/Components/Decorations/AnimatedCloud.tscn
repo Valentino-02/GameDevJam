@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqmfa3we86wrp"]
+[gd_scene load_steps=11 format=3 uid="uid://bqmfa3we86wrp"]
 
 [ext_resource type="Texture2D" uid="uid://dp4hxjvjoc1h1" path="res://assets/images/Decoration/Clouds/Cloud 1 no 3.png" id="1_iskt4"]
 [ext_resource type="Script" uid="uid://bnewyuqeebi78" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.gd" id="2_o2dkq"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="3_ix21h"]
+[ext_resource type="Texture2D" uid="uid://c4i34jl2mke1f" path="res://assets/images/Decoration/Clouds/Cloud 1.png" id="4_jyop5"]
+[ext_resource type="Texture2D" uid="uid://45o2cn2u8dix" path="res://assets/images/Decoration/Clouds/Cloud 2.1.png" id="5_os8eu"]
+[ext_resource type="Texture2D" uid="uid://b6oamg1i0ft7f" path="res://assets/images/Decoration/Clouds/Cloud 2.2.png" id="6_6iugt"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="7_g8osm"]
+[ext_resource type="Texture2D" uid="uid://brctbs6rotc21" path="res://assets/images/Decoration/Clouds/Cloud 3.1.png" id="8_ms20w"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="9_ybxe0"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="10_d3jg7"]
 
 [node name="AnimatedCloud" type="Sprite2D"]
 scale = Vector2(2, 2)
 texture = ExtResource("1_iskt4")
 script = ExtResource("2_o2dkq")
+textures = Array[Texture2D]([ExtResource("3_ix21h"), ExtResource("1_iskt4"), ExtResource("4_jyop5"), ExtResource("5_os8eu"), ExtResource("6_6iugt"), ExtResource("7_g8osm"), ExtResource("8_ms20w"), ExtResource("9_ybxe0"), ExtResource("10_d3jg7")])
