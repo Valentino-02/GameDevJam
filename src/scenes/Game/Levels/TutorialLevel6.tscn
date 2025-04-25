@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b5bdk4aiik0jb"]
+[gd_scene load_steps=43 format=4 uid="uid://b5bdk4aiik0jb"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_4lsem"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_irwij"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="16_xxyxp"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="17_f3el3"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="17_irwij"]
+[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="19_eh6si"]
+[ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="20_0j6ke"]
+[ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="21_xlsoy"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="22_qqmpj"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_up10j")
@@ -46,8 +50,91 @@ resource_local_to_scene = true
 size = Vector2(1510, 2841)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irwij"]
-resource_local_to_scene = true
-size = Vector2(497, 2510)
+size = Vector2(600, 2800)
+
+[sub_resource type="Resource" id="Resource_1kbjl"]
+script = ExtResource("21_xlsoy")
+speakingCharacter = 2
+dialogueLine = "It's time to get these packages [color=blue]flowing[/color]."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_lnybr"]
+script = ExtResource("21_xlsoy")
+speakingCharacter = 1
+dialogueLine = "Good luck! Watch out for the Great Wind though, it might catch you off guard."
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_t3p53"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("21_xlsoy")]([SubResource("Resource_1kbjl"), SubResource("Resource_lnybr")])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_hoscn"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Core1"
+dialogues = Array[ExtResource("21_xlsoy")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_egdgh"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Core2"
+dialogues = Array[ExtResource("21_xlsoy")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_iequo"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Core3"
+dialogues = Array[ExtResource("21_xlsoy")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_3ensq"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Core4"
+dialogues = Array[ExtResource("21_xlsoy")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_xxyxp"]
+script = ExtResource("20_0j6ke")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("21_xlsoy")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_f3el3"]
+script = ExtResource("4_up10j")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_nsdi8"]
+script = ExtResource("4_up10j")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_gxsbp"]
+script = ExtResource("4_up10j")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_m8cku"]
+script = ExtResource("4_up10j")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_r46br"]
+script = ExtResource("4_up10j")
+duration = 2.0
+transition = 0
+ease = 2
 
 [node name="TutorialLevel6" type="Node2D"]
 script = ExtResource("1_4lsem")
@@ -223,6 +310,7 @@ position = Vector2(1163, 18.5)
 shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="InitialCargo" type="Node2D" parent="Layout"]
+process_mode = 3
 
 [node name="Cargo2" parent="Layout/InitialCargo" instance=ExtResource("16_xxyxp")]
 position = Vector2(523, 88)
@@ -336,13 +424,59 @@ position = Vector2(1438, 65)
 [node name="Obstacles" type="Node2D" parent="Layout"]
 
 [node name="WindObstacle" parent="Layout/Obstacles" instance=ExtResource("17_irwij")]
-position = Vector2(-5, -430)
-
-[node name="CollisionShape2D" parent="Layout/Obstacles/WindObstacle/Area2D" index="0"]
-position = Vector2(8.5, 573)
-shape = SubResource("RectangleShape2D_irwij")
+position = Vector2(-5, 12)
+area = SubResource("RectangleShape2D_irwij")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("17_f3el3")]
+
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("19_eh6si")]
+type = 1
+storyPoints = Array[ExtResource("20_0j6ke")]([SubResource("Resource_t3p53"), SubResource("Resource_hoscn"), SubResource("Resource_egdgh"), SubResource("Resource_iequo"), SubResource("Resource_3ensq"), SubResource("Resource_xxyxp")])
+useableCameras = {
+&"Core1": NodePath("Core1"),
+&"Core2": NodePath("Core2"),
+&"Core3": NodePath("Core3"),
+&"Core4": NodePath("Core4"),
+&"Intro": NodePath("Intro")
+}
+
+[node name="Intro" type="Node2D" parent="Cutscene"]
+script = ExtResource("3_eh6si")
+tween_resource = SubResource("Resource_f3el3")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Core1" type="Node2D" parent="Cutscene"]
+position = Vector2(-891, 728)
+script = ExtResource("3_eh6si")
+tween_resource = SubResource("Resource_nsdi8")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Core2" type="Node2D" parent="Cutscene"]
+position = Vector2(-904, -328)
+script = ExtResource("3_eh6si")
+tween_resource = SubResource("Resource_gxsbp")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Core3" type="Node2D" parent="Cutscene"]
+position = Vector2(959, -441)
+script = ExtResource("3_eh6si")
+tween_resource = SubResource("Resource_m8cku")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Core4" type="Node2D" parent="Cutscene"]
+position = Vector2(1021, 501)
+script = ExtResource("3_eh6si")
+tween_resource = SubResource("Resource_r46br")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("22_qqmpj")
+hazardsToDemonstrate = [NodePath("../../Layout")]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]
@@ -352,5 +486,4 @@ shape = SubResource("RectangleShape2D_irwij")
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
 [editable path="Layout/ZoneAreas/ZoneAerea3"]
-[editable path="Layout/Obstacles/WindObstacle"]
 [editable path="PlayerCharacter"]

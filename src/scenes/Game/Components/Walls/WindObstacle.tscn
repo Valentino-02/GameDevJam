@@ -1,15 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://b47dr2vts133"]
+[gd_scene load_steps=10 format=3 uid="uid://b47dr2vts133"]
 
 [ext_resource type="Script" uid="uid://c76jcqku8dkkf" path="res://src/scenes/Game/Components/Walls/WindObstacle.gd" id="1_xs381"]
 [ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="2_24163"]
 [ext_resource type="Texture2D" uid="uid://dirrt4bvu3sk5" path="res://assets/images/Tilemap/tilemap_packed.png" id="2_etb6u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_etb6u"]
-size = Vector2(148.47, 150)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_24163"]
 atlas = ExtResource("2_24163")
-region = Rect2(-74.235, -75, 148.47, 150)
+region = Rect2(-200, -1100, 400, 2200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6qf7"]
 atlas = ExtResource("2_etb6u")
@@ -26,7 +23,7 @@ curve = SubResource("Curve_0opmp")
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(74.235, 75, 0)
+emission_box_extents = Vector3(200, 1100, 0)
 direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 20.0
@@ -41,7 +38,7 @@ hue_variation_max = 0.00999998
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(74.235, 75, 0)
+emission_box_extents = Vector3(200, 1100, 0)
 direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 20.0
@@ -54,15 +51,13 @@ hue_variation_max = 0.00999998
 
 [node name="WindObstacle" type="Node2D"]
 script = ExtResource("1_xs381")
-area = SubResource("RectangleShape2D_etb6u")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_etb6u")
-debug_color = Color(0, 0.941176, 0.831373, 0)
+debug_color = Color(1, 1, 1, 0.235294)
 
 [node name="SpriteMask" type="Sprite2D" parent="."]
 clip_children = 1

@@ -108,7 +108,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("18_7ggk0")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("19_nbmg5")]([SubResource("Resource_ys0ro"), SubResource("Resource_k1wl4"), SubResource("Resource_674lg"), SubResource("Resource_7hard")])
-childToTrigger = ""
+childToTrigger = "Demonstrate"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_kaa8i"]
@@ -295,7 +295,7 @@ useableCameras = {
 
 [node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
 script = ExtResource("20_7ggk0")
-hazardsToDemonstrate = [NodePath("../../Layout/CollectionZones"), NodePath("../../Layout/CargoDroppers")]
+hazardsToDemonstrate = [NodePath("../../Layout")]
 
 [node name="Intro" type="Node2D" parent="Cutscene"]
 script = ExtResource("3_67vf8")

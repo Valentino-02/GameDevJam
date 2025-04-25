@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=41 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="17_amhy0"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="18_h8odc"]
 [ext_resource type="PackedScene" uid="uid://dcp1acwb278w1" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.tscn" id="18_sjj33"]
+[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="20_kmbku"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="21_0280k"]
+[ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="21_eauoq"]
+[ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="22_n0axo"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_kmbku")
@@ -46,9 +50,71 @@ size = Vector2(1291, 1999)
 resource_local_to_scene = true
 size = Vector2(1301, 1971)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irwij"]
-resource_local_to_scene = true
-size = Vector2(417, 1919)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjj33"]
+size = Vector2(400, 2200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joxkf"]
+size = Vector2(400, 2200)
+
+[sub_resource type="Resource" id="Resource_kbui7"]
+script = ExtResource("22_n0axo")
+speakingCharacter = 2
+dialogueLine = "Lets look around quickly and get straight to it!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_2nf82"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("22_n0axo")]([SubResource("Resource_kbui7")])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_lwbbo"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Core1"
+dialogues = Array[ExtResource("22_n0axo")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_18vdf"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Core2"
+dialogues = Array[ExtResource("22_n0axo")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_t4naf"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Core3"
+dialogues = Array[ExtResource("22_n0axo")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_7mk0e"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Core4"
+dialogues = Array[ExtResource("22_n0axo")]([])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_eauoq"]
+script = ExtResource("22_n0axo")
+speakingCharacter = 1
+dialogueLine = "You'd better get moving, time is [color=red]burning[/color] away!"
+metadata/_custom_type_script = "uid://wil8yv1k8und"
+
+[sub_resource type="Resource" id="Resource_fx7be"]
+script = ExtResource("21_eauoq")
+cameraToUse = &"Intro"
+dialogues = Array[ExtResource("22_n0axo")]([SubResource("Resource_eauoq")])
+childToTrigger = "Demonstrate"
+metadata/_custom_type_script = "uid://dr4g3okg075lr"
+
+[sub_resource type="Resource" id="Resource_6g0lr"]
+script = ExtResource("4_kmbku")
+duration = 2.0
+transition = 0
+ease = 2
 
 [node name="TutorialLevel7" type="Node2D"]
 script = ExtResource("1_84vmn")
@@ -277,18 +343,12 @@ shape = SubResource("RectangleShape2D_eo8bu")
 [node name="Obstacles" type="Node2D" parent="Layout"]
 
 [node name="WindObstacle" parent="Layout/Obstacles" instance=ExtResource("17_amhy0")]
-position = Vector2(-477, -430)
-
-[node name="CollisionShape2D" parent="Layout/Obstacles/WindObstacle/Area2D" index="0"]
-position = Vector2(36.5, 470.5)
-shape = SubResource("RectangleShape2D_irwij")
+position = Vector2(-477, 0)
+area = SubResource("RectangleShape2D_sjj33")
 
 [node name="WindObstacle2" parent="Layout/Obstacles" instance=ExtResource("17_amhy0")]
-position = Vector2(418, -724)
-
-[node name="CollisionShape2D" parent="Layout/Obstacles/WindObstacle2/Area2D" index="0"]
-position = Vector2(2.5, 769)
-shape = SubResource("RectangleShape2D_irwij")
+position = Vector2(418, 0)
+area = SubResource("RectangleShape2D_joxkf")
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_84vmn")]
 position = Vector2(-1265, 1061)
@@ -300,6 +360,56 @@ position = Vector2(897, -154)
 position = Vector2(1098, -885)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("18_h8odc")]
+
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("20_kmbku")]
+type = 1
+storyPoints = Array[ExtResource("21_eauoq")]([SubResource("Resource_2nf82"), SubResource("Resource_lwbbo"), SubResource("Resource_18vdf"), SubResource("Resource_t4naf"), SubResource("Resource_7mk0e"), SubResource("Resource_fx7be")])
+useableCameras = {
+&"Core1": NodePath("CoreSet1"),
+&"Core2": NodePath("CoreSet2"),
+&"Core3": NodePath("CoreSet3"),
+&"Core4": NodePath("CoreSet4"),
+&"Intro": NodePath("Intro")
+}
+
+[node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("21_0280k")
+hazardsToDemonstrate = [NodePath("../../Layout")]
+
+[node name="Intro" type="Node2D" parent="Cutscene"]
+script = ExtResource("3_joxkf")
+zoom = Vector2(1.2, 1.2)
+tween_resource = SubResource("Resource_6g0lr")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CoreSet1" type="Node2D" parent="Cutscene"]
+position = Vector2(-1454, -495)
+script = ExtResource("3_joxkf")
+tween_resource = SubResource("Resource_6g0lr")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CoreSet2" type="Node2D" parent="Cutscene"]
+position = Vector2(1106, -666)
+script = ExtResource("3_joxkf")
+tween_resource = SubResource("Resource_6g0lr")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CoreSet3" type="Node2D" parent="Cutscene"]
+position = Vector2(1225, 626)
+script = ExtResource("3_joxkf")
+tween_resource = SubResource("Resource_6g0lr")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CoreSet4" type="Node2D" parent="Cutscene"]
+position = Vector2(-1402, 666)
+script = ExtResource("3_joxkf")
+tween_resource = SubResource("Resource_6g0lr")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]
@@ -315,6 +425,4 @@ position = Vector2(1098, -885)
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
 [editable path="Layout/ZoneAreas/ZoneAerea3"]
-[editable path="Layout/Obstacles/WindObstacle"]
-[editable path="Layout/Obstacles/WindObstacle2"]
 [editable path="PlayerCharacter"]
