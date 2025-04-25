@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cpjhkuntj4ebs" path="res://src/scenes/Game/Game.gd" id="1_g75gr"]
 [ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="2_klkct"]
 [ext_resource type="PackedScene" uid="uid://qhls7itmme5b" path="res://src/scenes/UI/DialogueUI/dialogueUI.tscn" id="5_hga1y"]
-[ext_resource type="Script" path="res://src/scenes/Game/Levels/ParallaxZoom.gd" id="6_h22ok"]
+[ext_resource type="Script" uid="uid://iaf7h03ijc2l" path="res://src/scenes/Game/Levels/ParallaxZoom.gd" id="6_h22ok"]
 [ext_resource type="PackedScene" uid="uid://blqjsj4wbhr8u" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="6_hkmll"]
 [ext_resource type="Texture2D" uid="uid://2q2ism52r5b2" path="res://assets/images/Background/BACKGROUND_WINTER_DAY_4.png" id="6_v38yi"]
 [ext_resource type="Texture2D" uid="uid://begg6frrwam04" path="res://assets/images/Background/BACKGROUND_SUMMER_DAY_5.png" id="7_h22ok"]

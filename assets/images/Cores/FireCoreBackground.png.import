@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cosbw24og4ol8"
-path="res://.godot/imported/fireBuilding.png-7de54544a183cefc2008fee9c54e5385.ctex"
+uid="uid://dvwtmj5e7wm58"
+path="res://.godot/imported/FireCoreBackground.png-b485814de6244476a34bdb5b174fb8e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/fireBuilding.png"
-dest_files=["res://.godot/imported/fireBuilding.png-7de54544a183cefc2008fee9c54e5385.ctex"]
+source_file="res://assets/images/Cores/FireCoreBackground.png"
+dest_files=["res://.godot/imported/FireCoreBackground.png-b485814de6244476a34bdb5b174fb8e3.ctex"]
 
 [params]
 

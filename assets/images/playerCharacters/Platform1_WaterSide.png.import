@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpjq6dkeeppxp"
-path="res://.godot/imported/Platform1_WaterSide.png-fcbc7ddd6506585302247c09c56cdf7e.ctex"
+path="res://.godot/imported/Platform1_WaterSide.png-77be0c9551eace78ce59d12a8a2323ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/playerCharacters/Platform1_WaterSide.png"
-dest_files=["res://.godot/imported/Platform1_WaterSide.png-fcbc7ddd6506585302247c09c56cdf7e.ctex"]
+source_file="res://assets/images/PlayerCharacters/Platform1_WaterSide.png"
+dest_files=["res://.godot/imported/Platform1_WaterSide.png-77be0c9551eace78ce59d12a8a2323ec.ctex"]
 
 [params]
 

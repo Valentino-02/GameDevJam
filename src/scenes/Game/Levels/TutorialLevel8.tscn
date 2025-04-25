@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://crbdnu2euab7g"]
+[gd_scene load_steps=53 format=4 uid="uid://crbdnu2euab7g"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_dkd77"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_pdgl0"]
@@ -30,9 +30,29 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkgfo"]
-resource_local_to_scene = true
-size = Vector2(127, 261)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0y5"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p6vh"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlylt"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejqr4"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj220"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nhb"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5gjg"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm18q"]
+size = Vector2(100, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtsb"]
 resource_local_to_scene = true
@@ -255,71 +275,71 @@ script = null
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-986, -896)
+position = Vector2(-976, -918)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_mr0y5")
 
 [node name="CollectionZoneLeft4" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-1460, -638)
+position = Vector2(-1454, -664)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft4" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_3p6vh")
 
 [node name="CollectionZoneLeft5" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-756, -415)
+position = Vector2(-750, -440)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft5" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_xlylt")
 
 [node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-615, 1057)
+position = Vector2(-612, 1034)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft2" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_ejqr4")
 
 [node name="CollectionZoneLeft3" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-1058, 914)
+position = Vector2(-1058, 888)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft3" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_xj220")
 
 [node name="CollectionZoneLeft6" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-1452, 608)
+position = Vector2(-1434, 585)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft6" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_n7nhb")
 
 [node name="CollectionZoneLeft7" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-1124, 323)
+position = Vector2(-1121, 296)
 limit = 5
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft7" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_u5gjg")
 
 [node name="CollectionZoneLeft8" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(-2800, -61)
+position = Vector2(-2797, -87)
 limit = 15
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft8" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_lm18q")
 
 [node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(740, -818)
+position = Vector2(754, -840)
 zone = 1
 neededElement = 1
 limit = 5
@@ -329,7 +349,7 @@ position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight6" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1253, -1065)
+position = Vector2(1256, -1096)
 zone = 1
 neededElement = 1
 limit = 5
@@ -339,7 +359,7 @@ position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1136, -659)
+position = Vector2(1139, -680)
 zone = 1
 neededElement = 1
 limit = 5
@@ -349,7 +369,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight3" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(608, 1028)
+position = Vector2(607, 1000)
 zone = 1
 neededElement = 1
 limit = 5
@@ -359,7 +379,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight4" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1124, 881)
+position = Vector2(1121, 856)
 zone = 1
 neededElement = 1
 limit = 5
@@ -369,7 +389,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight5" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1632, 801)
+position = Vector2(1635, 776)
 zone = 1
 neededElement = 1
 limit = 5
@@ -379,7 +399,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight7" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1300, 485)
+position = Vector2(1293, 457)
 zone = 1
 neededElement = 1
 limit = 5
@@ -389,7 +409,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight8" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(1925, 339)
+position = Vector2(1929, 312)
 zone = 1
 neededElement = 1
 limit = 5
@@ -399,7 +419,7 @@ position = Vector2(5, -2)
 shape = SubResource("RectangleShape2D_nxtsb")
 
 [node name="CollectionZoneRight9" parent="Layout/CollectionZones" instance=ExtResource("13_t10py")]
-position = Vector2(2596, -29)
+position = Vector2(2596, -56)
 zone = 1
 neededElement = 1
 limit = 15
@@ -411,18 +431,18 @@ shape = SubResource("RectangleShape2D_nxtsb")
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_hu3q8")]
-position = Vector2(-308, -660)
+position = Vector2(-254, -774)
 element = 1
 
 [node name="CargoDropper3" parent="Layout/CargoDroppers" instance=ExtResource("14_hu3q8")]
-position = Vector2(-543, 591)
+position = Vector2(-478, 562)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_hu3q8")]
-position = Vector2(566, -472)
+position = Vector2(460, -546)
 
 [node name="CargoDropper4" parent="Layout/CargoDroppers" instance=ExtResource("14_hu3q8")]
-position = Vector2(470, 870)
+position = Vector2(423, 678)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 

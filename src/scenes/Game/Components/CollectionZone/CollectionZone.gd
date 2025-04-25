@@ -3,11 +3,9 @@ class_name CollectionZone extends Area2D
 @export var zone : Types.Zone
 @export var neededElement : Types.Element 
 @export var limit : int = 999
-@export var fireTextures: Array[Texture2D] = []
-@export var waterTextures: Array[Texture2D] = []
 
-@onready var altar: Sprite2D = $Altar
-@onready var core: Sprite2D = $Altar/Core
+@onready var _fireAltar: Sprite2D = %FireAltar
+@onready var _waterAltar: Sprite2D = %WaterAltar
 @onready var _animationPlayer : AnimationPlayer = %AnimationPlayer
 
 var _isDisabled : bool = false
@@ -20,17 +18,22 @@ var _amount : int = 0:
 
 func _ready() -> void:
 	if neededElement == Types.Element.Water:
-		altar.texture = fireTextures[0]
-		core.texture = fireTextures[1]
+		_fireAltar.show()
+		_waterAltar.hide()
+		_animationPlayer.play("FIRE_IDLE")
 	if neededElement == Types.Element.Fire:
-		altar.texture = waterTextures[0]
-		core.texture = waterTextures[1]
+		_waterAltar.show()
+		_fireAltar.hide()
+		_animationPlayer.play("WATER_IDLE")
 	SignalBus.registerForMinimap.emit(self)
 
 func _disable() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.PowerDown)
 	_isDisabled = true
-	_animationPlayer.play("DISABLED")
+	if neededElement == Types.Element.Water:
+		_animationPlayer.play("FIRE_DISABLED")
+	if neededElement == Types.Element.Water:
+		_animationPlayer.play("WATER_DISABLED")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_groups().has("Cargo"):

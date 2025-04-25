@@ -262,10 +262,10 @@ texture = ExtResource("11_qow2f")
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1324, 0)
+position = Vector2(1250, 0)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-1227, 0)
+position = Vector2(-1250, 0)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(0, -762)
@@ -280,21 +280,21 @@ script = null
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
-position = Vector2(-692, 51)
+position = Vector2(-685, 24)
 limit = 5
 
 [node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
-position = Vector2(-1022, -189)
+position = Vector2(-991, -216)
 limit = 5
 
 [node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
-position = Vector2(702, -397)
+position = Vector2(693, -425)
 zone = 1
 neededElement = 1
 limit = 5
 
 [node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
-position = Vector2(1118, -205)
+position = Vector2(1136, -232)
 zone = 1
 neededElement = 1
 limit = 5

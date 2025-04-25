@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=49 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
@@ -30,13 +30,35 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkgfo"]
-resource_local_to_scene = true
-size = Vector2(127, 261)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eauoq"]
+size = Vector2(100, 106)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxtsb"]
-resource_local_to_scene = true
-size = Vector2(125, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0axo"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbui7"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nf82"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwbbo"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18vdf"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4naf"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mk0e"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx7be"]
+size = Vector2(100, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g0lr"]
+size = Vector2(100, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugr50"]
 resource_local_to_scene = true
@@ -151,6 +173,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Layout" type="Node2D" parent="."]
 
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
+visible = false
 z_index = -1
 
 [node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsBack"]
@@ -171,6 +194,7 @@ tile_map_data = PackedByteArray("AAAMAP3/AAABAAIAAAAMAP7/AAABAAMAAAANAP3/AAABAAY
 tile_set = ExtResource("7_n0axo")
 
 [node name="DecorationsFront" type="Node2D" parent="Layout"]
+visible = false
 z_index = -1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layout/DecorationsFront"]
@@ -218,103 +242,103 @@ script = null
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(-1057, -608)
+position = Vector2(-1057, -632)
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_eauoq")
 
 [node name="CollectionZoneLeft4" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(-1760, -322)
+position = Vector2(-1756, -344)
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft4" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_n0axo")
 
 [node name="CollectionZoneLeft5" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(-1784, 555)
+position = Vector2(-1774, 537)
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft5" index="0"]
 position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_kbui7")
 
 [node name="CollectionZoneLeft2" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(-974, 879)
+position = Vector2(-974, 856)
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft2" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_2nf82")
 
 [node name="CollectionZoneLeft3" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(-1386, 771)
+position = Vector2(-1383, 743)
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneLeft3" index="0"]
 position = Vector2(-2.5, -2)
-shape = SubResource("RectangleShape2D_vkgfo")
+shape = SubResource("RectangleShape2D_lwbbo")
 
 [node name="CollectionZoneRight" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(843, -640)
+position = Vector2(846, -663)
 zone = 1
 neededElement = 1
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight" index="0"]
 position = Vector2(-1.5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_18vdf")
 
 [node name="CollectionZoneRight2" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(1322, -651)
+position = Vector2(1329, -680)
 zone = 1
 neededElement = 1
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight2" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_t4naf")
 
 [node name="CollectionZoneRight3" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(915, 306)
+position = Vector2(919, 279)
 zone = 1
 neededElement = 1
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight3" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_7mk0e")
 
 [node name="CollectionZoneRight4" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(985, 768)
+position = Vector2(984, 745)
 zone = 1
 neededElement = 1
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight4" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_fx7be")
 
 [node name="CollectionZoneRight5" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
-position = Vector2(1615, 792)
+position = Vector2(1613, 761)
 zone = 1
 neededElement = 1
 limit = 8
 
 [node name="CollisionShape2D" parent="Layout/CollectionZones/CollectionZoneRight5" index="0"]
 position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_nxtsb")
+shape = SubResource("RectangleShape2D_6g0lr")
 
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("14_fx7be")]
-position = Vector2(-313, -59)
+position = Vector2(-261, -272)
 element = 1
 
 [node name="CargoDropper2" parent="Layout/CargoDroppers" instance=ExtResource("14_fx7be")]
-position = Vector2(286, 310)
+position = Vector2(286, 76)
 
 [node name="ZoneAreas" type="Node2D" parent="Layout"]
 

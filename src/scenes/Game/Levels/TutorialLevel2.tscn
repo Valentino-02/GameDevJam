@@ -195,10 +195,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("11_4h3e3")
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_be5u0")]
-position = Vector2(-258, -45)
+position = Vector2(-256, -71)
 
 [node name="CollectionZoneRight" parent="Layout" instance=ExtResource("6_be5u0")]
-position = Vector2(256, -62)
+position = Vector2(256, -87)
 zone = 1
 neededElement = 1
 
@@ -210,19 +210,19 @@ element = 1
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(635, 0)
+position = Vector2(500, 0)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-666, 0)
+position = Vector2(-500, 0)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(0, -449)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 438)
+position = Vector2(0, 243)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(11, 268)
+position = Vector2(0, 234)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_b5hix")]
 
