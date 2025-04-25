@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_8envh"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_dxl7l"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_gjnij"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_irisn"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_w2mcj"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_irisn"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_w2mcj"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_td4ji"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_ckvji"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_c3p7v"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_0f85y"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_u4eit"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_ckvji"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_c3p7v"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_0f85y"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_u4eit"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_wu1g8"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_2gtkk"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_lek75"]
@@ -71,7 +71,7 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_w2mcj"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "And the forges are very far away! They are even further away than the cores!"
+dialogueLine = "And the Forges are very far away! They’re even further away than the Cores!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_0f85y"]
@@ -112,13 +112,13 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_4dtu3"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 1
-dialogueLine = "Don't worry yourself though, we left you some packages lying around here!"
+dialogueLine = "Don't worry yourself though, we left you some packages lying around!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_k7gw4"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 1
-dialogueLine = "You can try picking them up by squashing them with your carrier platform"
+dialogueLine = "If you have the skills, you can open the platform and  scoop them up."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_kfmm1"]
@@ -130,13 +130,13 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_aal6j"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 1
-dialogueLine = "Well, best of luck, it seems you will have to hurry for this one!"
+dialogueLine = "Well, best of luck! it seems you’ll have to hurry for this one!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_ao04q"]
 script = ExtResource("20_td4ji")
 speakingCharacter = 2
-dialogueLine = "One extra tip, there is one side you might have to visit both times, but if you are smart, one of the sides requires only one journey!"
+dialogueLine = "One more thing… there’s one side you might have to visit twice, but if you’re smart, you can balance the cores in one trip!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_xnyqo"]

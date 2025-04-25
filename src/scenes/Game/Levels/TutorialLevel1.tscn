@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b6oamg1i0ft7f" path="res://assets/images/Decoration/Clouds/Cloud 2.2.png" id="14_0mkr8"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="14_3hvhq"]
 [ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="15_g4jxx"]
+[ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="16_ueyvx"]
 [ext_resource type="Script" uid="uid://3qkx52yg66yu" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneDisplayControls.gd" id="17_3hvhq"]
 [ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/CutsceneComplete.gd" id="17_6ifj0"]
 [ext_resource type="PackedScene" uid="uid://0upwnl40riqb" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/ControlDisplay.tscn" id="18_61xil"]
@@ -48,19 +49,19 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_785nr"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "Let's teach them fast so we can get moving, I can't sit still this long..."
+dialogueLine = "Let's teach them quickly so we can get moving, I can't sit still this long…"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_elyr4"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "Yes of course! Use the [color=blue][b]W-A-S-D[/b][/color] Runes on your Runeboard to give me directions."
+dialogueLine = "Yes of course! Use the [color=#42dffe][b]W-A-S-D[/b][/color] Runes on your Runeboard to give me directions."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_6bl1h"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "It's the [color=red][b]Arrow[/b][/color] Runes for me. Give it a go, take us on an adventure."
+dialogueLine = "It's the [color=#ff4e50][b]Arrow[/b][/color] Runes for me. Give it a go, take us on an adventure."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_e3ggw"]
@@ -79,26 +80,26 @@ ease = 2
 [sub_resource type="Resource" id="Resource_jdpu4"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "This is the [color=red][b]Fire Forge[/b][/color] of my realm! You can get [color=red][b]Fire Packages[/b][/color] here if you use the [color=black][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=blue][b]Water Realm[/b][/color]."
+dialogueLine = "This is the [color=#ff4e50][b]Fire Forge[/b][/color] of my realm! You can get [color=#ff4e50][b]Fire Packages[/b][/color] here if you use the [color=black][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=#42dffe][b]Water Realm[/b][/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_8kfja"]
 script = ExtResource("12_l3e5w")
 cameraToUse = &"FireDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_jdpu4")])
-childToTrigger = ""
+childToTrigger = "Demonstrate"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_bete1"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "This is the [color=blue][b]Water Core[/b][/color] of my realm. It keeps producing more and more cold, so we need [color=red][b]Fire Packages[/b][/color] in order to  [color=red][b]BAL[/b][/color][color=blue][b]ANCE[/b][/color] it!"
+dialogueLine = "This is the [color=#42dffe][b]Water Core[/b][/color] of my realm. It keeps getting colder and colder, so we need [color=#ff4e50][b]Fire Packages[/b][/color] in order to  [color=#ff4e50][b]BAL[/b][/color][color=#42dffe][b]ANCE[/b][/color] the temperature!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_3hvhq"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "You can drop off [color=red][b]Fire Packages[/b][/color] here by using the [color=black][b]Space[/b][/color] Runekey!"
+dialogueLine = "You can drop off [color=#ff4e50][b]Fire Packages[/b][/color] here by using the [color=black][b]Space[/b][/color] Runekey!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_61xil"]
@@ -117,26 +118,26 @@ size = Vector2(59, 142)
 [sub_resource type="Resource" id="Resource_edi57"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "This is the [color=blue][b]Water Forge[/b][/color] that feeds on the water of my realm. Use your [color=black][b]E[/b][/color] Rune to collect some [color=blue][b]Water Packages[/b][/color]. You'll need it to cool down the [color=red][b]Fire Core[/b][/color]!"
+dialogueLine = "This is the [color=#42dffe][b]Water Forge[/b][/color]! Use your [color=black][b]E[/b][/color] Rune to collect some [color=#42dffe][b]Water Packages[/b][/color]. You'll need it to cool down the [color=#ff4e50][b]Fire Core[/b][/color]!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_km0gl"]
 script = ExtResource("12_l3e5w")
 cameraToUse = &"WaterDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
-childToTrigger = ""
+childToTrigger = "Demonstrate"
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_q5b8i"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "Speaking of which, here it is, the [color=red][b]Fire Core[/b][/color] of my realm. It needs [color=blue][b]Water Packages[/b][/color] to stop overheating!"
+dialogueLine = "Speaking of which, here it is, the [color=#ff4e50][b]Fire Core[/b][/color]. It needs [color=#42dffe][b]Water Packages[/b][/color] to cool off!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_mpwdg"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "Once you've got some [color=blue][b]Water Packages[/b][/color] on-board, try dropping it here using the [color=black][b]Space[/b][/color] Runekey."
+dialogueLine = "Once you've got some [color=#42dffe][b]Water Packages[/b][/color] on-board, try dropping them here using the [color=black][b]Space[/b][/color] Runekey."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_s2r5k"]
@@ -334,6 +335,10 @@ script = ExtResource("17_3hvhq")
 tutorialCutsceneManager = NodePath("../..")
 controlsDisplay = ExtResource("18_61xil")
 
+[node name="Demonstrate" type="Node2D" parent="Cutscenes/Intro" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("16_ueyvx")
+hazardsToDemonstrate = [NodePath("../../../Layout")]
+
 [node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja"), SubResource("Resource_61xil")])
@@ -381,6 +386,10 @@ debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
 [node name="CutsceneComplete" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("tutorialCutsceneManager")]
 script = ExtResource("17_6ifj0")
 tutorialCutsceneManager = NodePath("../..")
+
+[node name="Demonstrate" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("16_ueyvx")
+hazardsToDemonstrate = [NodePath("../../../Layout")]
 
 [node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
 type = 0
@@ -437,6 +446,10 @@ zoom = Vector2(0.9, 0.9)
 tween_resource = SubResource("Resource_8cynx")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Demonstrate" type="Node2D" parent="Cutscenes/WaterDropper" node_paths=PackedStringArray("hazardsToDemonstrate")]
+script = ExtResource("16_ueyvx")
+hazardsToDemonstrate = [NodePath("../../../Layout")]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAerea"]

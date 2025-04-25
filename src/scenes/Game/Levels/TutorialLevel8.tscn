@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_pdgl0"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_6ckn6"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hq1aq"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_mr0y5"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_3p6vh"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_mr0y5"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_3p6vh"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_xlylt"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_ejqr4"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_xj220"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_n7nhb"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_u5gjg"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_ejqr4"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_xj220"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_n7nhb"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_u5gjg"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_lm18q"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_t10py"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_hu3q8"]
@@ -88,7 +88,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_xj220"]
 script = ExtResource("22_3p6vh")
 speakingCharacter = 1
-dialogueLine = "Yeah this one looks hard. Have a look for yourself."
+dialogueLine = "Yeah, this one looks hard. Have a look for yourself."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_n7nhb"]
@@ -149,7 +149,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_lk1ah"]
 script = ExtResource("22_3p6vh")
 speakingCharacter = 1
-dialogueLine = "The cores are in your hands now. We're with you, Guide!"
+dialogueLine = "The Cores are in your hands now. We're with you, Guide!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_eu36b"]

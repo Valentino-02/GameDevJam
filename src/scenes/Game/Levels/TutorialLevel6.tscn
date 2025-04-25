@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_irwij"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_eh6si"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_up10j"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_fir81"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_0j6ke"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_fir81"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_0j6ke"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_xlsoy"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_qqmpj"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_1kbjl"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_lnybr"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_t3p53"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_qqmpj"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_1kbjl"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_lnybr"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_t3p53"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_hoscn"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_egdgh"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_iequo"]
@@ -59,7 +59,7 @@ size = Vector2(600, 2800)
 [sub_resource type="Resource" id="Resource_1kbjl"]
 script = ExtResource("21_xlsoy")
 speakingCharacter = 2
-dialogueLine = "It's time to get these packages [color=blue]flowing[/color]."
+dialogueLine = "It's time to get these packages [color=#42dffe]flowing[/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_lnybr"]

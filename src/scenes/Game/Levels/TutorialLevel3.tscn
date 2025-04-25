@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eo8bu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ugr50"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_tqlkj"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_58dyf"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_pc0oe"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_58dyf"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_pc0oe"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_hm1sc"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_egjbk"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_rcf8f"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_joadm"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_qow2f"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_egjbk"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_rcf8f"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_joadm"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_qow2f"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="12_hqina"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="13_8q4vy"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="14_tqhj4"]
@@ -42,7 +42,7 @@ size = Vector2(855, 1218)
 [sub_resource type="Resource" id="Resource_joadm"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "Back the the real world now. No more memories!"
+dialogueLine = "Back to the real world now. No more memories!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_pc0oe"]
@@ -54,7 +54,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_hm1sc"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "We will still give you a head start! Let's have a look."
+dialogueLine = "We will give you a head start! Let's have a look."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_qow2f"]
@@ -95,19 +95,19 @@ metadata/_custom_type_script = "uid://dr4g3okg075lr"
 [sub_resource type="Resource" id="Resource_tot5p"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 1
-dialogueLine = "As you see this time we have four cores. You will need to feed [color=red]all[/color] of these, since the cores might oversaturate when feed to much elemental goodness!"
+dialogueLine = "As you can see, here we have four cores. You will need to deliver to  [color=#ff4e50]all[/color] of these, to keep the cores stable!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_qahow"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 2
-dialogueLine = "Also, please remember to pay attention to each realm! Don't just concentrate on one, or the other will get out of control! We need to maintain..."
+dialogueLine = "​​Also, please remember to pay attention to each realm! Don't just concentrate on one, or the others will get out of control! We need to maintain…"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_jrpou"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 2
-dialogueLine = "[center][font_size=80][color=red]B[/color][color=blue]A[/color][color=red]L[/color][color=blue]A[/color][color=red]N[/color][color=blue]C[/color][color=red]E[/color][/font_size][/center]"
+dialogueLine = "[center][font_size=80][color=#ff4e50]B[/color][color=#42dffe]A[/color][color=#ff4e50]L[/color][color=#42dffe]A[/color][color=#ff4e50]N[/color][color=#42dffe]C[/color][color=#ff4e50]E[/color][/font_size][/center]"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_xc6p4"]
