@@ -386,7 +386,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
 script = ExtResource("20_rcf8f")
-hazardsToDemonstrate = [NodePath("../../Layout/CollectionZones/CollectionZoneLeft"), NodePath("../../Layout/CollectionZones/CollectionZoneLeft2"), NodePath("../../Layout/CollectionZones/CollectionZoneRight"), NodePath("../../Layout/CollectionZones/CollectionZoneRight2")]
+hazardsToDemonstrate = [NodePath("../../Layout")]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]
