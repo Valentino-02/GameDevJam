@@ -12,6 +12,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b0yisa6hhamyo" path="res://assets/images/Characters/waterElemental.tres" id="9_aou6w"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 [ext_resource type="SpriteFrames" uid="uid://osxi0wif081b" path="res://assets/images/Characters/fireElemental.tres" id="12_aou6w"]
+[ext_resource type="PhysicsMaterial" uid="uid://ckq5bgqm61a7m" path="res://src/scenes/Game/Components/RainObstacle/platform_physics_material.tres" id="12_hu46i"]
 [ext_resource type="Texture2D" uid="uid://ck1y506rcv7wn" path="res://assets/images/playerCharacters/Platform1_FireSide.png" id="14_aou6w"]
 [ext_resource type="Texture2D" uid="uid://dpjq6dkeeppxp" path="res://assets/images/playerCharacters/Platform1_WaterSide.png" id="15_hu46i"]
 
@@ -39,11 +40,6 @@ _limits = [0.0, 1.0, 0.0, 4.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751825, 0.646341), -0.956945, -0.956945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hu46i"]
-rough = true
-bounce = 1.0
-absorbent = true
-
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_aou6w"]
 points = PackedVector2Array(89, -7, 90, 0, 92, 7, -6, 7, -6, -7)
 
@@ -54,6 +50,7 @@ points = PackedVector2Array(7, 7, 7, -7, -89, -7, -90, 0, -92, 7)
 radius = 12.0416
 
 [node name="PlayerCharacter" type="Node2D"]
+z_index = 2
 script = ExtResource("1_hu46i")
 
 [node name="LOrigin" type="Marker2D" parent="."]
@@ -108,6 +105,7 @@ scale_amount_curve = SubResource("Curve_61ysk")
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
 unique_name_in_owner = true
 process_mode = 3
+z_index = -2
 texture_repeat = 2
 width = 3.0
 texture = ExtResource("6_qgvce")
@@ -151,7 +149,7 @@ scale_amount_curve = SubResource("Curve_61ysk")
 unique_name_in_owner = true
 position = Vector2(-86, -109)
 collision_layer = 2
-collision_mask = 224
+collision_mask = 480
 script = ExtResource("1_h7irl")
 _rope = NodePath("../LeftRope")
 _radius = 100.0
@@ -198,7 +196,7 @@ position = Vector2(3, -17)
 unique_name_in_owner = true
 position = Vector2(84, -109)
 collision_layer = 2
-collision_mask = 224
+collision_mask = 480
 script = ExtResource("1_h7irl")
 _suffix = "R"
 _rope = NodePath("../RightRope")
@@ -249,10 +247,10 @@ position = Vector2(2, -17)
 unique_name_in_owner = true
 physics_interpolation_mode = 1
 position = Vector2(0, 25)
-collision_layer = 232
-collision_mask = 17
+collision_layer = 8
+collision_mask = 273
 mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_hu46i")
+physics_material_override = ExtResource("12_hu46i")
 center_of_mass_mode = 1
 angular_damp = 24.182
 script = ExtResource("3_ct1ul")
@@ -317,6 +315,7 @@ shape = SubResource("CircleShape2D_vt20b")
 
 [node name="SplashParticles" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-85, -11)
+collision_layer = 0
 
 [node name="SplashParticles2" parent="Platform" instance=ExtResource("11_08p4k")]
 position = Vector2(-39, -9)

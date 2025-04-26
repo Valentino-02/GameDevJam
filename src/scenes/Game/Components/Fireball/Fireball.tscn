@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgguquisbu86e"]
 
-[ext_resource type="Texture2D" uid="uid://c4pwdexb65v4e" path="res://assets/images/PlayerCharacters/FireParticle_2.png" id="1_0domy"]
+[ext_resource type="Texture2D" uid="uid://c4pwdexb65v4e" path="res://assets/images/playerCharacters/FireParticle_2.png" id="1_0domy"]
 [ext_resource type="Script" uid="uid://bhlbb5l5uxxt" path="res://src/scenes/Game/Components/Fireball/Fireball.gd" id="1_y0wbd"]
-[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/PlayerCharacters/FireParticle_1.png" id="3_icb7b"]
+[ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="3_icb7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0domy"]
 radius = 4.0
@@ -16,9 +16,8 @@ radius = 75.0
 
 [node name="Fireball" type="Area2D"]
 collision_layer = 64
-collision_mask = 65
+collision_mask = 31
 script = ExtResource("1_y0wbd")
-strength_fall_off_power = 2
 
 [node name="FireballSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 7)
@@ -55,16 +54,16 @@ hue_variation_min = -0.05
 hue_variation_max = 0.05
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
-visible = false
 enabled = false
 shape = SubResource("CircleShape2D_icb7b")
 target_position = Vector2(0, 0)
 max_results = 100
-collision_mask = 64
+collision_mask = 31
+collide_with_areas = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 enabled = false
-collision_mask = 64
+collision_mask = 31
+collide_with_areas = true
 
 [connection signal="body_entered" from="." to="." method="_onCollision"]
