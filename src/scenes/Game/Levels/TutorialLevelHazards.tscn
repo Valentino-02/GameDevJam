@@ -96,15 +96,19 @@ phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
 position = Vector2(960, -24)
+collision_layer = 1
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
 position = Vector2(-958, -3)
+collision_layer = 1
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(1, -556)
+collision_layer = 1
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(-1, 169)
+collision_layer = 1
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
 position = Vector2(-3, 127)

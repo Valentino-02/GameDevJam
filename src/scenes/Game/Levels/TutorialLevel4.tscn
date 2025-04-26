@@ -134,7 +134,7 @@ nextLevelId = 4
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-position = Vector2(-1, -109)
+position = Vector2(-0.966934, -108.668)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
