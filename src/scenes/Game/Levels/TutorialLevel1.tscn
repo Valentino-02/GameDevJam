@@ -148,7 +148,7 @@ backgroundScrollCap = 150.0
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-position = Vector2(-0.966942, -108.668)
+position = Vector2(-0.966934, -108.668)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -160,7 +160,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets") groups=["MainCamera"]]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-0.966942, -108.668)
+position = Vector2(-0.966934, -108.668)
 script = ExtResource("3_no6oc")
 priority = 10
 follow_mode = 3
