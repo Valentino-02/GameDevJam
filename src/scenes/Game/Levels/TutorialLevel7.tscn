@@ -1,16 +1,13 @@
-[gd_scene load_steps=48 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=45 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_joxkf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_kmbku"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_0280k"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_eauoq"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_n0axo"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_kbui7"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_2nf82"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_lwbbo"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_18vdf"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_kbui7"]
+[ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="8_sjj33"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_2nf82"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_t4naf"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_7mk0e"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_fx7be"]
@@ -172,18 +169,152 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Layout" type="Node2D" parent="."]
 
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
-visible = false
 z_index = -1
 
+[node name="Sprite2D2" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(689, -295)
+texture = ExtResource("8_kbui7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(811, -295)
+texture = ExtResource("8_kbui7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(1014, -388)
+texture = ExtResource("8_kbui7")
+flip_h = true
+
 [node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(-207, -190)
-scale = Vector2(2, 2)
-texture = ExtResource("5_0280k")
+position = Vector2(1167, 200)
+texture = ExtResource("8_kbui7")
+flip_h = true
 
 [node name="Sprite2D6" type="Sprite2D" parent="Layout/DecorationsBack"]
-position = Vector2(226, 63)
-scale = Vector2(2, 2)
-texture = ExtResource("6_eauoq")
+position = Vector2(1064, 200)
+texture = ExtResource("8_kbui7")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(677, 215)
+texture = ExtResource("8_kbui7")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(1357, 586)
+texture = ExtResource("8_kbui7")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(1754, 299)
+texture = ExtResource("8_kbui7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-732, -329)
+texture = ExtResource("9_2nf82")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-846, -331)
+texture = ExtResource("9_2nf82")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1028, -460)
+texture = ExtResource("9_2nf82")
+flip_h = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1527, -461)
+texture = ExtResource("9_2nf82")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-979, 52)
+texture = ExtResource("9_2nf82")
+flip_h = true
+
+[node name="Sprite2D14" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1067, 52)
+texture = ExtResource("9_2nf82")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1359, 261)
+texture = ExtResource("9_2nf82")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1337, 390)
+texture = ExtResource("9_2nf82")
+flip_h = true
+
+[node name="Sprite2D17" type="Sprite2D" parent="Layout/DecorationsBack"]
+position = Vector2(-1112, 503)
+texture = ExtResource("9_2nf82")
+flip_h = true
+
+[node name="AnimatedCloud44" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-439, 426)
+
+[node name="AnimatedCloud45" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-570, 730)
+
+[node name="AnimatedCloud46" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(52, 407)
+
+[node name="AnimatedCloud47" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(395, 442)
+
+[node name="AnimatedCloud48" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(623, 635)
+
+[node name="AnimatedCloud49" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(1299, 658)
+
+[node name="AnimatedCloud50" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(1792, 227)
+
+[node name="AnimatedCloud51" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(1398, -280)
+
+[node name="AnimatedCloud52" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(1246, -290)
+
+[node name="AnimatedCloud53" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(654, -271)
+
+[node name="AnimatedCloud54" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(738, -591)
+
+[node name="AnimatedCloud55" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(430, -462)
+
+[node name="AnimatedCloud56" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(95, -384)
+
+[node name="AnimatedCloud57" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-414, -503)
+
+[node name="AnimatedCloud58" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-562, -708)
+
+[node name="AnimatedCloud59" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-944, -570)
+
+[node name="AnimatedCloud60" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-872, -272)
+
+[node name="AnimatedCloud61" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-936, 112)
+
+[node name="AnimatedCloud62" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-1456, -297)
+
+[node name="AnimatedCloud63" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-1175, 521)
+
+[node name="AnimatedCloud64" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-801, 353)
+
+[node name="AnimatedCloud65" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-579, 256)
+
+[node name="AnimatedCloud66" parent="Layout/DecorationsBack" instance=ExtResource("8_sjj33")]
+position = Vector2(-1292, 804)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
@@ -193,31 +324,136 @@ tile_map_data = PackedByteArray("AAAMAP3/AAABAAIAAAAMAP7/AAABAAMAAAANAP3/AAABAAY
 tile_set = ExtResource("7_n0axo")
 
 [node name="DecorationsFront" type="Node2D" parent="Layout"]
-visible = false
 z_index = -1
 
-[node name="Sprite2D2" type="Sprite2D" parent="Layout/DecorationsFront"]
-position = Vector2(370, -100)
-texture = ExtResource("8_kbui7")
+[node name="AnimatedCloud" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-165, -12)
 
-[node name="Sprite2D" type="Sprite2D" parent="Layout/DecorationsFront"]
-position = Vector2(-184, -250)
-texture = ExtResource("9_2nf82")
+[node name="AnimatedCloud2" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(593, -16)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Layout/DecorationsFront"]
-position = Vector2(-71, -223)
-scale = Vector2(2, 2)
-texture = ExtResource("5_0280k")
+[node name="AnimatedCloud3" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-606, -5)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Layout/DecorationsFront"]
-position = Vector2(-204, 118)
-scale = Vector2(2, 2)
-texture = ExtResource("10_lwbbo")
+[node name="AnimatedCloud4" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(408, -45)
 
-[node name="Sprite2D5" type="Sprite2D" parent="Layout/DecorationsFront"]
-position = Vector2(431, -40)
-scale = Vector2(2, 2)
-texture = ExtResource("11_18vdf")
+[node name="AnimatedCloud5" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-365, 400)
+
+[node name="AnimatedCloud6" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-108, 371)
+
+[node name="AnimatedCloud7" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(254, 361)
+
+[node name="AnimatedCloud8" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(517, 447)
+
+[node name="AnimatedCloud9" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-547, 595)
+
+[node name="AnimatedCloud10" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(724, 617)
+
+[node name="AnimatedCloud11" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(614, 793)
+
+[node name="AnimatedCloud12" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-582, 818)
+
+[node name="AnimatedCloud13" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(630, 245)
+
+[node name="AnimatedCloud14" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(821, 335)
+
+[node name="AnimatedCloud15" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1218, 226)
+
+[node name="AnimatedCloud16" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1351, 749)
+
+[node name="AnimatedCloud17" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1312, 548)
+
+[node name="AnimatedCloud18" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1704, 329)
+
+[node name="AnimatedCloud19" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1734, 100)
+
+[node name="AnimatedCloud20" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1065, -354)
+
+[node name="AnimatedCloud21" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(868, -315)
+
+[node name="AnimatedCloud22" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(349, -407)
+
+[node name="AnimatedCloud23" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(548, -523)
+
+[node name="AnimatedCloud24" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(664, -699)
+
+[node name="AnimatedCloud25" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(956, -598)
+
+[node name="AnimatedCloud26" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1451, -622)
+
+[node name="AnimatedCloud27" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(1457, -839)
+
+[node name="AnimatedCloud28" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-97, -421)
+
+[node name="AnimatedCloud29" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-346, -438)
+
+[node name="AnimatedCloud30" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-539, -522)
+
+[node name="AnimatedCloud31" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-483, -811)
+
+[node name="AnimatedCloud32" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-683, -303)
+
+[node name="AnimatedCloud33" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1073, -432)
+
+[node name="AnimatedCloud34" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1463, -166)
+
+[node name="AnimatedCloud35" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1484, -428)
+
+[node name="AnimatedCloud36" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1585, -533)
+
+[node name="AnimatedCloud37" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1859, -274)
+
+[node name="AnimatedCloud38" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1394, 294)
+
+[node name="AnimatedCloud39" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1287, 419)
+
+[node name="AnimatedCloud40" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1639, 927)
+
+[node name="AnimatedCloud41" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1877, 603)
+
+[node name="AnimatedCloud42" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1035, 577)
+
+[node name="AnimatedCloud43" parent="Layout/DecorationsFront" instance=ExtResource("8_sjj33")]
+position = Vector2(-1078, 922)
 
 [node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_t4naf")]
 phantom_camera = NodePath("../../PhantomCamera2D")

@@ -7,6 +7,7 @@ class_name LoseScreen extends Control
 var _hiddenPosition := Vector2(0, -300)
 var _targetPosition : Vector2
 var _isSecretWin
+var _clicked : bool = false
 
 
 func _ready() -> void:
@@ -23,6 +24,8 @@ func trigger(isSecretWin: bool = false) -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.LoseFanfare)
 	_playIntroAnimation()
 	await get_tree().create_timer(2.0).timeout
+	if !is_inside_tree():
+		return
 	AudioManager.music.play(ResourceIds.MusicId.WaitTheme)
 
 
@@ -40,6 +43,9 @@ func _onZonePatienceEnded(zone: Types.Zone) -> void:
 	_label.text = "The World Exploded in a Sea of Flames" if zone == Types.Zone.Left else "Desolation in the Form of and Endless Tundra"
 
 func _on_restart_button_pressed() -> void:
+	if _clicked == true:
+		return
+	_clicked = true
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	if _isSecretWin:
 		SignalBus.nextLevelClicked.emit()
@@ -47,5 +53,8 @@ func _on_restart_button_pressed() -> void:
 	TransitionManager.changeToScene(ResourceIds.SceneId.Game)
 
 func _on_main_menu_button_pressed() -> void:
+	if _clicked == true:
+		return
+	_clicked = true
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	TransitionManager.changeToScene(ResourceIds.SceneId.MainMenu)
