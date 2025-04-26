@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=41 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/SfxManager.gd" id="2_7j23j"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
 [ext_resource type="AudioStream" uid="uid://b2eycwb263uwo" path="res://assets/music/Elemental Delivery.mp3" id="7_qrd4w"]
 [ext_resource type="AudioStream" uid="uid://dluh83yjj3c8e" path="res://assets/music/Pause For Rock.mp3" id="8_jode2"]
+[ext_resource type="AudioStream" uid="uid://s86gpfi33pmq" path="res://assets/music/Thank you and Farewell From Team Elemental.mp3" id="9_h17n5"]
 [ext_resource type="AudioStream" uid="uid://cqiqgg61h85b1" path="res://assets/sfx/Select.mp3" id="11_j8xci"]
 [ext_resource type="AudioStream" uid="uid://ma6lpfk1fc8l" path="res://assets/sfx/Drop.mp3" id="12_sl0f0"]
 [ext_resource type="AudioStream" uid="uid://cjofrpdv4pb82" path="res://assets/sfx/Fireball.mp3" id="13_munpx"]
@@ -58,6 +59,14 @@ metadata/_custom_type_script = "uid://b67exh4v0a6ij"
 script = ExtResource("3_p58k6")
 id = 4
 stream = ExtResource("8_jode2")
+volume = 0.0
+pitchScale = 1.0
+metadata/_custom_type_script = "uid://b67exh4v0a6ij"
+
+[sub_resource type="Resource" id="Resource_g1il8"]
+script = ExtResource("3_p58k6")
+id = 5
+stream = ExtResource("9_h17n5")
 volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
@@ -178,7 +187,7 @@ script = ExtResource("1_7j23j")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("2_ge8yv")
-musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w"), SubResource("Resource_j8xci"), SubResource("Resource_sl0f0"), SubResource("Resource_y777s")])
+musicList = Array[ExtResource("3_p58k6")]([SubResource("Resource_u4rwl"), SubResource("Resource_qrd4w"), SubResource("Resource_j8xci"), SubResource("Resource_sl0f0"), SubResource("Resource_y777s"), SubResource("Resource_g1il8")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3

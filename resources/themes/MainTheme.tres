@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=24 format=3 uid="uid://cd3ca0m5gr616"]
 
 [ext_resource type="FontFile" uid="uid://iq8ttfhrbwii" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="1_fjke4"]
-[ext_resource type="Texture2D" uid="uid://bejq3ld8kuac0" path="res://assets/images/ui/UI no Text.png" id="1_v7hcx"]
-[ext_resource type="Texture2D" uid="uid://hua5i8n5ilio" path="res://assets/images/ui/UI NinePatch.png" id="2_c83y8"]
-[ext_resource type="Texture2D" uid="uid://behslru0u7s6u" path="res://assets/images/ui/UI Pixel Button.png" id="3_1cxal"]
+[ext_resource type="Texture2D" uid="uid://bejq3ld8kuac0" path="res://assets/images/UI/UI no Text.png" id="1_v7hcx"]
+[ext_resource type="Texture2D" uid="uid://hua5i8n5ilio" path="res://assets/images/UI/UI NinePatch.png" id="2_c83y8"]
+[ext_resource type="Texture2D" uid="uid://behslru0u7s6u" path="res://assets/images/UI/UI Pixel Button.png" id="3_1cxal"]
 [ext_resource type="FontFile" uid="uid://dj35fskdi1kxb" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_amj5y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7hcx"]
