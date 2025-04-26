@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://behslru0u7s6u"
-path="res://.godot/imported/UI Pixel Button.png-1c3ad6af380c2315680feadb495cf496.ctex"
+path="res://.godot/imported/UI Pixel Button.png-6023d2f63ac806734d180bf72224dd56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/UI Pixel Button.png"
-dest_files=["res://.godot/imported/UI Pixel Button.png-1c3ad6af380c2315680feadb495cf496.ctex"]
+source_file="res://assets/images/UI/UI Pixel Button.png"
+dest_files=["res://.godot/imported/UI Pixel Button.png-6023d2f63ac806734d180bf72224dd56.ctex"]
 
 [params]
 

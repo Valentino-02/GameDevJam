@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hua5i8n5ilio"
-path="res://.godot/imported/UI NinePatch.png-6e95a44e422ac183be5181ef3bdd822e.ctex"
+path="res://.godot/imported/UI NinePatch.png-0d1c60f5f9b96586e938bb59debbde74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/UI NinePatch.png"
-dest_files=["res://.godot/imported/UI NinePatch.png-6e95a44e422ac183be5181ef3bdd822e.ctex"]
+source_file="res://assets/images/UI/UI NinePatch.png"
+dest_files=["res://.godot/imported/UI NinePatch.png-0d1c60f5f9b96586e938bb59debbde74.ctex"]
 
 [params]
 

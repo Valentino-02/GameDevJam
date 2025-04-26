@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qn54g8ts66bs"
-path="res://.godot/imported/WeatherIconBorder.png-ee15358fb4d7ca05f070fb0cde220ea5.ctex"
+path="res://.godot/imported/WeatherIconBorder.png-6608860a16647938b02d8141b5a9804c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/Weather Icons/WeatherIconBorder.png"
-dest_files=["res://.godot/imported/WeatherIconBorder.png-ee15358fb4d7ca05f070fb0cde220ea5.ctex"]
+source_file="res://assets/images/UI/Weather Icons/WeatherIconBorder.png"
+dest_files=["res://.godot/imported/WeatherIconBorder.png-6608860a16647938b02d8141b5a9804c.ctex"]
 
 [params]
 
