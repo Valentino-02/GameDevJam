@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5h473qkqkmcg"]
+[gd_scene load_steps=7 format=3 uid="uid://c5h473qkqkmcg"]
 
 [ext_resource type="PackedScene" uid="uid://b448q2q8ydscv" path="res://src/scenes/UI/MainMenu/Title.tscn" id="2_n1lxl"]
 [ext_resource type="Script" uid="uid://cigwrtdx1cq0l" path="res://src/scenes/UI/MainMenu/MainMenu.gd" id="2_vahk2"]
 [ext_resource type="PackedScene" uid="uid://cfkmar6pxjrgv" path="res://src/scenes/UI/MainMenu/LevelSelector/LevelSelector.tscn" id="3_dgtb3"]
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/UI/Components/FogEffect.tscn" id="3_vahk2"]
-[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/Background/test-background.png" id="4_dgtb3"]
+[ext_resource type="Texture2D" uid="uid://ihp7i3167i6c" path="res://assets/images/background/test-background.png" id="4_dgtb3"]
+[ext_resource type="Texture2D" uid="uid://di3w4qghxk1py" path="res://assets/images/mainMenu/image.png" id="7_pe8ku"]
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 2
@@ -41,18 +42,22 @@ theme_override_constants/separation = 40
 alignment = 1
 
 [node name="StartGameButton" type="Button" parent="Control/Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"CustomButton"
 text = "Start Game"
 
 [node name="LevelSelectionButton" type="Button" parent="Control/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"CustomButton"
 text = "Level Selection"
 
 [node name="QuitGameButton" type="Button" parent="Control/Buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"CustomButton"
 text = "Quit Game"
 
 [node name="LevelSelector" parent="Control" instance=ExtResource("3_dgtb3")]
@@ -83,6 +88,17 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_dgtb3")
 expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 400)
+offset_left = 274.0
+offset_top = -29.0
+offset_right = 674.0
+offset_bottom = 371.0
+texture = ExtResource("7_pe8ku")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="Control/Buttons/HBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Control/Buttons/HBoxContainer/LevelSelectionButton" to="." method="_on_level_selection_button_pressed"]
