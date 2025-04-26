@@ -95,49 +95,49 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("22_3p6vh")]([SubResource("Resource_xlylt"), SubResource("Resource_ejqr4"), SubResource("Resource_xj220")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_u5gjg"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core1"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_lm18q"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core2"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_t10py"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core3"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_hu3q8"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core4"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_2u7fx"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core5"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_b8gd7"]
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Core6"
 dialogues = Array[ExtResource("22_3p6vh")]([])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_6k5gl"]
@@ -156,7 +156,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("21_mr0y5")
 cameraToUse = &"Intro"
 dialogues = Array[ExtResource("22_3p6vh")]([SubResource("Resource_6k5gl"), SubResource("Resource_lk1ah")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_6ckn6"]
@@ -475,7 +475,7 @@ position = Vector2(5, 0)
 area = SubResource("RectangleShape2D_dkd77")
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
-position = Vector2(-1274, 1309)
+position = Vector2(-1684, 1123)
 
 [node name="RainCloud" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
 position = Vector2(628, 173)
@@ -491,7 +491,7 @@ position = Vector2(752, -1307)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("19_eu36b")]
 
-[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras") instance=ExtResource("20_6ckn6")]
+[node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("20_6ckn6")]
 type = 1
 storyPoints = Array[ExtResource("21_mr0y5")]([SubResource("Resource_n7nhb"), SubResource("Resource_u5gjg"), SubResource("Resource_lm18q"), SubResource("Resource_t10py"), SubResource("Resource_hu3q8"), SubResource("Resource_2u7fx"), SubResource("Resource_b8gd7"), SubResource("Resource_eu36b")])
 useableCameras = {
@@ -503,6 +503,7 @@ useableCameras = {
 &"Core6": NodePath("Cores6"),
 &"Intro": NodePath("Intro")
 }
+keepActive = [NodePath("../Layout")]
 
 [node name="Demonstrate" type="Node2D" parent="Cutscene" node_paths=PackedStringArray("hazardsToDemonstrate")]
 script = ExtResource("21_hq1aq")

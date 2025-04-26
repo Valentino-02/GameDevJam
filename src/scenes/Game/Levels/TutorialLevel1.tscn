@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=41 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_61xil"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_8cynx"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_qqjvl"]
+[ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="8_0mkr8"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="8_abecf"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_tl2ud"]
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="9_ueyvx"]
@@ -77,7 +78,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("12_l3e5w")
 cameraToUse = &"FireDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_jdpu4")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_bete1"]
@@ -115,7 +116,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 script = ExtResource("12_l3e5w")
 cameraToUse = &"WaterDrop"
 dialogues = Array[ExtResource("14_3hvhq")]([SubResource("Resource_edi57")])
-childToTrigger = "Demonstrate"
+childToTrigger = ""
 metadata/_custom_type_script = "uid://dr4g3okg075lr"
 
 [sub_resource type="Resource" id="Resource_q5b8i"]
@@ -171,12 +172,41 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Layout" type="Node2D" parent="."]
 
+[node name="DecorationsBack" type="Node2D" parent="Layout"]
+z_index = -1
+
+[node name="AnimatedCloud" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
+position = Vector2(87, 76)
+
+[node name="AnimatedCloud2" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
+position = Vector2(487, -234)
+
+[node name="AnimatedCloud3" parent="Layout/DecorationsBack" instance=ExtResource("8_0mkr8")]
+position = Vector2(-314, -5)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="Layout"]
 unique_name_in_owner = true
 z_index = -1
 z_as_relative = false
 tile_map_data = PackedByteArray("AAD7/wMAAAABAAIAAAD7/wQAAAABAAMAAAD8/wMAAAACAAIAAAD8/wQAAAACAAMAAAD8/wUAAAACAAQAAAD9/wMAAAACAAIAAAD9/wQAAAACAAMAAAD9/wUAAAADAAQAAAD+/wMAAAACAAIAAAD+/wQAAAACAAMAAAD+/wUAAAAEAAQAAAD//wMAAAADAAIAAAD//wQAAAADAAMAAAD//wUAAAADAAQAAAAAAAMAAAACAAIAAAAAAAQAAAACAAMAAAAAAAUAAAADAAQAAAABAAMAAAADAAIAAAABAAQAAAADAAMAAAABAAUAAAADAAQAAAACAAMAAAAEAAIAAAACAAQAAAAEAAMAAAACAAUAAAAEAAQAAAADAAMAAAAFAAIAAAADAAQAAAAFAAMAAAADAAUAAAAFAAQAAAAEAAMAAAAGAAIAAAAHAP3/AAABAAIAAAAHAP7/AAABAAMAAAAIAP3/AAABAAYAAAAIAP7/AAAAAAgAAQAIAP//AAACAAQAAAAJAP3/AAABAAYAAAAJAP7/AAABAAcAAAAJAP//AAAAAAgAAQAJAAAAAAACAAQAAAAKAP3/AAABAAYAAAAKAP7/AAADAAMAAAAKAP//AAAFAAMAAAAKAAAAAAAFAAQAAAALAP3/AAABAAYAAAALAP7/AAAFAAMAAAALAP//AAAGAAMAAAAMAP3/AAABAAYAAAAMAP7/AAADAAQAAAANAP3/AAABAAYAAAANAP7/AAADAAMAAAANAP//AAACAAQAAAAOAP3/AAABAAYAAAAOAP7/AAADAAMAAAAOAP//AAADAAQAAAAPAP3/AAABAAYAAAAPAP7/AAADAAMAAAAPAP//AAAEAAQAAAAQAP3/AAABAAYAAAAQAP7/AAAFAAMAAAAQAP//AAAFAAQAAAARAP3/AAABAAYAAAARAP7/AAADAAQAAAASAP3/AAABAAYAAAASAP7/AAAEAAQAAAATAP3/AAAGAAIAAAATAP7/AAAFAAQAAADr//3/AAABAAIAAADr//7/AAABAAMAAADs//3/AAABAAYAAADs//7/AAACAAMAAADs////AAACAAQAAADt//3/AAABAAYAAADt//7/AAABAAcAAADt////AAACAAMAAADt/wAAAAACAAQAAADu//3/AAABAAYAAADu//7/AAADAAMAAADu////AAACAAMAAADu/wAAAAAEAAQAAADv//3/AAABAAYAAADv//7/AAADAAMAAADv////AAAFAAMAAADv/wAAAAAFAAQAAADw//3/AAABAAYAAADw//7/AAAFAAMAAADw////AAAFAAQAAADx//3/AAABAAYAAADx//7/AAADAAQAAADy//3/AAABAAYAAADy//7/AAAEAAQAAADz//3/AAABAAYAAADz//7/AAADAAQAAAD0//3/AAABAAYAAAD0//7/AAABAAgAAAD0////AAABAAMAAAD1//3/AAABAAYAAAD1//7/AAABAAgAAAD1////AAACAAMAAAD1/wAAAAACAAQAAAD2//3/AAABAAYAAAD2//7/AAAEAAMAAAD2////AAAFAAMAAAD2/wAAAAAGAAMAAAD3//3/AAABAAYAAAD3//7/AAAFAAMAAAD3////AAAGAAMAAAD4//3/AAAGAAIAAAD4//7/AAAGAAMAAAAXAAMAAAABAAIAAAAXAAQAAAABAAMAAAAYAAMAAAACAAIAAAAYAAQAAAACAAMAAAAYAAUAAAACAAQAAAAZAAMAAAADAAIAAAAZAAQAAAADAAMAAAAZAAUAAAADAAQAAAAaAAMAAAAEAAIAAAAaAAQAAAAEAAMAAAAaAAUAAAAEAAQAAAAbAAMAAAAFAAIAAAAbAAQAAAAFAAMAAAAbAAUAAAAFAAQAAAAcAAMAAAAGAAIAAAAcAAQAAAAGAAMAAADj/wMAAAABAAIAAADj/wQAAAABAAMAAADk/wMAAAACAAIAAADk/wQAAAACAAMAAADk/wUAAAACAAQAAADl/wMAAAADAAIAAADl/wQAAAADAAMAAADl/wUAAAADAAQAAADm/wMAAAAEAAIAAADm/wQAAAAEAAMAAADm/wUAAAAEAAQAAADn/wMAAAAFAAIAAADn/wQAAAAFAAMAAADn/wUAAAAFAAQAAADo/wMAAAAGAAIAAADo/wQAAAAGAAMAAAAHAAIAAAAHAAUAAAAHAAMAAAAHAAYAAAAIAAIAAAAIAAUAAAAIAAMAAAAIAAYAAAAJAAIAAAAJAAUAAAAJAAMAAAAJAAYAAAATAPr/AAAHAAUAAAATAPv/AAAHAAYAAAAUAPr/AAAIAAUAAAAUAPv/AAAIAAYAAAAVAPr/AAAJAAUAAAAVAPv/AAAJAAYAAADq//r/AAAHAAUAAADq//v/AAAHAAYAAADr//r/AAAIAAUAAADr//v/AAAIAAYAAADs//r/AAAJAAUAAADs//v/AAAJAAYAAAAeAAAAAAABAAIAAAAeAAEAAAABAAMAAAAfAAAAAAACAAIAAAAfAAEAAAACAAMAAAAfAAIAAAACAAQAAAAgAAAAAAADAAIAAAAgAAEAAAADAAMAAAAgAAIAAAADAAQAAAAhAAAAAAAEAAIAAAAhAAEAAAAEAAMAAAAhAAIAAAAEAAQAAAAiAAAAAAAFAAIAAAAiAAEAAAAFAAMAAAAiAAIAAAAFAAQAAAAjAAAAAAAGAAIAAAAjAAEAAAAGAAMAAAAeAPr/AAABAAIAAAAeAPv/AAABAAMAAAAfAPr/AAABAAYAAAAfAPv/AAACAAMAAAAfAPz/AAACAAQAAAAgAPr/AAABAAYAAAAgAPv/AAABAAcAAAAgAPz/AAACAAMAAAAgAP3/AAACAAQAAAAhAPr/AAABAAYAAAAhAPv/AAADAAMAAAAhAPz/AAACAAMAAAAhAP3/AAACAAMAAAAhAP7/AAACAAQAAAAiAPr/AAABAAYAAAAiAPv/AAADAAMAAAAiAPz/AAADAAMAAAAiAP3/AAADAAMAAAAiAP7/AAADAAQAAAAjAPr/AAABAAYAAAAjAPv/AAADAAMAAAAjAPz/AAADAAMAAAAjAP3/AAADAAMAAAAjAP7/AAADAAQAAAAkAPr/AAABAAYAAAAkAPv/AAADAAMAAAAkAPz/AAADAAMAAAAkAP3/AAADAAMAAAAkAP7/AAADAAQAAAAlAPr/AAABAAYAAAAlAPv/AAADAAMAAAAlAPz/AAADAAMAAAAlAP3/AAADAAMAAAAlAP7/AAAEAAQAAAAmAPr/AAABAAYAAAAmAPv/AAADAAMAAAAmAPz/AAADAAMAAAAmAP3/AAAFAAMAAAAmAP7/AAAFAAQAAAAnAPr/AAABAAYAAAAnAPv/AAADAAMAAAAnAPz/AAADAAMAAAAnAP3/AAAGAAMAAAAoAPr/AAABAAYAAAAoAPv/AAADAAMAAAAoAPz/AAADAAQAAAApAPr/AAABAAYAAAApAPv/AAADAAMAAAApAPz/AAAEAAQAAAAqAPr/AAABAAYAAAAqAPv/AAAFAAMAAAAqAPz/AAAFAAQAAAArAPr/AAAGAAIAAAArAPv/AAAGAAMAAADc/wAAAAABAAIAAADc/wEAAAABAAMAAADd/wAAAAACAAIAAADd/wEAAAACAAMAAADd/wIAAAACAAQAAADe/wAAAAADAAIAAADe/wEAAAADAAMAAADe/wIAAAADAAQAAADf/wAAAAAEAAIAAADf/wEAAAAEAAMAAADf/wIAAAAEAAQAAADg/wAAAAAFAAIAAADg/wEAAAAFAAMAAADg/wIAAAAFAAQAAADh/wAAAAAGAAIAAADh/wEAAAAGAAMAAADT//v/AAABAAIAAADT//z/AAABAAMAAADU//v/AAABAAYAAADU//z/AAACAAMAAADU//3/AAACAAQAAADV//v/AAABAAYAAADV//z/AAABAAcAAADV//3/AAACAAMAAADV//7/AAACAAQAAADW//v/AAABAAYAAADW//z/AAADAAMAAADW//3/AAACAAMAAADW//7/AAAEAAQAAADX//v/AAABAAYAAADX//z/AAADAAMAAADX//3/AAAFAAMAAADX//7/AAAFAAQAAADY//v/AAABAAYAAADY//z/AAAFAAMAAADY//3/AAAFAAQAAADZ//v/AAABAAYAAADZ//z/AAADAAQAAADa//v/AAABAAYAAADa//z/AAAEAAQAAADb//v/AAABAAYAAADb//z/AAADAAQAAADc//v/AAABAAYAAADc//z/AAABAAgAAADc//3/AAABAAMAAADd//v/AAABAAYAAADd//z/AAABAAgAAADd//3/AAACAAMAAADd//7/AAACAAQAAADe//v/AAABAAYAAADe//z/AAAEAAMAAADe//3/AAAFAAMAAADe//7/AAAGAAMAAADf//v/AAABAAYAAADf//z/AAAFAAMAAADf//3/AAAGAAMAAADg//v/AAAGAAIAAADg//z/AAAGAAMAAADg//b/AAAEAAIAAADh//b/AAAFAAIAAADh//f/AAAFAAMAAADi//b/AAAGAAIAAADi//f/AAAGAAMAAADZ//b/AAABAAIAAADZ//f/AAABAAMAAADa//b/AAACAAIAAADa//f/AAACAAMAAADa//j/AAACAAQAAADb//b/AAACAAIAAADb//f/AAACAAMAAADb//j/AAADAAQAAADc//b/AAACAAIAAADc//f/AAACAAMAAADc//j/AAAEAAQAAADd//b/AAADAAIAAADd//f/AAADAAMAAADd//j/AAADAAQAAADe//b/AAACAAIAAADe//f/AAACAAMAAADe//j/AAADAAQAAADf//b/AAADAAIAAADf//f/AAADAAMAAADf//j/AAADAAQAAADg//f/AAAEAAMAAADg//j/AAAEAAQAAADh//j/AAAFAAQAAAAeAPT/AAABAAIAAAAeAPX/AAABAAMAAAAfAPT/AAABAAYAAAAfAPX/AAAAAAgAAQAfAPb/AAACAAQAAAAgAPT/AAABAAYAAAAgAPX/AAABAAcAAAAgAPb/AAAAAAgAAQAgAPf/AAACAAQAAAAhAPT/AAABAAYAAAAhAPX/AAADAAMAAAAhAPb/AAAFAAMAAAAhAPf/AAAFAAQAAAAiAPT/AAABAAYAAAAiAPX/AAAFAAMAAAAiAPb/AAAGAAMAAAAjAPT/AAABAAYAAAAjAPX/AAADAAQAAAAkAPT/AAABAAYAAAAkAPX/AAADAAMAAAAkAPb/AAACAAQAAAAlAPT/AAABAAYAAAAlAPX/AAADAAMAAAAlAPb/AAADAAQAAAAmAPT/AAABAAYAAAAmAPX/AAADAAMAAAAmAPb/AAAEAAQAAAAnAPT/AAABAAYAAAAnAPX/AAAFAAMAAAAnAPb/AAAFAAQAAAAoAPT/AAABAAYAAAAoAPX/AAADAAQAAAApAPT/AAABAAYAAAApAPX/AAAEAAQAAAAqAPT/AAAGAAIAAAAqAPX/AAAFAAQAAAAdAO//AAABAAIAAAAdAPD/AAABAAMAAAAeAO//AAACAAIAAAAeAPD/AAACAAMAAAAeAPH/AAACAAQAAAAfAO//AAADAAIAAAAfAPD/AAADAAMAAAAfAPH/AAADAAQAAAAgAO//AAAEAAIAAAAgAPD/AAAEAAMAAAAgAPH/AAAEAAQAAAAhAO//AAAFAAIAAAAhAPD/AAAFAAMAAAAhAPH/AAAFAAQAAAAiAO//AAAGAAIAAAAiAPD/AAAGAAMAAADd//H/AAABAAIAAADd//L/AAABAAMAAADe//H/AAACAAIAAADe//L/AAACAAMAAADe//P/AAACAAQAAADf//H/AAADAAIAAADf//L/AAADAAMAAADf//P/AAADAAQAAADg//H/AAAEAAIAAADg//L/AAAEAAMAAADg//P/AAAEAAQAAADh//H/AAAFAAIAAADh//L/AAAFAAMAAADh//P/AAAFAAQAAADi//H/AAAGAAIAAADi//L/AAAGAAMAAAD2/wIAAAAHAAUAAAD3/wIAAAAIAAUAAAD2/wMAAAAHAAYAAAD3/wMAAAAIAAYAAAD4/wIAAAAJAAUAAAD4/wMAAAAJAAYAAADq/wEAAAAHAAUAAADq/wIAAAAHAAYAAADr/wEAAAAIAAUAAADr/wIAAAAIAAYAAADs/wEAAAAJAAUAAADs/wIAAAAJAAYAAAATAAEAAAAHAAUAAAATAAIAAAAHAAYAAAAUAAEAAAAIAAUAAAAUAAIAAAAIAAYAAAAVAAEAAAAJAAUAAAAVAAIAAAAJAAYAAAA=")
 tile_set = ExtResource("5_61xil")
+
+[node name="Decorations" type="Node2D" parent="Layout"]
+
+[node name="AnimatedCloud2" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(-122, -40)
+
+[node name="AnimatedCloud3" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(-493, -196)
+
+[node name="AnimatedCloud4" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(-509, -76)
+
+[node name="AnimatedCloud5" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(311, -63)
+
+[node name="AnimatedCloud6" parent="Layout/Decorations" instance=ExtResource("8_0mkr8")]
+position = Vector2(511, -40)
 
 [node name="CollectionZoneLeft" parent="Layout" instance=ExtResource("6_8cynx")]
 position = Vector2(-415, -7)
@@ -228,12 +258,13 @@ scale = Vector2(0.966935, 0.996952)
 script = ExtResource("11_bete1")
 cutscenes = [NodePath("Intro"), NodePath("FireDropper"), NodePath("WaterDropper")]
 
-[node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="Intro" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 1
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_e3ggw")])
 useableCameras = {
 &"Player": NodePath("Player")
 }
+keepActive = [NodePath("../../Layout")]
 
 [node name="Player" type="Node2D" parent="Cutscenes/Intro"]
 position = Vector2(0, -68)
@@ -248,17 +279,14 @@ script = ExtResource("17_3hvhq")
 tutorialCutsceneManager = NodePath("../..")
 controlsDisplay = ExtResource("18_61xil")
 
-[node name="Demonstrate" type="Node2D" parent="Cutscenes/Intro" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("16_ueyvx")
-hazardsToDemonstrate = [NodePath("../../../Layout")]
-
-[node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="FireDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_8kfja"), SubResource("Resource_61xil")])
 useableCameras = {
 &"FireDrop": NodePath("FireDrop"),
 &"WaterZone": NodePath("WaterZone")
 }
+keepActive = [NodePath("../../Layout")]
 collisionLayers = 8
 
 [node name="FireDrop" type="Node2D" parent="Cutscenes/FireDropper"]
@@ -300,17 +328,14 @@ debug_color = Color(0.82216, 0.00172809, 0.963181, 0.180392)
 script = ExtResource("17_6ifj0")
 tutorialCutsceneManager = NodePath("../..")
 
-[node name="Demonstrate" type="Node2D" parent="Cutscenes/FireDropper" node_paths=PackedStringArray("hazardsToDemonstrate")]
-script = ExtResource("16_ueyvx")
-hazardsToDemonstrate = [NodePath("../../../Layout")]
-
-[node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras") instance=ExtResource("11_octr6")]
+[node name="WaterDropper" parent="Cutscenes" node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("11_octr6")]
 type = 0
 storyPoints = Array[ExtResource("12_l3e5w")]([SubResource("Resource_km0gl"), SubResource("Resource_s2r5k")])
 useableCameras = {
 &"FireZone": NodePath("FireZone"),
 &"WaterDrop": NodePath("WaterDrop")
 }
+keepActive = [NodePath("../../Layout")]
 collisionLayers = 8
 
 [node name="Area2D" type="Area2D" parent="Cutscenes/WaterDropper"]

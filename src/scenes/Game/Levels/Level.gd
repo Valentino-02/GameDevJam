@@ -20,7 +20,10 @@ var Boundaries: BoundaryWall:
 
 
 func _process(_delta: float) -> void:
-	PlayerRelativePosition.relativePosition = (_player.getPlayerPosition().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()
+#	PlayerRelativePosition.relativePosition = (_player.getPlayerPosition().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()
+	
+	## NOTE: This is to test a new idea, I think it's working ok!
+	PlayerRelativePosition.relativePosition = (camera.get_screen_center_position().x - _boundaryWalls.getLeftWallPosition().x)/_boundaryWalls.getLevelWidth()
 
 func _getTilemapLayers() -> Array[TileMapLayer]:
 	var layers: Array[Node] = get_tree().get_nodes_in_group("MovingPlatform")
