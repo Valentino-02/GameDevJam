@@ -1,13 +1,13 @@
-[gd_scene load_steps=45 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=43 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_joxkf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_kmbku"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_n0axo"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_kbui7"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_kbui7"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="8_sjj33"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_2nf82"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_2nf82"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_t4naf"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_7mk0e"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_fx7be"]
@@ -67,12 +67,6 @@ size = Vector2(1291, 1999)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eo8bu"]
 resource_local_to_scene = true
 size = Vector2(1301, 1971)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjj33"]
-size = Vector2(400, 2200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_joxkf"]
-size = Vector2(400, 2200)
 
 [sub_resource type="Resource" id="Resource_kbui7"]
 script = ExtResource("22_n0axo")
@@ -459,19 +453,19 @@ position = Vector2(-1078, 922)
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(2000, -6)
+position = Vector2(1874, -8)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-2000, 0)
+position = Vector2(-2182, 0)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
-position = Vector2(0, -934)
+position = Vector2(2, -914)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 1047)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 969)
+position = Vector2(-2, 1073)
 script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
@@ -603,11 +597,9 @@ shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="WindObstacle" parent="Layout/Obstacles" instance=ExtResource("17_amhy0")]
 position = Vector2(-477, 0)
-area = SubResource("RectangleShape2D_sjj33")
 
 [node name="WindObstacle2" parent="Layout/Obstacles" instance=ExtResource("17_amhy0")]
 position = Vector2(418, 0)
-area = SubResource("RectangleShape2D_joxkf")
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_84vmn")]
 position = Vector2(-1376, 997)

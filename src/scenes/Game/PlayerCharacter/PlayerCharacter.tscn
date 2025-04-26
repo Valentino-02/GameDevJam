@@ -252,7 +252,9 @@ collision_layer = 8
 collision_mask = 273
 mass = 10.0
 physics_material_override = ExtResource("12_hu46i")
-angular_damp = 1.0
+contact_monitor = true
+max_contacts_reported = 20
+angular_damp = 2.0
 script = ExtResource("3_ct1ul")
 
 [node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]

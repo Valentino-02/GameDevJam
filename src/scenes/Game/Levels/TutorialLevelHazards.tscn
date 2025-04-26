@@ -159,11 +159,6 @@ autostart = true
 [node name="Launcher" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-634, 72)
 
-[node name="Launcher2" parent="Hazards" instance=ExtResource("11_3mljl")]
-position = Vector2(-883, -592)
-rotation = 2.73548
-spawn_pattern = Array[float]([1.0, 1.0, 5.0, 0.5, 3.0])
-
 [node name="RainCloud2" parent="Hazards" instance=ExtResource("12_fkqq5")]
 position = Vector2(415, -376)
 
@@ -171,6 +166,10 @@ position = Vector2(415, -376)
 process_callback = 0
 wait_time = 6.0
 autostart = true
+
+[node name="Launcher2" parent="Hazards" instance=ExtResource("11_3mljl")]
+position = Vector2(-567, -400)
+rotation = -3.10015
 
 [node name="Cutscene" parent="." instance=ExtResource("17_5x4vm")]
 

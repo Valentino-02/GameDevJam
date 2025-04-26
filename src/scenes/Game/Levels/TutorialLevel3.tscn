@@ -293,25 +293,6 @@ position = Vector2(700, 276)
 [node name="AnimatedCloud11" parent="Layout/DecorationsFront" instance=ExtResource("7_ugr50")]
 position = Vector2(825, -92)
 
-[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("14_tqhj4")]
-phantom_camera = NodePath("../../PhantomCamera2D")
-
-[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1250, 0)
-
-[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-1250, 0)
-
-[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
-position = Vector2(0, -762)
-
-[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 440)
-
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-5, 397)
-script = null
-
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
@@ -367,6 +348,22 @@ zone = 1
 position = Vector2(114.5, -162)
 shape = SubResource("RectangleShape2D_eo8bu")
 
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("14_tqhj4")]
+position = Vector2(0, 1)
+phantom_camera = NodePath("../../PhantomCamera2D")
+
+[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
+position = Vector2(1320, 0)
+
+[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
+position = Vector2(-1212, 0)
+
+[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
+position = Vector2(4, 454)
+
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(2, 405)
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
 
 [node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("17_pc0oe")]
@@ -420,8 +417,8 @@ tween_resource = SubResource("Resource_ol8rq")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
 [editable path="Layout/ZoneAreas/ZoneAerea3"]
+[editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]

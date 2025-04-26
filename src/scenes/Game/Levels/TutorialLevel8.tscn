@@ -527,19 +527,19 @@ position = Vector2(1808, -315)
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(3000, -6)
+position = Vector2(2783, -12)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
 position = Vector2(-3000, 0)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
-position = Vector2(0, -1369)
+position = Vector2(7, -1369)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 1291)
+position = Vector2(6, 1296)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(3, 1208)
+position = Vector2(5, 1286)
 script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
@@ -744,7 +744,7 @@ shape = SubResource("RectangleShape2D_eo8bu")
 position = Vector2(5, 0)
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
-position = Vector2(-1684, 1123)
+position = Vector2(-1763, 1123)
 
 [node name="RainCloud" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
 position = Vector2(628, 173)
@@ -757,6 +757,10 @@ position = Vector2(1345, 113)
 
 [node name="RainCloud4" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
 position = Vector2(752, -1307)
+
+[node name="Launcher2" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
+position = Vector2(-2364, -1468)
+rotation = 3.14159
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("19_eu36b")]
 

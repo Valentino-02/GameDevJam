@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3ovbsaepi48d"
-path="res://.godot/imported/WaterParticle_2.png-81f458c3d3468a1b34a3e9955a371979.ctex"
+path="res://.godot/imported/WaterParticle_2.png-4eab2a42f3222479ccb8193e67b1e8bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/PlayerCharacters/WaterParticle_2.png"
-dest_files=["res://.godot/imported/WaterParticle_2.png-81f458c3d3468a1b34a3e9955a371979.ctex"]
+source_file="res://assets/images/playerCharacters/WaterParticle_2.png"
+dest_files=["res://.godot/imported/WaterParticle_2.png-4eab2a42f3222479ccb8193e67b1e8bd.ctex"]
 
 [params]
 

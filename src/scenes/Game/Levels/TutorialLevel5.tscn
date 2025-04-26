@@ -323,19 +323,19 @@ position = Vector2(-1092, 0)
 phantom_camera = NodePath("../../PhantomCamera2D")
 
 [node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1300, -6)
+position = Vector2(1353, -2)
 
 [node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-1300, 0)
+position = Vector2(-1444, -6)
 
 [node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
 position = Vector2(0, -841)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 444)
+position = Vector2(0, 768)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 404)
+position = Vector2(-2, 728)
 script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
