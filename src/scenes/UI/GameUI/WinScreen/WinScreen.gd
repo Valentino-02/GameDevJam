@@ -4,6 +4,7 @@ class_name WinScreen extends Control
 
 var _hiddenPosition := Vector2(0, -300)
 var _targetPosition : Vector2
+var _clicked : bool = false
 
 
 func _ready() -> void:
@@ -17,6 +18,8 @@ func trigger() -> void:
 	AudioManager.sfx.play(ResourceIds.SfxId.WinFanfare)
 	_playIntroAnimation()
 	await get_tree().create_timer(2.0).timeout
+	if !is_inside_tree():
+		return
 	AudioManager.music.play(ResourceIds.MusicId.WaitTheme)
 
 
@@ -32,9 +35,15 @@ func _playIntroAnimation() -> Tween:
 
 
 func _on_main_menu_button_pressed() -> void:
+	if _clicked == true:
+		return
+	_clicked = true
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	TransitionManager.changeToScene(ResourceIds.SceneId.MainMenu)
 
 func _on_next_level_button_pressed() -> void:
+	if _clicked == true:
+		return
+	_clicked = true
 	AudioManager.sfx.play(ResourceIds.SfxId.Click)
 	SignalBus.nextLevelClicked.emit()
