@@ -15,6 +15,7 @@ func _ready() -> void:
 	await get_tree().process_frame 
 	_targetPosition = _modal.position
 	_hiddenPosition.x = _modal.position.x
+	SignalBus.zonePatienceEnded.connect(_onZonePatienceEnded)
 
 
 func trigger(isSecretWin: bool = false) -> void:
