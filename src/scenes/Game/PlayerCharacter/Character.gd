@@ -28,14 +28,15 @@ func _ready() -> void:
 var _previousValidPosition
 #get the target position = back to origin or current position + speed in input direciton
 func _physics_process(delta: float) -> void:
+	move(delta, _getInputVector())
+
+func move(delta : float, inputDir : Vector2):
 	if _outsideBoundary():
 		global_position = _previousValidPosition
 		outputDir = Vector2.ZERO
 		return
 	else:
 		_previousValidPosition = global_position
-
-	var inputDir : Vector2 = _getInputVector()
 			
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
 	var origin : Vector2 = _origin.global_position
@@ -45,26 +46,30 @@ func _physics_process(delta: float) -> void:
 		origin += Vector2.UP * _radius * 0.55
 	if _inRainCloud(): 
 		origin += Vector2.DOWN * _radius * 0.55
-	
-	
 
 	#move towards the joystick's origin if no input, otherwise go with the input
-	if inputDir == Vector2.ZERO:
-		var distance : float = global_position.distance_to(origin)
-		global_position = global_position.lerp(origin, clampf((returnSpeed * delta)/distance, 0, 1))
-	else:global_position += _speed * delta * inputDir
+	if inputDir == Vector2.ZERO: returnOrigin(origin, delta)
+	else: moveInput(delta, inputDir)
 
-	#If beyond the radius, move back to within
-	var difference : Vector2 = (global_position - origin)
-	global_position = origin + difference.limit_length(_radius)
+	remainRadius(origin)
 	
 	outputDir = global_position - _origin.global_position
-
+	
 	#If we were struck by a fireball push us in that direction
 	if (Time.get_ticks_msec() < _struck + STRUCK_TIME):
 		global_position += _struckDir * STRUCK_SPEED * delta 
 
-	
+func moveInput(delta, inputDir):
+	global_position += _speed * delta * inputDir
+
+func returnOrigin(origin, delta):
+	var distance : float = global_position.distance_to(origin)
+	global_position = global_position.lerp(origin, clampf((returnSpeed * delta)/distance, 0, 1))
+
+#If beyond the radius, move back to within
+func remainRadius(origin):
+	var difference : Vector2 = (global_position - origin)
+	global_position = origin + difference.limit_length(_radius)
 
 	
 func _getInputVector() -> Vector2:
