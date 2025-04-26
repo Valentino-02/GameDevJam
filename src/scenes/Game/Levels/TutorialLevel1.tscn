@@ -71,7 +71,7 @@ ease = 2
 [sub_resource type="Resource" id="Resource_jdpu4"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "This is the [color=#ff4e50][b]Fire Forge[/b][/color] of my realm! You can get [color=#ff4e50][b]Fire Packages[/b][/color] here if you use the [color=black][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=#42dffe][b]Water Realm[/b][/color]."
+dialogueLine = "This is the [color=#ff4e50][b]Fire Forge[/b][/color] of my realm! You can get [color=#ff4e50][b]Fire Packages[/b][/color] here if you use the [color=green][b]E[/b][/color] Rune! You'll need these, to slow down the freeze in the [color=#42dffe][b]Water Realm[/b][/color]."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_8kfja"]
@@ -90,7 +90,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_3hvhq"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "You can drop off [color=#ff4e50][b]Fire Packages[/b][/color] here by using the [color=black][b]Space[/b][/color] Runekey!"
+dialogueLine = "You can drop off [color=#ff4e50][b]Fire Packages[/b][/color] here by using the [color=green][b]Space[/b][/color] Runekey!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_61xil"]
@@ -109,7 +109,7 @@ size = Vector2(59, 142)
 [sub_resource type="Resource" id="Resource_edi57"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 2
-dialogueLine = "This is the [color=#42dffe][b]Water Forge[/b][/color]! Use your [color=black][b]E[/b][/color] Rune to collect some [color=#42dffe][b]Water Packages[/b][/color]. You'll need it to cool down the [color=#ff4e50][b]Fire Core[/b][/color]!"
+dialogueLine = "This is the [color=#42dffe][b]Water Forge[/b][/color]! Use your [color=green][b]E[/b][/color] Rune to collect some [color=#42dffe][b]Water Packages[/b][/color]. You'll need it to cool down the [color=#ff4e50][b]Fire Core[/b][/color]!"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_km0gl"]
@@ -128,7 +128,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_mpwdg"]
 script = ExtResource("14_3hvhq")
 speakingCharacter = 1
-dialogueLine = "Once you've got some [color=#42dffe][b]Water Packages[/b][/color] on-board, try dropping them here using the [color=black][b]Space[/b][/color] Runekey."
+dialogueLine = "Once you've got some [color=#42dffe][b]Water Packages[/b][/color] on-board, try dropping them here using the [color=green][b]Space[/b][/color] Runekey."
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_s2r5k"]
