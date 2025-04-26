@@ -110,9 +110,6 @@ collision_layer = 1
 position = Vector2(-1, 169)
 collision_layer = 1
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-3, 127)
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("9_5x4vm")]
 z_index = 0
 
@@ -151,21 +148,11 @@ position = Vector2(401, -49)
 position = Vector2(4, -195)
 scale = Vector2(0.5, 1)
 
-[node name="Timer" type="Timer" parent="Hazards/WindObstacle2"]
-process_callback = 0
-wait_time = 6.0
-autostart = true
-
 [node name="Launcher" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-634, 72)
 
 [node name="RainCloud2" parent="Hazards" instance=ExtResource("12_fkqq5")]
 position = Vector2(415, -376)
-
-[node name="Timer" type="Timer" parent="Hazards/RainCloud2"]
-process_callback = 0
-wait_time = 6.0
-autostart = true
 
 [node name="Launcher2" parent="Hazards" instance=ExtResource("11_3mljl")]
 position = Vector2(-567, -400)
@@ -175,9 +162,6 @@ rotation = -3.10015
 
 [node name="DemonstrateHazards" type="Node2D" parent="Cutscene"]
 script = ExtResource("18_vejsg")
-
-[connection signal="timeout" from="Hazards/WindObstacle2/Timer" to="Hazards/WindObstacle2" method="Activate"]
-[connection signal="timeout" from="Hazards/RainCloud2/Timer" to="Hazards/RainCloud2" method="_setRaining"]
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]

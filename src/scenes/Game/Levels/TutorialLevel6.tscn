@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://b5bdk4aiik0jb"]
+[gd_scene load_steps=41 format=4 uid="uid://b5bdk4aiik0jb"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_4lsem"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_irwij"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="17_f3el3"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="17_irwij"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="19_eh6si"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="19_up10j"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="20_0j6ke"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="21_xlsoy"]
 
@@ -335,10 +336,6 @@ position = Vector2(-6, -995)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(-17, 1310)
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(8, 1320)
-script = null
-
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_egdgh")]
@@ -574,6 +571,10 @@ script = ExtResource("3_eh6si")
 tween_resource = SubResource("Resource_r46br")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("19_up10j")]
+position = Vector2(-19, 1435)
+targetY = NodePath("../Layout/BoundaryWalls/Ceiling")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]

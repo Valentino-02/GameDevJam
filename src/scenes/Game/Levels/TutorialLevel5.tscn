@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cgnwgxomfrrqc"]
+[gd_scene load_steps=46 format=4 uid="uid://cgnwgxomfrrqc"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_3ar3d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_8envh"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="16_4dtu3"]
 [ext_resource type="PackedScene" uid="uid://dnmw00r2td2ol" path="res://src/scenes/Game/Components/Cargo/Cargo.tscn" id="16_8envh"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="18_gjnij"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="19_gjnij"]
 [ext_resource type="Script" uid="uid://dkoedheqroxm4" path="res://src/scenes/Game/CutScenes/CustomCutsceneBehaviour/CutsceneDemonstrate.gd" id="19_irisn"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="19_w2mcj"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="20_td4ji"]
@@ -334,10 +335,6 @@ position = Vector2(0, -841)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 768)
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 728)
-script = null
-
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_2gtkk")]
@@ -551,6 +548,10 @@ script = ExtResource("3_dxl7l")
 tween_resource = SubResource("Resource_sr2wd")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("19_gjnij")]
+position = Vector2(13, 764)
+targetY = NodePath("../Layout/BoundaryWalls/Ceiling")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]
