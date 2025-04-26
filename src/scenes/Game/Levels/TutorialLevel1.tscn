@@ -149,7 +149,9 @@ backgroundScrollCap = 150.0
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
+physics_interpolation_mode = 1
 position = Vector2(15, -65)
+process_callback = 0
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

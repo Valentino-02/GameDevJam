@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8ftew0m5rtfk"
-path="res://.godot/imported/Water Icons_4.png-748dba4714a64d47cec63f2454afc88a.ctex"
+path="res://.godot/imported/Water Icons_4.png-fe1d3d70b8187b702fcc840cf8e54df6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/Weather Icons/Water Icons_4.png"
-dest_files=["res://.godot/imported/Water Icons_4.png-748dba4714a64d47cec63f2454afc88a.ctex"]
+source_file="res://assets/images/UI/Weather Icons/Water Icons_4.png"
+dest_files=["res://.godot/imported/Water Icons_4.png-fe1d3d70b8187b702fcc840cf8e54df6.ctex"]
 
 [params]
 

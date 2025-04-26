@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dy0jtyvehb74b"]
+[gd_scene load_steps=12 format=4 uid="uid://dy0jtyvehb74b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_lds5t"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_bso61"]
@@ -7,11 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="7_o4ow1"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="8_xrygs"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="9_x0fbf"]
+[ext_resource type="Script" uid="uid://7vy80trc6wei" path="res://src/scenes/Game/Levels/WinLevelStuff.gd" id="10_lxisl"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="11_h7vpn"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="16_scta7"]
-[ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_au6r4"]
-[ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="18_j2ee3"]
-[ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="19_qo3t6"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_qrjbi")
@@ -19,47 +17,10 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="Resource" id="Resource_xlylt"]
-script = ExtResource("19_qo3t6")
-speakingCharacter = 1
-dialogueLine = "Yes! we won!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_ejqr4"]
-script = ExtResource("19_qo3t6")
-speakingCharacter = 2
-dialogueLine = "You are indeed the BALANCE bringer!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_xj220"]
-script = ExtResource("19_qo3t6")
-speakingCharacter = 1
-dialogueLine = "..."
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_k8ubk"]
-script = ExtResource("19_qo3t6")
-speakingCharacter = 2
-dialogueLine = "..."
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_4wavg"]
-script = ExtResource("19_qo3t6")
-speakingCharacter = 0
-dialogueLine = "Yeah!!!!! Victory!"
-metadata/_custom_type_script = "uid://wil8yv1k8und"
-
-[sub_resource type="Resource" id="Resource_n7nhb"]
-script = ExtResource("18_j2ee3")
-cameraToUse = &""
-dialogues = Array[ExtResource("19_qo3t6")]([SubResource("Resource_xlylt"), SubResource("Resource_ejqr4"), SubResource("Resource_xj220"), SubResource("Resource_k8ubk"), SubResource("Resource_4wavg")])
-childToTrigger = ""
-metadata/_custom_type_script = "uid://dr4g3okg075lr"
-
 [node name="WinLevel" type="Node2D"]
 script = ExtResource("1_lds5t")
-maxScore = 45.0
-patienceLossPerSecond = 0.6
+maxScore = 99.0
+patienceLossPerSecond = 0.0
 cargoPatienceGain = 8.0
 nextLevelId = 9
 
@@ -175,10 +136,6 @@ position = Vector2(0, -710)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 834)
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(3, 717)
-script = null
-
 [node name="CargoDroppers" type="Node2D" parent="Layout"]
 
 [node name="CargoDropper" parent="Layout/CargoDroppers" instance=ExtResource("11_h7vpn")]
@@ -190,10 +147,8 @@ position = Vector2(184, -8)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("16_scta7")]
 
-[node name="Cutscene" parent="." node_paths=PackedStringArray("keepActive") instance=ExtResource("17_au6r4")]
-type = 1
-storyPoints = Array[ExtResource("18_j2ee3")]([SubResource("Resource_n7nhb")])
-keepActive = [NodePath("../Layout")]
+[node name="WinLevelStuff" type="Node" parent="."]
+script = ExtResource("10_lxisl")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]

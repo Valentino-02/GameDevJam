@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhqd2wxp5kupm"
-path="res://.godot/imported/Fire Icons_4.png-5105242d6e11d93530814adabaee5832.ctex"
+path="res://.godot/imported/Fire Icons_4.png-9077b00f54c79387d7fa8a4c625275e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/Weather Icons/Fire Icons_4.png"
-dest_files=["res://.godot/imported/Fire Icons_4.png-5105242d6e11d93530814adabaee5832.ctex"]
+source_file="res://assets/images/UI/Weather Icons/Fire Icons_4.png"
+dest_files=["res://.godot/imported/Fire Icons_4.png-9077b00f54c79387d7fa8a4c625275e5.ctex"]
 
 [params]
 

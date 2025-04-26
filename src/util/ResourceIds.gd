@@ -26,6 +26,7 @@ enum MusicId {
 	WaterTheme,
 	MainMenuTheme,
 	WaitTheme,
+	WinTheme,
 }
 
 enum LevelId {

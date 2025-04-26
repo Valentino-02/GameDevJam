@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://crbdnu2euab7g"]
+[gd_scene load_steps=49 format=4 uid="uid://crbdnu2euab7g"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_dkd77"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_pdgl0"]
@@ -6,15 +6,14 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hq1aq"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="7_pdgl0"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_xlylt"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_ejqr4"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_xj220"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_ejqr4"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_xj220"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="12_lm18q"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_t10py"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_hu3q8"]
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_2u7fx"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="16_b8gd7"]
 [ext_resource type="PackedScene" uid="uid://wjr4oltanu5r" path="res://src/scenes/Game/Components/Fireball/Launcher.tscn" id="17_6k5gl"]
-[ext_resource type="PackedScene" uid="uid://dcp1acwb278w1" path="res://src/scenes/Game/Components/RainObstacle/RainCloud.tscn" id="18_lk1ah"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="19_eu36b"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="20_6ckn6"]
 [ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="21_6ckn6"]
@@ -739,21 +738,7 @@ shape = SubResource("RectangleShape2D_eo8bu")
 
 [node name="WindObstacle" parent="Layout/Obstacles" instance=ExtResource("16_b8gd7")]
 position = Vector2(5, 0)
-
-[node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
-position = Vector2(-1763, 1123)
-
-[node name="RainCloud" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
-position = Vector2(628, 173)
-
-[node name="RainCloud2" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
-position = Vector2(1170, -527)
-
-[node name="RainCloud3" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
-position = Vector2(1345, 113)
-
-[node name="RainCloud4" parent="Layout/Obstacles" instance=ExtResource("18_lk1ah")]
-position = Vector2(752, -1307)
+blastDuration = 4.0
 
 [node name="Launcher2" parent="Layout/Obstacles" instance=ExtResource("17_6k5gl")]
 position = Vector2(-2364, -1468)
