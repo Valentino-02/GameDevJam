@@ -57,6 +57,7 @@ MovingPlatform=""
 [gui]
 
 theme/custom="uid://cd3ca0m5gr616"
+theme/custom_font="uid://dj35fskdi1kxb"
 
 [input]
 

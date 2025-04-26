@@ -84,7 +84,8 @@ func _playStoryPoint(storyPoint: StoryPoint) -> void:
 		_finishChild(storyPoint.childToTrigger)
 		
 func _endCutscene() -> void:
-	currentCamera.priority = 0
+	if currentCamera != null:
+		currentCamera.priority = 0
 	_zoom(playerCamera.zoom.x, playerCamera.tween_duration)
 	await playerCamera.tween_completed
 	currentCamera = null
@@ -92,7 +93,8 @@ func _endCutscene() -> void:
 	cutsceneCameras.clear()
 	dialogueDisplay.Declutter(false)
 	get_tree().paused = false
-	_setProcessMode(currentCutscene.keepActive)
+	if currentCutscene != null:
+		_setProcessMode(currentCutscene.keepActive)
 	currentCutscene = null
 	_cutsceneRunning = false
 	defaultCamera = null
