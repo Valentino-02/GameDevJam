@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c0mml0v1r3d8b"]
+[gd_scene load_steps=44 format=4 uid="uid://c0mml0v1r3d8b"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_84vmn"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_sjj33"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="13_7mk0e"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="14_fx7be"]
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_6g0lr"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="16_joxkf"]
 [ext_resource type="PackedScene" uid="uid://wjr4oltanu5r" path="res://src/scenes/Game/Components/Fireball/Launcher.tscn" id="17_84vmn"]
 [ext_resource type="PackedScene" uid="uid://b47dr2vts133" path="res://src/scenes/Game/Components/Walls/WindObstacle.tscn" id="17_amhy0"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="18_h8odc"]
@@ -464,10 +465,6 @@ position = Vector2(2, -914)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 1047)
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 1073)
-script = null
-
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("13_7mk0e")]
@@ -602,13 +599,17 @@ position = Vector2(-477, 0)
 position = Vector2(418, 0)
 
 [node name="Launcher" parent="Layout/Obstacles" instance=ExtResource("17_84vmn")]
-position = Vector2(-1376, 997)
+position = Vector2(-1543, 989)
 
 [node name="RainCloud" parent="Layout/Obstacles" instance=ExtResource("18_sjj33")]
 position = Vector2(897, -154)
 
 [node name="RainCloud2" parent="Layout/Obstacles" instance=ExtResource("18_sjj33")]
 position = Vector2(1098, -885)
+
+[node name="RespawnArea" parent="Layout" node_paths=PackedStringArray("targetY") instance=ExtResource("16_joxkf")]
+position = Vector2(2, 1104)
+targetY = NodePath("../BoundaryWalls/Ceiling")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("18_h8odc")]
 
@@ -673,4 +674,5 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
 [editable path="Layout/ZoneAreas/ZoneAerea3"]
+[editable path="Layout/Obstacles/WindObstacle2"]
 [editable path="PlayerCharacter"]

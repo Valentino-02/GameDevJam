@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dx3e00rnfa4re"]
+[gd_scene load_steps=37 format=4 uid="uid://dx3e00rnfa4re"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_vkgfo"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_nxtsb"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_7hard"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="16_rh0ec"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_kaa8i"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="17_nxtsb"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="18_7ggk0"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="19_nbmg5"]
 
@@ -134,7 +135,7 @@ nextLevelId = 4
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-position = Vector2(-0.966934, -108.668)
+position = Vector2(-1, -109)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -173,9 +174,6 @@ position = Vector2(-3, -549)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(0, 610)
-
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 561)
 
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
 z_index = -1
@@ -382,6 +380,10 @@ zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_0yxce")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("17_nxtsb")]
+position = Vector2(8, 489)
+targetY = NodePath("../Layout/BoundaryWalls/Ceiling")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/CollectionZones/CollectionZoneLeft"]

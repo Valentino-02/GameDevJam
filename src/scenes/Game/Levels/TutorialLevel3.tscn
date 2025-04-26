@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://tyqhqa1c65v7"]
+[gd_scene load_steps=44 format=4 uid="uid://tyqhqa1c65v7"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jovba"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eo8bu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bbkst5uw7dljy" path="res://src/scenes/Game/Components/Zones/ZoneArea.tscn" id="15_eo8bu"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="15_tot5p"]
 [ext_resource type="PackedScene" uid="uid://b76pgokiudyc3" path="res://src/scenes/Game/CutScenes/Cutscene.tscn" id="17_pc0oe"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="17_ugr50"]
 [ext_resource type="Script" uid="uid://dr4g3okg075lr" path="res://src/models/Dialogue/StoryPoint.gd" id="18_hm1sc"]
 [ext_resource type="Script" uid="uid://wil8yv1k8und" path="res://src/models/Dialogue/Dialogue.gd" id="19_egjbk"]
 
@@ -182,7 +183,7 @@ nextLevelId = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-position = Vector2(-0.966934, -108.668)
+position = Vector2(-1, -109)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -361,9 +362,6 @@ position = Vector2(-1212, 0)
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(4, 454)
 
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(2, 405)
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
 
 [node name="Cutscene" parent="." node_paths=PackedStringArray("useableCameras", "keepActive") instance=ExtResource("17_pc0oe")]
@@ -416,6 +414,10 @@ zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_ol8rq")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("17_ugr50")]
+position = Vector2(7, 467)
+targetY = NodePath("../Layout/BoundaryWalls/Ceiling")
 
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]

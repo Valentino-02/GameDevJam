@@ -7,7 +7,7 @@
 friction = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaqv7"]
-size = Vector2(120, 344)
+size = Vector2(120, 795)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l3n1a"]
 size = Vector2(100, 100)
@@ -21,21 +21,21 @@ collision_layer = 32
 collision_mask = 1054
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RainHitBox"]
-position = Vector2(2, 163)
+position = Vector2(2, 388.5)
 shape = SubResource("RectangleShape2D_kaqv7")
 debug_color = Color(0.329412, 0.458824, 1, 0)
 
 [node name="ParticleMask" type="Sprite2D" parent="."]
 process_mode = 3
 clip_children = 1
-position = Vector2(0, 177)
-scale = Vector2(1.2, 3.55)
+position = Vector2(0, 392.25)
+scale = Vector2(1.2, 7.855)
 texture = SubResource("PlaceholderTexture2D_l3n1a")
 
 [node name="RainEmitterPlayer" type="CPUParticles2D" parent="ParticleMask"]
 position = Vector2(0, -50)
 amount = 30
-lifetime = 1.5
+lifetime_randomness = 0.75
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(60, 4)
@@ -49,8 +49,9 @@ color = Color(0.27451, 0.592157, 0.996078, 1)
 
 [node name="RainEmitterBehind" type="CPUParticles2D" parent="."]
 position = Vector2(1, 6)
-amount = 5
-lifetime = 1.5
+amount = 15
+lifetime = 3.0
+lifetime_randomness = 0.75
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(60, 6)
@@ -71,6 +72,11 @@ texture = ExtResource("3_nbk4r")
 target_position = Vector2(0, 355)
 collision_mask = 9
 hit_from_inside = true
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 6.0
+autostart = true
 
 [connection signal="body_entered" from="RainHitBox" to="." method="_onRainEntered"]
 [connection signal="body_exited" from="RainHitBox" to="." method="_onRainLeft"]

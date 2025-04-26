@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://d2kynfde44quw"]
+[gd_scene load_steps=42 format=4 uid="uid://d2kynfde44quw"]
 
 [ext_resource type="Script" uid="uid://bnp1d3vki0win" path="res://src/scenes/Game/Levels/Level.gd" id="1_jkrqs"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ux4hj"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://ccoogr1fk7lsv" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/CutsceneComplete.gd" id="17_6ifj0"]
 [ext_resource type="PackedScene" uid="uid://0upwnl40riqb" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/ControlDisplay.tscn" id="18_61xil"]
 [ext_resource type="Script" uid="uid://cpenlt242k7hn" path="res://src/scenes/Game/CutScenes/Tutorial1Scripts/TutorialCutsceneRequireCargo.gd" id="18_gfe1e"]
+[ext_resource type="PackedScene" uid="uid://c1p01esy8xx5j" path="res://src/scenes/Game/Components/Walls/RespawnArea.tscn" id="21_kmj2e"]
 
 [sub_resource type="Resource" id="Resource_a17mw"]
 script = ExtResource("4_octr6")
@@ -148,9 +149,7 @@ backgroundScrollCap = 150.0
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-physics_interpolation_mode = 1
 position = Vector2(15, -65)
-process_callback = 0
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -241,11 +240,6 @@ position = Vector2(0, -449)
 
 [node name="Floor" parent="Layout/BoundaryWalls" index="3"]
 position = Vector2(-3, 212)
-
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-1, 187)
-collision_layer = 1
-collision_mask = 1
 
 [node name="ZoneAerea" parent="Layout" instance=ExtResource("9_ueyvx")]
 position = Vector2(-1, -134)
@@ -392,6 +386,10 @@ hazardsToDemonstrate = [NodePath("../../../Layout")]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("8_abecf")]
 position = Vector2(16, -23)
+
+[node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("21_kmj2e")]
+position = Vector2(-2, 228)
+targetY = NodePath("../Layout/BoundaryWalls/Ceiling")
 
 [editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAerea"]
