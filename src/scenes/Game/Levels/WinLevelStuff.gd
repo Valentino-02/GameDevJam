@@ -2,4 +2,4 @@ extends Node
 
 
 func _ready() -> void:
-	pass
+	AudioManager.music.play(ResourceIds.MusicId.WinTheme)
