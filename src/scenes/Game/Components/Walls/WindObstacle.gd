@@ -16,7 +16,6 @@ const  FORCE_STRENGTH = 50
 @onready var _area : Area2D = get_node("Area2D")
 @onready var _collisionShape : CollisionShape2D = get_node("Area2D/CollisionShape2D")
 
-##Current bodies within collider
 
 var _direction: Vector2:
 	get:

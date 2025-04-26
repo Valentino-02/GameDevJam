@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ce3t0nbkjt3mx" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="1_arikx"]
 [ext_resource type="Script" uid="uid://iifj8s2f6v5g" path="res://src/scenes/UI/MainMenu/MainMenuTitle.gd" id="1_yxr38"]
-[ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/PlayerCharacters/PlainParticle.png" id="3_xmwuf"]
+[ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="3_xmwuf"]
 
 [sub_resource type="Curve" id="Curve_xmwuf"]
 _limits = [0.0, 1.0, 0.0, 4.0]

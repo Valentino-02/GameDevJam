@@ -70,10 +70,10 @@ size_flags_stretch_ratio = 2.53
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="DialogueDisplay" type="Control" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -90,6 +90,7 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/DialogueDisplay/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"PanelVariation"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/DialogueDisplay/VBoxContainer/Panel"]
 layout_mode = 1
@@ -98,10 +99,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 23
+theme_override_constants/margin_top = 21
+theme_override_constants/margin_right = 23
+theme_override_constants/margin_bottom = 21
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/DialogueDisplay/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2

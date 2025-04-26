@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"PanelVariation"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,6 +46,7 @@ alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"CustomSimpleButton"
 text = "Hello World!
 "
 
@@ -52,13 +54,14 @@ text = "Hello World!
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Fatal Memory...
-"
+theme_type_variation = &"CustomSimpleButton"
+text = "Fatal Memory..."
 
 [node name="Tutorial3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"CustomSimpleButton"
 text = "Get all the Cores!
 "
 
@@ -66,6 +69,7 @@ text = "Get all the Cores!
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"CustomSimpleButton"
 text = "Stack it Up"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -77,28 +81,30 @@ alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"CustomSimpleButton"
 text = "Dont Dig Deeper"
 
 [node name="Tutorial6" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Windy Day
-"
+theme_type_variation = &"CustomSimpleButton"
+text = "Windy Day"
 
 [node name="Tutorial7" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Mother Natures Wrath
+theme_type_variation = &"CustomSimpleButton"
+text = "Mother Nature's Wrath
 "
 
 [node name="Tutorial8" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-text = "The Last Stand
-"
+theme_type_variation = &"CustomSimpleButton"
+text = "The Last Stand"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial1" to="." method="_on_tutorial_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Tutorial2" to="." method="_on_tutorial_2_pressed"]

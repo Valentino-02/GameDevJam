@@ -104,7 +104,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_jrpou"]
 script = ExtResource("19_egjbk")
 speakingCharacter = 2
-dialogueLine = "[center][font_size=80][color=#ff4e50]B[/color][color=#42dffe]A[/color][color=#ff4e50]L[/color][color=#42dffe]A[/color][color=#ff4e50]N[/color][color=#42dffe]C[/color][color=#ff4e50]E[/color][/font_size][/center]"
+dialogueLine = "[center][font_size=67][color=#ff4e50]B[/color][color=#42dffe]A[/color][color=#ff4e50]L[/color][color=#42dffe]A[/color][color=#ff4e50]N[/color][color=#42dffe]C[/color][color=#ff4e50]E[/color][/font_size][/center]"
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_xc6p4"]
