@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvh4j4wfu0vid"
-path="res://.godot/imported/Keyboard Letters and Symbols.png-6ccc9db0601c82452ceaa87a1522a344.ctex"
+path="res://.godot/imported/Keyboard Letters and Symbols.png-21bb9c59f2bcd0ddd84dc5c35836974b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/itchAssets/dreamMix/Keyboard Letters and Symbols.png"
-dest_files=["res://.godot/imported/Keyboard Letters and Symbols.png-6ccc9db0601c82452ceaa87a1522a344.ctex"]
+source_file="res://assets/images/ItchAssets/dreamMix/Keyboard Letters and Symbols.png"
+dest_files=["res://.godot/imported/Keyboard Letters and Symbols.png-21bb9c59f2bcd0ddd84dc5c35836974b.ctex"]
 
 [params]
 

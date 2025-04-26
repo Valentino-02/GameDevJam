@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_vdaln"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_tc3ar"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="5_jkjg2"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="6_6xdjt"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="6_6xdjt"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="6_be5u0"]
 [ext_resource type="PackedScene" uid="uid://bqmfa3we86wrp" path="res://src/scenes/Game/Components/Decorations/AnimatedCloud.tscn" id="7_4h3e3"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="7_71cuf"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="7_71cuf"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="7_oh5fu"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="8_w26dr"]
 [ext_resource type="PackedScene" uid="uid://1p2m5d3jdn6i" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.tscn" id="9_b5hix"]
@@ -80,7 +80,7 @@ metadata/_custom_type_script = "uid://wil8yv1k8und"
 [sub_resource type="Resource" id="Resource_8osp4"]
 script = ExtResource("18_tc3ar")
 speakingCharacter = 1
-dialogueLine = "Don’t worry though! Just accept defeat, and we will move on to the real world again!"
+dialogueLine = "Don’t worry though! Just accept defeat, and we will move on to the real world again! "
 metadata/_custom_type_script = "uid://wil8yv1k8und"
 
 [sub_resource type="Resource" id="Resource_jkjg2"]
