@@ -10,7 +10,7 @@ class_name Character extends Area2D
 @export var _radius : float = 50
 @export var _speed : float = 200
 @export var returnSpeed : float = 200
-var outputDir : Vector2
+var outputDir : Vector2 = Vector2.ZERO
 const STRUCK_TIME : int = 100
 var _struck : int = Time.get_ticks_msec() - STRUCK_TIME
 var _struckDir : Vector2 = Vector2.ZERO
@@ -25,8 +25,16 @@ func _ready() -> void:
 	SignalBus.zonePatienceEnded.connect(_onZonePatienceEnded)
 	SignalBus.bothScoreMaxed.connect(_onBothScoreMaxed)
 
+var _previousValidPosition
 #get the target position = back to origin or current position + speed in input direciton
 func _physics_process(delta: float) -> void:
+	if _outsideBoundary():
+		global_position = _previousValidPosition
+		outputDir = Vector2.ZERO
+		return
+	else:
+		_previousValidPosition = global_position
+
 	var inputDir : Vector2 = _getInputVector()
 			
 	_origin.global_position = _rope.platform_attachement.global_position + Vector2.UP * _rope.springLength
@@ -56,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	if (Time.get_ticks_msec() < _struck + STRUCK_TIME):
 		global_position += _struckDir * STRUCK_SPEED * delta 
 
+	
 
 	
 func _getInputVector() -> Vector2:
@@ -110,3 +119,6 @@ func _onZonePatienceEnded(_zone : Types.Zone) -> void:
 
 func _onBothScoreMaxed() -> void:
 	set_physics_process(false)
+
+func _outsideBoundary() -> bool:
+	return get_overlapping_bodies().any(func (x): return x.get_parent() is BoundaryWall)

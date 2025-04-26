@@ -13,6 +13,7 @@ signal rainingChanged
 @onready var _mask : Sprite2D = get_node("ParticleMask")
 @onready var _particleBack : CPUParticles2D = get_node("RainEmitterBehind")
 @onready var _audioPlayer : AudioStreamPlayer2D = AudioManager.sfx.createPlayer2D(ResourceIds.SfxId.Raining)
+const PLATFORM_MAT : PhysicsMaterial = preload("res://src/scenes/Game/Components/RainObstacle/platform_physics_material.tres")
 
 func _ready() -> void:
 	_particlePlayer.emitting = true
@@ -41,7 +42,11 @@ func _setRaining(is_raining : bool = not _raining ):
 	rainingChanged.emit()
 
 func _assignMaterial(body : RigidBody2D, mat):
-	body.physics_material_override = mat
+	if not mat and body is Platform:
+		body.physics_material_override = PLATFORM_MAT
+	else:
+		body.physics_material_override = mat
+	
 
 ##Responds when an object leaves the rain
 func _onRainLeft(body:Node2D) -> void:

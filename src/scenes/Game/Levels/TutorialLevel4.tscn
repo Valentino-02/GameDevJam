@@ -226,7 +226,7 @@ position = Vector2(0, -762)
 position = Vector2(0, 440)
 
 [node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 404)
+position = Vector2(-2, 381)
 script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]

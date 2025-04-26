@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_eo8bu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ugr50"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_tqlkj"]
-[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/Decoration/Clouds/Cloud 1 no 2.png" id="5_58dyf"]
-[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/Decoration/Clouds/Cloud 3.3.png" id="6_pc0oe"]
+[ext_resource type="Texture2D" uid="uid://1e3606v6phdu" path="res://assets/images/decoration/Clouds/Cloud 1 no 2.png" id="5_58dyf"]
+[ext_resource type="Texture2D" uid="uid://cfdbrpenryu5a" path="res://assets/images/decoration/Clouds/Cloud 3.3.png" id="6_pc0oe"]
 [ext_resource type="TileSet" uid="uid://b1y1l6d711i0" path="res://assets/images/Tilemap/Tile grass/TileGrassTileset.tres" id="7_hm1sc"]
-[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/Decoration/Houses/Water House No 1 Lily Pond.png" id="8_egjbk"]
-[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/Decoration/Houses/Fire house no 1 volcano.png" id="9_rcf8f"]
-[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/Decoration/Clouds/Cloud 3.2.png" id="10_joadm"]
-[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/Decoration/Clouds/Cloud 2.3.png" id="11_qow2f"]
+[ext_resource type="Texture2D" uid="uid://bho188nyioj4x" path="res://assets/images/decoration/Houses/Water House No 1 Lily Pond.png" id="8_egjbk"]
+[ext_resource type="Texture2D" uid="uid://je4d3mfkown3" path="res://assets/images/decoration/Houses/Fire house no 1 volcano.png" id="9_rcf8f"]
+[ext_resource type="Texture2D" uid="uid://b72hb27lixlht" path="res://assets/images/decoration/Clouds/Cloud 3.2.png" id="10_joadm"]
+[ext_resource type="Texture2D" uid="uid://c8nhvd8hoxqpj" path="res://assets/images/decoration/Clouds/Cloud 2.3.png" id="11_qow2f"]
 [ext_resource type="PackedScene" uid="uid://ce7fih3ihtd3w" path="res://src/scenes/Game/Components/CollectionZone/CollectionZone.tscn" id="12_hqina"]
 [ext_resource type="PackedScene" uid="uid://crqrv5lsmuftg" path="res://src/scenes/Game/Components/Cargo/CargoDropper.tscn" id="13_8q4vy"]
 [ext_resource type="PackedScene" uid="uid://dopm41dhgind" path="res://src/scenes/Game/Components/Walls/BoundaryWalls.tscn" id="14_tqhj4"]
@@ -258,25 +258,6 @@ position = Vector2(431, -40)
 scale = Vector2(2, 2)
 texture = ExtResource("11_qow2f")
 
-[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("14_tqhj4")]
-phantom_camera = NodePath("../../PhantomCamera2D")
-
-[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(1250, 0)
-
-[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-1250, 0)
-
-[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
-position = Vector2(0, -762)
-
-[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 440)
-
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-5, 397)
-script = null
-
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 
 [node name="CollectionZoneLeft" parent="Layout/CollectionZones" instance=ExtResource("12_hqina")]
@@ -331,6 +312,25 @@ zone = 1
 [node name="CollisionShape2D" parent="Layout/ZoneAreas/ZoneAerea3" index="0"]
 position = Vector2(114.5, -162)
 shape = SubResource("RectangleShape2D_eo8bu")
+
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("14_tqhj4")]
+phantom_camera = NodePath("../../PhantomCamera2D")
+
+[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
+position = Vector2(1250, 0)
+
+[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
+position = Vector2(-1250, 0)
+
+[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
+position = Vector2(0, -762)
+
+[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
+position = Vector2(0, 440)
+
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(-5, 397)
+script = null
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("15_tot5p")]
 
@@ -388,8 +388,8 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 script = ExtResource("20_rcf8f")
 hazardsToDemonstrate = [NodePath("../../Layout")]
 
-[editable path="Layout/BoundaryWalls"]
 [editable path="Layout/ZoneAreas/ZoneAerea"]
 [editable path="Layout/ZoneAreas/ZoneAerea2"]
 [editable path="Layout/ZoneAreas/ZoneAerea3"]
+[editable path="Layout/BoundaryWalls"]
 [editable path="PlayerCharacter"]
