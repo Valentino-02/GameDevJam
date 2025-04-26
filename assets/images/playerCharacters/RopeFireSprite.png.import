@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceolfke3unw6r"
-path="res://.godot/imported/RopeFireSprite.png-f92a1a6d036496bb161cad164528a803.ctex"
+path="res://.godot/imported/RopeFireSprite.png-0d7b78ca298b56f4222f792e9e151184.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/PlayerCharacters/RopeFireSprite.png"
-dest_files=["res://.godot/imported/RopeFireSprite.png-f92a1a6d036496bb161cad164528a803.ctex"]
+source_file="res://assets/images/playerCharacters/RopeFireSprite.png"
+dest_files=["res://.godot/imported/RopeFireSprite.png-0d7b78ca298b56f4222f792e9e151184.ctex"]
 
 [params]
 

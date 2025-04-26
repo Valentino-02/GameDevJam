@@ -20,6 +20,7 @@ border = 0
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(2600, 0)
+collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
@@ -27,6 +28,7 @@ shape = SubResource("WorldBoundaryShape2D_q4hgp")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(-2600, 0)
+collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
@@ -34,6 +36,7 @@ shape = SubResource("WorldBoundaryShape2D_x2im0")
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(0, -700)
+collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
@@ -41,13 +44,12 @@ shape = SubResource("WorldBoundaryShape2D_bqyfw")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 700)
+collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_rr83a")
 
 [node name="RespawnArea" parent="." node_paths=PackedStringArray("targetY") instance=ExtResource("2_2tfwc")]
-position = Vector2(1, 692)
-collision_layer = 0
-collision_mask = 16
+position = Vector2(-2, 651)
 targetY = NodePath("../Ceiling")

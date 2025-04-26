@@ -18,10 +18,10 @@ func _ready() -> void:
 func _physics_process(_delta):
 	# Update line points
 	points = [to_local(character.global_position), to_local(platform_attachement.global_position)]
-	if get_tree().paused == false : _updateSpringForce()
+	if get_tree().paused == false : _updateSpringForce(_delta)
 	_updateRopeParticles()
 
-func _updateSpringForce():
+func _updateSpringForce(delta : float):
 	# Spring vector
 	var diff = platform_attachement.global_position - character.global_position
 	var currentLength = diff.length()
@@ -30,6 +30,8 @@ func _updateSpringForce():
 	#String only pulls not pushes
 	var displacement : float = currentLength - springLength
 	if displacement < 0:
+		if displacement < springLength * -0.15:
+			platform.apply_force(Vector2.DOWN * 980 * 0.8 * delta, platform_attachement.global_position - platform.global_position)
 		return
 
 	var platform_vel = platform.linear_velocity.dot(-direction)
