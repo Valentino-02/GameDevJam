@@ -1,14 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://1p2m5d3jdn6i"]
+[gd_scene load_steps=23 format=3 uid="uid://1p2m5d3jdn6i"]
 
 [ext_resource type="Script" uid="uid://du5lovmkjb4v5" path="res://src/scenes/Game/PlayerCharacter/Character.gd" id="1_h7irl"]
 [ext_resource type="Script" uid="uid://dy5ht5o2rctys" path="res://src/scenes/Game/PlayerCharacter/PlayerCharacter.gd" id="1_hu46i"]
-[ext_resource type="Texture2D" uid="uid://tqc0bbllcm6b" path="res://assets/images/playerCharacters/RopeWaterSprite.png" id="2_j0y4q"]
 [ext_resource type="Texture2D" uid="uid://dd5kdtjletn0r" path="res://assets/images/playerCharacters/WaterParticle_1.png" id="2_uxgq5"]
 [ext_resource type="Script" uid="uid://bok3ogflem005" path="res://src/scenes/Game/PlayerCharacter/Platform.gd" id="3_ct1ul"]
 [ext_resource type="Script" uid="uid://ciy4kapn57pbb" path="res://src/scenes/Game/PlayerCharacter/Rope.gd" id="4_emnkp"]
 [ext_resource type="Texture2D" uid="uid://cw7piruksfhxr" path="res://assets/images/playerCharacters/FireParticle_1.png" id="4_uxgq5"]
 [ext_resource type="Texture2D" uid="uid://lpbdhsa8748t" path="res://assets/images/playerCharacters/PlainParticle.png" id="6_08p4k"]
-[ext_resource type="Texture2D" uid="uid://ceolfke3unw6r" path="res://assets/images/playerCharacters/RopeFireSprite.png" id="6_qgvce"]
 [ext_resource type="SpriteFrames" uid="uid://b0yisa6hhamyo" path="res://assets/images/Characters/waterElemental.tres" id="9_aou6w"]
 [ext_resource type="PackedScene" uid="uid://cat8ed8simsd7" path="res://src/scenes/Game/Components/RainObstacle/SplashParticles.tscn" id="11_08p4k"]
 [ext_resource type="SpriteFrames" uid="uid://osxi0wif081b" path="res://assets/images/Characters/fireElemental.tres" id="12_aou6w"]
@@ -20,8 +18,8 @@
 size = Vector2(100, 20)
 
 [sub_resource type="Curve" id="Curve_61ysk"]
-_limits = [0.0, 1.0, 0.0, 4.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50996, 0.844456), 0.473509, 0.473509, 0, 0, Vector2(1.54582, 1), 0.0, 0.0, 0, 0]
+_limits = [0.0, 1.5, 0.0, 4.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.681672, 1.21234), 2.32648, 2.32648, 0, 0, Vector2(1.03537, 1.46328), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0y4q"]
@@ -66,8 +64,7 @@ process_mode = 3
 z_index = -2
 texture_repeat = 2
 width = 3.0
-texture = ExtResource("2_j0y4q")
-texture_mode = 1
+default_color = Color(0.160784, 0.788235, 0.992157, 1)
 script = ExtResource("4_emnkp")
 springLength = 125.0
 platformSpringStrength = 200.0
@@ -85,7 +82,7 @@ offset = Vector2(0, -10)
 
 [node name="GPUParticles2D" type="CPUParticles2D" parent="LeftRope/ParticleMask"]
 emitting = false
-amount = 10
+amount = 20
 texture = ExtResource("2_uxgq5")
 lifetime = 5.0
 preprocess = 5.0
@@ -99,8 +96,8 @@ initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 linear_accel_min = 20.0
 linear_accel_max = 20.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_61ysk")
 
 [node name="RightRope" type="Line2D" parent="." node_paths=PackedStringArray("character", "platform", "platform_attachement")]
@@ -109,8 +106,7 @@ process_mode = 3
 z_index = -2
 texture_repeat = 2
 width = 3.0
-texture = ExtResource("6_qgvce")
-texture_mode = 1
+default_color = Color(1, 0.168627, 0.396078, 1)
 script = ExtResource("4_emnkp")
 springLength = 125.0
 platformSpringStrength = 200.0
@@ -128,7 +124,7 @@ offset = Vector2(0, -10)
 
 [node name="GPUParticles2D" type="CPUParticles2D" parent="RightRope/ParticleMask"]
 emitting = false
-amount = 10
+amount = 20
 texture = ExtResource("4_uxgq5")
 lifetime = 5.0
 preprocess = 5.0
@@ -142,8 +138,8 @@ initial_velocity_min = 10.0
 initial_velocity_max = 10.0
 linear_accel_min = 20.0
 linear_accel_max = 20.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_61ysk")
 
 [node name="LeftCharacter" type="Area2D" parent="." node_paths=PackedStringArray("_rope") groups=["Player"]]
@@ -182,6 +178,7 @@ hue_variation_max = 0.03
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftCharacter"]
 process_mode = 3
+position = Vector2(-4, 0)
 sprite_frames = ExtResource("9_aou6w")
 autoplay = "default"
 frame_progress = 0.531345
@@ -232,6 +229,7 @@ hue_variation_max = 0.2
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="RightCharacter"]
 process_mode = 3
+position = Vector2(-4, 0)
 sprite_frames = ExtResource("12_aou6w")
 autoplay = "default"
 frame = 3

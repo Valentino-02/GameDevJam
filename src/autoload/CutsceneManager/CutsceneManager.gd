@@ -45,7 +45,7 @@ func PlayCutscene(cutscene: Cutscene) -> void:
 	dialogueDisplay  = get_node_or_null("/root/Game/UI/DialogueUI")
 	await get_tree().process_frame
 	dialogueDisplay.Declutter(true)
-#	await get_tree().create_timer(0.1,true).timeout
+	await get_tree().create_timer(0.5,true).timeout
 	_cutsceneRunning = true
 	_setProcessMode(cutscene.keepActive, true)
 	get_tree().paused = true

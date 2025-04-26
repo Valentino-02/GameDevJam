@@ -90,7 +90,6 @@ text = "Elemental"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ElementalLabel"]
 process_mode = 3
-visible = false
 position = Vector2(140, 49.08)
 amount = 20
 texture = ExtResource("3_xmwuf")
@@ -110,7 +109,6 @@ text = "Delivery"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="DeliveryLabel"]
 process_mode = 3
-visible = false
 position = Vector2(135, 14.08)
 amount = 25
 texture = ExtResource("3_xmwuf")
