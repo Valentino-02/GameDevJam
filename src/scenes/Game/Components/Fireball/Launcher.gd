@@ -35,7 +35,7 @@ func _launchBody(speed : float):
 	var direction : Vector2 = to_global(Vector2.UP) - global_position
 	body.linearVelocity = direction * speed
 
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(60).timeout
 	if body: body.queue_free()
 
 ##To help us oreintate it in editor only

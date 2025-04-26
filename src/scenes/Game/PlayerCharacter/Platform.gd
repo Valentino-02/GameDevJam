@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		_rotateCargoDoors(CLOSE_SPEED * delta)
 	else:
 		toggleGravity(false)
+
+	_negateLoad()
 		
 
 ##keep the animation as close doors, if we want to drop, play in reverse until we want to resume...?
@@ -67,3 +69,17 @@ func _applyCrateLift():
 	for cargo in rcargo:
 		if cargo is Cargo:
 			cargo.apply_force(Vector2.UP * LIFT_FORCE)#.rotated(-_currentAngle / 2.0) * LIFT_FORCE)
+
+func _negateLoad():
+	var checked : Array[Cargo] = []
+	for cargo in get_colliding_bodies():
+		if cargo is Cargo:
+			checked.append(cargo)
+			_getGravityRec(cargo, checked)
+
+func _getGravityRec(node : Cargo, checked : Array[Cargo] ):
+	for cargo in node.get_colliding_bodies():
+		if cargo is Cargo and not checked.has(cargo):
+			checked.append(cargo)
+			_getGravityRec(node, checked)
+	self.apply_force(node.mass * node.get_gravity() * -0.95, node.global_position - self.global_position)

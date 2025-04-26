@@ -134,7 +134,7 @@ nextLevelId = 4
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-position = Vector2(-0.966934, -108.668)
+position = Vector2(-1, -109)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -157,6 +157,25 @@ draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Layout" type="Node2D" parent="."]
+
+[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_ys0ro")]
+position = Vector2(4, -144)
+phantom_camera = NodePath("../../PhantomCamera2D")
+
+[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
+position = Vector2(2097, 11)
+
+[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
+position = Vector2(-2187, 9)
+
+[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
+position = Vector2(-3, -549)
+
+[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
+position = Vector2(0, 610)
+
+[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
+position = Vector2(-2, 561)
 
 [node name="DecorationsBack" type="Node2D" parent="Layout"]
 z_index = -1
@@ -276,25 +295,6 @@ position = Vector2(1797, -221)
 
 [node name="AnimatedCloud18" parent="Layout/DecorationsFront" instance=ExtResource("7_nxtsb")]
 position = Vector2(1822, -30)
-
-[node name="BoundaryWalls" parent="Layout" node_paths=PackedStringArray("phantom_camera") instance=ExtResource("12_ys0ro")]
-phantom_camera = NodePath("../../PhantomCamera2D")
-
-[node name="RightWall" parent="Layout/BoundaryWalls" index="0"]
-position = Vector2(2000, -6)
-
-[node name="LeftWall" parent="Layout/BoundaryWalls" index="1"]
-position = Vector2(-2000, 0)
-
-[node name="Ceiling" parent="Layout/BoundaryWalls" index="2"]
-position = Vector2(0, -762)
-
-[node name="Floor" parent="Layout/BoundaryWalls" index="3"]
-position = Vector2(0, 440)
-
-[node name="RespawnArea" parent="Layout/BoundaryWalls" index="4"]
-position = Vector2(-2, 381)
-script = null
 
 [node name="CollectionZones" type="Node2D" parent="Layout"]
 

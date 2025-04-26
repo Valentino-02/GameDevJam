@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck1y506rcv7wn"
-path="res://.godot/imported/Platform1_FireSide.png-d9f55a21400e9b8a24e384cb80dff0b1.ctex"
+path="res://.godot/imported/Platform1_FireSide.png-87c380da9141e0d865979b985096692a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/PlayerCharacters/Platform1_FireSide.png"
-dest_files=["res://.godot/imported/Platform1_FireSide.png-d9f55a21400e9b8a24e384cb80dff0b1.ctex"]
+source_file="res://assets/images/playerCharacters/Platform1_FireSide.png"
+dest_files=["res://.godot/imported/Platform1_FireSide.png-87c380da9141e0d865979b985096692a.ctex"]
 
 [params]
 
