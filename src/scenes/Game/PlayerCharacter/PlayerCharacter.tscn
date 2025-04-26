@@ -50,6 +50,7 @@ points = PackedVector2Array(7, 7, 7, -7, -89, -7, -90, 0, -92, 7)
 radius = 12.0416
 
 [node name="PlayerCharacter" type="Node2D"]
+process_physics_priority = 1
 z_index = 2
 script = ExtResource("1_hu46i")
 
@@ -251,8 +252,7 @@ collision_layer = 8
 collision_mask = 273
 mass = 10.0
 physics_material_override = ExtResource("12_hu46i")
-center_of_mass_mode = 1
-angular_damp = 24.182
+angular_damp = 1.0
 script = ExtResource("3_ct1ul")
 
 [node name="LeftPlatformCollider" type="CollisionShape2D" parent="Platform"]

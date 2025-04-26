@@ -31,7 +31,7 @@ func _updateSpringForce(delta : float):
 	var displacement : float = currentLength - springLength
 	if displacement < 0:
 		if displacement < springLength * -0.15:
-			platform.apply_force(Vector2.DOWN * 980 * 0.8 * delta, platform_attachement.global_position - platform.global_position)
+			platform.apply_force(Vector2.DOWN * 980 * 1.3 * delta, platform_attachement.global_position - platform.global_position)
 		return
 
 	var platform_vel = platform.linear_velocity.dot(-direction)
